@@ -1,0 +1,65 @@
+{
+  "site": {
+    "title": "Julie Zimmerman",
+    "tagline": "WordPress systems, data integrations, and practical problem-solving",
+    "intro": "I'm a web developer and systems architect working primarily in WordPress. I focus on data integrations, structured content, API reliability, and the kinds of technical problems that show up in real projects. This is where I write about the patterns behind that work."
+  },
+
+  "owner": {
+    "name": "Julie Zimmerman",
+    "email": "[your-email@domain.com]",
+    "zee_url": "https://zeecreative.com",
+    "location": "Billings, MT"
+  },
+
+  "nav": [
+    { "slug": "index", "label": "Home" },
+    { "slug": "about", "label": "About" },
+    { "slug": "writing", "label": "Writing" },
+    { "slug": "contact", "label": "Contact" }
+  ],
+
+  "work_areas": [
+    {
+      "title": "WordPress Systems",
+      "description": "Custom plugins, proprietary themes, fleet management across 250+ environments. Built for reliability, not just launch day."
+    },
+    {
+      "title": "Data Integrations",
+      "description": "RETS and RESO Web API pipelines, real estate data ingestion, cron-driven sync systems, API connection development."
+    },
+    {
+      "title": "System Reliability",
+      "description": "Malware remediation, security hardening, legacy-to-modern migrations, hosting architecture and standards."
+    },
+    {
+      "title": "Structured Content",
+      "description": "Custom post types, search and mapping systems, ADA/WCAG compliance, and content architectures built to last."
+    }
+  ],
+
+  "about": {
+    "body": [
+      "I'm a senior web developer and systems architect based in Billings, Montana, with over 20 years of full-stack experience — from C and Perl on Oracle to modern PHP, JavaScript, and AI-assisted tooling.",
+      "My work centers on WordPress systems, data integrations, and the kind of deep structural problems that don't show up in tutorials. I manage a fleet of 250+ active web environments, including high-stakes transactional systems for real estate APIs, cattle auction platforms, and institutional sites.",
+      "Before agency work, I was a technical lead at SunGard Higher Education, where I engineered Perl-based synthetic data generators producing over a million randomized student records for enterprise-scale performance testing. That instinct for system-level thinking has stayed with me.",
+      "I have a B.S. in Computer Science from Montana State University. I've also spent 12 years as an institutional volunteer photographer at ZooMontana, which directly informed a specialized WordPress CMS framework I built for zoological institutions.",
+      "I approach technical problems the same way regardless of scale: understand the system first, then build something that holds."
+    ],
+    "skills": [
+      "PHP, JavaScript, SQL/PL/SQL, Perl, Python, HTML/CSS",
+      "WordPress — custom plugins, themes, REST API, WooCommerce",
+      "MySQL, MariaDB, Oracle, SQL Server",
+      "RETS, RESO Web API, MLS data integrations",
+      "ADA/WCAG compliance auditing and remediation",
+      "AI-assisted development — Claude, ChatGPT, Gemini",
+      "Flywheel, Cloudsites, virtual server environments",
+      "GitHub, Agile, site launch QA protocols"
+    ]
+  },
+
+  "contact": {
+    "intro": "For technical conversations, speaking opportunities, or project inquiries, get in touch directly.",
+    "routing_note": "Most client project work is handled through Zee Creative."
+  }
+}

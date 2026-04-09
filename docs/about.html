@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Julie Zimmerman</title>
+<meta name="description" content="WordPress systems, data integrations, and practical problem-solving">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #fafaf8;
+    --surface: #f4f3ef;
+    --border: #e2e0d9;
+    --text: #1c1c1a;
+    --muted: #6b6960;
+    --accent: #2c4a6e;
+    --accent-light: #e8edf4;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --display: 'Playfair Display', Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    padding: 0;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ─── LAYOUT ─── */
+
+.site-wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ─── HEADER ─── */
+
+header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 0;
+    margin-bottom: 3rem;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.site-name {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.01em;
+}
+
+.site-name a {
+    color: var(--text);
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+nav a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+nav a.active {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+}
+
+/* ─── MAIN ─── */
+
+main {
+    padding-bottom: 5rem;
+}
+
+/* ─── HERO ─── */
+
+.hero {
+    padding: 3rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3.5rem;
+}
+
+.hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.hero .tagline {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.8;
+}
+
+/* ─── SECTIONS ─── */
+
+.section {
+    margin-bottom: 3.5rem;
+}
+
+.section-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ─── WORK AREAS ─── */
+
+.work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 0.5rem;
+}
+
+.work-item {
+    background: var(--bg);
+    padding: 1.25rem 1.5rem;
+}
+
+.work-item h3 {
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.work-item p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* ─── POST LIST ─── */
+
+.post-list {
+    list-style: none;
+}
+
+.post-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.post-item:last-child {
+    border-bottom: none;
+}
+
+.post-title {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+.post-title a {
+    color: var(--text);
+}
+
+.post-title a:hover {
+    color: var(--accent);
+}
+
+.post-meta {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+}
+
+/* ─── ARTICLE ─── */
+
+article {
+    max-width: 680px;
+}
+
+article h1 {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+
+.article-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+article h2 {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 2.5rem 0 0.75rem;
+}
+
+article p {
+    margin-bottom: 1.25rem;
+}
+
+article code {
+    font-family: var(--mono);
+    font-size: 0.85em;
+    background: var(--surface);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    color: var(--accent);
+}
+
+article pre {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+article ul, article ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+article li {
+    margin-bottom: 0.4rem;
+}
+
+/* ─── PAGE CONTENT ─── */
+
+.page-content h1 {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.page-content p {
+    margin-bottom: 1.25rem;
+    max-width: 620px;
+}
+
+.page-content h2 {
+    font-family: var(--display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 2rem 0 0.75rem;
+}
+
+/* ─── ZEE CALLOUT ─── */
+
+.zee-note {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.zee-note a {
+    color: var(--accent);
+}
+
+/* ─── CONTACT ─── */
+
+.contact-block {
+    padding: 2rem 0;
+}
+
+.contact-block .email-link {
+    font-family: var(--mono);
+    font-size: 1rem;
+    color: var(--accent);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* ─── FOOTER ─── */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.footer-inner p {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+    .work-grid { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 0.75rem; }
+    nav { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+<div class="site-wrapper">
+
+<header>
+    <div class="header-inner">
+        <div class="site-name"><a href="/index.html">Julie Zimmerman</a></div>
+        <nav><a href="/index.html">Home</a><a href="/about.html" class="active">About</a><a href="/writing.html">Writing</a><a href="/contact.html">Contact</a></nav>
+    </div>
+</header>
+<main>
+    <div class="page-content">
+        <h1>About</h1>
+        <p>I'm a senior web developer and systems architect based in Billings, Montana, with over 20 years of full-stack experience — from C and Perl on Oracle to modern PHP, JavaScript, and AI-assisted tooling.</p><p>My work centers on WordPress systems, data integrations, and the kind of deep structural problems that don't show up in tutorials. I manage a fleet of 250+ active web environments, including high-stakes transactional systems for real estate APIs, cattle auction platforms, and institutional sites.</p><p>Before agency work, I was a technical lead at SunGard Higher Education, where I engineered Perl-based synthetic data generators producing over a million randomized student records for enterprise-scale performance testing. That instinct for system-level thinking has stayed with me.</p><p>I have a B.S. in Computer Science from Montana State University. I've also spent 12 years as an institutional volunteer photographer at ZooMontana, which directly informed a specialized WordPress CMS framework I built for zoological institutions.</p><p>I approach technical problems the same way regardless of scale: understand the system first, then build something that holds.</p>
+        <h2>Technical range</h2><ul><li>PHP, JavaScript, SQL/PL/SQL, Perl, Python, HTML/CSS</li><li>WordPress — custom plugins, themes, REST API, WooCommerce</li><li>MySQL, MariaDB, Oracle, SQL Server</li><li>RETS, RESO Web API, MLS data integrations</li><li>ADA/WCAG compliance auditing and remediation</li><li>AI-assisted development — Claude, ChatGPT, Gemini</li><li>Flywheel, Cloudsites, virtual server environments</li><li>GitHub, Agile, site launch QA protocols</li></ul>
+        <div class="zee-note">
+            Client project work is handled through <a href="https://zeecreative.com" target="_blank" rel="noopener">Zee Creative</a>.
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <p>© 2026 Julie Zimmerman</p>
+        <p>No tracking. No analytics.</p>
+    </div>
+</footer>
+</div>
+</body>
+</html>
