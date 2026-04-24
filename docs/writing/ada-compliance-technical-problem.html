@@ -1,133 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ADA Compliance Is a Technical Problem, Not a Legal One — Julie Zimmerman</title>
-<meta name="description" content="WordPress systems, data integrations, and practical problem-solving">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-
-:root {
-    --bg: #fafaf8;
-    --surface: #f4f3ef;
-    --border: #e2e0d9;
-    --text: #1c1c1a;
-    --muted: #6b6960;
-    --accent: #2c4a6e;
-    --accent-light: #e8edf4;
-    --mono: 'JetBrains Mono', monospace;
-    --serif: 'Source Serif 4', Georgia, serif;
-    --display: 'Playfair Display', Georgia, serif;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    line-height: 1.75;
-    padding: 0;
-}
-
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-.site-wrapper { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
-
-header { border-bottom: 1px solid var(--border); padding: 1.5rem 0; margin-bottom: 3rem; }
-.header-inner { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; }
-.site-name { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--text); letter-spacing: 0.01em; }
-.site-name a { color: var(--text); }
-nav { display: flex; gap: 1.5rem; }
-nav a { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-nav a:hover { color: var(--accent); text-decoration: none; }
-nav a.active { color: var(--accent); border-bottom: 1px solid var(--accent); }
-
-main { padding-bottom: 5rem; }
-
-.hero { padding: 3rem 0 4rem; border-bottom: 1px solid var(--border); margin-bottom: 3.5rem; }
-.hero h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 1rem; color: var(--text); }
-.hero .tagline { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 1.5rem; text-transform: uppercase; }
-.hero p { font-size: 1.1rem; color: var(--muted); max-width: 580px; line-height: 1.8; }
-
-.section { margin-bottom: 3.5rem; }
-.section-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-
-.work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 0.5rem; }
-.work-item { background: var(--bg); padding: 1.25rem 1.5rem; }
-.work-item h3 { font-family: var(--display); font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-.work-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
-
-.post-list { list-style: none; padding-left: 0; }
-.post-item { padding: 1.25rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.post-item:last-child { border-bottom: none; }
-.post-title { font-family: var(--display); font-size: 1.05rem; font-weight: 400; }
-.post-title a { color: var(--text); }
-.post-title a:hover { color: var(--accent); }
-.post-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); white-space: nowrap; letter-spacing: 0.04em; }
-.post-category { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); background: var(--accent-light); padding: 0.1em 0.5em; border-radius: 3px; margin-left: 0.5rem; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; }
-
-article { max-width: 680px; }
-article h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; line-height: 1.25; margin-bottom: 0.75rem; }
-.article-meta { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-article h2 { font-family: var(--display); font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.75rem; }
-article p { margin-bottom: 1.25rem; }
-article code { font-family: var(--mono); font-size: 0.85em; background: var(--surface); padding: 0.15em 0.4em; border-radius: 3px; color: var(--accent); }
-article pre { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; overflow-x: auto; margin: 1.5rem 0; font-family: var(--mono); font-size: 0.85rem; line-height: 1.6; }
-article ul, article ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
-article li { margin-bottom: 0.4rem; }
-
-.page-content h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
-.page-content p { margin-bottom: 1.25rem; max-width: 620px; }
-.page-content h2 { font-family: var(--display); font-size: 1.2rem; font-weight: 600; margin: 2rem 0 0.75rem; }
-
-.zee-note { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; margin-top: 2rem; font-size: 0.9rem; color: var(--muted); }
-.zee-note a { color: var(--accent); }
-
-.contact-block { padding: 2rem 0; }
-.contact-block .email-link { font-family: var(--mono); font-size: 1rem; color: var(--accent); display: inline-block; margin-bottom: 1rem; }
-
-footer { border-top: 1px solid var(--border); padding: 1.5rem 0; margin-top: 4rem; }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-.footer-inner p { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
-
-@media (max-width: 600px) {
-    .work-grid { grid-template-columns: 1fr; }
-    .header-inner { flex-direction: column; gap: 0.75rem; }
-    nav { gap: 1rem; }
-    .post-item { display: block; }
-    .post-meta { display: block; margin-top: 0.25rem; }
-}
-
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Most clients come to ADA/WCAG compliance work because of a legal concern — a demand letter, a lawsuit, a vendor requirement. That framing isn&#x27;t wrong, but it shapes the work in ways that produce worse outcomes. When compliance is treated as a legal problem, the goal becomes passing an audit. When it&#x27;s treated as a technical problem, the goal becomes building something that actually works for people with disabilities. Those are different targets.">
+    <meta name="author" content="Julie Zimmerman">
+    <meta property="og:site_name" content="Julie Zimmerman">
+    <meta property="og:title" content="ADA Compliance Is a Technical Problem, Not a Legal One">
+    <meta property="og:description" content="Most clients come to ADA/WCAG compliance work because of a legal concern — a demand letter, a lawsuit, a vendor requirement. That framing isn&#x27;t wrong, but it shapes the work in ways that produce worse outcomes. When compliance is treated as a legal problem, the goal becomes passing an audit. When it&#x27;s treated as a technical problem, the goal becomes building something that actually works for people with disabilities. Those are different targets.">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>ADA Compliance Is a Technical Problem, Not a Legal One — Julie Zimmerman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="../css/swiper.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="icon" href="../images/favicon.png">
 </head>
 <body>
-<div class="site-wrapper">
 
-<header>
-    <div class="header-inner">
-        <div class="site-name"><a href="index.html">Julie Zimmerman</a></div>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="writing.html" class="active">Writing</a><a href="contact.html">Contact</a></nav>
-    </div>
-</header>
-<main>
-    <article>
-        <h1>ADA Compliance Is a Technical Problem, Not a Legal One</h1>
-        <div class="article-meta">2026-02-20 · Standards</div>
-        <p>Most clients come to ADA/WCAG compliance work because of a legal concern — a demand letter, a lawsuit, a vendor requirement. That framing isn&#x27;t wrong, but it shapes the work in ways that produce worse outcomes. When compliance is treated as a legal problem, the goal becomes passing an audit. When it&#x27;s treated as a technical problem, the goal becomes building something that actually works for people with disabilities. Those are different targets.</p><p>The WCAG guidelines exist at three conformance levels: A, AA, and AAA. Most legal standards and vendor requirements target AA compliance. The guidelines cover four principles — content must be perceivable, operable, understandable, and robust — and the specific criteria under each principle are more concrete than they might sound. Alt text on images, sufficient color contrast, keyboard navigability, proper heading structure, form label associations. These are engineering problems with engineering solutions.</p><p>The most common failures I find in audits fall into a few categories. Images without meaningful alt text — or with alt text that describes the image to a sighted person rather than conveying its function to someone using a screen reader. Form fields that are visually associated with labels but not programmatically associated, so the connection breaks for assistive technology. Keyboard traps where a user navigating by keyboard can enter a component but cannot exit it. Color contrast ratios that fail for body text, particularly in designs that favor light gray on white. None of these are difficult to fix. Most of them are easy to introduce accidentally and easy to prevent with a consistent review process.</p><p>WordPress-specific compliance work has its own common patterns. Themes that add decorative elements without marking them as decorative. Page builders that generate markup structures that look fine visually but have problematic heading hierarchies. Plugins that insert interactive elements without keyboard support. The fix is usually in the theme or plugin configuration, occasionally in custom CSS or JavaScript, rarely requiring anything more invasive.</p><p>The remediation audit is not the end of the work. A site that passes an accessibility audit today will drift out of compliance as content is added, plugins are updated, and the site evolves. Sustainable compliance requires building accessibility into the content workflow — training whoever adds content to write meaningful alt text, maintaining heading structure, not using color alone to convey meaning — rather than treating it as a one-time project.</p><p>The legal framing makes clients want to do the minimum. The technical framing makes the minimum obvious: build it to work. Those are the same sites, but the process for getting there is different, and so is the result.</p>
-    </article>
-</main>
+    <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light extra-page" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand logo-text" href="../index.html">Julie Zimmerman</a>
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="../about.html">About</a></li><li class="nav-item"><a class="nav-link active" aria-current="page" href="../writing.html">Writing</a></li><li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+                <span class="nav-item">
+                    <a class="btn-solid-sm" href="../contact.html">Contact</a>
+                </span>
+            </div>
+        </div>
+    </nav>
 
-<footer>
-    <div class="footer-inner">
-        <p>© 2026 Julie Zimmerman</p>
-    </div>
-</footer>
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>ADA Compliance Is a Technical Problem, Not a Legal One</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+<div class="ex-basic-1 pt-5 pb-5">
+    <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
+        <div class="text-muted mb-4">2026-02-20 · Standards</div>
+        <p>Most clients come to ADA/WCAG compliance work because of a legal concern — a demand letter, a lawsuit, a vendor requirement. That framing isn&#x27;t wrong, but it shapes the work in ways that produce worse outcomes. When compliance is treated as a legal problem, the goal becomes passing an audit. When it&#x27;s treated as a technical problem, the goal becomes building something that actually works for people with disabilities. Those are different targets.</p>
+<p>The WCAG guidelines exist at three conformance levels: A, AA, and AAA. Most legal standards and vendor requirements target AA compliance. The guidelines cover four principles — content must be perceivable, operable, understandable, and robust — and the specific criteria under each principle are more concrete than they might sound. Alt text on images, sufficient color contrast, keyboard navigability, proper heading structure, form label associations. These are engineering problems with engineering solutions.</p>
+<p>The most common failures I find in audits fall into a few categories. Images without meaningful alt text — or with alt text that describes the image to a sighted person rather than conveying its function to someone using a screen reader. Form fields that are visually associated with labels but not programmatically associated, so the connection breaks for assistive technology. Keyboard traps where a user navigating by keyboard can enter a component but cannot exit it. Color contrast ratios that fail for body text, particularly in designs that favor light gray on white. None of these are difficult to fix. Most of them are easy to introduce accidentally and easy to prevent with a consistent review process.</p>
+<p>WordPress-specific compliance work has its own common patterns. Themes that add decorative elements without marking them as decorative. Page builders that generate markup structures that look fine visually but have problematic heading hierarchies. Plugins that insert interactive elements without keyboard support. The fix is usually in the theme or plugin configuration, occasionally in custom CSS or JavaScript, rarely requiring anything more invasive.</p>
+<p>The remediation audit is not the end of the work. A site that passes an accessibility audit today will drift out of compliance as content is added, plugins are updated, and the site evolves. Sustainable compliance requires building accessibility into the content workflow — training whoever adds content to write meaningful alt text, maintaining heading structure, not using color alone to convey meaning — rather than treating it as a one-time project.</p>
+<p>The legal framing makes clients want to do the minimum. The technical framing makes the minimum obvious: build it to work. Those are the same sites, but the process for getting there is different, and so is the result.</p>
+        <a class="btn-solid-reg mt-4" href="../writing.html">Back to writing</a>
+    </div></div></div>
 </div>
+
+    <div class="footer bg-gray">
+        <img class="decoration-city" src="../images/decoration-city.svg" alt="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>WordPress systems, data integrations, and practical problem-solving</h4>
+                    <p>Project work is handled through <a href="https://zeecreative.com" target="_blank" rel="noopener">Zee Creative</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-unstyled li-space-lg p-small">
+                        <li><a href="../writing.html">Writing</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <p class="p-small statement">Copyright © 2026 <a href="../index.html">Julie Zimmerman</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="topFunction()" id="myBtn">
+        <img src="../images/up-arrow.png" alt="Back to top">
+    </button>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <script src="../js/purecounter.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/scripts.js"></script>
 </body>
 </html>
