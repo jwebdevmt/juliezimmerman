@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Writing — Julie Zimmerman</title>
+<title>What Managing 250 WordPress Sites Actually Teaches You — Julie Zimmerman</title>
 <meta name="description" content="WordPress systems, data integrations, and practical problem-solving">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,22 +116,11 @@ footer { border-top: 1px solid var(--border); padding: 1.5rem 0; margin-top: 4re
     </div>
 </header>
 <main>
-    <div class="page-content">
-        <h1>Writing</h1>
-        <ul class="post-list">
-        <li class="post-item">
-            <span class="post-title"><a href="writing/rets-to-reso-migration.html">Migrating Real Estate Data Pipelines from RETS to RESO Web API</a></span>
-            <span class="post-meta">2026-04-01</span>
-        </li>
-        <li class="post-item">
-            <span class="post-title"><a href="writing/wordpress-fleet-management.html">What Managing 250 WordPress Sites Actually Teaches You</a></span>
-            <span class="post-meta">2026-03-15</span>
-        </li>
-        <li class="post-item">
-            <span class="post-title"><a href="writing/ada-compliance-technical-problem.html">ADA Compliance Is a Technical Problem, Not a Legal One</a></span>
-            <span class="post-meta">2026-02-20</span>
-        </li></ul>
-    </div>
+    <article>
+        <h1>What Managing 250 WordPress Sites Actually Teaches You</h1>
+        <div class="article-meta">2026-03-15 · Systems</div>
+        <p>Most WordPress advice is written for people managing one site, maybe a few. The concerns are different when you&#x27;re responsible for 250 active environments across a range of clients, hosting configurations, and technical complexity levels. Some things that seem important at small scale stop mattering. Some things that seem minor become critical.</p><p>Standardization is the only thing that scales. When every site is configured differently — different hosting environments, different plugin combinations, different update policies — every problem is a unique problem. You can&#x27;t build institutional knowledge. You can&#x27;t write automation that applies broadly. You can&#x27;t train other people effectively. The investment in bringing sites toward a standard configuration pays off over and over in reduced troubleshooting time and increased confidence when something goes wrong.</p><p>Launch protocol matters more than launch day. The moment a site goes live is not when quality is established — it&#x27;s when the result of every prior decision becomes visible. A consistent pre-launch checklist covering pagespeed, redirect verification, 404 testing, form submission, and basic functionality catches problems that feel embarrassing but are extremely common. Writing that protocol down and requiring it means the same standard applies to every site regardless of who built it or how much time pressure there was.</p><p>Malware in legacy environments follows patterns. After remediating enough compromised WordPress sites, you start to recognize the common injection points, the file locations attackers favor, and the persistence mechanisms that survive naive cleanup attempts. This pattern recognition is worth more than any single tool. It means you know where to look first, what a clean file should look like, and whether a site has been fully remediated or just superficially cleaned. Building tooling around these patterns — rather than relying on off-the-shelf scanners alone — is what makes remediation reliable rather than hopeful.</p><p>Hosting architecture decisions made early are very expensive to change later. A site built on shared hosting that outgrows it, or a client whose traffic patterns aren&#x27;t a match for their environment, becomes a migration project at the worst possible time. Getting the hosting decision right initially — and documenting the reasoning — prevents a category of crisis that&#x27;s almost entirely avoidable.</p><p>The fleet teaches you what individual site work doesn&#x27;t: that WordPress problems are mostly systemic, not random. The same vulnerability appears in the same plugin version across dozens of sites. The same performance issue shows up whenever a specific configuration is present. Managing at scale makes those patterns visible in a way that single-site work never does.</p>
+    </article>
 </main>
 
 <footer>

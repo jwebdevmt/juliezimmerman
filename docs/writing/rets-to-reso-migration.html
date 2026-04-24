@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Writing — Julie Zimmerman</title>
+<title>Migrating Real Estate Data Pipelines from RETS to RESO Web API — Julie Zimmerman</title>
 <meta name="description" content="WordPress systems, data integrations, and practical problem-solving">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,22 +116,11 @@ footer { border-top: 1px solid var(--border); padding: 1.5rem 0; margin-top: 4re
     </div>
 </header>
 <main>
-    <div class="page-content">
-        <h1>Writing</h1>
-        <ul class="post-list">
-        <li class="post-item">
-            <span class="post-title"><a href="writing/rets-to-reso-migration.html">Migrating Real Estate Data Pipelines from RETS to RESO Web API</a></span>
-            <span class="post-meta">2026-04-01</span>
-        </li>
-        <li class="post-item">
-            <span class="post-title"><a href="writing/wordpress-fleet-management.html">What Managing 250 WordPress Sites Actually Teaches You</a></span>
-            <span class="post-meta">2026-03-15</span>
-        </li>
-        <li class="post-item">
-            <span class="post-title"><a href="writing/ada-compliance-technical-problem.html">ADA Compliance Is a Technical Problem, Not a Legal One</a></span>
-            <span class="post-meta">2026-02-20</span>
-        </li></ul>
-    </div>
+    <article>
+        <h1>Migrating Real Estate Data Pipelines from RETS to RESO Web API</h1>
+        <div class="article-meta">2026-04-01 · Data</div>
+        <p>The real estate industry spent years running on RETS — the Real Estate Transaction Standard — a protocol that did its job but was never designed for the web-first world that eventually arrived. RESO Web API is its replacement: RESTful, JSON-based, and built around modern HTTP conventions. The migration from one to the other sounds straightforward. In practice, it requires rethinking how your data pipeline works at every layer.</p><p>I&#x27;ve managed this migration for multiple real estate clients, each with different MLS relationships, different data volumes, and different display requirements. Here&#x27;s what I&#x27;ve learned about where the real complexity lives.</p><p>The first thing to understand is that RETS and RESO Web API don&#x27;t just differ in protocol — they differ in data model. RETS returns data in a proprietary format with field names that vary by MLS. RESO standardizes field names through the Data Dictionary, but the actual coverage of that standard varies significantly by MLS. Some have adopted it fully. Others have partial implementations. You need to map each client&#x27;s actual field output to what your system expects, and that map is rarely clean.</p><p>Photo ingestion is where most migrations get complicated. RETS delivered photos through a separate media endpoint with its own quirks. RESO Web API standardizes this through Media resources, but the practical behavior — rate limits, batch sizes, retry behavior — varies enough by MLS that you can&#x27;t assume a single approach works everywhere. I&#x27;ve built separate ingestion logic for clients on different MLSs even when they&#x27;re both theoretically on RESO Web API.</p><p>Cron architecture matters more than most people expect. High-volume listing pipelines need to respect API throttle limits while still keeping data current. The naive approach — poll frequently and back off when throttled — produces inconsistent data freshness and wastes request budget. A better approach is to design the sync around delta detection: only pull records that have actually changed since the last successful sync, and build the local data model to track enough state to know what&#x27;s current without asking the API.</p><p>The migration itself is best handled as a parallel run. Keep the RETS pipeline running while you build and validate the RESO Web API pipeline against the same data. When the outputs match consistently, you cut over. This costs more time upfront but eliminates the risk of discovering a mapping gap after you&#x27;ve already turned off the old system.</p><p>What looks like a protocol upgrade is really a data architecture project. The clients who handle it smoothly are the ones who understand that before the first line of code changes.</p>
+    </article>
 </main>
 
 <footer>
