@@ -12,6 +12,30 @@ CONTENT_DIR = Path("content") / "writing"
 ASSET_FOLDERS = ["css", "js", "images", "webfonts"]
 
 
+CUSTOM_CSS = r"""
+/* Julie Zimmerman custom layer over Zinc */
+.interior-card { background:#fff; border-radius:18px; padding:2.25rem; box-shadow:0 18px 45px rgba(31,45,61,.08); border:1px solid rgba(31,45,61,.07); }
+.interior-lede { font-size:1.12rem; line-height:1.85; color:#5f6670; margin-bottom:2rem; }
+.skill-cloud { display:flex; flex-wrap:wrap; gap:.65rem; margin:1rem 0 2rem; }
+.skill-pill { display:inline-block; border-radius:999px; background:#f2f6fb; color:#2b4a6f; border:1px solid #dbe6f4; padding:.45rem .75rem; font-size:.9rem; }
+.writing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; margin-top:2rem; }
+.article-card { background:#fff; border-radius:16px; padding:1.35rem; box-shadow:0 14px 34px rgba(31,45,61,.07); border:1px solid rgba(31,45,61,.07); height:100%; }
+.article-card h2,.article-card h3 { font-size:1.18rem; line-height:1.35; margin-bottom:.7rem; }
+.article-card h2 a,.article-card h3 a { color:#1f2d3d; text-decoration:none; }
+.article-card h2 a:hover,.article-card h3 a:hover { color:#2557a7; }
+.article-meta-line { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-bottom:.75rem; color:#737b86; font-size:.86rem; }
+.article-category { background:#eef4ff; color:#2b4a6f; border-radius:999px; padding:.15rem .55rem; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+.article-excerpt { color:#5f6670; line-height:1.7; margin-bottom:1rem; }
+.read-more { font-weight:700; text-decoration:none; }
+.article-shell { background:#fff; border-radius:18px; padding:min(7vw,3rem); box-shadow:0 18px 45px rgba(31,45,61,.08); border:1px solid rgba(31,45,61,.07); }
+.article-shell .article-meta-line { margin-bottom:2rem; padding-bottom:1.25rem; border-bottom:1px solid #e6ebf1; }
+.article-body p { font-size:1.05rem; line-height:1.9; margin-bottom:1.35rem; }
+.article-actions { margin-top:2.25rem; padding-top:1.25rem; border-top:1px solid #e6ebf1; }
+.featured-writing .article-card { margin-bottom:1rem; }
+@media (max-width:768px){ .interior-card,.article-shell{ padding:1.4rem; } }
+"""
+
+
 def e(value):
     return html.escape("" if value is None else str(value), quote=True)
 
@@ -40,6 +64,17 @@ def published_posts(posts):
     return [p for p in posts if p.get("published", False)]
 
 
+def excerpt(post, words=34):
+    if post.get("excerpt"):
+        return post["excerpt"]
+    body = post.get("body", [])
+    text = body[0] if isinstance(body, list) and body else str(body or "")
+    bits = text.split()
+    if len(bits) <= words:
+        return text
+    return " ".join(bits[:words]).rstrip(".,;:") + "…"
+
+
 def find_template_root():
     candidates = [
         Path("zinc-main"),
@@ -66,6 +101,10 @@ def copy_assets():
             if dest.exists():
                 shutil.rmtree(dest)
             shutil.copytree(source, dest)
+
+    css_dir = OUTPUT_DIR / "css"
+    css_dir.mkdir(parents=True, exist_ok=True)
+    (css_dir / "jz-custom.css").write_text(CUSTOM_CSS, encoding="utf-8")
 
 
 def asset_prefix(level="root"):
@@ -108,6 +147,7 @@ def head(title, config, level="root", description=None):
     <link href="{prefix}css/fontawesome-all.min.css" rel="stylesheet">
     <link href="{prefix}css/swiper.css" rel="stylesheet">
     <link href="{prefix}css/styles.css" rel="stylesheet">
+    <link href="{prefix}css/jz-custom.css" rel="stylesheet">
     <link rel="icon" href="{prefix}images/favicon.png">
 </head>'''
 
@@ -212,21 +252,41 @@ def work_cards(config):
     return "\n".join(cards)
 
 
-def post_list(posts, level="root", limit=None):
+def post_list(posts, level="root", limit=None, cards=False):
     visible = published_posts(posts)
     if limit:
         visible = visible[:limit]
     if not visible:
         return '<p>Writing coming soon.</p>'
+
+    if cards:
+        rows = []
+        for p in visible:
+            category = p.get("category", "")
+            cat = f'<span class="article-category">{e(category)}</span>' if category else ""
+            rows.append(f"""
+                <article class="article-card">
+                    <div class="article-meta-line">
+                        <span>{e(p.get('date', ''))}</span>
+                        {cat}
+                    </div>
+                    <h3><a href="{post_href(p, level)}">{e(p['title'])}</a></h3>
+                    <p class="article-excerpt">{e(excerpt(p))}</p>
+                    <a class="read-more" href="{post_href(p, level)}">Read article →</a>
+                </article>""")
+        return f'<div class="writing-grid">{"".join(rows)}</div>'
+
     rows = []
     for p in visible:
         category = p.get("category", "")
-        cat = f'<span class="badge bg-light text-dark ms-2">{e(category)}</span>' if category else ""
-        rows.append(f'''
-                        <li class="d-flex justify-content-between align-items-start mb-3 pb-3 border-bottom">
-                            <span><a href="{post_href(p, level)}">{e(p['title'])}</a>{cat}</span>
-                            <span class="text-muted small">{e(p.get('date', ''))}</span>
-                        </li>''')
+        cat = f'<span class="article-category">{e(category)}</span>' if category else ""
+        rows.append(f"""
+            <li class="article-card mb-3">
+                <div class="article-meta-line"><span>{e(p.get('date', ''))}</span>{cat}</div>
+                <h3><a href="{post_href(p, level)}">{e(p['title'])}</a></h3>
+                <p class="article-excerpt">{e(excerpt(p))}</p>
+                <a class="read-more" href="{post_href(p, level)}">Read article →</a>
+            </li>""")
     return f'<ul class="list-unstyled li-space-lg">{"".join(rows)}</ul>'
 
 
@@ -268,7 +328,7 @@ def build_home(config, posts):
             <div class="col-lg-12">
                 <div class="section-title">Selected writing</div>
                 <h2>Technical notes from the work</h2>
-                {post_list(posts, 'root', limit=3)}
+                <div class="featured-writing">{post_list(posts, 'root', limit=3, cards=True)}</div>
                 <a class="btn-solid-reg" href="writing.html">All writing</a>
             </div>
         </div>
@@ -309,17 +369,19 @@ def extra_header(title):
 def build_about(config):
     about = config.get("about", {})
     body = "\n".join(f"<p>{e(p)}</p>" for p in about.get("body", []))
-    skills = "".join(f'<li class="d-flex"><i class="fas fa-square"></i><div class="flex-grow-1">{e(s)}</div></li>' for s in about.get("skills", []))
-    skill_block = f'<h2 class="mb-3">Technical range</h2><ul class="list-unstyled li-space-lg mb-5">{skills}</ul>' if skills else ""
+    skills = "".join(f'<span class="skill-pill">{e(s)}</span>' for s in about.get("skills", []))
+    skill_block = f'<h2 class="mb-3">Technical range</h2><div class="skill-cloud">{skills}</div>' if skills else ""
     return f'''{head('About', config)}
 <body>
 {nav(config, 'about', extra_page=True)}
 {extra_header('About')}
 <div class="ex-basic-1 pt-5 pb-5">
     <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
-        {body}
-        {skill_block}
-        <a class="btn-solid-reg mb-5" href="contact.html">Contact</a>
+        <div class="interior-card">
+            {body}
+            {skill_block}
+            <a class="btn-solid-reg mb-5" href="contact.html">Contact</a>
+        </div>
     </div></div></div>
 </div>
 {footer(config)}
@@ -333,8 +395,10 @@ def build_writing(config, posts):
 {extra_header('Writing')}
 <div class="ex-basic-1 pt-5 pb-5">
     <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
-        <p class="mb-5">Technical writing on WordPress systems, data integrations, accessibility, and real production constraints.</p>
-        {post_list(posts, 'root')}
+        <div class="interior-card">
+            <p class="interior-lede">Technical writing on WordPress systems, data integrations, accessibility, and real production constraints.</p>
+            {post_list(posts, 'root', cards=True)}
+        </div>
     </div></div></div>
 </div>
 {footer(config)}
@@ -350,9 +414,11 @@ def build_contact(config):
 {extra_header('Contact')}
 <div class="ex-basic-1 pt-5 pb-5">
     <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
-        <p>{e(contact.get('intro', 'For technical conversations or project inquiries.'))}</p>
-        <p>{e(contact.get('routing_note', 'Most client project work is handled through Zee Creative.'))}</p>
-        <p><a class="btn-solid-reg" href="{e(owner.get('zee_url', 'https://zeecreative.com'))}" target="_blank" rel="noopener">Zee Creative</a></p>
+        <div class="interior-card">
+            <p class="interior-lede">{e(contact.get('intro', 'For technical conversations or project inquiries.'))}</p>
+            <p>{e(contact.get('routing_note', 'Most client project work is handled through Zee Creative.'))}</p>
+            <p><a class="btn-solid-reg" href="{e(owner.get('zee_url', 'https://zeecreative.com'))}" target="_blank" rel="noopener">Zee Creative</a></p>
+        </div>
     </div></div></div>
 </div>
 {footer(config)}
@@ -367,9 +433,18 @@ def build_post(config, post):
 {extra_header(post['title'])}
 <div class="ex-basic-1 pt-5 pb-5">
     <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
-        <div class="text-muted mb-4">{e(post.get('date', ''))} · {e(post.get('category', 'Systems'))}</div>
-        {body}
-        <a class="btn-solid-reg mt-4" href="../writing.html">Back to writing</a>
+        <article class="article-shell">
+            <div class="article-meta-line">
+                <span>{e(post.get('date', ''))}</span>
+                <span class="article-category">{e(post.get('category', 'Systems'))}</span>
+            </div>
+            <div class="article-body">
+                {body}
+            </div>
+            <div class="article-actions">
+                <a class="btn-solid-reg mt-4" href="../writing.html">Back to writing</a>
+            </div>
+        </article>
     </div></div></div>
 </div>
 {footer(config, level='nested')}

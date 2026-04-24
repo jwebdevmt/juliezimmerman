@@ -328,7 +328,7 @@ def build_home(config, posts):
             <div class="col-lg-12">
                 <div class="section-title">Selected writing</div>
                 <h2>Technical notes from the work</h2>
-                <div class="featured-writing">{post_list(posts, 'root', limit=3, cards=True)}</div>
+                <div class="featured-writing">{post_list(posts, 'root', limit=5, cards=True)}</div>
                 <a class="btn-solid-reg" href="writing.html">All writing</a>
             </div>
         </div>

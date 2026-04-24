@@ -1,0 +1,12 @@
+{
+  "title": "AI Integration for Existing Web Stacks",
+  "date": "2026-01-15",
+  "category": "AI Tooling",
+  "published": true,
+  "body": [
+    "Most AI projects fail because they try to replace systems instead of improving them.",
+    "Effective integration starts with existing infrastructure. AI should remove friction or add capability.",
+    "Examples include malware remediation, content generation within constraints, prompt libraries, and automation pipelines.",
+    "The key question is whether the integration removes a real bottleneck or adds maintenance overhead."
+  ]
+}
