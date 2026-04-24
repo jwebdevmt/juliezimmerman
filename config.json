@@ -2,12 +2,12 @@
   "site": {
     "title": "Julie Zimmerman",
     "tagline": "WordPress systems, data integrations, and practical problem-solving",
-    "intro": "I'm a web developer and systems architect working primarily in WordPress. I focus on data integrations, structured content, API reliability, and the kinds of technical problems that show up in real projects. This is where I write about the patterns behind that work."
+    "intro": "I work on systems that have to function reliably at scale. WordPress fleets, real estate data pipelines, and AI integrations layered into existing infrastructure. The work is less about tools and more about behavior under load, where systems fail, and how to make them reliable over time."
   },
 
   "owner": {
     "name": "Julie Zimmerman",
-    "email": "[your-email@domain.com]",
+    "email": "",
     "zee_url": "https://zeecreative.com",
     "location": "Billings, MT"
   },

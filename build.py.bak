@@ -10,6 +10,21 @@ OUTPUT_DIR = "docs"
 CONFIG_FILE = "config.json"
 CONTENT_DIR = Path("content") / "writing"
 
+FORBIDDEN_PATTERNS = [
+    "google-analytics",
+    "googletagmanager",
+    "doubleclick",
+    "adsbygoogle",
+    "facebook.net",
+    "document.cookie",
+    "navigator.sendbeacon",
+    "localstorage",
+    "sessionstorage",
+    "xmlhttprequest",
+    "fetch(",
+]
+
+
 def e(value):
     """HTML-escape text from config/content before rendering."""
     if value is None:
@@ -228,6 +243,7 @@ def build_footer(config):
 <footer>
     <div class="footer-inner">
         <p>© {year} {e(config['owner']['name'])}</p>
+        <p>No tracking. No analytics.</p>
     </div>
 </footer>
 </div>
@@ -398,6 +414,25 @@ def build_site(config, posts):
     return pages_built
 
 
+def check_output():
+    print("Running integrity checks...")
+    violations = []
+    for root, _, files in os.walk(OUTPUT_DIR):
+        for file in files:
+            path = Path(root) / file
+            if path.suffix.lower() not in {".html", ".css", ".js", ".txt", ".xml", ".json"} and path.name != ".nojekyll":
+                continue
+            content = path.read_text(encoding="utf-8", errors="ignore").lower()
+            for pattern in FORBIDDEN_PATTERNS:
+                if pattern.lower() in content:
+                    violations.append(f"{path}: {pattern}")
+    if violations:
+        for violation in violations:
+            print(" -", violation)
+        raise Exception("HARD STOP: Forbidden pattern(s) found in generated output.")
+    print("Integrity check passed.")
+
+
 def push():
     subprocess.run(["git", "add", OUTPUT_DIR], check=True)
     result = subprocess.run(["git", "diff", "--cached", "--quiet"], check=False)
@@ -426,6 +461,7 @@ def main():
 
     print("Building site...")
     pages_built = build_site(config, posts)
+    check_output()
     print(f"Build complete. {pages_built} page(s) generated in '{OUTPUT_DIR}/'.")
 
     if ask_to_push():

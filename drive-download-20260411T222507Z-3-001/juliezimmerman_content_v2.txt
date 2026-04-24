@@ -1,0 +1,83 @@
+juliezimmerman.me — Writing Content
+Edited draft v2. Edits applied per council review.
+
+---
+
+RETS to RESO Migration
+Category: Data
+
+What looks like a protocol upgrade is a data architecture project. The clients who handle it cleanly understand that before the first line of code changes.
+
+The real estate industry spent years running on RETS — a protocol that did its job but was never designed for the web-first world that eventually arrived. RESO Web API is its replacement: RESTful, JSON-based, built around modern HTTP conventions. The migration sounds straightforward. In practice, it requires rethinking the data pipeline at every layer.
+
+RETS and RESO Web API don't just differ in protocol — they differ in data model. RETS returns proprietary field names that vary by MLS. RESO standardizes through the Data Dictionary, but adoption varies significantly. Some MLSs have implemented it fully. Others partially. The field mapping is rarely clean and has to be built per client.
+
+Photo ingestion is where most migrations get complicated. RESO standardizes media delivery through Media resources, but rate limits, batch sizes, and retry behavior vary enough by MLS that a single approach won't work everywhere.
+
+Cron architecture matters more than most people expect. High-volume listing pipelines need to respect throttle limits while keeping data current. The approach that works: design sync around delta detection, pulling only records that have actually changed since the last successful run.
+
+The migration itself is best handled as a parallel run — keep RETS running while building and validating the RESO pipeline against the same data. Cut over when outputs match consistently.
+
+Note: RETS experience spans multiple MLS regions; RESO Web API migration work is currently local. Scope accurately represents the work.
+
+---
+
+What Managing 250 WordPress Sites Actually Teaches You
+Category: Systems
+
+Most WordPress advice is written for people managing one site, maybe a few. The concerns are different when you're responsible for 250 active environments across a range of clients, hosting configurations, and complexity levels.
+
+Standardization is the only thing that scales. When every site is configured differently, every problem is a unique problem. You can't build institutional knowledge or automation that applies broadly. Bringing sites toward a standard configuration pays off repeatedly in reduced troubleshooting time.
+
+Launch protocol matters more than launch day. A consistent pre-launch checklist — pagespeed, redirect verification, 404 testing, form submission, basic functionality — catches problems that are common and preventable.
+
+Malware in legacy environments follows patterns. After remediating enough compromised WordPress sites, the common injection points, favored file locations, and persistence mechanisms become recognizable. I built tooling around these patterns to make remediation reliable rather than hopeful — including an AI-assisted suite that reduced remediation time significantly on repeat infection profiles.
+
+Hosting architecture decisions made early are expensive to change later. Getting it right initially — and documenting the reasoning — prevents a category of crisis that's almost entirely avoidable.
+
+The fleet teaches you what individual site work doesn't: WordPress problems are mostly systemic. Managing at scale makes those patterns visible.
+
+---
+
+ADA Compliance Is a Technical Problem, Not a Legal One
+Category: Standards
+
+Most clients come to ADA/WCAG work because of a legal concern — a demand letter, a lawsuit, a vendor requirement. That framing isn't wrong, but it produces worse outcomes. The legal framing produces minimum viable compliance. The technical framing produces something that actually works.
+
+WCAG guidelines operate at three conformance levels. Most legal standards target AA. The criteria are more concrete than they sound: alt text on images, sufficient color contrast, keyboard navigability, proper heading structure, form label associations. These are engineering problems with engineering solutions.
+
+The most common failures in audits: images without meaningful alt text, form fields not associated with labels, keyboard traps, contrast ratios that fail for body text. None are difficult to fix. Most are easy to introduce accidentally and easy to prevent with a consistent review process.
+
+WordPress-specific compliance has its own patterns — themes adding decorative elements without marking them as such, page builders generating broken heading hierarchies, plugins inserting interactive elements without keyboard support.
+
+A site that passes today will drift as content is added and plugins are updated. Sustainable compliance requires building accessibility into the content workflow, not treating the audit as the finish line.
+
+The legal framing makes clients want to do the minimum. The technical framing makes the minimum obvious: build it to work.
+
+---
+
+When WordPress Becomes the Wrong Tool
+Category: Systems
+
+The most expensive conversation I have with clients is establishing that WordPress was the right choice five years ago and isn't anymore. Not because WordPress changed — because the requirements did.
+
+Managing at scale makes this pattern visible in a way single-site work doesn't. A site that started as a brochure becomes an application: the plugin stack grows, performance degrades, and what looked like a content management problem is now a data problem. The hosting architecture that made sense at launch becomes a constraint built into everything that came after it.
+
+The question isn't whether WordPress can be made to do the thing. It usually can. The question is what that costs — in ongoing maintenance, plugin dependency risk, and developer hours spent working around core limitations rather than building toward actual requirements.
+
+Knowing when to stay and optimize versus when to recommend a different architecture is the judgment that saves clients the most money over time.
+
+---
+
+AI Integration for Existing Web Stacks
+Category: AI Tooling
+
+Most businesses don't need to rebuild their systems to use AI effectively. What they need is someone who understands both the existing stack and what AI tools can actually do — and can identify where the integration produces real value rather than overhead.
+
+The work I've done in this area starts with the existing infrastructure: the CMS, the data pipelines, the content workflows, the client-facing surfaces. AI gets layered in where it reduces friction or produces something the existing system couldn't. Not as a replacement for the architecture — as an addition to it.
+
+Practical examples from current work: AI-assisted malware remediation that applies pattern recognition to infection profiles. Automated listing content generation that respects MLS data constraints. Prompt libraries that let non-technical staff produce consistent, structured content without training overhead. Certificate generation pipelines that previously required manual intervention.
+
+For clients already working with established web infrastructure, the integration path is usually shorter than they expect — and the value is usually in the workflows they already have, not in building something new.
+
+The question I ask before any AI integration: does this reduce a real bottleneck, or does it just add a new system to maintain? The answer determines whether it's worth building.
