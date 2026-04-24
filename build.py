@@ -6,370 +6,449 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
-OUTPUT_DIR = "docs"
-CONFIG_FILE = "config.json"
+OUTPUT_DIR = Path("docs")
+CONFIG_FILE = Path("config.json")
 CONTENT_DIR = Path("content") / "writing"
+ASSET_FOLDERS = ["css", "js", "images", "webfonts"]
+
+
+CUSTOM_CSS = r"""
+/* Julie Zimmerman custom layer over Zinc */
+.interior-card { background:#fff; border-radius:18px; padding:2.25rem; box-shadow:0 18px 45px rgba(31,45,61,.08); border:1px solid rgba(31,45,61,.07); }
+.interior-lede { font-size:1.12rem; line-height:1.85; color:#5f6670; margin-bottom:2rem; }
+.skill-cloud { display:flex; flex-wrap:wrap; gap:.65rem; margin:1rem 0 2rem; }
+.skill-pill { display:inline-block; border-radius:999px; background:#f2f6fb; color:#2b4a6f; border:1px solid #dbe6f4; padding:.45rem .75rem; font-size:.9rem; }
+.writing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; margin-top:2rem; }
+.article-card { background:#fff; border-radius:16px; padding:1.35rem; box-shadow:0 14px 34px rgba(31,45,61,.07); border:1px solid rgba(31,45,61,.07); height:100%; }
+.article-card h2,.article-card h3 { font-size:1.18rem; line-height:1.35; margin-bottom:.7rem; }
+.article-card h2 a,.article-card h3 a { color:#1f2d3d; text-decoration:none; }
+.article-card h2 a:hover,.article-card h3 a:hover { color:#2557a7; }
+.article-meta-line { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-bottom:.75rem; color:#737b86; font-size:.86rem; }
+.article-category { background:#eef4ff; color:#2b4a6f; border-radius:999px; padding:.15rem .55rem; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+.article-excerpt { color:#5f6670; line-height:1.7; margin-bottom:1rem; }
+.read-more { font-weight:700; text-decoration:none; }
+.article-shell { background:#fff; border-radius:18px; padding:min(7vw,3rem); box-shadow:0 18px 45px rgba(31,45,61,.08); border:1px solid rgba(31,45,61,.07); }
+.article-shell .article-meta-line { margin-bottom:2rem; padding-bottom:1.25rem; border-bottom:1px solid #e6ebf1; }
+.article-body p { font-size:1.05rem; line-height:1.9; margin-bottom:1.35rem; }
+.article-actions { margin-top:2.25rem; padding-top:1.25rem; border-top:1px solid #e6ebf1; }
+.featured-writing .article-card { margin-bottom:1rem; }
+@media (max-width:768px){ .interior-card,.article-shell{ padding:1.4rem; } }
+"""
+
 
 def e(value):
-    """HTML-escape text from config/content before rendering."""
-    if value is None:
-        return ""
-    return html.escape(str(value), quote=True)
+    return html.escape("" if value is None else str(value), quote=True)
 
 
 def load_config():
-    with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+    with CONFIG_FILE.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def validate_config(config):
-    required = ["site", "nav", "owner"]
-    for key in required:
-        if key not in config:
-            raise Exception(f"Missing '{key}' block in config.json")
-
-    if not config["site"].get("title"):
-        raise Exception("Missing site.title in config.json")
-    if not config["site"].get("tagline"):
-        raise Exception("Missing site.tagline in config.json")
-    if not config["owner"].get("name"):
-        raise Exception("Missing owner.name in config.json")
-
-
 def load_posts():
-    """
-    Preferred article location: content/writing/*.json
-    Fallback: root-level *.json article files, so your current uploaded structure still works.
-    """
     posts = []
-    seen_slugs = set()
+    if not CONTENT_DIR.exists():
+        return posts
 
-    def load_post_file(path):
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                post = json.load(f)
-        except Exception as exc:
-            print(f"Skipping {path}: {exc}")
-            return
-
-        if not isinstance(post, dict):
-            return
-        if "title" not in post or "body" not in post:
-            return
-
-        slug = path.stem
-        if slug.endswith("(1)"):
-            slug = slug[:-3]
-        if slug in seen_slugs:
-            return
-
-        post["slug"] = slug
+    for f in CONTENT_DIR.glob("*.json"):
+        with f.open("r", encoding="utf-8") as fh:
+            post = json.load(fh)
+        post["slug"] = f.stem
         posts.append(post)
-        seen_slugs.add(slug)
-
-    if CONTENT_DIR.exists():
-        for path in CONTENT_DIR.glob("*.json"):
-            load_post_file(path)
-
-    for path in Path(".").glob("*.json"):
-        if path.name == CONFIG_FILE:
-            continue
-        load_post_file(path)
 
     posts.sort(key=lambda p: p.get("date", ""), reverse=True)
     return posts
 
 
 def published_posts(posts):
-    return [post for post in posts if post.get("published", False)]
+    return [p for p in posts if p.get("published", False)]
 
 
-STYLE = """
-:root {
-    --bg: #fafaf8;
-    --surface: #f4f3ef;
-    --border: #e2e0d9;
-    --text: #1c1c1a;
-    --muted: #6b6960;
-    --accent: #2c4a6e;
-    --accent-light: #e8edf4;
-    --mono: 'JetBrains Mono', monospace;
-    --serif: 'Source Serif 4', Georgia, serif;
-    --display: 'Playfair Display', Georgia, serif;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    line-height: 1.75;
-    padding: 0;
-}
-
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 3px; }
-
-.site-wrapper { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
-
-header { border-bottom: 1px solid var(--border); padding: 1.5rem 0; margin-bottom: 3rem; }
-.header-inner { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; }
-.site-name { font-family: var(--display); font-size: 1.1rem; font-weight: 600; color: var(--text); letter-spacing: 0.01em; }
-.site-name a { color: var(--text); }
-nav { display: flex; gap: 1.5rem; }
-nav a { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-nav a:hover { color: var(--accent); text-decoration: none; }
-nav a.active { color: var(--accent); border-bottom: 1px solid var(--accent); }
-
-main { padding-bottom: 5rem; }
-
-.hero { padding: 3rem 0 4rem; border-bottom: 1px solid var(--border); margin-bottom: 3.5rem; }
-.hero h1 { font-family: var(--display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 1rem; color: var(--text); }
-.hero .tagline { font-family: var(--mono); font-size: 0.85rem; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 1.5rem; text-transform: uppercase; }
-.hero p { font-size: 1.1rem; color: var(--muted); max-width: 580px; line-height: 1.8; }
-
-.section { margin-bottom: 3.5rem; }
-.section-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-
-.work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 0.5rem; }
-.work-item { background: var(--bg); padding: 1.25rem 1.5rem; }
-.work-item h3 { font-family: var(--display); font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
-.work-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
-
-.post-list { list-style: none; padding-left: 0; }
-.post-item { padding: 1.25rem 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.post-item:last-child { border-bottom: none; }
-.post-title { font-family: var(--display); font-size: 1.05rem; font-weight: 400; }
-.post-title a { color: var(--text); }
-.post-title a:hover { color: var(--accent); }
-.post-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); white-space: nowrap; letter-spacing: 0.04em; }
-.post-category { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); background: var(--accent-light); padding: 0.1em 0.5em; border-radius: 3px; margin-left: 0.5rem; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; }
-
-article { max-width: 680px; }
-article h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; line-height: 1.25; margin-bottom: 0.75rem; }
-.article-meta { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-article h2 { font-family: var(--display); font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 0.75rem; }
-article p { margin-bottom: 1.25rem; }
-article code { font-family: var(--mono); font-size: 0.85em; background: var(--surface); padding: 0.15em 0.4em; border-radius: 3px; color: var(--accent); }
-article pre { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.25rem 1.5rem; overflow-x: auto; margin: 1.5rem 0; font-family: var(--mono); font-size: 0.85rem; line-height: 1.6; }
-article ul, article ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
-article li { margin-bottom: 0.4rem; }
-
-.page-content h1 { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
-.page-content p { margin-bottom: 1.25rem; max-width: 620px; }
-.page-content h2 { font-family: var(--display); font-size: 1.2rem; font-weight: 600; margin: 2rem 0 0.75rem; }
-
-.zee-note { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; margin-top: 2rem; font-size: 0.9rem; color: var(--muted); }
-.zee-note a { color: var(--accent); }
-
-.contact-block { padding: 2rem 0; }
-.contact-block .email-link { font-family: var(--mono); font-size: 1rem; color: var(--accent); display: inline-block; margin-bottom: 1rem; }
-
-footer { border-top: 1px solid var(--border); padding: 1.5rem 0; margin-top: 4rem; }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-.footer-inner p { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
-
-@media (max-width: 600px) {
-    .work-grid { grid-template-columns: 1fr; }
-    .header-inner { flex-direction: column; gap: 0.75rem; }
-    nav { gap: 1rem; }
-    .post-item { display: block; }
-    .post-meta { display: block; margin-top: 0.25rem; }
-}
-"""
+def excerpt(post, words=34):
+    if post.get("excerpt"):
+        return post["excerpt"]
+    body = post.get("body", [])
+    text = body[0] if isinstance(body, list) and body else str(body or "")
+    bits = text.split()
+    if len(bits) <= words:
+        return text
+    return " ".join(bits[:words]).rstrip(".,;:") + "…"
 
 
-def href_for(slug):
-    return "index.html" if slug == "index" else f"{slug}.html"
+def find_template_root():
+    candidates = [
+        Path("zinc-main"),
+        Path("template") / "zinc-main",
+        Path("template"),
+        Path("."),
+    ]
+    for candidate in candidates:
+        if all((candidate / folder).exists() for folder in ["css", "js", "images"]):
+            return candidate
+    return None
 
 
-def build_head(title, config):
+def copy_assets():
+    template_root = find_template_root()
+    if not template_root:
+        print("WARNING: Zinc template assets not found. Expected css/, js/, images/ or zinc-main/css, zinc-main/js, zinc-main/images.")
+        return
+
+    for folder in ASSET_FOLDERS:
+        source = template_root / folder
+        if source.exists():
+            dest = OUTPUT_DIR / folder
+            if dest.exists():
+                shutil.rmtree(dest)
+            shutil.copytree(source, dest)
+
+    css_dir = OUTPUT_DIR / "css"
+    css_dir.mkdir(parents=True, exist_ok=True)
+    (css_dir / "jz-custom.css").write_text(CUSTOM_CSS, encoding="utf-8")
+
+
+def asset_prefix(level="root"):
+    return "../" if level == "nested" else ""
+
+
+def page_href(slug, level="root"):
+    prefix = asset_prefix(level)
+    if slug == "index":
+        return f"{prefix}index.html"
+    if slug == "writing":
+        return f"{prefix}writing.html"
+    return f"{prefix}{slug}.html"
+
+
+def post_href(post, level="root"):
+    prefix = asset_prefix(level)
+    return f"{prefix}writing/{post['slug']}.html"
+
+
+def head(title, config, level="root", description=None):
+    prefix = asset_prefix(level)
     site = config["site"]
-    description = site.get("tagline") or site.get("intro") or site.get("title")
-    return f"""<!DOCTYPE html>
+    desc = description or site.get("tagline") or site.get("intro") or site.get("description", "")
+    owner = config.get("owner", {}).get("name", site.get("title", ""))
+    return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{e(title)} — {e(site['title'])}</title>
-<meta name="description" content="{e(description)}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-{STYLE}
-</style>
-</head>
-<body>
-<div class="site-wrapper">"""
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{e(desc)}">
+    <meta name="author" content="{e(owner)}">
+    <meta property="og:site_name" content="{e(site.get('title', ''))}">
+    <meta property="og:title" content="{e(title)}">
+    <meta property="og:description" content="{e(desc)}">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>{e(title)} — {e(site['title'])}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="{prefix}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{prefix}css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="{prefix}css/swiper.css" rel="stylesheet">
+    <link href="{prefix}css/styles.css" rel="stylesheet">
+    <link href="{prefix}css/jz-custom.css" rel="stylesheet">
+    <link rel="icon" href="{prefix}images/favicon.png">
+</head>'''
 
 
-def build_header(config, active_page=""):
-    nav_links = []
-    for item in config["nav"]:
-        slug = item["slug"]
-        active = ' class="active"' if slug == active_page else ""
-        nav_links.append(f'<a href="{href_for(slug)}"{active}>{e(item["label"])}</a>')
+def nav(config, active="index", level="root", extra_page=False):
+    cls = "navbar navbar-expand-lg fixed-top navbar-light"
+    if extra_page:
+        cls += " extra-page"
 
-    return f"""
-<header>
-    <div class="header-inner">
-        <div class="site-name"><a href="index.html">{e(config['site']['title'])}</a></div>
-        <nav>{''.join(nav_links)}</nav>
-    </div>
-</header>"""
-
-
-def build_footer(config):
-    year = datetime.now().year
-    return f"""
-<footer>
-    <div class="footer-inner">
-        <p>© {year} {e(config['owner']['name'])}</p>
-    </div>
-</footer>
-</div>
-</body>
-</html>"""
-
-
-def build_post_items(posts, include_category=False):
     items = []
-    for post in published_posts(posts):
-        category = post.get("category", "")
-        cat_tag = f' <span class="post-category">{e(category)}</span>' if include_category and category else ""
-        items.append(f"""
-        <li class="post-item">
-            <span class="post-title"><a href="writing/{e(post['slug'])}.html">{e(post['title'])}</a>{cat_tag}</span>
-            <span class="post-meta">{e(post.get('date', ''))}</span>
-        </li>""")
-    if not items:
-        return '<li class="post-item"><span class="post-meta">Writing coming soon.</span></li>'
-    return "".join(items)
+    for item in config.get("nav", []):
+        slug = item["slug"]
+        label = item["label"]
+        active_cls = " active" if slug == active else ""
+        aria = ' aria-current="page"' if slug == active else ""
+        items.append(f'<li class="nav-item"><a class="nav-link{active_cls}"{aria} href="{page_href(slug, level)}">{e(label)}</a></li>')
+
+    return f'''
+    <nav id="navbarExample" class="{cls}" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand logo-text" href="{page_href('index', level)}">{e(config['site']['title'])}</a>
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                    {''.join(items)}
+                </ul>
+                <span class="nav-item">
+                    <a class="btn-solid-sm" href="{page_href('contact', level)}">Contact</a>
+                </span>
+            </div>
+        </div>
+    </nav>'''
+
+
+def scripts(level="root"):
+    prefix = asset_prefix(level)
+    return f'''
+    <button onclick="topFunction()" id="myBtn">
+        <img src="{prefix}images/up-arrow.png" alt="Back to top">
+    </button>
+    <script src="{prefix}js/bootstrap.min.js"></script>
+    <script src="{prefix}js/swiper.min.js"></script>
+    <script src="{prefix}js/purecounter.min.js"></script>
+    <script src="{prefix}js/isotope.pkgd.min.js"></script>
+    <script src="{prefix}js/scripts.js"></script>
+</body>
+</html>'''
+
+
+def footer(config, level="root"):
+    year = datetime.now().year
+    owner = config.get("owner", {})
+    site = config["site"]
+    zee_url = owner.get("zee_url", "https://zeecreative.com")
+    return f'''
+    <div class="footer bg-gray">
+        <img class="decoration-city" src="{asset_prefix(level)}images/decoration-city.svg" alt="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>{e(site.get('tagline', 'WordPress systems, data integrations, and practical problem-solving'))}</h4>
+                    <p>Project work is handled through <a href="{e(zee_url)}" target="_blank" rel="noopener">Zee Creative</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-unstyled li-space-lg p-small">
+                        <li><a href="{page_href('writing', level)}">Writing</a></li>
+                        <li><a href="{page_href('about', level)}">About</a></li>
+                        <li><a href="{page_href('contact', level)}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <p class="p-small statement">Copyright © {year} <a href="{page_href('index', level)}">{e(owner.get('name', site['title']))}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>'''
+
+
+def work_cards(config):
+    icons = ["far fa-file-alt", "fas fa-database", "fas fa-shield-alt", "fas fa-sitemap"]
+    colors = ["blue", "yellow", "red", "blue"]
+    cards = []
+    for i, area in enumerate(config.get("work_areas", [])):
+        cards.append(f'''
+                    <div class="card">
+                        <div class="card-icon {colors[i % len(colors)]}">
+                            <span class="{icons[i % len(icons)]}"></span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{e(area['title'])}</h5>
+                            <p>{e(area['description'])}</p>
+                        </div>
+                    </div>''')
+    return "\n".join(cards)
+
+
+def post_list(posts, level="root", limit=None, cards=False):
+    visible = published_posts(posts)
+    if limit:
+        visible = visible[:limit]
+    if not visible:
+        return '<p>Writing coming soon.</p>'
+
+    if cards:
+        rows = []
+        for p in visible:
+            category = p.get("category", "")
+            cat = f'<span class="article-category">{e(category)}</span>' if category else ""
+            rows.append(f"""
+                <article class="article-card">
+                    <div class="article-meta-line">
+                        <span>{e(p.get('date', ''))}</span>
+                        {cat}
+                    </div>
+                    <h3><a href="{post_href(p, level)}">{e(p['title'])}</a></h3>
+                    <p class="article-excerpt">{e(excerpt(p))}</p>
+                    <a class="read-more" href="{post_href(p, level)}">Read article →</a>
+                </article>""")
+        return f'<div class="writing-grid">{"".join(rows)}</div>'
+
+    rows = []
+    for p in visible:
+        category = p.get("category", "")
+        cat = f'<span class="article-category">{e(category)}</span>' if category else ""
+        rows.append(f"""
+            <li class="article-card mb-3">
+                <div class="article-meta-line"><span>{e(p.get('date', ''))}</span>{cat}</div>
+                <h3><a href="{post_href(p, level)}">{e(p['title'])}</a></h3>
+                <p class="article-excerpt">{e(excerpt(p))}</p>
+                <a class="read-more" href="{post_href(p, level)}">Read article →</a>
+            </li>""")
+    return f'<ul class="list-unstyled li-space-lg">{"".join(rows)}</ul>'
 
 
 def build_home(config, posts):
-    work_items = []
-    for area in config.get("work_areas", []):
-        work_items.append(f"""
-        <div class="work-item">
-            <h3>{e(area['title'])}</h3>
-            <p>{e(area['description'])}</p>
-        </div>""")
-
-    owner = config["owner"]
     site = config["site"]
-
-    return f"""{build_head('Home', config)}
-{build_header(config, 'index')}
-<main>
-    <div class="hero">
-        <div class="tagline">{e(site['tagline'])}</div>
-        <h1>{e(owner['name'])}</h1>
-        <p>{e(site['intro'])}</p>
+    owner = config["owner"]
+    return f'''{head('Home', config)}
+<body data-bs-spy="scroll" data-bs-target="#navbarExample">
+{nav(config, 'index')}
+<header id="header" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5">
+                <div class="text-container">
+                    <div class="section-title">{e(site.get('tagline', 'Developer / Systems Architect'))}</div>
+                    <h1 class="h1-large">{e(owner.get('name', site['title']))}</h1>
+                    <p class="p-large">{e(site.get('intro', ''))}</p>
+                    <a class="btn-solid-lg" href="about.html">About</a>
+                    <a class="quote" href="contact.html"><i class="fas fa-paper-plane"></i>Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-7">
+                <div class="image-container">
+                    <img class="img-fluid" src="images/header-illustration.svg" alt="Developer site illustration">
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="section">
-        <div class="section-label">What I work on</div>
-        <div class="work-grid">{''.join(work_items)}</div>
+</header>
+<div id="services" class="cards-1">
+    <div class="container">
+        <div class="row"><div class="col-lg-12"><h2 class="h2-heading">What I work on</h2></div></div>
+        <div class="row"><div class="col-lg-12">{work_cards(config)}</div></div>
     </div>
-
-    <div class="section">
-        <div class="section-label">Selected writing</div>
-        <ul class="post-list">{build_post_items(posts, include_category=True)}</ul>
-        <p style="margin-top:1rem;font-size:0.9rem;"><a href="writing.html">All writing →</a></p>
+</div>
+<div id="writing" class="basic-1 bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">Selected writing</div>
+                <h2>Technical notes from the work</h2>
+                <div class="featured-writing">{post_list(posts, 'root', limit=3, cards=True)}</div>
+                <a class="btn-solid-reg" href="writing.html">All writing</a>
+            </div>
+        </div>
     </div>
-
-    <div class="zee-note">
-        Project work is handled through <a href="{e(owner.get('zee_url', '#'))}" target="_blank" rel="noopener noreferrer">Zee Creative</a>.
+</div>
+<div id="contact" class="form-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="h2-heading"><span>Project work is handled through</span><br>Zee Creative</h2>
+                <p class="p-heading">For technical conversations, speaking opportunities, or project inquiries, get in touch directly.</p>
+                <ul class="list-unstyled li-space-lg">
+                    <li><i class="fas fa-map-marker-alt"></i> &nbsp;{e(owner.get('location', ''))}</li>
+                    <li><i class="fas fa-globe"></i> &nbsp;<a href="{e(owner.get('zee_url', 'https://zeecreative.com'))}" target="_blank" rel="noopener">Zee Creative</a></li>
+                    <li><i class="fas fa-envelope"></i> &nbsp;<a href="contact.html">Contact Julie</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-</main>
-{build_footer(config)}"""
+</div>
+{footer(config)}
+{scripts()}'''
+
+
+def extra_header(title):
+    return f'''
+    <header class="ex-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>{e(title)}</h1>
+                </div>
+            </div>
+        </div>
+    </header>'''
 
 
 def build_about(config):
-    owner = config["owner"]
     about = config.get("about", {})
-    paragraphs = "".join(f"<p>{e(p)}</p>" for p in about.get("body", []))
-    skills = about.get("skills", [])
-    skill_items = "".join(f"<li>{e(skill)}</li>" for skill in skills)
-    skill_block = f"<h2>Technical range</h2><ul>{skill_items}</ul>" if skills else ""
-
-    return f"""{build_head('About', config)}
-{build_header(config, 'about')}
-<main>
-    <div class="page-content">
-        <h1>About</h1>
-        {paragraphs}
-        {skill_block}
-        <div class="zee-note">
-            Client project work is handled through <a href="{e(owner.get('zee_url', '#'))}" target="_blank" rel="noopener noreferrer">Zee Creative</a>.
+    body = "\n".join(f"<p>{e(p)}</p>" for p in about.get("body", []))
+    skills = "".join(f'<span class="skill-pill">{e(s)}</span>' for s in about.get("skills", []))
+    skill_block = f'<h2 class="mb-3">Technical range</h2><div class="skill-cloud">{skills}</div>' if skills else ""
+    return f'''{head('About', config)}
+<body>
+{nav(config, 'about', extra_page=True)}
+{extra_header('About')}
+<div class="ex-basic-1 pt-5 pb-5">
+    <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
+        <div class="interior-card">
+            {body}
+            {skill_block}
+            <a class="btn-solid-reg mb-5" href="contact.html">Contact</a>
         </div>
-    </div>
-</main>
-{build_footer(config)}"""
+    </div></div></div>
+</div>
+{footer(config)}
+{scripts()}'''
 
 
-def build_writing_index(config, posts):
-    return f"""{build_head('Writing', config)}
-{build_header(config, 'writing')}
-<main>
-    <div class="page-content">
-        <h1>Writing</h1>
-        <ul class="post-list">{build_post_items(posts, include_category=False)}</ul>
-    </div>
-</main>
-{build_footer(config)}"""
-
-
-def render_post_body(post):
-    body = post.get("body", [])
-    if isinstance(body, list):
-        return "".join(f"<p>{e(paragraph)}</p>" for paragraph in body)
-    return f"<p>{e(body)}</p>"
-
-
-def build_post(config, post):
-    return f"""{build_head(post['title'], config)}
-{build_header(config, 'writing')}
-<main>
-    <article>
-        <h1>{e(post['title'])}</h1>
-        <div class="article-meta">{e(post.get('date', ''))} · {e(post.get('category', 'Systems'))}</div>
-        {render_post_body(post)}
-    </article>
-</main>
-{build_footer(config)}"""
+def build_writing(config, posts):
+    return f'''{head('Writing', config)}
+<body>
+{nav(config, 'writing', extra_page=True)}
+{extra_header('Writing')}
+<div class="ex-basic-1 pt-5 pb-5">
+    <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
+        <div class="interior-card">
+            <p class="interior-lede">Technical writing on WordPress systems, data integrations, accessibility, and real production constraints.</p>
+            {post_list(posts, 'root', cards=True)}
+        </div>
+    </div></div></div>
+</div>
+{footer(config)}
+{scripts()}'''
 
 
 def build_contact(config):
-    owner = config["owner"]
+    owner = config.get("owner", {})
     contact = config.get("contact", {})
-    email = owner.get("email", "")
-    email_block = ""
-    if email:
-        email_block = f'<a class="email-link" href="mailto:{e(email)}">{e(email)}</a>'
-    else:
-        email_block = '<p class="email-link">Contact through Zee Creative</p>'
+    return f'''{head('Contact', config)}
+<body>
+{nav(config, 'contact', extra_page=True)}
+{extra_header('Contact')}
+<div class="ex-basic-1 pt-5 pb-5">
+    <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
+        <div class="interior-card">
+            <p class="interior-lede">{e(contact.get('intro', 'For technical conversations or project inquiries.'))}</p>
+            <p>{e(contact.get('routing_note', 'Most client project work is handled through Zee Creative.'))}</p>
+            <p><a class="btn-solid-reg" href="{e(owner.get('zee_url', 'https://zeecreative.com'))}" target="_blank" rel="noopener">Zee Creative</a></p>
+        </div>
+    </div></div></div>
+</div>
+{footer(config)}
+{scripts()}'''
 
-    return f"""{build_head('Contact', config)}
-{build_header(config, 'contact')}
-<main>
-    <div class="page-content">
-        <h1>Contact</h1>
-        <p>{e(contact.get('intro', 'For technical conversations or project inquiries.'))}</p>
-        <div class="contact-block">
-            {email_block}
-            <p style="font-size:0.9rem;color:var(--muted);">{e(contact.get('routing_note', ''))}</p>
-        </div>
-        <div class="zee-note">
-            Project work is handled through <a href="{e(owner.get('zee_url', '#'))}" target="_blank" rel="noopener noreferrer">Zee Creative</a>.
-        </div>
-    </div>
-</main>
-{build_footer(config)}"""
+
+def build_post(config, post):
+    body = "\n".join(f"<p>{e(p)}</p>" for p in post.get("body", []))
+    return f'''{head(post['title'], config, level='nested', description=post.get('body', [''])[0] if post.get('body') else None)}
+<body>
+{nav(config, 'writing', level='nested', extra_page=True)}
+{extra_header(post['title'])}
+<div class="ex-basic-1 pt-5 pb-5">
+    <div class="container"><div class="row"><div class="col-xl-10 offset-xl-1">
+        <article class="article-shell">
+            <div class="article-meta-line">
+                <span>{e(post.get('date', ''))}</span>
+                <span class="article-category">{e(post.get('category', 'Systems'))}</span>
+            </div>
+            <div class="article-body">
+                {body}
+            </div>
+            <div class="article-actions">
+                <a class="btn-solid-reg mt-4" href="../writing.html">Back to writing</a>
+            </div>
+        </article>
+    </div></div></div>
+</div>
+{footer(config, level='nested')}
+{scripts(level='nested')}'''
 
 
 def write_text(path, content):
@@ -378,29 +457,27 @@ def write_text(path, content):
 
 
 def build_site(config, posts):
-    out = Path(OUTPUT_DIR)
-    if out.exists():
-        shutil.rmtree(out)
-    out.mkdir(parents=True)
-    (out / "writing").mkdir(parents=True, exist_ok=True)
+    if OUTPUT_DIR.exists():
+        shutil.rmtree(OUTPUT_DIR)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    copy_assets()
 
     pages_built = 0
-    write_text(out / "index.html", build_home(config, posts)); pages_built += 1
-    write_text(out / "about.html", build_about(config)); pages_built += 1
-    write_text(out / "writing.html", build_writing_index(config, posts)); pages_built += 1
-    write_text(out / "contact.html", build_contact(config)); pages_built += 1
+    write_text(OUTPUT_DIR / "index.html", build_home(config, posts)); pages_built += 1
+    write_text(OUTPUT_DIR / "about.html", build_about(config)); pages_built += 1
+    write_text(OUTPUT_DIR / "writing.html", build_writing(config, posts)); pages_built += 1
+    write_text(OUTPUT_DIR / "contact.html", build_contact(config)); pages_built += 1
 
     for post in published_posts(posts):
-        write_text(out / "writing" / f"{post['slug']}.html", build_post(config, post))
-        pages_built += 1
+        write_text(OUTPUT_DIR / "writing" / f"{post['slug']}.html", build_post(config, post)); pages_built += 1
 
-    write_text(out / ".nojekyll", "")
+    write_text(OUTPUT_DIR / ".nojekyll", "")
     return pages_built
 
 
 def push():
-    subprocess.run(["git", "add", OUTPUT_DIR], check=True)
-    result = subprocess.run(["git", "diff", "--cached", "--quiet"], check=False)
+    subprocess.run(["git", "add", "docs"], check=True)
+    result = subprocess.run(["git", "diff", "--cached", "--quiet"])
     if result.returncode == 0:
         print("No changes to commit.")
         return
@@ -410,24 +487,18 @@ def push():
 
 
 def ask_to_push():
-    answer = input("Push to GitHub now? [y/N]: ").strip().lower()
-    return answer in {"y", "yes"}
+    return input("Push to GitHub now? [y/N]: ").strip().lower() in ("y", "yes")
 
 
 def main():
     print("Loading config...")
     config = load_config()
-    validate_config(config)
-
-    print("Loading posts...")
+    print("Loading content...")
     posts = load_posts()
-    visible = published_posts(posts)
-    print(f"Found {len(posts)} posts ({len(visible)} published).")
-
-    print("Building site...")
-    pages_built = build_site(config, posts)
-    print(f"Build complete. {pages_built} page(s) generated in '{OUTPUT_DIR}/'.")
-
+    print(f"Found {len(posts)} posts ({len(published_posts(posts))} published)")
+    print("Building Zinc template site...")
+    pages = build_site(config, posts)
+    print(f"Build complete. {pages} page(s) generated in '{OUTPUT_DIR}/'.")
     if ask_to_push():
         push()
     else:
