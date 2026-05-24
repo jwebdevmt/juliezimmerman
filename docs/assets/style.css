@@ -45,7 +45,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%
 }
 
 body::before {
@@ -509,6 +510,16 @@ pre {
 }
 
 @media (max-width: 900px) {
+  body::after,
+  .hero::before,
+  .section.hex-accent::after { 
+    display: none;
+  } 
+  
+  .hero-visual { 
+	overflow: hidden; 
+  } 
+  
   .hero {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -592,10 +603,3 @@ pre {
   border-top: 1px solid var(--border-color);
 }
 
-.hero-visual::before {
-  display:none;
-}
-
-.hero-visual::after {
-  display:none;
-}
