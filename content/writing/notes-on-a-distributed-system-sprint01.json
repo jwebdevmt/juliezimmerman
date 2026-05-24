@@ -1,0 +1,22 @@
+{
+  "title": "Notes on a Distributed System",
+  "date": "2026-05-24",
+  "category": "AI Systems",
+  "published": true,
+  "excerpt": "A practical reflection on distributed AI review systems, drift detection, structural humility, and preserving human accountability inside long-context workflows.",
+  "body": [
+    "The AI council started less as a product idea and more as a practical workaround for a recurring operational problem: long-term projects accumulate cognitive blind spots.",
+    "Any sufficiently complex system eventually develops drift. Assumptions stop getting challenged. Emotional state affects prioritization. Familiar workflows become invisible. A single operator working alone slowly becomes both architect and feedback loop at the same time.",
+    "That arrangement works surprisingly poorly on long-running projects.",
+    "The council architecture was an attempt to externalize some of that processing. Instead of treating language models as authorities, the system treats them as bounded perspective nodes operating under intentionally different review pressures. One node may focus on compression and signal density. Another may stress-test assumptions and identify failure modes. Another may focus on synthesis, pacing, emotional continuity, or structural coherence.",
+    "None of the nodes are treated as correct by default. The value emerges from comparison, disagreement, and structured review.",
+    "That distinction matters operationally. A single AI conversation can easily become self-reinforcing. A distributed review structure introduces friction, conflicting interpretations, and opportunities for drift detection before bad assumptions compound across the whole project.",
+    "The architecture itself remains intentionally lightweight. There is no orchestration engine, autonomous agent layer, or hidden automation framework coordinating the work. The continuity layer is still human: assigning tasks, preserving context, evaluating outputs, deciding what survives synthesis, and remaining accountable for implementation decisions.",
+    "The council does not replace judgment. It redistributes cognitive load.",
+    "The system also fails regularly. Language models overstate confidence, mirror framing errors, generate plausible nonsense, and drift toward abstraction or grandiosity when left unconstrained. That behavior is predictable enough that some review nodes are intentionally tasked with adversarial functions such as drift detection, framing-error identification, and pressure testing emotionally satisfying conclusions.",
+    "Structural humility became one of the most important design principles in the system. Every node is fallible. Every synthesis may contain error. Convergence between multiple reviewers is not proof of correctness. Sometimes convergence reflects useful cross-checking. Sometimes it reflects overlapping training patterns or shared framing assumptions. Either way, convergence creates an opportunity for additional scrutiny rather than automatic trust.",
+    "In practice, the council works best as structured cognitive support instead of decision authority. Humans still remain responsible for implementation, verification, prioritization, and consequences. The system assists with cognitively expensive but operationally ordinary tasks: reviewing drafts, comparing revisions, summarizing large conversational surfaces, identifying inconsistencies, detecting tone drift, and surfacing risks that may have become normalized inside a project.",
+    "In some ways, the architecture behaves more like software infrastructure than conversation. Different nodes specialize in different tasks. Redundancy increases fault tolerance. Constraints reduce runaway behavior. External review improves resilience.",
+    "The system works best when no single node becomes the unquestioned source of truth. That includes the human operator too."
+  ]
+}
