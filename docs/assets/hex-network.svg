@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 460">
+<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#53C2B0"/><stop offset=".55" stop-color="#4DB4FF"/><stop offset="1" stop-color="#6F78D8"/></linearGradient></defs>
+<g fill="none" stroke="url(#g)" stroke-width="3">
+<path d="M80 90h80l40 69-40 69H80l-40-69z"/>
+<path d="M230 55h120l60 104-60 104H230l-60-104z" opacity=".65"/>
+<path d="M390 150h92l46 80-46 80h-92l-46-80z"/>
+<path d="M125 270h110l55 95-55 95H125l-55-95z" opacity=".7"/>
+<path d="M330 300h80l40 69-40 69h-80l-40-69z"/>
+</g>
+<g stroke="url(#g)" stroke-width="2" opacity=".65">
+<path d="M160 90L230 55M200 159h170M482 230l-72 139M235 365h95"/>
+</g>
+<g fill="url(#g)">
+<circle cx="160" cy="90" r="6"/><circle cx="200" cy="159" r="6"/><circle cx="370" cy="159" r="6"/><circle cx="482" cy="230" r="6"/><circle cx="410" cy="369" r="6"/><circle cx="330" cy="365" r="6"/><circle cx="235" cy="365" r="6"/>
+</g>
+</svg>

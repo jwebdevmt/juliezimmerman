@@ -1,0 +1,39 @@
+<main>
+  <section class="site-shell hero">
+    <div class="hero-copy">
+      <p class="hero-eyebrow">{{ tagline }}</p>
+      <img class="hero-logo" src="assets/jz-logo.svg" alt="{{ owner_name }}">
+      <h1><span>Practical</span><span>systems</span><span>work.</span></h1>
+      <p class="hero-lede">{{ intro }}</p>
+      <div class="hero-actions">
+        <a class="button primary" href="writing.html">Read the writing</a>
+        <a class="button" href="about.html">About the work</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="visual-caption">long-context systems · practical infrastructure · inspectable process</div>
+    </div>
+  </section>
+
+  <section class="site-shell section hex-accent">
+    <div class="section-header">
+      <p class="eyebrow">What I work on</p>
+      <h2>Operationally grounded technical work.</h2>
+      <p class="section-intro">The common thread is reliability under load: finding where systems fail, simplifying the moving parts, and making the process understandable enough to maintain months later.</p>
+    </div>
+
+    <div class="grid three">
+      {{ work_cards }}
+    </div>
+  </section>
+
+  <section class="site-shell section">
+    <div class="section-header">
+      <p class="eyebrow">Writing</p>
+      <h2>Recent notes and articles.</h2>
+    </div>
+    <div class="grid two">
+      {{ recent_articles }}
+    </div>
+  </section>
+</main>
