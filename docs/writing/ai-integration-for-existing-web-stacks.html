@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Integration for Existing Web Stacks | Julie Zimmerman</title>
-  <meta name="description" content="Most AI projects fail because they try to replace systems instead of improving them.">
+  <meta name="description" content="Useful AI integration usually starts with existing infrastructure, real bottlenecks, and clear human ownership—not a replacement fantasy.">
   <link rel="stylesheet" href="../assets/style.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
@@ -36,10 +36,14 @@
   <article class="article-layout">
     <p class="eyebrow">AI Tooling · 2026-01-15</p>
     <h1>AI Integration for Existing Web Stacks</h1>
-    <p>Most AI projects fail because they try to replace systems instead of improving them.</p>
-<p>Effective integration starts with existing infrastructure. AI should remove friction or add capability.</p>
-<p>Examples include malware remediation, content generation within constraints, prompt libraries, and automation pipelines.</p>
-<p>The key question is whether the integration removes a real bottleneck or adds maintenance overhead.</p>
+    <p>Most AI integration fails when it starts with replacement instead of workflow.</p>
+<p>Existing web stacks already have constraints: hosting limits, CMS behavior, client approval paths, plugin dependencies, old data structures, team habits, and maintenance windows. Dropping AI into that environment without understanding the existing system usually adds another moving part instead of removing friction.</p>
+<p>The better question is smaller: where is the bottleneck?</p>
+<p>Sometimes the bottleneck is content production, where AI can create a first draft but still needs human grounding before it becomes client-ready. Sometimes it is malware remediation, where pattern recognition and scripted checks can speed up triage without replacing final verification. Sometimes it is synthetic data, where generated edge cases help test import logic before real client data is touched. Sometimes it is documentation, where a model can summarize a long technical thread into notes a manager or developer can actually use.</p>
+<p>In each case, the useful integration is bounded. It has a defined task, a review point, and a human owner responsible for the result.</p>
+<p>A good AI workflow also needs constraints around it. Language models are very good at producing plausible output. Plausible is not the same thing as correct. For existing web stacks, that means AI output should usually pass through the same checks as any other operational change: does it match the client context, does it preserve the current workflow, does it introduce maintenance overhead, and can someone else understand it later?</p>
+<p>The most useful AI work I have done has been practical rather than dramatic: prompt libraries for repeatable client content tasks, review workflows across multiple context windows, small plugins or scripts built to solve specific operational problems, and documentation support for technical decisions that otherwise would stay buried in chat history.</p>
+<p>The goal is not autonomy. The goal is leverage. A useful AI integration reduces repetitive cognitive overhead while keeping the system visible, inspectable, and owned by the people responsible for it.</p>
     <p class="article-back"><a class="button" href="../writing.html">Back to writing</a></p>
   </article>
 </main>

@@ -591,11 +591,3 @@ pre {
   padding-top: 1.25rem;
   border-top: 1px solid var(--border-color);
 }
-
-.hero-visual::before {
-  display:none;
-}
-
-.hero-visual::after {
-  display:none;
-}
