@@ -6,9 +6,6 @@
   <title>{{ title }} | {{ site_title }}</title>
   <meta name="description" content="{{ description }}">
   <link rel="stylesheet" href="{{ asset_prefix }}assets/style.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
-  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
   <script>
