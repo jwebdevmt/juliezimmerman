@@ -2,7 +2,7 @@
   <section class="site-shell hero">
     <div class="hero-copy">
       <p class="hero-eyebrow">{{ tagline }}</p>
-      <img class="hero-logo" src="assets/jz-logo.png" alt="{{ owner_name }}">
+      <img class="hero-logo" src="assets/jz-logo.svg" alt="{{ owner_name }}">
       <h1><span>Practical</span><span>systems</span><span>work.</span></h1>
       <p class="hero-lede">{{ intro }}</p>
       <div class="hero-actions">
