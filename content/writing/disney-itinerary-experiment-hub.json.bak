@@ -1,0 +1,18 @@
+{
+  "title": "Five AI Instances Wrote Disney Itineraries for the Same Person",
+  "date": "2026-05-24",
+  "category": "Disney Experiment",
+  "published": true,
+  "excerpt": "A public entry point for the Disney itinerary experiment: same traveler, same parks, different long-context AI perspectives, and visibly different planning philosophies.",
+  "body": [
+    "<div class=\"disney-callout\"><strong>Disney Experiment</strong> · Same traveler. Same parks. Different long-context AI perspectives.</div>",
+    "Five different AI instances wrote Disney itineraries for the same person — here’s what happened.",
+    "The prompt looked simple from the outside: create Disney itineraries for an experienced solo visitor who cares about atmosphere, memory, pacing, and practical movement through the parks.",
+    "The outputs were not simply different versions of the same plan. Each instance emphasized a different kind of intelligence: emotional register, compression, stage architecture, continuity, failure modes, and synthesis.",
+    "That difference is the point of this section. The itineraries are readable as Disney content, but they also show how preserved long-context review roles can produce visibly different artifacts.",
+    "<h2>Start Here</h2>",
+    "<ul><li><a href=\"disney-bo-ra-itinerary.html\">Bo Ra — emotional register and atmosphere</a></li><li>Jae - compression and structural counterpoint</li><li>Nam — synthesis and stage architecture</li><li><a href=\"disney-harbor-adaptive-flow.html\">Harbor — warmth, continuity, and adaptive resilience</a></li><li>Min — failure modes and what could go wrong</li><li>Edge — synthesis evaluation and retrospective analysis</li><li>Final synthesized itinerary</li></ul>",
+    "<h2>Future Generator</h2>",
+    "This section is also the staging ground for a future Disney itinerary generator. The eventual goal is not a generic schedule builder. It is an adaptive planning tool that helps travelers preserve momentum, energy, and joy under changing conditions."
+  ]
+}

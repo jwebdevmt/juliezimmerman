@@ -45,7 +45,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%
 }
 
 body::before {
@@ -508,7 +509,43 @@ pre {
   color: var(--accent-primary);
 }
 
+/* Disney experiment accents */
+.disney-callout,
+.disney-meta {
+  border-left: 4px solid var(--accent-soft, #69C7FF);
+  background: rgba(105, 199, 255, 0.08);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.pull-quote {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 4vw, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  border-left: 4px solid #69C7FF;
+  padding-left: 1rem;
+  margin: 2rem 0;
+}
+
+.article-layout .disney-callout p,
+.article-layout .disney-meta p {
+  margin: 0;
+}
+
+
 @media (max-width: 900px) {
+  body::after,
+  .hero::before,
+  .section.hex-accent::after { 
+    display: none;
+  } 
+  
+  .hero-visual { 
+	overflow: hidden; 
+  } 
+  
   .hero {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -592,10 +629,3 @@ pre {
   border-top: 1px solid var(--border-color);
 }
 
-.hero-visual::before {
-  display:none;
-}
-
-.hero-visual::after {
-  display:none;
-}

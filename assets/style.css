@@ -509,6 +509,113 @@ pre {
   color: var(--accent-primary);
 }
 
+/* Disney experiment accents */
+.disney-callout,
+.disney-meta {
+  border-left: 4px solid var(--accent-soft, #69C7FF);
+  background: rgba(105, 199, 255, 0.08);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+}
+
+.pull-quote {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 4vw, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  border-left: 4px solid #69C7FF;
+  padding-left: 1rem;
+  margin: 2rem 0;
+}
+
+.article-layout .disney-callout p,
+.article-layout .disney-meta p {
+  margin: 0;
+}
+
+
+/* Council page header */
+.council-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(105, 199, 255, 0.22);
+}
+
+.council-role-label {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft, #69C7FF);
+}
+
+.council-header h1 {
+  margin: 0 0 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.council-subtitle {
+  max-width: 48rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.council-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.council-keywords span {
+  border: 1px solid rgba(105, 199, 255, 0.35);
+  background: rgba(105, 199, 255, 0.08);
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+}
+
+.council-header-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.council-header-visual img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .council-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .council-header-visual {
+    justify-content: flex-start;
+  }
+
+  .council-header-visual img {
+    max-width: 150px;
+  }
+}
+
+
 @media (max-width: 900px) {
   body::after,
   .hero::before,
