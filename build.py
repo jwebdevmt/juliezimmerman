@@ -8,6 +8,7 @@ from pathlib import Path
 OUTPUT_DIR = Path("docs")
 CONFIG_FILE = Path("config.json")
 CONTENT_DIR = Path("content") / "writing"
+ADAPTIVE_DIR = Path("content") / "adaptive-experiences"
 ASSETS_DIR = Path("assets")
 TEMPLATES_DIR = Path("templates")
 CNAME_FILE = Path("CNAME")
@@ -22,21 +23,41 @@ def load_config():
         return json.load(f)
 
 
+def load_json_files(folder, label):
+    items = []
+    seen = set()
+
+    if not folder.exists():
+        return items
+
+    for path in folder.glob("*.json"):
+        slug = path.stem
+
+        if slug in seen:
+            raise RuntimeError(f"Slug collision detected in {label}: {slug}")
+
+        seen.add(slug)
+
+        try:
+            with path.open("r", encoding="utf-8") as f:
+                item = json.load(f)
+        except json.JSONDecodeError as err:
+            print(f"Skipping {path.name}: malformed JSON — {err}")
+            continue
+
+        item["slug"] = slug
+        items.append(item)
+
+    items.sort(key=lambda p: p.get("date", ""), reverse=True)
+    return items
+
+
 def load_posts():
-    posts = []
+    return load_json_files(CONTENT_DIR, "writing")
 
-    if not CONTENT_DIR.exists():
-        return posts
 
-    for path in CONTENT_DIR.glob("*.json"):
-        with path.open("r", encoding="utf-8") as f:
-            post = json.load(f)
-
-        post["slug"] = path.stem
-        posts.append(post)
-
-    posts.sort(key=lambda p: p.get("date", ""), reverse=True)
-    return posts
+def load_adaptive_pages():
+    return load_json_files(ADAPTIVE_DIR, "adaptive-experiences")
 
 
 def published_posts(posts):
@@ -48,12 +69,9 @@ def excerpt(post, words=34):
         return post["excerpt"]
 
     body = post.get("body", [])
-    if isinstance(body, list) and body:
-        text = body[0]
-    else:
-        text = str(body or "")
-
+    text = str(body[0]) if isinstance(body, list) and body else str(body or "")
     bits = text.split()
+
     if len(bits) <= words:
         return text
 
@@ -76,39 +94,58 @@ def render(template, **values):
 
 
 def asset_prefix(level="root"):
-    return "../" if level == "nested" else ""
+    if level == "nested":
+        return "../"
+    if level == "deep":
+        return "../../"
+    return ""
 
 
 def page_href(slug, level="root"):
     prefix = asset_prefix(level)
+
     if slug == "index":
         return f"{prefix}index.html"
     if slug == "writing":
         return f"{prefix}writing.html"
+    if slug == "adaptive-experiences":
+        return f"{prefix}adaptive-experiences/index.html"
+
     return f"{prefix}{slug}.html"
 
 
 def post_href(post, level="root"):
+    return f"{asset_prefix(level)}writing/{post['slug']}.html"
+
+
+def adaptive_href(page, level="root"):
     prefix = asset_prefix(level)
-    return f"{prefix}writing/{post['slug']}.html"
+
+    if page["slug"] == "index":
+        return f"{prefix}adaptive-experiences/index.html"
+
+    return f"{prefix}adaptive-experiences/{page['slug']}/index.html"
 
 
 def nav_links(config, active="index", level="root"):
     rows = []
+
     for item in config.get("nav", []):
         slug = item.get("slug", "")
         label = item.get("label", slug.title())
         active_class = " active" if slug == active else ""
-        rows.append(f'<a class="nav-link{active_class}" href="{page_href(slug, level)}">{e(label)}</a>')
+
+        rows.append(
+            f'<a class="nav-link{active_class}" href="{page_href(slug, level)}">{e(label)}</a>'
+        )
+
     return "\n        ".join(rows)
 
 
 def base_page(config, title, description, content, active="index", level="root"):
     site = config.get("site", {})
     owner = config.get("owner", {})
-
     template = read_template("base.html")
-    prefix = asset_prefix(level)
 
     return render(
         template,
@@ -116,7 +153,7 @@ def base_page(config, title, description, content, active="index", level="root")
         description=e(description or site.get("intro") or site.get("tagline") or ""),
         site_title=e(site.get("title", "Julie Zimmerman")),
         owner_name=e(owner.get("name", site.get("title", "Julie Zimmerman"))),
-        asset_prefix=prefix,
+        asset_prefix=asset_prefix(level),
         nav_links=nav_links(config, active, level),
         content=content,
         footer_note=e(site.get("tagline", "WordPress systems, data integrations, and practical problem-solving")),
@@ -138,6 +175,7 @@ def article_card(post, level="root"):
 
 def work_cards(config):
     cards = []
+
     for area in config.get("work_areas", []):
         title = e(area.get("title", "Work"))
         description = e(area.get("description", ""))
@@ -146,6 +184,7 @@ def work_cards(config):
           <h3>{title}</h3>
           <p>{description}</p>
         </article>''')
+
     return "\n".join(cards)
 
 
@@ -179,7 +218,9 @@ def paragraphs(items):
 def skill_cloud(skills):
     if not skills:
         return ""
+
     pills = "\n".join(f'<span class="skill-pill">{e(skill)}</span>' for skill in skills)
+
     return f'''<section class="skill-cloud" aria-label="Technical skills">
 {pills}
 </section>'''
@@ -248,15 +289,21 @@ def build_contact(config):
     return base_page(config, "Contact", "Contact Julie Zimmerman", content, active="contact")
 
 
-def build_post(config, post):
+def render_body(items):
     body_parts = []
-    for item in post.get("body", []):
+
+    for item in items:
         text = str(item)
         if text.strip().startswith("<"):
             body_parts.append(text)
         else:
             body_parts.append(f"<p>{e(text)}</p>")
-    body = "\n".join(body_parts)
+
+    return "\n".join(body_parts)
+
+
+def build_post(config, post):
+    body = render_body(post.get("body", []))
 
     content = f'''<main class="site-shell">
   <article class="article-layout">
@@ -268,7 +315,66 @@ def build_post(config, post):
 </main>'''
 
     desc = post.get("excerpt") or (post.get("body", [""])[0] if post.get("body") else "")
+
     return base_page(config, post.get("title", "Untitled"), desc, content, active="writing", level="nested")
+
+
+def build_adaptive_index(config, pages):
+    index_page = next((p for p in pages if p["slug"] == "index"), None)
+
+    if index_page:
+        title = index_page.get("title", "Adaptive Experiences")
+        desc = index_page.get("excerpt", "Adaptive Experiences")
+        body = render_body(index_page.get("body", []))
+    else:
+        title = "Adaptive Experiences"
+        desc = "Adaptive Experiences"
+        body = "<p>Adaptive Experiences explores systems designed around real human behavior rather than ideal conditions.</p>"
+
+    links = []
+
+    for page in published_posts(pages):
+        if page["slug"] == "index":
+            continue
+
+        href = adaptive_href(page, level="nested")
+        links.append(f'<li><a href="{href}">{e(page.get("title", "Untitled"))}</a></li>')
+
+    links_html = ""
+
+    if links:
+        links_html = f'''<h2>Pages</h2>
+<ul>
+  {"".join(links)}
+</ul>'''
+
+    content = f'''<main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Adaptive Experiences</p>
+    <h1>{e(title)}</h1>
+    {body}
+    {links_html}
+  </article>
+</main>'''
+
+    return base_page(config, title, desc, content, active="adaptive-experiences", level="nested")
+
+
+def build_adaptive_page(config, page):
+    body = render_body(page.get("body", []))
+
+    content = f'''<main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Adaptive Experiences</p>
+    <h1>{e(page.get("title", "Untitled"))}</h1>
+    {body}
+    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+  </article>
+</main>'''
+
+    desc = page.get("excerpt") or (page.get("body", [""])[0] if page.get("body") else "")
+
+    return base_page(config, page.get("title", "Untitled"), desc, content, active="adaptive-experiences", level="deep")
 
 
 def copy_assets():
@@ -276,8 +382,10 @@ def copy_assets():
         raise FileNotFoundError("Missing assets/ folder. Copy the theme assets into assets/ first.")
 
     dest = OUTPUT_DIR / "assets"
+
     if dest.exists():
         shutil.rmtree(dest)
+
     shutil.copytree(ASSETS_DIR, dest)
 
 
@@ -286,7 +394,7 @@ def write_text(path, content):
     path.write_text(content, encoding="utf-8")
 
 
-def build_site(config, posts):
+def build_site(config, posts, adaptive_pages):
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
 
@@ -307,8 +415,27 @@ def build_site(config, posts):
     write_text(OUTPUT_DIR / "contact.html", build_contact(config))
     count += 1
 
+    write_text(
+        OUTPUT_DIR / "adaptive-experiences" / "index.html",
+        build_adaptive_index(config, adaptive_pages)
+    )
+    count += 1
+
     for post in published_posts(posts):
-        write_text(OUTPUT_DIR / "writing" / f"{post['slug']}.html", build_post(config, post))
+        write_text(
+            OUTPUT_DIR / "writing" / f"{post['slug']}.html",
+            build_post(config, post)
+        )
+        count += 1
+
+    for page in published_posts(adaptive_pages):
+        if page["slug"] == "index":
+            continue
+
+        write_text(
+            OUTPUT_DIR / "adaptive-experiences" / page["slug"] / "index.html",
+            build_adaptive_page(config, page)
+        )
         count += 1
 
     write_text(OUTPUT_DIR / ".nojekyll", "")
@@ -320,14 +447,20 @@ def build_site(config, posts):
 
 
 def push():
-    subprocess.run(["git", "add", "build.py", "assets", "templates", "docs"], check=True)
+    subprocess.run(
+        ["git", "add", "build.py", "assets", "templates", "docs", "content", "config.json"],
+        check=True
+    )
 
     result = subprocess.run(["git", "diff", "--cached", "--quiet"])
     if result.returncode == 0:
         print("No changes to commit.")
         return
 
-    subprocess.run(["git", "commit", "-m", f"Build {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=True)
+    subprocess.run(
+        ["git", "commit", "-m", f"Build {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
+        check=True
+    )
     subprocess.run(["git", "push"], check=True)
     print("Pushed to GitHub Pages.")
 
@@ -345,8 +478,13 @@ def main():
     visible = published_posts(posts)
     print(f"Found {len(posts)} posts ({len(visible)} published).")
 
+    print("Loading adaptive experiences...")
+    adaptive_pages = load_adaptive_pages()
+    visible_adaptive = published_posts(adaptive_pages)
+    print(f"Found {len(adaptive_pages)} adaptive pages ({len(visible_adaptive)} published).")
+
     print("Building modern theme site...")
-    count = build_site(config, posts)
+    count = build_site(config, posts, adaptive_pages)
 
     print(f"Build complete. {count} page(s) generated in '{OUTPUT_DIR}/'.")
 
