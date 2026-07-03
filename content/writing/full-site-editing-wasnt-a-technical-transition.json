@@ -1,0 +1,20 @@
+{
+  "title": "Full Site Editing Wasn't a Technical Transition. It Was a Mental One.",
+  "date": "2026-07-02",
+  "category": "WordPress",
+  "published": true,
+  "excerpt": "Full Site Editing changed more than templates. It changed assumptions about who controls structure, how organizations govern design, and what editors actually need access to.",
+  "body": [
+    "For years, WordPress development operated under an implicit contract.",
+    "Content lived inside pages.",
+    "Themes controlled presentation.",
+    "Widgets occupied designated spaces.",
+    "Menus existed independently.",
+    "Templates were developer territory.",
+    "Editors changed text. Developers changed structure.",
+    "Over time, page builders emerged because those boundaries became increasingly difficult for editors to navigate.",
+    "Clients wanted more flexibility, agencies wanted greater consistency, and developers found themselves creating custom solutions simply to bridge the gap between content and design.",
+    "Full Site Editing represents WordPress's attempt to rethink that entire model.",
+    "...remaining paragraphs..."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Cleaning Up a Hacked WordPress Site: A Practical Recovery Process",
+  "date": "2026-07-02",
+  "category": "Security",
+  "published": true,
+  "excerpt": "Recovering a compromised WordPress site is rarely about deleting a few malicious files. Effective recovery depends on preserving evidence, understanding persistence, and building repeatable cleanup processes.",
+  "body": [
+    "Compromised WordPress sites rarely announce themselves dramatically.",
+    "More often they appear as small inconsistencies.",
+    "An unfamiliar plugin.",
+    "A strange administrator account.",
+    "Unexpected redirects.",
+    "Modified theme files.",
+    "Suspicious PHP inside uploads.",
+    "The instinct is often to delete everything immediately.",
+    "Experience suggests a different approach.",
+    "Preserve evidence before beginning remediation whenever possible.",
+    "...remaining article paragraphs..."
+  ]
+}
