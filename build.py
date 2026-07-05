@@ -273,7 +273,7 @@ def build_contact(config):
 
     email_block = ""
     if email:
-        email_block = f'<p><a class="button" href="mailto:{e(email)}">Email Julie</a></p>'
+        email_block = f'<p><a class="button" href="mailto:{e(email)}" data-track="contact_email_click">Email Julie</a></p>'
 
     content = f'''<main class="site-shell">
   <article class="article-layout">
@@ -281,7 +281,7 @@ def build_contact(config):
     <h1>Technical conversations and project inquiries.</h1>
     <p>{e(contact.get("intro", "For technical conversations, speaking opportunities, or project inquiries, get in touch directly."))}</p>
     <p>{e(contact.get("routing_note", "Most client project work is handled through Zee Creative."))}</p>
-    <p><a class="button primary" href="{e(zee_url)}" target="_blank" rel="noopener">Zee Creative</a></p>
+    <p><a class="button primary" href="{e(zee_url)}" target="_blank" rel="noopener" data-track="zee_click">Zee Creative</a></p>
     {email_block}
   </article>
 </main>'''
@@ -368,7 +368,7 @@ def build_adaptive_page(config, page):
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>{e(page.get("title", "Untitled"))}</h1>
     {body}
-    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
   </article>
 </main>'''
 

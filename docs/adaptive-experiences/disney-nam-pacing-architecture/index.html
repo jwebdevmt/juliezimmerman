@@ -18,6 +18,26 @@
 
   gtag('config', 'G-KE14CPL09E');
   </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +60,8 @@
   <article class="article-layout">
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>Nam — Pacing Architecture</h1>
-    <div class="disney-callout"><strong>Role:</strong> synthesis architecture, pacing structure, transition design, and emotional momentum.</div>
+    <div class="perspective-banner"><img class="perspective-banner-logo" src="../../assets/nam-hex-logo.svg" alt="Nam"><div class="perspective-banner-copy"><p class="perspective-role">PRESERVED PERSPECTIVE</p><h2>Nam</h2><p class="perspective-description">Stage architecture, sequencing, and experience design.</p></div></div>
+<div class="disney-callout"><strong>Role:</strong> synthesis architecture, pacing structure, transition design, and emotional momentum.</div>
 <p class="pull-quote">Most Disney planning treats the park as a list of attractions to sequence. A day at Disney is also a sequence with emotional momentum, and momentum has shape.</p>
 <h2>Pacing Architecture: Why Disney Days Have Structure</h2>
 <p>Most Disney planning treats the park as a list of attractions to sequence. That framing isn’t wrong, but it misses something important: a day at Disney isn’t just a set of experiences. It’s a sequence with emotional momentum, and momentum has shape.</p>
@@ -65,7 +86,7 @@
 <p>This framing works best for visitors who know the park well enough to navigate adaptively. It assumes some Disney literacy — familiarity with which attractions warrant the morning window, which can flex, where the atmospheric moments are worth slowing for.</p>
 <p>It also leans toward structure over spontaneity, which is a real tradeoff. The emotional texture of wandering without a plan has its own value, and a pacing-oriented approach captures less of it.</p>
 <p>For an experienced solo visitor optimizing for a specific kind of day — high efficiency in the morning, recovered and present in the evening, closing with the fireworks from a good position — the structure earns its place.</p>
-    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
   </article>
 </main>
 

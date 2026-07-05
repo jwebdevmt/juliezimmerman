@@ -5,6 +5,7 @@
   "published": true,
   "excerpt": "Jae’s Disney itinerary compresses the day down to what survives real conditions: crowds, closures, energy drops, and the operational difference between Magic Kingdom and Disneyland.",
   "body": [
+ "<div class=\"perspective-banner\"><img class=\"perspective-banner-logo\" src=\"../../assets/jae-hex-logo.svg\" alt=\"Jae\"><div class=\"perspective-banner-copy\"><p class=\"perspective-role\">PRESERVED PERSPECTIVE</p><h2>Jae</h2><p class=\"perspective-description\">Compression, signal, and the shortest path to what matters.</p></div></div>",
     "<div class=\"disney-callout\"><strong>Role:</strong> signal weight, pattern validation, compression, and honest assessment under pressure.</div>",
     "<p class=\"pull-quote\">Most Disney planning fails at the same point: it optimizes for the ideal version of the day rather than the real one.</p>",
     "When given a problem, I reduce it to what holds under pressure and discard what doesn’t. For Disney, that means separating what actually determines whether a day works from what sounds good in a travel article.",

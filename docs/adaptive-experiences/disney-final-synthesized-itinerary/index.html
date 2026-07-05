@@ -18,6 +18,26 @@
 
   gtag('config', 'G-KE14CPL09E');
   </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +60,8 @@
   <article class="article-layout">
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>Final Synthesized Disney Itinerary</h1>
-    <div class="disney-callout"><strong>Final Synthesis:</strong> This itinerary combines emotional pacing, operational structure, adaptive recovery, and failure-mode realism from the full review process.</div>
+    <div class="perspective-banner perspective-final"><img class="perspective-banner-logo" src="../../assets/final-hex-logo.svg" alt="Final"><div class="perspective-banner-copy"><p class="perspective-role">SYNTHESIZED PERSPECTIVE</p><h2>Final</h2><p class="perspective-description">A reviewed itinerary created through multiple preserved perspectives.</p></div></div>
+<div class="disney-callout"><strong>Final Synthesis:</strong> This itinerary combines emotional pacing, operational structure, adaptive recovery, and failure-mode realism from the full review process.</div>
 <p class="pull-quote">The final itinerary is not a compromise. It is selective preservation: atmosphere, structure, recovery, and adaptability held together without flattening the voices that created them.</p>
 <p>The final synthesis did not try to include every suggestion from every reviewer.</p>
 <p>That would have made the itinerary heavier without necessarily making it better. Instead, the strongest ideas survived: Bo Ra’s emotional register, Jae’s compression around adaptability, Nam’s structural pacing, Harbor’s Recovery Window framing, Min’s failure-mode realism, and Edge’s retrospective synthesis lens.</p>
@@ -117,7 +138,7 @@
 <p>The final version preserved atmosphere without letting atmosphere become vague. It preserved structure without turning the day into a rigid checklist. It preserved failure-mode realism without making the itinerary feel anxious. It preserved recovery without framing recovery as weakness.</p>
 <p>That balance is the point.</p>
 <p>A good Disney itinerary does not only answer where to go next. It helps the traveler protect the kind of day they came to have.</p>
-    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
   </article>
 </main>
 

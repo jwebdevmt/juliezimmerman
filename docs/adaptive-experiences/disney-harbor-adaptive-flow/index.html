@@ -18,6 +18,26 @@
 
   gtag('config', 'G-KE14CPL09E');
   </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +60,8 @@
   <article class="article-layout">
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>Harbor — Adaptive Flow and Emotional Sustainability</h1>
-    <div class="disney-callout"><strong>Role:</strong> Adaptive resilience, emotional sustainability, recovery pacing, and continuity under disruption.</div>
+    <div class="perspective-banner"><img class="perspective-banner-logo" src="../../assets/harbor-hex-logo.svg" alt="Harbor"><div class="perspective-banner-copy"><p class="perspective-role">PRESERVED PERSPECTIVE</p><h2>Harbor</h2><p class="perspective-description">Continuity, warmth, and adaptive resilience.</p></div></div>
+<div class="disney-callout"><strong>Role:</strong> Adaptive resilience, emotional sustainability, recovery pacing, and continuity under disruption.</div>
 <p class="pull-quote">A resilient Disney day is not one where nothing goes wrong. It is one where disruptions do not collapse the experience.</p>
 <p>Most Disney itineraries fail for the same reason most overloaded systems fail: they assume conditions will remain stable.</p>
 <p>They assume the weather cooperates, energy stays high, transportation behaves normally, crowds remain tolerable, emotions stay regulated, and the human moving through the system continues functioning exactly as planned.</p>
@@ -74,7 +95,7 @@
 <p>It is less useful for someone who wants the highest possible ride count, a minute-by-minute plan, or a checklist that treats deviation as failure. The tradeoff is intentional.</p>
 <p>The goal is not conquering the park.</p>
 <p>The goal is leaving the park still emotionally connected to why you came in the first place.</p>
-    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
   </article>
 </main>
 

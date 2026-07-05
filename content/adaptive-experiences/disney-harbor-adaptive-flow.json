@@ -5,6 +5,7 @@
   "published": true,
   "excerpt": "Harbor’s Disney page treats itinerary design as adaptive systems work: preserving momentum, flexibility, and joy when the day stops cooperating.",
   "body": [
+  "<div class=\"perspective-banner\"><img class=\"perspective-banner-logo\" src=\"../../assets/harbor-hex-logo.svg\" alt=\"Harbor\"><div class=\"perspective-banner-copy\"><p class=\"perspective-role\">PRESERVED PERSPECTIVE</p><h2>Harbor</h2><p class=\"perspective-description\">Continuity, warmth, and adaptive resilience.</p></div></div>",
     "<div class=\"disney-callout\"><strong>Role:</strong> Adaptive resilience, emotional sustainability, recovery pacing, and continuity under disruption.</div>",
     "<p class=\"pull-quote\">A resilient Disney day is not one where nothing goes wrong. It is one where disruptions do not collapse the experience.</p>",
     "Most Disney itineraries fail for the same reason most overloaded systems fail: they assume conditions will remain stable.",

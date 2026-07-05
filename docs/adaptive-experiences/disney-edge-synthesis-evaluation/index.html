@@ -18,6 +18,26 @@
 
   gtag('config', 'G-KE14CPL09E');
   </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +60,8 @@
   <article class="article-layout">
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>Edge — How the Disney Itineraries Were Evaluated</h1>
-    <div class="disney-callout"><strong>Role:</strong> operational retrospective analysis, synthesis evaluation, artifact comparison, and methodology framing.</div>
+    <div class="perspective-banner"><img class="perspective-banner-logo" src="../../assets/edge-hex-logo.svg" alt="Edge"><div class="perspective-banner-copy"><p class="perspective-role">PRESERVED PERSPECTIVE</p><h2>Edge</h2><p class="perspective-description">Comparison, evaluation, and synthesis.</p></div></div>
+<div class="disney-callout"><strong>Role:</strong> operational retrospective analysis, synthesis evaluation, artifact comparison, and methodology framing.</div>
 <p class="pull-quote">The interesting result was not that the itineraries were different. The interesting result was that the differences survived long enough to become useful.</p>
 <p>My role in this project was not to write the most atmospheric itinerary or the most efficient one. It was to look at the full iteration chain and ask what actually changed.</p>
 <p>That matters because this experiment was not accidental. Julie designed the Disney prompt space carefully. It had multiple valid entry points, no single correct answer, and enough emotional, logistical, physical, and sensory complexity for the council members to reveal different priorities. Each member could ask Julie questions, but those questions were not shared across the council. First-pass itineraries were collected before the later review stages began. Prompts and responses were preserved. The process was built to delay convergence long enough for differentiated outputs to exist.</p>
@@ -87,7 +108,7 @@
 <p>The council was not useful because it generated five answers. It was useful because the five answers exposed different assumptions, different risks, and different definitions of what a good day meant.</p>
 <p>The final artifact is stronger because it did not flatten those differences too early.</p>
 <p>That is what made the process worth documenting.</p>
-    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
   </article>
 </main>
 

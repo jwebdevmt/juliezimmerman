@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plan Your Disney Day | Julie Zimmerman</title>
+  <meta name="description" content="A Disney itinerary intake form built around feeling, constraints, pacing, group dynamics, and what would genuinely make the day work.">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../../index.html">
+        <img class="brand-mark" src="../../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../../index.html">Home</a>
+        <a class="nav-link" href="../../about.html">About</a>
+        <a class="nav-link" href="../../writing.html">Writing</a>
+        <a class="nav-link active" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="../../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Adaptive Experiences</p>
+    <h1>Plan Your Disney Day</h1>
+    <p>Some Disney plans start with a list of rides. This one starts with what kind of day you are trying to create.</p>
+
+<div class="disney-callout"><strong>Plan Your Disney Day</strong> · This form is designed around what actually matters to your group, not just a list of attractions.</div>
+<form class="disney-form" id="disneyPlannerForm">
+  <div class="form-section">
+    <div class="section-label">Your Trip</div>
+    <div class="field">
+      <label>Which park or parks?</label>
+      <div class="park-grid">
+        <label><input type="checkbox" name="park" value="Magic Kingdom"> Magic Kingdom</label>
+        <label><input type="checkbox" name="park" value="EPCOT"> EPCOT</label>
+        <label><input type="checkbox" name="park" value="Hollywood Studios"> Hollywood Studios</label>
+        <label><input type="checkbox" name="park" value="Animal Kingdom"> Animal Kingdom</label>
+        <label><input type="checkbox" name="park" value="Disneyland"> Disneyland</label>
+        <label><input type="checkbox" name="park" value="Disney California Adventure"> Disney California Adventure</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="travel_dates">When are you going?</label>
+      <p class="hint">Month and approximate dates help account for crowds, seasonal events, and what is actually running.</p>
+      <input type="text" id="travel_dates" name="travel_dates" placeholder="e.g. October 15–18, or early July">
+    </div>
+
+    <div class="field">
+      <label for="days">How many days in the park?</label>
+      <input type="text" id="days" name="days" placeholder="e.g. 2">
+    </div>
+
+    <div class="field">
+      <label for="group_composition">Who is coming?</label>
+      <p class="hint">Include ages for children. It helps make the plan realistic.</p>
+      <textarea id="group_composition" name="group_composition" placeholder="e.g. Two adults, one 6-year-old, one 3-year-old"></textarea>
+    </div>
+
+    <div class="field">
+      <label>How familiar is your group with this park?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="experience" value="First visit"> First visit</label>
+        <label><input type="radio" name="experience" value="A few visits"> We have been a few times</label>
+        <label><input type="radio" name="experience" value="Experienced"> We know it well</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-label">What This Day Is For</div>
+
+    <div class="field">
+      <label for="feeling">What feeling are you hoping to create?</label>
+      <p class="hint">One sentence is enough. Examples: “My daughter wants to feel like a princess for a day” / “I want to cover as much as possible” / “We want to slow down and actually enjoy it.”</p>
+      <textarea id="feeling" name="feeling" placeholder="Describe the kind of day you are hoping for"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="non_negotiable">Is there one thing that absolutely has to happen?</label>
+      <p class="hint">A ride, character meeting, meal, or experience. If skipping it would genuinely disappoint someone, put it here.</p>
+      <textarea id="non_negotiable" name="non_negotiable" placeholder="e.g. My daughter needs to meet Ariel. This is the whole reason we are here."></textarea>
+    </div>
+  </div>
+
+  <button type="button" class="accordion-trigger" id="advancedToggle">
+    <span>Help us understand how your day needs to work.</span>
+    <span class="arrow">▼</span>
+  </button>
+
+  <div class="accordion-content" id="advancedContent">
+    <div class="field">
+      <label for="sensory">Does anyone in your group have sensory sensitivities?</label>
+      <p class="hint">Loud sounds, sudden motion, physical restraint, crowds — anything worth knowing.</p>
+      <textarea id="sensory" name="sensory" placeholder="e.g. Our youngest gets overwhelmed by loud announcements in enclosed spaces"></textarea>
+    </div>
+
+    <div class="field">
+      <label>Are there young children who may struggle with transitions?</label>
+      <p class="hint">Helps build smoother pacing and fewer abrupt changes between activities.</p>
+      <div class="radio-group">
+        <label><input type="radio" name="transitions" value="Yes"> Yes, transitions are hard</label>
+        <label><input type="radio" name="transitions" value="Sometimes"> Sometimes, depends on energy levels</label>
+        <label><input type="radio" name="transitions" value="No"> Not really</label>
+        <label><input type="radio" name="transitions" value="N/A"> No young children in our group</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Do you want meal and snack breaks built into the schedule?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="meals" value="Frequent"> Yes, regularly — especially with young kids</label>
+        <label><input type="radio" name="meals" value="Meals only"> Just main meals</label>
+        <label><input type="radio" name="meals" value="Flexible"> We will figure it out as we go</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="unspoken">Is there anything that would genuinely disappoint someone if it did not happen?</label>
+      <p class="hint">Different from the non-negotiable above — this is the thing someone has not said out loud but would feel.</p>
+      <textarea id="unspoken" name="unspoken" placeholder="e.g. My mom has never been to Disney and will not say so, but seeing the castle at night would mean everything to her"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="other">Anything else we should know?</label>
+      <textarea id="other" name="other" placeholder="Mobility considerations, dietary needs, group dynamics, anything that shapes how your day needs to work"></textarea>
+    </div>
+  </div>
+
+  <div class="submit-section">
+    <button type="submit" class="button primary">Send My Request</button>
+    <p class="submit-note">This opens an email with your answers. You can review before sending.</p>
+    <div class="form-confirmation" id="formConfirmation">Your email app should open with the itinerary request filled in.</div>
+  </div>
+</form>
+
+<script>
+(function () {
+  const trigger = document.getElementById('advancedToggle');
+  const content = document.getElementById('advancedContent');
+  const form = document.getElementById('disneyPlannerForm');
+  const confirmation = document.getElementById('formConfirmation');
+
+  if (trigger && content) {
+    trigger.addEventListener('click', function() {
+      const isOpen = content.classList.contains('open');
+      content.classList.toggle('open', !isOpen);
+      trigger.classList.toggle('open', !isOpen);
+      if (!isOpen && window.jzTrackEvent) {
+        window.jzTrackEvent('disney_advanced_open', { page_path: window.location.pathname });
+      }
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const parks = data.getAll('park').join(', ');
+      const lines = [
+        'Disney itinerary request',
+        '',
+        'Parks: ' + parks,
+        'Dates: ' + (data.get('travel_dates') || ''),
+        'Days: ' + (data.get('days') || ''),
+        'Group: ' + (data.get('group_composition') || ''),
+        'Experience: ' + (data.get('experience') || ''),
+        '',
+        'Feeling they want to create:',
+        data.get('feeling') || '',
+        '',
+        'Non-negotiable:',
+        data.get('non_negotiable') || '',
+        '',
+        'Sensory considerations:',
+        data.get('sensory') || '',
+        '',
+        'Transitions:',
+        data.get('transitions') || '',
+        '',
+        'Meals/snacks:',
+        data.get('meals') || '',
+        '',
+        'Unspoken disappointment:',
+        data.get('unspoken') || '',
+        '',
+        'Other notes:',
+        data.get('other') || ''
+      ];
+
+      if (window.jzTrackEvent) {
+        window.jzTrackEvent('disney_request', { page_path: window.location.pathname });
+      }
+
+      if (confirmation) {
+        confirmation.classList.add('visible');
+      }
+
+      const subject = encodeURIComponent('Disney itinerary request');
+      const body = encodeURIComponent(lines.join('\n'));
+      window.location.href = 'mailto:jwebdevmt@gmail.com?subject=' + subject + '&body=' + body;
+    });
+  }
+})();
+</script>
+
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../../assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../../about.html">About</a>
+        <a href="../../writing.html">Writing</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

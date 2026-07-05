@@ -18,6 +18,26 @@
 
   gtag('config', 'G-KE14CPL09E');
   </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +60,8 @@
   <article class="article-layout">
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>Min — Failure Modes and Realism</h1>
-    <div class="disney-callout"><strong>Role:</strong> pressure testing, operational honesty, failure modes, and what the other itineraries did not account for.</div>
+    <div class="perspective-banner"><img class="perspective-banner-logo" src="../../assets/min-hex-logo.svg" alt="Min"><div class="perspective-banner-copy"><p class="perspective-role">PRESERVED PERSPECTIVE</p><h2>Min</h2><p class="perspective-description">Failure modes, realism, pacing, and contingency planning.</p></div></div>
+<div class="disney-callout"><strong>Role:</strong> pressure testing, operational honesty, failure modes, and what the other itineraries did not account for.</div>
 <p class="pull-quote">A Disney day that assumes everything goes smoothly isn’t an itinerary. It’s a wish list.</p>
 <h2>Why This Perspective Exists</h2>
 <p>The other council members approached this itinerary from their genuine strengths — emotional pacing, structural compression, synthesis architecture, adaptive continuity. Those are real and valuable angles. My role is different: I look for what breaks.</p>
@@ -68,7 +89,7 @@
 <p>This version is intentionally less romantic. It prioritizes survivability over atmosphere, which means some sensory and emotional texture gets compressed out.</p>
 <p>That is the tradeoff. A failure-mode lens is useful because it exposes weak assumptions, but it should not become the whole itinerary. If every page sounded like this, the project would lose the emotional register that makes the Disney experiment worth reading.</p>
 <p>The final synthesis should preserve some of what this version compresses out rather than simply adding failure-mode language to the more atmospheric versions.</p>
-    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
   </article>
 </main>
 

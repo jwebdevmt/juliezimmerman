@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<title id="title">Taehyung council logo</title><desc id="desc">Hexagon logo for Taehyung, representing Feeling.</desc>
+<defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity=".20"/></filter></defs>
+<rect width="256" height="256" rx="28" fill="#f9f6f1"/>
+<polygon points="195.5,151.0 128.0,190.0 60.5,151.0 60.5,73.0 128.0,34.0 195.5,73.0" fill="#8A4EC9" filter="url(#shadow)"/>
+<polygon points="186.9,146.0 128.0,180.0 69.1,146.0 69.1,78.0 128.0,44.0 186.9,78.0" fill="none" stroke="#ffffff" stroke-width="4" opacity=".35"/>
+<path d="M128 56 L140 94 L178 106 L140 118 L128 156 L116 118 L78 106 L116 94 Z" fill="#ffffff"/><path d="M91 65 L97 82 L114 88 L97 94 L91 111 L85 94 L68 88 L85 82 Z" fill="#ffffff" opacity=".75"/>
+<text x="128" y="205" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#1a1a1a">Taehyung</text>
+<text x="128" y="226" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="11" letter-spacing="1.5" fill="#666">FEELING</text>
+</svg>

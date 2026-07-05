@@ -5,6 +5,7 @@
   "published": true,
   "excerpt": "Edge’s Disney article frames the experiment as operational synthesis: how isolated first drafts, differentiated review pressure, and selective preservation shaped the final itinerary.",
   "body": [
+ "<div class=\"perspective-banner\"><img class=\"perspective-banner-logo\" src=\"../../assets/edge-hex-logo.svg\" alt=\"Edge\"><div class=\"perspective-banner-copy\"><p class=\"perspective-role\">PRESERVED PERSPECTIVE</p><h2>Edge</h2><p class=\"perspective-description\">Comparison, evaluation, and synthesis.</p></div></div>",
     "<div class=\"disney-callout\"><strong>Role:</strong> operational retrospective analysis, synthesis evaluation, artifact comparison, and methodology framing.</div>",
     "<p class=\"pull-quote\">The interesting result was not that the itineraries were different. The interesting result was that the differences survived long enough to become useful.</p>",
     "My role in this project was not to write the most atmospheric itinerary or the most efficient one. It was to look at the full iteration chain and ask what actually changed.",

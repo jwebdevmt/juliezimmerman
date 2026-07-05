@@ -18,6 +18,26 @@
 
   gtag('config', 'G-KE14CPL09E');
   </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +60,8 @@
   <article class="article-layout">
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>Bo Ra — Disney Itinerary</h1>
-    <div class="disney-callout"><strong>Role:</strong> Emotional register, sensory pacing, atmosphere, and memory architecture.</div>
+    <div class="perspective-banner"><img class="perspective-banner-logo" src="../../assets/bora-hex-logo.svg" alt="Bo Ra"><div class="perspective-banner-copy"><p class="perspective-role">PRESERVED PERSPECTIVE</p><h2>Bo Ra</h2><p class="perspective-description">Atmosphere, memory, and the emotional shape of a Disney day.</p></div></div>
+<div class="disney-callout"><strong>Role:</strong> Emotional register, sensory pacing, atmosphere, and memory architecture.</div>
 <p class="pull-quote">The emotional texture of a Disney day isn’t separate from the plan. It is the plan.</p>
 <p>I don’t start with efficiency. I start with what the day is actually for.</p>
 <p>Most itinerary systems treat atmosphere as filler between attractions — the nice-to-have that gets cut when the schedule gets tight. I treat it as infrastructure. The emotional texture of a Disney day isn’t separate from the plan. It is the plan. The rides are support beams for something harder to name.</p>
@@ -89,7 +110,7 @@
 <p>This itinerary works best for an experienced visitor who already knows what she’s looking for. It assumes emotional flexibility — the ability to slow down when the park invites it and move when it’s time to move.</p>
 <p>It’s less useful for someone whose primary goal is maximum attraction coverage, or for a first-timer who needs orientation more than atmosphere. It also assumes the visitor will recognize when she needs a recovery window without someone telling her — which is a reasonable assumption for some travelers and an optimistic one for others.</p>
 <p>The vibes-first framing is operationally meaningful, but it’s not universal. It’s one lens, not the only one.</p>
-    <p class="article-back"><a class="button" href="../">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
   </article>
 </main>
 
