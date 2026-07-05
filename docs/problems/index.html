@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Problems I&#x27;ve Solved | Julie Zimmerman</title>
+  <meta name="description" content="Examples of what happens when software assumptions stop matching reality — and the architectural decisions that came out of it.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../index.html">
+        <img class="brand-mark" src="../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="../about.html">About</a>
+        <a class="nav-link" href="../writing.html">Writing</a>
+        <a class="nav-link active" href="../problems/index.html">Problems</a>
+        <a class="nav-link" href="../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Problems I've Solved</p>
+    <h1>Problems I&#x27;ve Solved</h1>
+    <p><em>Reality does not read documentation.</em></p>
+<p>Most software assumes organizations behave rationally, consistently, and according to process. In practice, people compete, inherit systems they don&#x27;t understand, develop workarounds, and continue operating long after the software assumptions stop matching reality.</p>
+<p>Much of my career has been spent at that collision point.</p>
+<p>These are examples of systems where assumptions stopped matching reality — and the architectural decisions that followed.</p>
+<div class="problem-grid">
+  <article class="problem-card"><span class="tag">Architecture</span><h2>When Software Assumes Cooperation</h2><p>Four campuses. One shared system. Real competition for enrollment funding. The architecture assumed cooperation. Reality did not.</p><p><a class="button" href="../problems/when-software-assumes-cooperation/index.html">Read more</a></p></article>
+  <article class="problem-card"><span class="tag">Reliability</span><h2>Building Reliability Into Scheduled Systems</h2><p>Recurring jobs disappear silently. Imports stop. Data goes stale. Nobody notices until a support ticket arrives.</p><p><a class="button" href="../problems/reliability-engineering-for-systems-that-dont-fail-loudly/index.html">Read more</a></p></article>
+  <article class="problem-card"><span class="tag">Security</span><h2>Recognizing a Web Shell Before You Know What It Is</h2><p>A theme we did not install. A strange folder name. A file called database.php. Recognition before full identification.</p><p><a class="button" href="../problems/recognizing-a-web-shell/index.html">Read more</a></p></article>
+  <article class="problem-card"><span class="tag">AI Coordination</span><h2>AI as Team, Not Tool</h2><p>Multiple AI instances, differentiated roles, decisions that stay human. What coordination actually looks like in practice.</p><p><a class="button" href="../problems/ai-as-team-not-tool/index.html">Read more</a></p></article>
+  <article class="problem-card"><span class="tag">Site Health</span><h2>Measuring What Aging Looks Like</h2><p>Health is not the absence of errors. Sites accumulate drift long before they fail.</p><p><a class="button" href="/problems/measuring-what-aging-looks-like/index.html">Read more</a></p></article>
+</div>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../about.html">About</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

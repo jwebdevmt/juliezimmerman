@@ -1,0 +1,22 @@
+{
+  "title": "When Software Assumes Cooperation",
+  "date": "2026-07-04",
+  "category": "Problems",
+  "excerpt": "Shared infrastructure built for cooperation deployed into an environment defined by competition.",
+  "body": [
+    "Some systems are built on assumptions that don't survive contact with reality.",
+    "A shared university information system is designed to serve an institution. It assumes that the people using it share goals, share data, and benefit from visibility into each other's operations. That assumption works until it doesn't.",
+    "The system I was asked to work with served four campuses of a single university across a geographically large, sparsely populated state. The campuses had been separate institutions before consolidation. After consolidation, they shared infrastructure \u2014 but not interests. State funding was tied to enrollment. Students choosing one campus were students not choosing another. The campuses competed directly for the same population.",
+    "The shared Oracle system didn't know this. It was built for cooperation. It made everyone's enrollment data visible to everyone else.",
+    "That visibility had real consequences. A campus that could see another campus's enrollment pipeline could target those prospects directly. Funding that depended on enrollment numbers could be affected by what competitors knew and when they knew it.",
+    "The fix wasn't a policy. Policy relies on people following rules. The fix had to be architectural.",
+    "Working from a test instance, I evaluated the entire system \u2014 web layer, Oracle database, Oracle Forms, overnight maintenance jobs \u2014 to determine what could be separated and what needed to remain shared. Some data genuinely belonged to the whole institution: shared course equivalency evaluations, transfer credit structures, institutional records that all four campuses needed to access. Separating those would have broken things that needed to work.",
+    "Other data \u2014 enrollment pipelines, prospect records, registration activity \u2014 belonged to each campus individually. Sharing it wasn't a feature. It was a liability.",
+    "I built duplicate table structures within the system for each campus, isolating the competitive data while preserving the shared institutional layer. The separation had to survive software upgrades, which meant the architecture needed to be documented clearly enough that future maintainers could understand what was intentional and what was legacy.",
+    "After the test instance confirmed the approach worked, we moved to the live system.",
+    "The practical outcome: four campuses could operate on shared infrastructure without exposing competitive information to each other. The software finally matched the reality it was serving.",
+    "The less expected outcome: other clients of the same software vendor reached out asking how it was done. The problem wasn't unique to this institution. It was a category of problem the software hadn't been designed for \u2014 and others were trying to solve it too.",
+    "The principle that came out of it: when software assumes cooperation and reality contains competition, the fix belongs at the architecture level. Policy won't hold. People under competitive pressure will find the data if it's there to find. The only reliable protection is that the data isn't there."
+  ],
+  "published": true
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Recognizing a Web Shell Before You Know What It Is",
+  "date": "2026-07-04",
+  "category": "Problems",
+  "excerpt": "Detection through expected state rather than malware signatures.",
+  "body": [
+    "The site wasn't one we managed. We were brought in to look at it, and the first thing I did was pull it to a local environment.",
+    "Something was wrong before I could name it. There was a theme installed that we hadn't put there. The folder name was strange \u2014 not the kind of name a legitimate theme developer uses. The folder date didn't match anything else on the site.",
+    "I opened it. The first file was called database.php.",
+    "That combination \u2014 unfamiliar name, suspicious date, a file called database.php sitting at the root of a theme folder \u2014 was enough. Before I confirmed what I was looking at, I knew it wasn't supposed to be there.",
+    "It was an AnonSec web shell. A full attacker control panel embedded inside what appeared to be a WordPress theme: file browsing, shell command execution, mass defacement tools, persistence mechanisms. Anyone who had placed it there had complete control of the site.",
+    "The immediate response was straightforward: change all passwords, perform a malware scan, remove the theme. We documented the incident thoroughly before remediation \u2014 the structure of the shell, the capabilities it exposed, the indicators of how it had been placed. Deeper forensic investigation is available to the client if they want it.",
+    "The likely entry point was a vulnerability in a plugin, though a user upload couldn't be ruled out entirely. That uncertainty matters: the same outcome can arrive through different doors, which means the response has to address the category of problem, not just the specific instance.",
+    "The direct outcome of this investigation was a decision to build a theme whitelist plugin. The pattern was clear: unexpected themes installed by means outside normal workflow are a reliable indicator of compromise. A plugin that monitors installed themes against an approved manifest and flags or removes anything not on the list addresses the category \u2014 not by detecting known malware signatures, but by detecting unexpected presence.",
+    "The principle that came out of it: known-good state is a powerful security control. You don't need to know every possible attack if you know exactly what's supposed to be there. Anything else is worth investigating.",
+    "The web shell was distinctive. The response was straightforward. The tool being built from it is designed to make the next detection happen before someone has to recognize an unfamiliar folder name and a file called database.php."
+  ],
+  "published": true
+}

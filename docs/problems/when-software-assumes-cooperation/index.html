@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>When Software Assumes Cooperation | Julie Zimmerman</title>
+  <meta name="description" content="Shared infrastructure built for cooperation deployed into an environment defined by competition.">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../../index.html">
+        <img class="brand-mark" src="../../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../../index.html">Home</a>
+        <a class="nav-link" href="../../about.html">About</a>
+        <a class="nav-link" href="../../writing.html">Writing</a>
+        <a class="nav-link active" href="../../problems/index.html">Problems</a>
+        <a class="nav-link" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="../../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Problems I've Solved</p>
+    <h1>When Software Assumes Cooperation</h1>
+    <p>Some systems are built on assumptions that don&#x27;t survive contact with reality.</p>
+<p>A shared university information system is designed to serve an institution. It assumes that the people using it share goals, share data, and benefit from visibility into each other&#x27;s operations. That assumption works until it doesn&#x27;t.</p>
+<p>The system I was asked to work with served four campuses of a single university across a geographically large, sparsely populated state. The campuses had been separate institutions before consolidation. After consolidation, they shared infrastructure — but not interests. State funding was tied to enrollment. Students choosing one campus were students not choosing another. The campuses competed directly for the same population.</p>
+<p>The shared Oracle system didn&#x27;t know this. It was built for cooperation. It made everyone&#x27;s enrollment data visible to everyone else.</p>
+<p>That visibility had real consequences. A campus that could see another campus&#x27;s enrollment pipeline could target those prospects directly. Funding that depended on enrollment numbers could be affected by what competitors knew and when they knew it.</p>
+<p>The fix wasn&#x27;t a policy. Policy relies on people following rules. The fix had to be architectural.</p>
+<p>Working from a test instance, I evaluated the entire system — web layer, Oracle database, Oracle Forms, overnight maintenance jobs — to determine what could be separated and what needed to remain shared. Some data genuinely belonged to the whole institution: shared course equivalency evaluations, transfer credit structures, institutional records that all four campuses needed to access. Separating those would have broken things that needed to work.</p>
+<p>Other data — enrollment pipelines, prospect records, registration activity — belonged to each campus individually. Sharing it wasn&#x27;t a feature. It was a liability.</p>
+<p>I built duplicate table structures within the system for each campus, isolating the competitive data while preserving the shared institutional layer. The separation had to survive software upgrades, which meant the architecture needed to be documented clearly enough that future maintainers could understand what was intentional and what was legacy.</p>
+<p>After the test instance confirmed the approach worked, we moved to the live system.</p>
+<p>The practical outcome: four campuses could operate on shared infrastructure without exposing competitive information to each other. The software finally matched the reality it was serving.</p>
+<p>The less expected outcome: other clients of the same software vendor reached out asking how it was done. The problem wasn&#x27;t unique to this institution. It was a category of problem the software hadn&#x27;t been designed for — and others were trying to solve it too.</p>
+<p>The principle that came out of it: when software assumes cooperation and reality contains competition, the fix belongs at the architecture level. Policy won&#x27;t hold. People under competitive pressure will find the data if it&#x27;s there to find. The only reliable protection is that the data isn&#x27;t there.</p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../../assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../../about.html">About</a>
+        <a href="../../writing.html">Writing</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

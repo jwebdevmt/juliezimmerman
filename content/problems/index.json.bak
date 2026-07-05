@@ -1,0 +1,14 @@
+{
+  "title": "Problems I've Solved",
+  "date": "2026-07-04",
+  "category": "Problems",
+  "published": true,
+  "excerpt": "Examples of what happens when software assumptions stop matching reality \u2014 and the architectural decisions that came out of it.",
+  "body": [
+    "<p><em>Reality does not read documentation.</em></p>",
+    "Most software assumes organizations behave rationally, consistently, and according to process. In practice, people compete, inherit systems they don't understand, develop workarounds, and continue operating long after the software assumptions stop matching reality.",
+    "Much of my career has been spent at that collision point.",
+    "These are examples of systems where assumptions stopped matching reality \u2014 and the architectural decisions that followed.",
+    "<div class=\"problem-grid\">\n  <article class=\"problem-card\"><span class=\"tag\">Architecture</span><h2>When Software Assumes Cooperation</h2><p>Four campuses. One shared system. Real competition for enrollment funding. The architecture assumed cooperation. Reality did not.</p><p><a class=\"button\" href=\"../problems/when-software-assumes-cooperation/index.html\">Read more</a></p></article>\n  <article class=\"problem-card\"><span class=\"tag\">Reliability</span><h2>Reliability Engineering for Systems That Don't Fail Loudly</h2><p>Recurring jobs disappear silently. Imports stop. Data goes stale. Nobody notices until a support ticket arrives.</p><p><a class=\"button\" href=\"../problems/reliability-engineering-for-systems-that-dont-fail-loudly/index.html\">Read more</a></p></article>\n  <article class=\"problem-card\"><span class=\"tag\">Security</span><h2>Recognizing a Web Shell Before You Know What It Is</h2><p>A theme we did not install. A strange folder name. A file called database.php. Recognition before full identification.</p><p><a class=\"button\" href=\"../problems/recognizing-a-web-shell/index.html\">Read more</a></p></article>\n  <article class=\"problem-card\"><span class=\"tag\">AI Coordination</span><h2>AI as Team, Not Tool</h2><p>Multiple AI instances, differentiated roles, decisions that stay human. What coordination actually looks like in practice.</p><p><a class=\"button\" href=\"../problems/ai-as-team-not-tool/index.html\">Read more</a></p></article>\n  <article class=\"problem-card\"><span class=\"tag\">Site Health</span><h2>Measuring What Aging Looks Like</h2><p>Health is not the absence of errors. Sites accumulate drift long before they fail.</p><p><a class=\"button\" href=\"/problems/measuring-what-aging-looks-like/index.html\">Read more</a></p></article>\n</div>"
+  ]
+}

@@ -13,11 +13,30 @@
   },
 
   "nav": [
-    { "slug": "index", "label": "Home" },
-    { "slug": "about", "label": "About" },
-    { "slug": "writing", "label": "Writing" },
-	{ "slug": "adaptive-experiences", "label": "Adaptive Experiences" },
-    { "slug": "contact", "label": "Contact" }
+    {
+      "slug": "index",
+      "label": "Home"
+    },
+    {
+      "slug": "about",
+      "label": "About"
+    },
+    {
+      "slug": "writing",
+      "label": "Writing"
+    },
+    {
+      "slug": "problems",
+      "label": "Problems"
+    },
+    {
+      "slug": "adaptive-experiences",
+      "label": "Adaptive Experiences"
+    },
+    {
+      "slug": "contact",
+      "label": "Contact"
+    }
   ],
 
   "work_areas": [

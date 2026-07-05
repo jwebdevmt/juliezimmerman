@@ -1,0 +1,17 @@
+{
+  "title": "Measuring What Aging Looks Like",
+  "date": "2026-07-04",
+  "category": "Problems",
+  "excerpt": "The absence of errors is not the presence of health.",
+  "body": [
+    "A site health report that only shows errors misses most of what actually goes wrong with websites.",
+    "Errors are visible. A broken form, a failed payment, a 404 \u2014 these produce complaints. Someone notices and reports it. The fix is reactive but at least it happens.",
+    "What doesn't produce complaints is accumulation. Pages that were accurate two years ago and quietly stopped being true. Images uploaded at full resolution because nobody told anyone they shouldn't be. Themes installed years ago that haven't been updated since. None of these throw errors. None of them trigger alerts. They just make the site slower, harder to maintain, and less accurate over time.",
+    "That's the problem with measuring only failure. The absence of an error is not the presence of health.",
+    "The site health platform I've developed takes a different approach. Instead of asking what is broken, it asks what needs attention. The categories \u2014 content health, technical health, management health, business health \u2014 are designed to surface maturity issues alongside failures. A site can pass every technical check and still score poorly on content lifecycle or management health, because those dimensions measure something different: not whether things are working, but whether things are still true.",
+    "The large file detection feature illustrates why this matters in practice. The system surfaces the largest uploaded files on a site and the attachment sizes associated with individual pages. On one client site, that report exposed a single file over 75 megabytes and more than a thousand files between 20 and 50 megabytes. Nothing was broken. The site loaded. Pages rendered. But the storage footprint was enormous and growing, and page load times on image-heavy content were quietly suffering for it.",
+    "That finding opened a client conversation that wouldn't have happened otherwise. Not because something failed \u2014 because something was measurable that hadn't been measured before.",
+    "The principle that came out of building this: websites age. The job of a health monitoring system isn't only to catch failures. It's to make maturity visible before it becomes a problem someone has to report."
+  ],
+  "published": true
+}

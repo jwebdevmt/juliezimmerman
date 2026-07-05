@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Measuring What Aging Looks Like | Julie Zimmerman</title>
+  <meta name="description" content="The absence of errors is not the presence of health.">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../../index.html">
+        <img class="brand-mark" src="../../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../../index.html">Home</a>
+        <a class="nav-link" href="../../about.html">About</a>
+        <a class="nav-link" href="../../writing.html">Writing</a>
+        <a class="nav-link active" href="../../problems/index.html">Problems</a>
+        <a class="nav-link" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="../../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Problems I've Solved</p>
+    <h1>Measuring What Aging Looks Like</h1>
+    <p>A site health report that only shows errors misses most of what actually goes wrong with websites.</p>
+<p>Errors are visible. A broken form, a failed payment, a 404 — these produce complaints. Someone notices and reports it. The fix is reactive but at least it happens.</p>
+<p>What doesn&#x27;t produce complaints is accumulation. Pages that were accurate two years ago and quietly stopped being true. Images uploaded at full resolution because nobody told anyone they shouldn&#x27;t be. Themes installed years ago that haven&#x27;t been updated since. None of these throw errors. None of them trigger alerts. They just make the site slower, harder to maintain, and less accurate over time.</p>
+<p>That&#x27;s the problem with measuring only failure. The absence of an error is not the presence of health.</p>
+<p>The site health platform I&#x27;ve developed takes a different approach. Instead of asking what is broken, it asks what needs attention. The categories — content health, technical health, management health, business health — are designed to surface maturity issues alongside failures. A site can pass every technical check and still score poorly on content lifecycle or management health, because those dimensions measure something different: not whether things are working, but whether things are still true.</p>
+<p>The large file detection feature illustrates why this matters in practice. The system surfaces the largest uploaded files on a site and the attachment sizes associated with individual pages. On one client site, that report exposed a single file over 75 megabytes and more than a thousand files between 20 and 50 megabytes. Nothing was broken. The site loaded. Pages rendered. But the storage footprint was enormous and growing, and page load times on image-heavy content were quietly suffering for it.</p>
+<p>That finding opened a client conversation that wouldn&#x27;t have happened otherwise. Not because something failed — because something was measurable that hadn&#x27;t been measured before.</p>
+<p>The principle that came out of building this: websites age. The job of a health monitoring system isn&#x27;t only to catch failures. It&#x27;s to make maturity visible before it becomes a problem someone has to report.</p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../../assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../../about.html">About</a>
+        <a href="../../writing.html">Writing</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

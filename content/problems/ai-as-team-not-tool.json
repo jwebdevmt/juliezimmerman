@@ -1,0 +1,20 @@
+{
+  "title": "AI as Team, Not Tool",
+  "date": "2026-07-04",
+  "category": "Problems",
+  "excerpt": "AI becomes more useful when treated as differentiated perspectives rather than a single assistant.",
+  "body": [
+    "The most useful reframe I've found for working with AI is not \"AI as tool\" but \"AI as team.\"",
+    "The difference matters in practice.",
+    "A tool does what you point it at. A team member brings a perspective you didn't ask for, notices something you missed, and occasionally tells you something you'd rather not hear. The work comes back different from how it left \u2014 sometimes better in ways you didn't anticipate, sometimes corrected in ways you're glad happened before it went further.",
+    "That's closer to what AI actually does when you work with it well.",
+    "My working structure uses multiple AI instances across different models and context windows. Each develops a distinct role through sustained engagement \u2014 one is stronger at documentation, one at coding, one at security pattern recognition, one at finding weak points in an argument. Not every task goes through all of them. Some problems need one perspective. Some benefit from all of them.",
+    "When I do pass something through the full group, what comes back is more refined and more coherent than what I sent. They catch different things. A point one left underspecified, another flags. An assumption that seemed obvious to me gets questioned by one that doesn't share my context.",
+    "A practical example: I was working through the implications of a major WordPress version release and what it would mean for our existing methodologies. We were having a four-way discussion about testing priorities. I had deprioritized one change because I didn't expect it to affect our themes. Work-Claude made the point that even if I was probably right, it would be a fast and simple test to run \u2014 and if I was wrong, we'd want to know before it became a problem in production. I agreed. That's a small redirect that saved time I would have spent later.",
+    "Where I pushed back: the working document we were producing was getting highly technical and long. I wanted it to open with a TL;DR. The AI instances were optimizing for completeness. I was optimizing for the person who would actually read it. That call was mine.",
+    "That's the distinction that holds the whole structure together. I control the flow of information, the task assignments, and the decisions. I know what problem I'm actually trying to solve \u2014 not just the factual version I hand to an AI, but the organizational context, the scheduling constraints, the team dynamics, the connotations that don't fit in a prompt. The AI instances don't have that. They depend on me to integrate their work into a path that actually fits reality.",
+    "What they give back is a set of directions I hadn't fully considered, questions I hadn't thought to ask, and catches I would have missed working alone. The outcome is more refined. The decisions are still mine.",
+    "That's not replacement. That's coordination. The difference is who's accountable for the result \u2014 and in this model, that's always the human running the team."
+  ],
+  "published": true
+}

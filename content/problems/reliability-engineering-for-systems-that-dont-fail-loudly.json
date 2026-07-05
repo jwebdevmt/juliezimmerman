@@ -1,0 +1,17 @@
+{
+  "title": "Building Reliability Into Scheduled Systems",
+  "date": "2026-07-02",
+  "category": "Systems",
+  "published": true,
+  "excerpt": "WP-Cron failures rarely announce themselves. They quietly stop scheduled imports, stale listings accumulate, and support tickets arrive days later. Reliability often means designing around silent failure.",
+  "body": [
+    "WordPress's built-in cron system works until it doesn't — and when it stops, it usually stops quietly.",
+	"The setup is common on hosting environments without access to true server-level cron: scheduled imports run through WP-Cron instead, pulling listing data from external APIs (RESO, YourMembership, and similar) into WordPress on a recurring basis. WP-Cron's trigger model means a scheduled task fires on page load rather than on a true system clock, which already introduces some imprecision. The bigger problem is rarer but more damaging: WP-Cron will occasionally drop a recurring event from its schedule entirely, silently, with no log entry indicating anything happened. The job just stops running.",
+	"The data stops updating. Nothing breaks loudly. The failure surfaces days later as a support ticket about stale listings.",
+	"The architecture that prevents this from becoming a data integrity problem has two layers.",
+	"<h2>Ingestion is separated from promotion.</h2> API pulls write into temp tables, not directly into live tables. The import process paginates through the API's results until it signals no more pages remain, then sets a completion flag in the database. A separate cron job watches for that flag and handles moving temp data into live tables. This separation means a partial or interrupted pull — from API throttling, a timeout, a dropped connection — never corrupts what's actually serving the site.",
+	"<h2>A minimum record count gate protects the promotion step.</h2> Before the temp-to-live swap executes, the record count is checked against a minimum threshold. If an API gets throttled mid-pull and returns a fraction of the expected records, the swap simply doesn't happen. The live tables stay intact rather than getting overwritten with an incomplete dataset. This is a small check, but it's the difference between a quiet retry next cycle and silently serving broken data to users.",
+	"<h2>The cron monitoring plugin closes the remaining gap.</h2> It checks whether the specific named jobs that should exist in the WP-Cron schedule actually do. When one is missing — which happens more often than it should, for reasons that aren't always clear — the plugin recreates the schedule entry automatically, restoring the recurring pull without manual intervention.",
+	"None of these are complicated fixes individually. What makes the system reliable is that they address failure at three different points: data quality before promotion, schedule integrity at the source, and silent failure detection across both. A system that fails loudly is frustrating to deal with. A system that fails silently is dangerous, because nothing prompts anyone to look until the damage is already visible."
+  ]
+}

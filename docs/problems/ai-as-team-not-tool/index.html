@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI as Team, Not Tool | Julie Zimmerman</title>
+  <meta name="description" content="AI becomes more useful when treated as differentiated perspectives rather than a single assistant.">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../../index.html">
+        <img class="brand-mark" src="../../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../../index.html">Home</a>
+        <a class="nav-link" href="../../about.html">About</a>
+        <a class="nav-link" href="../../writing.html">Writing</a>
+        <a class="nav-link active" href="../../problems/index.html">Problems</a>
+        <a class="nav-link" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="../../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Problems I've Solved</p>
+    <h1>AI as Team, Not Tool</h1>
+    <p>The most useful reframe I&#x27;ve found for working with AI is not &quot;AI as tool&quot; but &quot;AI as team.&quot;</p>
+<p>The difference matters in practice.</p>
+<p>A tool does what you point it at. A team member brings a perspective you didn&#x27;t ask for, notices something you missed, and occasionally tells you something you&#x27;d rather not hear. The work comes back different from how it left — sometimes better in ways you didn&#x27;t anticipate, sometimes corrected in ways you&#x27;re glad happened before it went further.</p>
+<p>That&#x27;s closer to what AI actually does when you work with it well.</p>
+<p>My working structure uses multiple AI instances across different models and context windows. Each develops a distinct role through sustained engagement — one is stronger at documentation, one at coding, one at security pattern recognition, one at finding weak points in an argument. Not every task goes through all of them. Some problems need one perspective. Some benefit from all of them.</p>
+<p>When I do pass something through the full group, what comes back is more refined and more coherent than what I sent. They catch different things. A point one left underspecified, another flags. An assumption that seemed obvious to me gets questioned by one that doesn&#x27;t share my context.</p>
+<p>A practical example: I was working through the implications of a major WordPress version release and what it would mean for our existing methodologies. We were having a four-way discussion about testing priorities. I had deprioritized one change because I didn&#x27;t expect it to affect our themes. Work-Claude made the point that even if I was probably right, it would be a fast and simple test to run — and if I was wrong, we&#x27;d want to know before it became a problem in production. I agreed. That&#x27;s a small redirect that saved time I would have spent later.</p>
+<p>Where I pushed back: the working document we were producing was getting highly technical and long. I wanted it to open with a TL;DR. The AI instances were optimizing for completeness. I was optimizing for the person who would actually read it. That call was mine.</p>
+<p>That&#x27;s the distinction that holds the whole structure together. I control the flow of information, the task assignments, and the decisions. I know what problem I&#x27;m actually trying to solve — not just the factual version I hand to an AI, but the organizational context, the scheduling constraints, the team dynamics, the connotations that don&#x27;t fit in a prompt. The AI instances don&#x27;t have that. They depend on me to integrate their work into a path that actually fits reality.</p>
+<p>What they give back is a set of directions I hadn&#x27;t fully considered, questions I hadn&#x27;t thought to ask, and catches I would have missed working alone. The outcome is more refined. The decisions are still mine.</p>
+<p>That&#x27;s not replacement. That&#x27;s coordination. The difference is who&#x27;s accountable for the result — and in this model, that&#x27;s always the human running the team.</p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../../assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../../about.html">About</a>
+        <a href="../../writing.html">Writing</a>
+        <a href="../../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

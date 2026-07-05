@@ -9,6 +9,7 @@ OUTPUT_DIR = Path("docs")
 CONFIG_FILE = Path("config.json")
 CONTENT_DIR = Path("content") / "writing"
 ADAPTIVE_DIR = Path("content") / "adaptive-experiences"
+PROBLEMS_DIR = Path("content") / "problems"
 ASSETS_DIR = Path("assets")
 TEMPLATES_DIR = Path("templates")
 CNAME_FILE = Path("CNAME")
@@ -58,6 +59,10 @@ def load_posts():
 
 def load_adaptive_pages():
     return load_json_files(ADAPTIVE_DIR, "adaptive-experiences")
+    
+    
+def load_problem_pages():
+    return load_json_files(PROBLEMS_DIR, "problems")
 
 
 def published_posts(posts):
@@ -110,6 +115,8 @@ def page_href(slug, level="root"):
         return f"{prefix}writing.html"
     if slug == "adaptive-experiences":
         return f"{prefix}adaptive-experiences/index.html"
+    if slug == "problems":
+        return f"{prefix}problems/index.html"
 
     return f"{prefix}{slug}.html"
 
@@ -125,6 +132,15 @@ def adaptive_href(page, level="root"):
         return f"{prefix}adaptive-experiences/index.html"
 
     return f"{prefix}adaptive-experiences/{page['slug']}/index.html"
+
+
+def problem_href(page, level="root"):
+    prefix = asset_prefix(level)
+
+    if page["slug"] == "index":
+        return f"{prefix}problems/index.html"
+
+    return f"{prefix}problems/{page['slug']}/index.html"
 
 
 def nav_links(config, active="index", level="root"):
@@ -377,6 +393,46 @@ def build_adaptive_page(config, page):
     return base_page(config, page.get("title", "Untitled"), desc, content, active="adaptive-experiences", level="deep")
 
 
+def build_problem_index(config, pages):
+    index_page = next((p for p in pages if p["slug"] == "index"), None)
+
+    if index_page:
+        title = index_page.get("title", "Problems I've Solved")
+        desc = index_page.get("excerpt", "Problems I've Solved")
+        body = render_body(index_page.get("body", []))
+    else:
+        title = "Problems I've Solved"
+        desc = "Problems I've Solved"
+        body = "<p>Examples of problems solved when software assumptions stopped matching reality.</p>"
+
+    content = f"""<main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Problems I've Solved</p>
+    <h1>{e(title)}</h1>
+    {body}
+  </article>
+</main>"""
+
+    return base_page(config, title, desc, content, active="problems", level="nested")
+
+
+def build_problem_page(config, page):
+    body = render_body(page.get("body", []))
+
+    content = f"""<main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Problems I've Solved</p>
+    <h1>{e(page.get("title", "Untitled"))}</h1>
+    {body}
+    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
+  </article>
+</main>"""
+
+    desc = page.get("excerpt") or (page.get("body", [""])[0] if page.get("body") else "")
+
+    return base_page(config, page.get("title", "Untitled"), desc, content, active="problems", level="deep")
+
+
 def copy_assets():
     if not ASSETS_DIR.exists():
         raise FileNotFoundError("Missing assets/ folder. Copy the theme assets into assets/ first.")
@@ -394,7 +450,7 @@ def write_text(path, content):
     path.write_text(content, encoding="utf-8")
 
 
-def build_site(config, posts, adaptive_pages):
+def build_site(config, posts, adaptive_pages, problem_pages):
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
 
@@ -420,6 +476,12 @@ def build_site(config, posts, adaptive_pages):
         build_adaptive_index(config, adaptive_pages)
     )
     count += 1
+    
+    write_text(
+        OUTPUT_DIR / "problems" / "index.html",
+        build_problem_index(config, problem_pages)
+    )
+    count += 1
 
     for post in published_posts(posts):
         write_text(
@@ -435,6 +497,16 @@ def build_site(config, posts, adaptive_pages):
         write_text(
             OUTPUT_DIR / "adaptive-experiences" / page["slug"] / "index.html",
             build_adaptive_page(config, page)
+        )
+        count += 1
+        
+    for page in published_posts(problem_pages):
+        if page["slug"] == "index":
+            continue
+
+        write_text(
+            OUTPUT_DIR / "problems" / page["slug"] / "index.html",
+            build_problem_page(config, page)
         )
         count += 1
 
@@ -483,8 +555,13 @@ def main():
     visible_adaptive = published_posts(adaptive_pages)
     print(f"Found {len(adaptive_pages)} adaptive pages ({len(visible_adaptive)} published).")
 
+    print("Loading problems...")
+    problem_pages = load_problem_pages()
+    visible_problem_pages = published_posts(problem_pages)
+    print(f"Found {len(problem_pages)} problem pages ({len(visible_problem_pages)} published).")
+
     print("Building modern theme site...")
-    count = build_site(config, posts, adaptive_pages)
+    count = build_site(config, posts, adaptive_pages, problem_pages)
 
     print(f"Build complete. {count} page(s) generated in '{OUTPUT_DIR}/'.")
 
