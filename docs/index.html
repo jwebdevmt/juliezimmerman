@@ -277,6 +277,84 @@
   </section>
   <!-- ── /Adaptive Experiences Slider ────────────────────────────────── -->
 
+
+  <!-- ── Problems I've Solved ─────────────────────────────────────────── -->
+  <section class="ps-section" aria-labelledby="ps-heading">
+    <div class="site-shell">
+      <div class="ps-header">
+        <p class="eyebrow">Problems I've Solved</p>
+        <h2 class="ps-heading" id="ps-heading">Reality does not read documentation.</h2>
+        <p class="ps-sub">Five real systems problems. Five useful lessons. One rotating council interpretation.</p>
+      </div>
+
+      <div class="ps-commentary" aria-live="polite">
+        <div class="ps-commentary-logo">
+          <img id="ps-commentary-logo" src="assets/nam-hex-logo.svg" alt="Nam" width="54" height="54">
+        </div>
+        <div class="ps-commentary-copy">
+          <div class="ps-commentary-meta">
+            <span class="ps-commentary-name" id="ps-commentary-name">Nam</span>
+            <span class="ps-commentary-topic" id="ps-commentary-topic">WP-Cron reliability</span>
+          </div>
+          <blockquote class="ps-commentary-quote" id="ps-commentary-quote">“Operational debt compounds faster than technical debt.”</blockquote>
+          <p class="ps-commentary-reaction"><span>Julie:</span> He has accidentally turned a missed scheduled event into management theory.</p>
+        </div>
+      </div>
+
+      <ul class="ps-grid" id="ps-grid" role="list">
+        <li class="ps-card">
+          <a class="ps-card-link" href="problems/when-software-assumes-cooperation/index.html" data-track="problem_card_click" data-problem="software-assumes-cooperation">
+            <span class="ps-category">Architecture</span>
+            <h3 class="ps-title">When Software Assumes Cooperation</h3>
+            <p class="ps-excerpt">Shared systems assumed cooperation. Reality did not.</p>
+            <span class="ps-read">Read more →</span>
+          </a>
+        </li>
+
+        <li class="ps-card">
+          <a class="ps-card-link" href="problems/reliability-engineering-for-systems-that-dont-fail-loudly/index.html" data-track="problem_card_click" data-problem="scheduled-systems">
+            <span class="ps-category">Reliability</span>
+            <h3 class="ps-title">Building Reliability Into Scheduled Systems</h3>
+            <p class="ps-excerpt">Recurring jobs disappear. Data goes stale. Nothing fails loudly.</p>
+            <span class="ps-read">Read more →</span>
+          </a>
+        </li>
+
+        <li class="ps-card">
+          <a class="ps-card-link" href="problems/recognizing-a-web-shell/index.html" data-track="problem_card_click" data-problem="web-shell">
+            <span class="ps-category">Security</span>
+            <h3 class="ps-title">Recognizing a Web Shell Before You Know What It Is</h3>
+            <p class="ps-excerpt">The theme was not the clue. The pattern was.</p>
+            <span class="ps-read">Read more →</span>
+          </a>
+        </li>
+
+        <li class="ps-card">
+          <a class="ps-card-link" href="problems/ai-as-team-not-tool/index.html" data-track="problem_card_click" data-problem="ai-as-team">
+            <span class="ps-category">AI Coordination</span>
+            <h3 class="ps-title">AI as Team, Not Tool</h3>
+            <p class="ps-excerpt">Multiple perspectives. Human decisions. Coordination instead of replacement.</p>
+            <span class="ps-read">Read more →</span>
+          </a>
+        </li>
+
+        <li class="ps-card">
+          <a class="ps-card-link" href="problems/measuring-what-aging-looks-like/index.html" data-track="problem_card_click" data-problem="site-health">
+            <span class="ps-category">Site Health</span>
+            <h3 class="ps-title">Measuring What Aging Looks Like</h3>
+            <p class="ps-excerpt">Nothing was broken. Nothing was healthy either.</p>
+            <span class="ps-read">Read more →</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="ps-cta">
+        <a href="problems/index.html" class="ps-cta-link" data-track="problems_homepage_cta">Explore Problems I've Solved →</a>
+      </div>
+    </div>
+  </section>
+  <!-- ── /Problems I've Solved ────────────────────────────────────────── -->
+
 </main>
 
 
@@ -511,6 +589,252 @@
   }
   .ae-quote { font-size: 0.95rem; }
 }
+
+/* ── Problems I've Solved Homepage Section ─────────────────────────────── */
+
+.ps-section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(15,23,42,0.018));
+}
+
+.ps-header {
+  max-width: 760px;
+  margin-bottom: 2rem;
+}
+
+.ps-heading {
+  margin: 0.5rem 0 0.45rem;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 3.6vw, 2.65rem);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.ps-sub {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.ps-commentary {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.72);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.8) inset;
+}
+
+.ps-commentary-logo {
+  width: 54px;
+  height: 54px;
+}
+
+.ps-commentary-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ps-commentary-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.ps-commentary-name {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ps-commentary-topic {
+  color: var(--accent-violet);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.ps-commentary-quote {
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.ps-commentary-reaction {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+}
+
+.ps-commentary-reaction span {
+  margin-right: 0.35rem;
+  color: var(--accent-violet);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ps-card {
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.ps-card.ps-visible {
+  animation: ps-fadein 0.38s ease forwards;
+}
+
+.ps-card:nth-child(1) { animation-delay: 0.04s; }
+.ps-card:nth-child(2) { animation-delay: 0.10s; }
+.ps-card:nth-child(3) { animation-delay: 0.16s; }
+.ps-card:nth-child(4) { animation-delay: 0.22s; }
+.ps-card:nth-child(5) { animation-delay: 0.28s; }
+
+@keyframes ps-fadein {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ps-card-link {
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1.4rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.68);
+  color: var(--text-primary);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.ps-card-link:hover,
+.ps-card-link:focus-visible {
+  border-color: var(--accent-teal);
+  color: var(--text-primary);
+  box-shadow: 0 8px 24px rgba(15,23,42,0.07);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.ps-card-link:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 3px;
+}
+
+.ps-category {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  color: var(--accent-teal);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ps-title {
+  margin: 0 0 0.6rem;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.ps-excerpt {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.ps-read {
+  margin-top: auto;
+  color: var(--accent-primary);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.ps-cta {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.ps-cta-link {
+  color: var(--accent-primary);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 650;
+  border-bottom: 1px solid transparent;
+}
+
+.ps-cta-link:hover,
+.ps-cta-link:focus {
+  color: var(--accent-violet);
+  border-color: var(--accent-violet);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps-card,
+  .ps-card.ps-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .ps-card-link:hover,
+  .ps-card-link:focus-visible {
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .ps-commentary {
+    grid-template-columns: 44px minmax(0, 1fr);
+    padding: 1rem;
+  }
+
+  .ps-commentary-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 
 
@@ -573,6 +897,109 @@
   startAuto();
 }());
 </script>
+
+
+<script>
+(function () {
+  var grid = document.getElementById('ps-grid');
+  var commentary = document.querySelector('.ps-commentary');
+  if (!grid || !commentary) return;
+
+  var cards = Array.from(grid.querySelectorAll('.ps-card'));
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Randomize card order once per page load. */
+  for (var i = cards.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = cards[i];
+    cards[i] = cards[j];
+    cards[j] = temp;
+  }
+  cards.forEach(function (card) { grid.appendChild(card); });
+
+  /* Rotate one serious-but-witty council interpretation. */
+  var observations = [
+    {
+      name: 'Nam',
+      topic: 'WP-Cron reliability',
+      logo: 'assets/nam-hex-logo.svg',
+      quote: '“Operational debt compounds faster than technical debt.”',
+      reaction: 'He has accidentally turned a missed scheduled event into management theory.'
+    },
+    {
+      name: 'Min',
+      topic: 'Web shell detection',
+      logo: 'assets/min-hex-logo.svg',
+      quote: '“The question is not what failed. It is what succeeded long enough to hide the failure.”',
+      reaction: 'Min has transformed malware investigation into existential philosophy.'
+    },
+    {
+      name: 'Harbor',
+      topic: 'Site health',
+      logo: 'assets/harbor-hex-logo.svg',
+      quote: '“A system can remain functional while becoming steadily less healthy.”',
+      reaction: 'Harbor would like the website to acknowledge its feelings before the storage drive fills up.'
+    },
+    {
+      name: 'Jae',
+      topic: 'Software assumptions',
+      logo: 'assets/jae-hex-logo.svg',
+      quote: '“Specification: user follows process. Reality: user closes the laptop and boards an airplane.”',
+      reaction: 'Jae has summarized an entire architecture problem as a missed connection.'
+    },
+    {
+      name: 'Bo Ra',
+      topic: 'AI coordination',
+      logo: 'assets/bora-hex-logo.svg',
+      quote: '“Coordination works because the perspectives remain different.”',
+      reaction: 'Bo Ra has made disagreement sound emotionally supportive.'
+    }
+  ];
+
+  var logo = document.getElementById('ps-commentary-logo');
+  var name = document.getElementById('ps-commentary-name');
+  var topic = document.getElementById('ps-commentary-topic');
+  var quote = document.getElementById('ps-commentary-quote');
+  var reaction = commentary.querySelector('.ps-commentary-reaction');
+  var observationIndex = Math.floor(Math.random() * observations.length);
+
+  function showObservation(index) {
+    var item = observations[index];
+    logo.src = item.logo;
+    logo.alt = item.name;
+    name.textContent = item.name;
+    topic.textContent = item.topic;
+    quote.textContent = item.quote;
+    reaction.innerHTML = '<span>Julie:</span>' + item.reaction;
+  }
+
+  showObservation(observationIndex);
+
+  if (!prefersReduced) {
+    window.setInterval(function () {
+      observationIndex = (observationIndex + 1) % observations.length;
+      showObservation(observationIndex);
+    }, 8000);
+  }
+
+  /* Quiet scroll-triggered entrance for the cards. */
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    cards.forEach(function (card) { card.classList.add('ps-visible'); });
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('ps-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    cards.forEach(function (card) { observer.observe(card); });
+  }
+}());
+</script>
+
 
 
   <footer class="site-footer">
