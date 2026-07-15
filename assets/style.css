@@ -982,3 +982,222 @@ font-size:.95rem;
 color:var(--text-secondary);
 
 }
+
+/* Adaptive Experiences v2 */
+.adaptive-hero,
+.experience-hero {
+  margin: 1.25rem 0 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(111,120,216,.18), transparent 42%),
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(241,246,251,.84));
+  box-shadow: var(--shadow-soft);
+}
+
+.adaptive-hero h2,
+.experience-hero h2 {
+  margin: .25rem 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.02;
+}
+
+.adaptive-hero p:last-child,
+.experience-hero p:last-child {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--text-secondary);
+  font-size: 1.08rem;
+}
+
+.adaptive-kicker,
+.team-role,
+.experience-status {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent-violet);
+}
+
+.human-loop {
+  margin: 1.5rem 0 2.25rem;
+  padding: 1.2rem 1.35rem;
+  border-left: 4px solid var(--accent-coral);
+  border-radius: 0 18px 18px 0;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 10px 30px rgba(15,23,42,.04);
+}
+
+.human-loop strong {
+  display: block;
+  margin-bottom: .25rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.human-loop p { margin: 0; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.team-card {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.15rem;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: rgba(255,255,255,.76);
+}
+
+.team-card img,
+.team-initial {
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
+}
+
+.team-initial {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent-violet), var(--accent-coral));
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.team-card h3 {
+  margin: .15rem 0 .35rem;
+  font-family: var(--font-heading);
+}
+
+.team-card p:last-child {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: .94rem;
+}
+
+.team-card-human {
+  grid-column: 1 / -1;
+  border-color: rgba(236,108,139,.28);
+  background: linear-gradient(135deg, rgba(236,108,139,.08), rgba(111,120,216,.07));
+}
+
+.process-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .85rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.process-flow > div {
+  position: relative;
+  padding: 1.15rem;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: rgba(255,255,255,.72);
+}
+
+.process-flow span {
+  display: block;
+  margin-bottom: .65rem;
+  color: var(--accent-violet);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+}
+
+.process-flow strong {
+  display: block;
+  margin-bottom: .35rem;
+  font-family: var(--font-heading);
+}
+
+.process-flow p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: .9rem;
+}
+
+.experience-grid,
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.experience-card,
+.demo-card {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  background: rgba(255,255,255,.8);
+  color: var(--text-primary);
+  box-shadow: 0 14px 42px rgba(15,23,42,.05);
+}
+
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.experience-card h3,
+.demo-card h3 {
+  margin: .35rem 0 .65rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+}
+
+.experience-card p:not(.experience-status),
+.demo-card p:not(.experience-status) {
+  color: var(--text-secondary);
+}
+
+.experience-card span,
+.demo-card span {
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.disney-experience,
+.disney-hero {
+  background:
+    radial-gradient(circle at top right, rgba(236,108,139,.14), transparent 45%),
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(245,240,252,.88));
+}
+
+.yellowstone-experience,
+.yellowstone-hero {
+  background:
+    radial-gradient(circle at top right, rgba(83,194,176,.17), transparent 45%),
+    linear-gradient(135deg, rgba(255,255,255,.96), rgba(238,248,244,.88));
+}
+
+.perspective-card-final {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 780px) {
+  .team-grid,
+  .process-flow,
+  .experience-grid,
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card-human,
+  .perspective-card-final {
+    grid-column: auto;
+  }
+}

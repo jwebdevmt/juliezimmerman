@@ -1,0 +1,17 @@
+{
+  "title": "Yellowstone Adaptive Experiences",
+  "date": "2026-07-11",
+  "category": "Adaptive Experiences",
+  "published": true,
+  "excerpt": "A preview of the Adaptive Experiences framework applied to Yellowstone: wildlife, photography, weather, distance, and uncertainty.",
+  "body": [
+    "<div class=\"experience-hero yellowstone-hero\"><p class=\"adaptive-kicker\">Coming next</p><h2>The same framework. A completely different kind of uncertainty.</h2><p>Yellowstone replaces attraction density with wildlife behavior, road closures, weather windows, vast driving distances, safety, and the fact that nature does not follow an itinerary.</p></div>",
+    "<h2>Why Yellowstone?</h2>",
+    "Yellowstone is a strong second domain because the planning problem cannot be solved by optimization alone. A traveler may value iconic landmarks, wildlife sightings, photography light, family pacing, shorter drives, or flexibility\u2014and those priorities create materially different trips.",
+    "<h2>Potential demonstrations</h2>",
+    "<div class=\"demo-grid\">\n      <article class=\"demo-card\"><h3>Wildlife photographer</h3><p>Early starts, long waits, flexible routing, ethical distance, and the willingness to abandon the schedule when the animals appear.</p></article>\n      <article class=\"demo-card\"><h3>First-time visitor</h3><p>Iconic features, balanced driving, realistic stops, and enough margin to absorb wildlife traffic.</p></article>\n      <article class=\"demo-card\"><h3>Family road trip</h3><p>Restrooms, food, attention spans, Junior Ranger priorities, safety, and manageable transitions.</p></article>\n      <article class=\"demo-card\"><h3>Slow scenic experience</h3><p>Fewer destinations, more observation, photography, quiet, and time to stay when a place feels worth staying.</p></article>\n    </div>",
+    "<h2>What will stay consistent</h2>",
+    "The request will be structured once. Each perspective will respond independently. The differences will be displayed rather than erased. Julie will evaluate the trade-offs and publish the final synthesis.",
+    "<div class=\"feature-panel\"><h2>Status</h2><p>Yellowstone is currently a framework preview, not a completed demonstration. It establishes the second domain and shows that Adaptive Experiences is designed to extend beyond Disney.</p></div>"
+  ]
+}

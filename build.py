@@ -347,19 +347,20 @@ def build_adaptive_index(config, pages):
         desc = "Adaptive Experiences"
         body = "<p>Adaptive Experiences explores systems designed around real human behavior rather than ideal conditions.</p>"
 
-    links = []
-
-    for page in published_posts(pages):
-        if page["slug"] == "index":
-            continue
-
-        href = adaptive_href(page, level="nested")
-        links.append(f'<li><a href="{href}">{e(page.get("title", "Untitled"))}</a></li>')
-
     links_html = ""
 
-    if links:
-        links_html = f'''<h2>Pages</h2>
+    if not index_page or index_page.get("show_page_list", True):
+        links = []
+
+        for page in published_posts(pages):
+            if page["slug"] == "index":
+                continue
+
+            href = adaptive_href(page, level="nested")
+            links.append(f'<li><a href="{href}">{e(page.get("title", "Untitled"))}</a></li>')
+
+        if links:
+            links_html = f'''<h2>Pages</h2>
 <ul>
   {"".join(links)}
 </ul>'''
