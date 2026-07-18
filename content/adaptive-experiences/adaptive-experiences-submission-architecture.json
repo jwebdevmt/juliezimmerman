@@ -1,0 +1,59 @@
+{
+  "title": "Submission Architecture",
+  "excerpt": "How a real-world situation becomes the same starting point for five different perspectives — without losing what matters or adding what wasn't said.",
+  "date": "2026-07-17",
+  "published": true,
+  "category": "Adaptive Experiences",
+  "body": [
+    "<p class='eyebrow'>Adaptive Experiences</p>",
+    "<div class='disney-callout'><p>This document answers a specific question visitors naturally ask: <em>\"Are these just five different prompts?\"</em> The answer is no — and this page explains why.</p></div>",
+
+    "<h2>The Problem This Solves</h2>",
+    "<p>Adaptive Experiences only works if every perspective begins from the same place. If one perspective receives <em>\"loves live entertainment\"</em> and another receives <em>\"likes shows,\"</em> those are already different starting points. The perspectives diverge before they've done any thinking — and the differences in their outputs reflect the prompt, not the perspective.</p>",
+    "<p>The submission architecture exists to prevent that. Its job is not to interpret the situation. Its job is to preserve it faithfully, so that every perspective receives an equivalent foundation before it begins.</p>",
+
+    "<h2>Four Layers</h2>",
+    "<p>Every Adaptive Experience submission is structured into four layers. These are extracted from the user's situation — not invented, not inferred, not improved.</p>",
+
+    "<h3>1. Scenario</h3>",
+    "<p>What is happening? The scenario captures the basic situation in neutral terms.</p>",
+    "<div class='disney-callout'><p><strong>Example:</strong> Three adults visiting EPCOT during the Food &amp; Wine Festival, rope drop to close.</p></div>",
+    "<p>The scenario is not a goal. It does not say what a good day looks like. It describes the situation that exists before any perspective has thought about it.</p>",
+
+    "<h3>2. Participants</h3>",
+    "<p>Who matters, and what do we know about them? Participants are described by the observations the user provided — not by inferences the architecture made.</p>",
+    "<div class='disney-callout'><p><strong>Example:</strong><br>Three adults. One has visited EPCOT many times. One dislikes motion-intensive and spinning rides; Remy's causes motion sickness. One loves aquariums. All three enjoy live entertainment.</p></div>",
+    "<p>These are observations, not judgments. The architecture does not infer fitness level, personality, budget, family dynamics, or previous experience beyond what the user stated. If it wasn't said, it isn't in the packet.</p>",
+
+    "<h3>3. Constraints</h3>",
+    "<p>What cannot change? Constraints become the physics of the problem — the boundaries every perspective must work within.</p>",
+    "<div class='disney-callout'><p><strong>Example:</strong><br>• Rope drop to close<br>• No dining reservations<br>• One person cannot do spinning rides or Remy's<br>• All three willing to use Lightning Lane<br>• Food and Wine Festival is the primary context</p></div>",
+    "<p>Constraints are not negotiable. A perspective that ignores a constraint has failed the exercise, not solved it differently.</p>",
+
+    "<h3>4. Priorities</h3>",
+    "<p>How does the user define success? Priorities are the hierarchy the submission preserves — because different priorities produce legitimately different solutions, and that divergence is the point.</p>",
+    "<div class='disney-callout'><p><strong>Example priority order:</strong><br>1. Great shared day for all three<br>2. Food and Wine Festival experience<br>3. Aquarium time for the person who cares about it<br>4. Live entertainment<br>5. Efficient ride coverage</p></div>",
+    "<p>A perspective that weights the aquarium above everything else is not wrong — it's operating from a different priority order than the one the user provided. The submission architecture makes that priority order explicit so every perspective is working from the same hierarchy.</p>",
+
+    "<h2>What the Architecture Deliberately Excludes</h2>",
+    "<p>The submission architecture does not infer what isn't stated. It does not add:</p>",
+    "<ul><li>Age, fitness, or mobility assumptions</li><li>Budget estimates unless the user specified willingness to spend</li><li>Personality or family dynamic readings</li><li>Previous Disney knowledge beyond what was described</li><li>Preferences the user didn't mention</li></ul>",
+    "<p>This is the hardest part of the architecture to maintain. The temptation is to fill in gaps — to assume that three adults at Food and Wine Festival probably want to drink, or that someone who loves aquariums probably wants to move slowly through the park. Those may be reasonable guesses. They are still guesses, and the submission architecture doesn't make them.</p>",
+    "<p>The design principle is simple: <strong>preserve what is true, avoid inventing what wasn't said.</strong></p>",
+
+    "<h2>The Normalized Submission Packet</h2>",
+    "<p>After the four layers are extracted, they're assembled into a normalized submission packet — the same document handed to every perspective before any writing begins.</p>",
+    "<p>Here is the actual packet used for the EPCOT Food and Wine experience:</p>",
+    "<div class='disney-callout'><p><strong>Scenario:</strong> Three adults, EPCOT, Food and Wine Festival, rope drop to close.</p><br><p><strong>Participants:</strong> Three adults. One highly experienced with EPCOT. One cannot do spinning rides or Remy's Ratatouille Adventure (motion sickness from motion plus 3D). One has a strong interest in aquariums. All enjoy live entertainment.</p><br><p><strong>Constraints:</strong> Rope drop start. Close of park end. No dining reservations. No spinning rides for one participant. Remy's excluded. Lightning Lane available. Food and Wine Festival is the primary experience context.</p><br><p><strong>Priorities:</strong> Shared great day. Food and Wine Festival. Aquarium experience. Live entertainment. Efficient ride coverage.</p></div>",
+    "<p>Every perspective — Harbor, Bo Ra, Nam, Min, Jae — received this packet and nothing else before generating their approach. The differences in their recommendations reflect differences in what they value, not differences in what they were told.</p>",
+
+    "<h2>Why This Matters</h2>",
+    "<p>The submission architecture is what makes Adaptive Experiences something other than five different prompts. Without it, each perspective would receive a slightly different version of the situation, shaped by whoever wrote the prompt that day. The outputs would be inconsistent — and the differences between perspectives would tell you more about prompt variation than about genuine perspective divergence.</p>",
+    "<p>With a normalized submission, the differences become meaningful. When Harbor and Min reach opposite conclusions about how to structure the afternoon, that divergence is a real signal — not an artifact of different inputs.</p>",
+    "<p>The submission architecture doesn't solve the problem. It describes the problem faithfully, so that five different kinds of thinking can each solve it in their own way.</p>",
+
+    "<h2>What Comes Next</h2>",
+    "<p>The companion document, Response Architecture, explains what happens after the normalized packet is handed to each perspective — how each voice processes the same information differently, what each one is optimizing for, and how the Final Synthesis integrates the outputs without flattening what made each perspective distinct.</p>",
+    "<p>Together, these two documents form the structural backbone of how Adaptive Experiences works.</p>"
+  ]
+}
