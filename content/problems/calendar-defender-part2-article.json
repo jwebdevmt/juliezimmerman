@@ -1,0 +1,61 @@
+{
+  "title": "When the Calendar Becomes the Attack Surface, Part 2",
+  "excerpt": "What happened overnight on the first real deployment, and why the plugin ended up with a self-healing state machine.",
+  "date": "2026-07-17",
+  "published": true,
+  "category": "Security",
+  "body": [
+    "<p>Part 1 ended with a deployed plugin and a design argument. Part 2 is what happened next.</p>",
+    "<p>The plugin went live on a small nonprofit site — an animal shelter with an event calendar that sees light traffic and holds mostly adoption events and vaccine clinics. Off-season for the calendar. Low stakes if something went wrong. A good place to find out what the plugin did under real conditions before putting it on sites where a mistake would matter.</p>",
+    "<p>At 5am the next morning, it caught something.</p>",
+
+    "<h2>The First Real Catch</h2>",
+    "<p>MJ12bot — a Majestic SEO crawler — was systematically enumerating every combination of event tag and date on the site's calendar. The pattern looked like this:</p>",
+    "<pre>/events/tag/vaccine/day/2022-03-12/\n/events/tag/vaccine/day/2022-03-13/\n/events/tag/vaccine/day/2022-03-14/</pre>",
+    "<p>Every day that had a vaccine clinic tagged, stepping forward through every date in the archive. Then it moved to a different tag and did it again. A Cartesian product of tags and dates, one request every two seconds.</p>",
+    "<p>Each of those requests hit The Events Calendar's archive rendering engine, which builds a page for that date, queries the database, generates schema output through the SEO plugin, renders excerpts for every visible event, runs theme filters. The computational cost of a single request is orders of magnitude higher than the cost to send it.</p>",
+    "<p>The plugin counted 150 requests in a five-minute window. Tier 2 activated. Calendar archive pages started returning the maintenance message. An email arrived at Zee Creative with the triggering IP, the bot name, the URL that crossed the threshold, and a ready-to-paste Cloudflare WAF rule.</p>",
+    "<p>By the time anyone read the email, the site had been handling it automatically for hours. The log showed a clean line of 503 responses stretching back to the middle of the night:</p>",
+    "<pre>54.37.252.229 - \"GET /events/tag/vaccine/day/2022-03-12/\" 503\n54.37.252.229 - \"GET /events/tag/vaccine/day/2022-03-13/\" 503\n54.37.252.229 - \"GET /events/tag/vaccine/day/2022-03-14/\" 503</pre>",
+    "<p>Individual event pages remained accessible throughout. Adoption event pages, vaccine clinic sign-ups, the homepage — all returning 200. Only the archive traversal was blocked.</p>",
+    "<p>The plugin didn't prevent an attack from starting. It prevented an attack from mattering.</p>",
+
+    "<h2>What the Logs Revealed</h2>",
+    "<p>Looking at the full log, ChatGPT noticed something. MJ12bot had been blocked cleanly. But another crawler — PetalBot — was still getting through on a different pattern:</p>",
+    "<pre>?tribe-bar-date=2026-06-01&amp;ical=1\noutlook-ical=1</pre>",
+    "<p>The iCal export endpoints. Calendar Defender v1 was watching for archive URL patterns and query string traversal, but the export endpoints — designed to let visitors subscribe to calendars in Outlook or Apple Calendar — were a separate expensive behavior that hadn't been added to the detection set yet.</p>",
+    "<p>The same architectural problem. A public endpoint with asymmetric cost. The plugin knew about it in theory — iCal protection was already in the settings as a configurable option — but <code>outlook-ical=1</code> specifically wasn't being caught.</p>",
+    "<p>v1.3.0 added it. The pattern registry grew.</p>",
+
+    "<h2>The Registry Idea</h2>",
+    "<p>After the first live deployment generated real telemetry, ChatGPT proposed formalizing what had been an ad hoc list of URL patterns into an explicit Endpoint Cost Registry — a table mapping each pattern to its cost level, its protection status, and the incident that surfaced it.</p>",
+    "<p>The registry as it stands after the first week of deployments:</p>",
+    "<pre>/day/           High    Protected v1.0    Festival + nonprofit attack\n/week/          High    Protected v1.0    Festival + nonprofit attack\n/tag/           High    Protected v1.1    Animal shelter logs\n/category/      High    Protected v1.1    Animal shelter logs\ntribe-bar-date  High    Protected v1.0    Festival WAF rule\nical=1          High    Protected v1.1    Hosting platform recommendation\noutlook-ical=1  High    Protected v1.3    PetalBot pattern, July 2026\neventDisplay=   High    Protected v1.3    PetalBot pattern, July 2026</pre>",
+    "<p>Each row is a thing that happened. The registry is an operational knowledge base, not a spec. It grows with incidents.</p>",
+    "<p>The registry is what the plugin learned. Each deployment teaches it about another class of expensive behavior, and the protection becomes broader without becoming more complicated.</p>",
+
+    "<h2>The Alert Email</h2>",
+    "<p>The first alert email was functional but thin. It told you a threshold was crossed. It didn't tell you what crossed it.</p>",
+    "<p>v1.3.0 added situational awareness to the alert. The email now includes the triggering IP, the bot name extracted from the user agent, and the specific URL pattern that pushed the counter over the threshold. You open the email and immediately know:</p>",
+    "<div class=\"disney-callout\"><p><strong>Triggering Request</strong><br>IP: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;54.37.252.229<br>Bot: &nbsp;&nbsp;&nbsp;&nbsp;MJ12bot/v1.4.8<br>Pattern: /events/tag/vaccine/day/2022-09-28/</p></div>",
+    "<p>The Cloudflare WAF rule is still in the email, ready to paste. But now you also have the context to understand what you're looking at before you apply it.</p>",
+
+    "<h2>The Architecture Completes</h2>",
+    "<p>While reviewing the live logs, Sabrina made an observation: if the system can detect threatening behavior and shut down a subsystem automatically, it can also detect when conditions have cleared and restore it automatically.</p>",
+    "<p>That observation completed the architecture.</p>",
+    "<p>Calendar Defender v1.0 was an emergency switch. It detected an attack, isolated the expensive endpoint, and waited for a human to come along with a Cloudflare rule and click Restore. That worked. But it required someone to be available — or the calendar stayed down until they were.</p>",
+    "<p>The self-healing version adds the other half. After a lockdown activates:</p>",
+    "<pre>PROTECTED\n  → traffic continues to be counted separately\n  → minimum lockdown duration elapses (10 min)\n  → quiet window counter begins\n  → 3 consecutive 5-minute windows below restore threshold (20 req/window)\nRECOVERY\n  → final health check\n  → if quiet: clear lockdown, send restoration notice, return to NORMAL\n  → if traffic resurges: drop back to PROTECTED\nNORMAL</pre>",
+    "<p>The gap between activation threshold (150 requests per window) and restore threshold (20 requests per window) is intentional. It prevents the system from flapping on and off if bot traffic is intermittent. The minimum lockdown duration prevents a brief dip from causing premature reopening. The RECOVERY state is a provisional check before fully committing to NORMAL — a way of saying \"I think the threat has passed, but I'm still watching.\"</p>",
+    "<p>Automatic isolation without automatic restoration is only half of graceful degradation. A resilient subsystem should recover itself once the conditions that required protection have cleared.</p>",
+    "<p>Human intervention is now reserved for: applying a permanent Cloudflare rule, reviewing repeated incidents, adjusting thresholds, investigating new endpoint patterns. Everything else the system handles.</p>",
+
+    "<h2>What a Week of Deployments Taught</h2>",
+    "<p>Calendar Defender went from concept to v1.4.0 in a week, driven almost entirely by what real deployments revealed. The original design was right about the core problem — asymmetric cost between requesting and serving calendar archive pages — but wrong about the scope. iCal exports were the same problem at a different endpoint. The tag and category traversal patterns weren't in the initial detection set. PetalBot used different query string combinations than MJ12bot.</p>",
+    "<p>Each gap was a real request that got through on a real site before the pattern was added. Each addition to the registry is documentation of something that happened, not something that was anticipated.</p>",
+    "<p>That's the right way for this kind of system to evolve. You can't enumerate every possible attack pattern in advance. You build the detection architecture correctly, deploy it, and let real traffic teach you what belongs in the registry.</p>",
+    "<p>The principle that came out of the Oracle campus isolation project applies here too: when the software assumes one thing and reality is another, the fix belongs at the architecture level. Calendar plugins assume cooperative traffic. Reality contains adversarial traffic optimizing for cost. The fix is a layer that intercepts between the request and the expensive operation — not a list of blocked URLs, but a model of asymmetric cost that generalizes to whatever the next expensive endpoint turns out to be.</p>",
+    "<p>The animal shelter's vaccine clinic calendar is fully accessible. MJ12bot is getting 503s. The plugin is watching the quiet period and will restore automatically when it's safe.</p>",
+    "<p>The first deployment worked. The second deployment will be informed by the first. That's how it's supposed to go.</p>"
+  ]
+}
