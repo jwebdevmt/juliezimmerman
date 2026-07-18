@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Current Projects | Julie Zimmerman</title>
+  <meta name="description" content="Projects Julie Zimmerman is actively building and maintaining.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="index.html">
+        <img class="brand-mark" src="assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link active" href="current-projects.html">Current Projects</a>
+        <a class="nav-link" href="writing.html">Writing</a>
+        <a class="nav-link" href="problems/index.html">Problems</a>
+        <a class="nav-link" href="adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <section class="section projects-page">
+    <div class="section-header projects-intro">
+      <p class="eyebrow">Current Projects</p>
+      <h1 class="page-title">Practical systems, actively being built.</h1>
+      <p class="section-intro">These projects reflect the same working pattern: build useful tools, test systems thinking against real problems, and document what survives contact with reality.</p>
+    </div>
+
+    <div class="current-project-grid">
+      <article class="project-card current-project-card">
+        <span class="tag">Privacy-preserving community</span>
+        <h2>FYN / EasyFYN</h2>
+        <p>A static neighborhood connection tool built on GitHub Pages. FYN generates simple community sites without accounts, databases, or backend infrastructure. EasyFYN is the public creator interface.</p>
+        <dl class="project-details">
+          <div><dt>Stack</dt><dd>Python, GitHub Pages, JSON, static HTML</dd></div>
+          <div><dt>Status</dt><dd>Active development</dd></div>
+        </dl>
+        <a class="button" href="https://easyfyn.com" data-track="current_project_click">Launch EasyFYN →</a>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">Experience design</span>
+        <h2>Adaptive Experiences</h2>
+        <p>A planning methodology for designing experiences around individual perspective rather than generic recommendations. The current demonstration uses Disney trip planning to make those differences visible.</p>
+        <dl class="project-details">
+          <div><dt>Focus</dt><dd>Perspective, sequencing, human judgment</dd></div>
+          <div><dt>Status</dt><dd>Active development; demos in progress</dd></div>
+        </dl>
+        <a class="button" href="adaptive-experiences/index.html" data-track="current_project_click">Explore the perspectives →</a>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">AI workflow architecture</span>
+        <h2>AI Council</h2>
+        <p>A multi-instance AI workflow architecture developed for research, writing, and project management. Distinct roles operate across shared context, sprint cadence, backlog management, and retrospectives while final decisions remain human.</p>
+        <dl class="project-details">
+          <div><dt>Model</dt><dd>AI as team, not tool</dd></div>
+          <div><dt>Status</dt><dd>Sprint 03 active</dd></div>
+        </dl>
+        <a class="button" href="problems/ai-as-team-not-tool/index.html" data-track="current_project_click">Read how it works →</a>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">Content and affiliate publishing</span>
+        <h2>Aussiefloof</h2>
+        <p>An Australian Shepherd content site combining evergreen resource articles, original photography, and affiliate marketing, built on the same static infrastructure as this site and FYN.</p>
+        <dl class="project-details">
+          <div><dt>Subjects</dt><dd>Indy and Violet</dd></div>
+          <div><dt>Status</dt><dd>Launched; content in progress</dd></div>
+        </dl>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">Developer portfolio</span>
+        <h2>juliezimmerman.me</h2>
+        <p>This site: a static developer portfolio and writing platform built with Python, GitHub Pages, and structured JSON content. No CMS, backend, or database.</p>
+        <dl class="project-details">
+          <div><dt>Purpose</dt><dd>Document how I work, what I've solved, and what I'm building</dd></div>
+          <div><dt>Status</dt><dd>Active and evolving</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="current-projects.html">Current Projects</a>
+        <a href="writing.html">Writing</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

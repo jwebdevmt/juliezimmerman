@@ -281,6 +281,81 @@ def build_writing(config, posts):
     return base_page(config, "Writing", "Technical writing by Julie Zimmerman", content, active="writing")
 
 
+
+def build_current_projects(config):
+    content = """<main class="site-shell">
+  <section class="section projects-page">
+    <div class="section-header projects-intro">
+      <p class="eyebrow">Current Projects</p>
+      <h1 class="page-title">Practical systems, actively being built.</h1>
+      <p class="section-intro">These projects reflect the same working pattern: build useful tools, test systems thinking against real problems, and document what survives contact with reality.</p>
+    </div>
+
+    <div class="current-project-grid">
+      <article class="project-card current-project-card">
+        <span class="tag">Privacy-preserving community</span>
+        <h2>FYN / EasyFYN</h2>
+        <p>A static neighborhood connection tool built on GitHub Pages. FYN generates simple community sites without accounts, databases, or backend infrastructure. EasyFYN is the public creator interface.</p>
+        <dl class="project-details">
+          <div><dt>Stack</dt><dd>Python, GitHub Pages, JSON, static HTML</dd></div>
+          <div><dt>Status</dt><dd>Active development</dd></div>
+        </dl>
+        <a class="button" href="https://easyfyn.com" data-track="current_project_click">Launch EasyFYN →</a>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">Experience design</span>
+        <h2>Adaptive Experiences</h2>
+        <p>A planning methodology for designing experiences around individual perspective rather than generic recommendations. The current demonstration uses Disney trip planning to make those differences visible.</p>
+        <dl class="project-details">
+          <div><dt>Focus</dt><dd>Perspective, sequencing, human judgment</dd></div>
+          <div><dt>Status</dt><dd>Active development; demos in progress</dd></div>
+        </dl>
+        <a class="button" href="adaptive-experiences/index.html" data-track="current_project_click">Explore the perspectives →</a>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">AI workflow architecture</span>
+        <h2>AI Council</h2>
+        <p>A multi-instance AI workflow architecture developed for research, writing, and project management. Distinct roles operate across shared context, sprint cadence, backlog management, and retrospectives while final decisions remain human.</p>
+        <dl class="project-details">
+          <div><dt>Model</dt><dd>AI as team, not tool</dd></div>
+          <div><dt>Status</dt><dd>Sprint 03 active</dd></div>
+        </dl>
+        <a class="button" href="problems/ai-as-team-not-tool/index.html" data-track="current_project_click">Read how it works →</a>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">Content and affiliate publishing</span>
+        <h2>Aussiefloof</h2>
+        <p>An Australian Shepherd content site combining evergreen resource articles, original photography, and affiliate marketing, built on the same static infrastructure as this site and FYN.</p>
+        <dl class="project-details">
+          <div><dt>Subjects</dt><dd>Indy and Violet</dd></div>
+          <div><dt>Status</dt><dd>Launched; content in progress</dd></div>
+        </dl>
+      </article>
+
+      <article class="project-card current-project-card">
+        <span class="tag">Developer portfolio</span>
+        <h2>juliezimmerman.me</h2>
+        <p>This site: a static developer portfolio and writing platform built with Python, GitHub Pages, and structured JSON content. No CMS, backend, or database.</p>
+        <dl class="project-details">
+          <div><dt>Purpose</dt><dd>Document how I work, what I've solved, and what I'm building</dd></div>
+          <div><dt>Status</dt><dd>Active and evolving</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+</main>"""
+
+    return base_page(
+        config,
+        "Current Projects",
+        "Projects Julie Zimmerman is actively building and maintaining.",
+        content,
+        active="current-projects"
+    )
+
 def build_contact(config):
     owner = config.get("owner", {})
     contact = config.get("contact", {})
@@ -467,6 +542,9 @@ def build_site(config, posts, adaptive_pages, problem_pages):
     count += 1
 
     write_text(OUTPUT_DIR / "writing.html", build_writing(config, posts))
+    count += 1
+
+    write_text(OUTPUT_DIR / "current-projects.html", build_current_projects(config))
     count += 1
 
     write_text(OUTPUT_DIR / "contact.html", build_contact(config))

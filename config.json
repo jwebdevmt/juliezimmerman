@@ -4,14 +4,12 @@
     "tagline": "WordPress systems, data integrations, and practical problem-solving",
     "intro": "I work on systems that have to function reliably at scale. WordPress fleets, real estate data pipelines, and AI integrations layered into existing infrastructure. The work is less about tools and more about behavior under load, where systems fail, and how to make them reliable over time."
   },
-
   "owner": {
     "name": "Julie Zimmerman",
     "email": "jwebdevmt@gmail.com",
     "zee_url": "https://zeecreative.com",
     "location": "Billings, MT"
   },
-
   "nav": [
     {
       "slug": "index",
@@ -20,6 +18,10 @@
     {
       "slug": "about",
       "label": "About"
+    },
+    {
+      "slug": "current-projects",
+      "label": "Current Projects"
     },
     {
       "slug": "writing",
@@ -38,7 +40,6 @@
       "label": "Contact"
     }
   ],
-
   "work_areas": [
     {
       "title": "WordPress Systems",
@@ -57,7 +58,6 @@
       "description": "Custom post types, search and mapping systems, ADA/WCAG compliance, and content architectures built to last."
     }
   ],
-
   "about": {
     "body": [
       "I'm a senior web developer and systems architect based in Billings, Montana, with over 20 years of full-stack experience — from C and Perl on Oracle to modern PHP, JavaScript, and AI-assisted tooling.",
@@ -77,7 +77,6 @@
       "GitHub, Agile, site launch QA protocols"
     ]
   },
-
   "contact": {
     "intro": "For technical conversations, speaking opportunities, or project inquiries, get in touch directly.",
     "routing_note": "Most client project work is handled through Zee Creative."
