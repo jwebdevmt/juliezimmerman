@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowing Something Is Wrong Before You Know Why | Julie Zimmerman</title>
+  <meta name="description" content="WordPress releases follow a pattern. A major version ships, a maintenance release follows within weeks to address the inevitable bugs that survive testing, and then — sometimes ">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../index.html">
+        <img class="brand-mark" src="../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="../about.html">About</a>
+        <a class="nav-link" href="../current-projects.html">Current Projects</a>
+        <a class="nav-link active" href="../writing.html">Writing</a>
+        <a class="nav-link" href="../problems/index.html">Problems</a>
+        <a class="nav-link" href="../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Engineering Judgment · 2026-07-18</p>
+    <h1>Knowing Something Is Wrong Before You Know Why</h1>
+    <p>WordPress releases follow a pattern. A major version ships, a maintenance release follows within weeks to address the inevitable bugs that survive testing, and then — sometimes — a second maintenance release arrives unusually fast. When that happens, it usually means something was found.</p>
+<p>WordPress 7.0 shipped on schedule. 7.0.1 followed about a month later. When 7.0.2 appeared a week after that, I knew before reading a single word about it that this was a security release.</p>
+<p>I searched to confirm. Gemini told me confidently that no 7.0.2 existed.</p>
+<p>I went directly to WordPress.org anyway, found the release notes, confirmed a significant security vulnerability, and started upgrading sites immediately.</p>
+<h2>What Pattern Recognition Actually Is</h2>
+<p>This kind of pattern recognition is hard to explain to someone who hasn&amp;#x27;t developed it. It doesn&amp;#x27;t come from a checklist or a monitoring tool. It comes from having seen enough release cycles to understand what the timing means before the content confirms it.</p>
+<p>The instinct itself isn&amp;#x27;t the valuable part. Trusting it is.</p>
+<p>When a confident source — a colleague, a tool, an AI assistant — tells you that what you&amp;#x27;re seeing isn&amp;#x27;t there, the experienced response isn&amp;#x27;t to defer. It&amp;#x27;s to go look directly. Confident wrongness is still wrongness, and the cost of acting on it is measured in unpatched vulnerabilities sitting on production sites while you wait for someone else to verify what you already knew.</p>
+<h2>The Relationship Between Experience and Observability</h2>
+<p>Observability matters, but it isn&amp;#x27;t sufficient. Tools surface what they&amp;#x27;re configured to surface. Pattern recognition surfaces what experience has taught you to notice. The two aren&amp;#x27;t the same, and a fleet of sites managed well depends on both.</p>
+<p>Monitoring catches what&amp;#x27;s already broken. Pattern recognition catches what&amp;#x27;s about to break — or what broke silently and hasn&amp;#x27;t announced itself yet. The WordPress 7.0.2 situation was the second kind: a security vulnerability that existed in production before any automated system had flagged anything, and would have continued existing until a scanner caught an active exploit or a breach surfaced it through logs.</p>
+<p>The upgrade took the rest of the morning. The alternative was waiting until an automated scanner flagged something, which would have meant waiting until something had already happened.</p>
+<h2>When to Override a Confident Wrong Answer</h2>
+<p>The Gemini interaction is worth sitting with. The system was confidently incorrect. Its confidence was indistinguishable from the confidence it would have had if it were correct.</p>
+<p>This is not unique to AI systems. Colleagues can be confidently wrong. Documentation can be confidently outdated. Support teams can be confidently misinformed. The confidence of a source is not the same as its accuracy, and treating them as equivalent is expensive.</p>
+<p>The practical skill is knowing when your pattern recognition outweighs the confidence of an external source — and being willing to act on that judgment by going directly to the primary source rather than accepting the intermediary&amp;#x27;s answer.</p>
+<p>In this case: WordPress.org over Gemini. Release notes over search results. Direct verification over confident summary.</p>
+<p>The pattern said something was wrong. The pattern was right. The tool that said otherwise was wrong with complete confidence.</p>
+<p>That&amp;#x27;s the situation you develop experience to navigate.</p>
+    <p class="article-back"><a class="button" href="../writing.html">Back to writing</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../about.html">About</a>
+        <a href="../current-projects.html">Current Projects</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Cost of Shared Assumptions | Julie Zimmerman</title>
+  <meta name="description" content="Database table prefixes exist for a reason. WordPress installs with a default prefix — `wp_` — and most sites never change it. For a developer writing queries against a single k">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../index.html">
+        <img class="brand-mark" src="../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="../about.html">About</a>
+        <a class="nav-link" href="../current-projects.html">Current Projects</a>
+        <a class="nav-link active" href="../writing.html">Writing</a>
+        <a class="nav-link" href="../problems/index.html">Problems</a>
+        <a class="nav-link" href="../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link" href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Systems Engineering · 2026-07-18</p>
+    <h1>The Cost of Shared Assumptions</h1>
+    <p>Database table prefixes exist for a reason. WordPress installs with a default prefix — &lt;code&gt;wp_&lt;/code&gt; — and most sites never change it. For a developer writing queries against a single known installation, hardcoding that prefix is faster. It works. The site functions correctly. No one notices.</p>
+<p>Until the site moves.</p>
+<p>When a WordPress site migrates to a new environment, the database prefix sometimes changes. A well-executed migration accounts for this. A query written with a hardcoded &lt;code&gt;wp_&lt;/code&gt; prefix does not. The site comes up, most things appear to work, and then something breaks in a way that&amp;#x27;s difficult to trace because the failure happens at the query level rather than the application level. The error message points at the symptom, not the assumption.</p>
+<p>The developer who wrote the original query didn&amp;#x27;t make a mistake in any obvious sense. The query worked correctly in the environment it was written for. The assumption was invisible because it was never wrong — until the environment changed and made it wrong retroactively.</p>
+<h2>What Makes an Assumption Expensive</h2>
+<p>This is what makes shared assumptions expensive. They don&amp;#x27;t announce themselves. They accumulate silently, each one functioning correctly until the conditions that made them correct no longer exist.</p>
+<p>A site built over several years by multiple developers may contain dozens of assumptions that no one documented because no one needed to — they were simply true. The upload path is always here. The prefix is always that. The API always returns results in this order. The plugin is always present.</p>
+<p>Migrations expose them. So do major version upgrades. So does any change that shifts the environment enough to make previously stable assumptions unstable.</p>
+<p>The failure mode is consistent: something breaks in a way that doesn&amp;#x27;t immediately point to a cause, because the cause is not in the code that failed — it&amp;#x27;s in the assumption the code was built on top of.</p>
+<h2>The Pattern Across Systems</h2>
+<p>This pattern appears far beyond WordPress. API integrations that assume a response structure that the vendor eventually changes. Build processes that assume a specific version of a dependency that gets updated. Scheduled jobs that assume a file path that gets reorganized. Cron processes that assume a specific execution environment that changes when a site moves hosts.</p>
+<p>In each case, the assumption was reasonable when it was made. The environment that made it reasonable eventually changed. The assumption remained, invisible, until something broke.</p>
+<h2>Making Assumptions Explicit</h2>
+<p>The practical response isn&amp;#x27;t to distrust assumptions. It&amp;#x27;s to make them explicit.</p>
+<p>A database prefix should be referenced from a configuration variable, not hardcoded. A path to an upload directory should be retrieved dynamically, not assumed. Any dependency on environmental state that could change should be named and documented, not left implicit.</p>
+<p>This is more work at the time of writing. It is significantly less work than debugging a broken migration at 11pm because a query is referencing a table that no longer exists under that name.</p>
+<p>The cost of a shared assumption is invisible until it isn&amp;#x27;t. By then, the cost is usually higher than the documentation would have been.</p>
+    <p class="article-back"><a class="button" href="../writing.html">Back to writing</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../assets/jz-logo.png" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../about.html">About</a>
+        <a href="../current-projects.html">Current Projects</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
