@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#53C2B0"/><stop offset=".55" stop-color="#4DB4FF"/><stop offset="1" stop-color="#6F78D8"/></linearGradient></defs>
-<path d="M19 7h26l13 22-13 22H19L6 29z" fill="none" stroke="url(#g)" stroke-width="4"/>
-<path d="M23 20h18l9 15-9 15H23l-9-15z" fill="none" stroke="url(#g)" stroke-width="3" opacity=".55"/>
-<circle cx="19" cy="7" r="3" fill="#4DB4FF"/><circle cx="45" cy="7" r="3" fill="#53C2B0"/><circle cx="58" cy="29" r="3" fill="#6F78D8"/><circle cx="45" cy="51" r="3" fill="#4DB4FF"/><circle cx="19" cy="51" r="3" fill="#53C2B0"/><circle cx="6" cy="29" r="3" fill="#6F78D8"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="JZ"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#63b3ff"/><stop offset="1" stop-color="#6f78d8"/></linearGradient></defs><path d="M40 3 72 21v38L40 77 8 59V21Z" fill="#081423" stroke="url(#g)" stroke-width="3"/><path d="M40 9 66 24v31L40 70 14 55V24Z" fill="none" stroke="#d7e9ff" stroke-opacity=".48"/><text x="40" y="49" text-anchor="middle" font-family="Space Grotesk,Arial,sans-serif" font-size="28" font-weight="700" fill="#fff" letter-spacing="-2">JZ</text></svg>

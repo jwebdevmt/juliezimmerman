@@ -195,10 +195,16 @@ def work_cards(config):
     for area in config.get("work_areas", []):
         title = e(area.get("title", "Work"))
         description = e(area.get("description", ""))
-        cards.append(f'''<article class="card">
-          <span class="tag">{title}</span>
+        slug = title.lower()
+        if 'wordpress' in slug or 'data' in slug or 'reliability' in slug or 'structured' in slug:
+            image = 'project-wordpress.svg'
+        else:
+            image = 'project-writing.svg'
+        cards.append(f'''<article class="card work-card">
+          <div class="card-image" style="background-image:url('assets/{image}')" aria-hidden="true"></div>
+          <div class="card-body"><span class="tag">{title}</span>
           <h3>{title}</h3>
-          <p>{description}</p>
+          <p>{description}</p></div>
         </article>''')
 
     return "\n".join(cards)
@@ -246,38 +252,71 @@ def build_about(config):
     about = config.get("about", {})
     body = paragraphs(about.get("body", []))
     skills = skill_cloud(about.get("skills", []))
-
+    website = about.get("website_build", {})
+    builder = about.get("builder", {})
+    website_body = paragraphs(website.get("body", []))
+    philosophy = "".join(f"<span>{e(line)}</span>" for line in website.get("closing", []))
+    builder_body = paragraphs(builder.get("body", []))
     content = f'''<main class="site-shell">
-  <article class="article-layout">
+  <article class="article-layout about-layout">
     <p class="eyebrow">About</p>
     <h1>Systems work with practical consequences.</h1>
-    {body}
-    <h2>Technical range</h2>
-    {skills}
+    <div class="about-hero-media media-slot media-about" role="img" aria-label="Replaceable About page image"></div><div class="about-intro">{body}</div>
+    <div class="media-slot media-code" role="img" aria-label="Replaceable site architecture image"></div><section class="about-callout" aria-labelledby="website-built-heading">
+      <p class="section-kicker">Architecture in practice</p>
+      <h2 id="website-built-heading">{e(website.get("title", "How This Website Is Built"))}</h2>
+      {website_body}
+      <div class="philosophy-stack">{philosophy}</div>
+    </section>
+    <div class="media-slot media-builder" role="img" aria-label="Replaceable builder image"></div><section class="about-section" aria-labelledby="builder-heading">
+      <p class="section-kicker">Tooling</p>
+      <h2 id="builder-heading">{e(builder.get("title", "Building the Builder"))}</h2>
+      {builder_body}
+      <p class="builder-closing">{e(builder.get("closing", ""))}</p>
+    </section>
+    <section class="about-section technical-range">
+      <p class="section-kicker">Experience</p><h2>Technical range</h2>{skills}
+    </section>
   </article>
 </main>'''
-
     return base_page(config, "About", "About Julie Zimmerman", content, active="about")
 
 
+def writing_group(post):
+    category = post.get("category", "").lower()
+    title = post.get("title", "").lower()
+    if "finding your neighborhood" in category or title in {"doors, not platforms", "what makes a neighborhood?"}:
+        return "FYN"
+    if any(term in category for term in ("wordpress", "security", "standards", "data", "systems")) or any(term in title for term in ("wordpress", "rets", "reso", "ada")):
+        return "Technical"
+    if any(term in category for term in ("engineering", "architecture", "judgment")):
+        return "Architecture"
+    if "adaptive" in category or "adaptive" in title:
+        return "Adaptive Experiences"
+    return "Architecture"
+
+
 def build_writing(config, posts):
-    cards = "\n".join(article_card(p) for p in published_posts(posts))
-    if not cards:
-        cards = "<p>Writing coming soon.</p>"
-
-    content = f'''<main class="site-shell">
-  <section class="section hex-accent">
-    <div class="section-header">
-      <p class="eyebrow">Writing</p>
-      <h1 class="page-title">Technical notes from the work.</h1>
-      <p class="section-intro">Articles on WordPress systems, data integrations, accessibility, AI-assisted workflows, and real production constraints.</p>
-    </div>
-    <div class="grid two">
-      {cards}
-    </div>
-  </section>
-</main>'''
-
+    published = published_posts(posts)
+    order = ["Technical", "FYN", "Architecture", "Adaptive Experiences"]
+    sections = []
+    for group in order:
+        grouped = [p for p in published if writing_group(p) == group]
+        if not grouped and group != "Adaptive Experiences":
+            continue
+        cards = "\n".join(article_card(p) for p in grouped)
+        if not cards:
+            cards = '<p class="category-empty">Articles in this area are in development.</p>'
+        group_id = group.lower().replace(" ", "-")
+        count_label = "article" if len(grouped) == 1 else "articles"
+        sections.append(f'''<section class="writing-category" aria-labelledby="category-{group_id}">
+  <div class="writing-category-header"><h2 id="category-{group_id}">{e(group)}</h2><span>{len(grouped)} {count_label}</span></div>
+  <div class="grid two writing-grid">{cards}</div>
+</section>''')
+    content = f'''<main class="site-shell"><section class="section writing-page">
+      <div class="writing-hero-media" role="img" aria-label="Replaceable writing page image"></div><div class="section-header writing-intro"><p class="eyebrow">Writing</p><h1 class="page-title">Technical notes from the work.</h1><p class="section-intro">Articles on WordPress systems, architecture, privacy-preserving tools, accessibility, AI-assisted workflows, and real production constraints.</p></div>
+      {"".join(sections)}
+    </section></main>'''
     return base_page(config, "Writing", "Technical writing by Julie Zimmerman", content, active="writing")
 
 
