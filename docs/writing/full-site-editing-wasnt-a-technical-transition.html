@@ -69,10 +69,131 @@
 <p>Menus existed independently.</p>
 <p>Templates were developer territory.</p>
 <p>Editors changed text. Developers changed structure.</p>
-<p>Over time, page builders emerged because those boundaries became increasingly difficult for editors to navigate.</p>
-<p>Clients wanted more flexibility, agencies wanted greater consistency, and developers found themselves creating custom solutions simply to bridge the gap between content and design.</p>
+<p>Over time, page builders emerged because those boundaries became increasingly difficult for editors to navigate. Clients wanted more flexibility, agencies wanted greater consistency, and developers found themselves creating custom solutions simply to bridge the gap between content and design.</p>
 <p>Full Site Editing represents WordPress&#x27;s attempt to rethink that entire model.</p>
-<p>...remaining paragraphs...</p>
+<p>Rather than layering additional tools onto an increasingly fragmented system, Full Site Editing aims to bring content, layout, templates, and design language together into a unified experience.</p>
+<p>Technically, it succeeds more often than people give it credit for.</p>
+<p>Culturally, however, it asks users to abandon assumptions that have existed for more than a decade.</p>
+<h2>What Actually Changed</h2>
+<p>Discussions about Full Site Editing often become lists of features: block themes, patterns, templates, theme.json. While those pieces matter, understanding the problems they solve is more useful than memorizing definitions.</p>
+<p>Block themes fundamentally change who controls structure.</p>
+<p>In classic WordPress, altering a header, footer, archive template, or search layout usually required touching theme files or involving a developer. Even organizations with technically capable editors often depended on development resources for relatively small visual adjustments.</p>
+<p>Block themes turn those components into editable systems.</p>
+<p>Headers become reusable objects.</p>
+<p>Footers become editable experiences.</p>
+<p>Archive layouts can evolve without custom PHP templates.</p>
+<p>The goal is not necessarily to eliminate developers from the process, but to reduce the number of times developers are required for changes that are fundamentally editorial.</p>
+<p>Patterns solve a different problem.</p>
+<p>Agencies have wrestled with the same challenge for years:</p>
+<p>How do you provide flexibility without allowing every page to become entirely unique?</p>
+<p>Patterns introduce structure without imposing rigidity.</p>
+<p>Editors gain the ability to assemble content from approved building blocks while maintaining consistency across an entire site. Instead of every page becoming a bespoke composition, organizations can establish visual systems that scale.</p>
+<p>This becomes particularly valuable in environments with multiple contributors, changing staff, or long-lived websites where maintaining design cohesion matters.</p>
+<p>Then there is &lt;code&gt;theme.json&lt;/code&gt;.</p>
+<p>At first glance, it appears to be little more than a configuration file.</p>
+<p>In practice, it represents a significant shift in how WordPress approaches design.</p>
+<p>Typography settings, spacing rules, color palettes, layout constraints, and visual defaults become centralized decisions rather than scattered CSS overrides accumulated over years of incremental changes.</p>
+<p>For organizations already thinking in terms of design systems, &lt;code&gt;theme.json&lt;/code&gt; feels familiar.</p>
+<p>For teams accustomed to solving presentation issues one page at a time, it can feel like a very different way of working.</p>
+<h2>The Difficult Part</h2>
+<p>Ironically, the hardest aspect of Full Site Editing has not been technical.</p>
+<p>Developers can learn templates.</p>
+<p>Designers can understand patterns.</p>
+<p>Site administrators can eventually become comfortable with global styles.</p>
+<p>What proves more difficult is changing expectations.</p>
+<p>Transitioning assumptions is harder than transitioning technology.</p>
+<p>Many clients spent years learning a specific workflow.</p>
+<p>Edit page.</p>
+<p>Adjust layout.</p>
+<p>Publish.</p>
+<p>Everything happened at the page level.</p>
+<p>Full Site Editing introduces distinctions between page content, templates, template parts, patterns, global styles, and site-wide settings.</p>
+<p>These concepts are logical.</p>
+<p>They are also unfamiliar.</p>
+<p>The friction surrounding Full Site Editing often has less to do with capability and more to do with cognitive models reinforced over many years.</p>
+<p>People naturally ask:</p>
+<p>&quot;Why did changing the header affect every page?&quot;</p>
+<p>&quot;Why is this block locked?&quot;</p>
+<p>&quot;Why can&#x27;t I edit this section directly?&quot;</p>
+<p>Those questions do not indicate failure.</p>
+<p>They indicate that WordPress is asking users to think more systemically.</p>
+<p>One thing I did not anticipate was how many decisions Full Site Editing pushes back toward developers.</p>
+<p>In classic WordPress themes, editorial boundaries were often implicit.</p>
+<p>Clients could edit content.</p>
+<p>Developers controlled templates.</p>
+<p>The separation was understood, even if it was sometimes frustrating.</p>
+<p>With Full Site Editing, those boundaries become configurable.</p>
+<p>Should editors be allowed to modify the header template?</p>
+<p>Should they be able to change typography?</p>
+<p>Can they create new color combinations?</p>
+<p>Can they rearrange reusable patterns?</p>
+<p>Should they have access to template parts at all?</p>
+<p>Those choices now exist.</p>
+<p>And every decision changes the editing experience.</p>
+<p>On one recent Full Site Editing implementation, we spent considerably more time discussing permissions than templates.</p>
+<p>The technical work itself was straightforward.</p>
+<p>The harder question was deciding what editors actually needed access to.</p>
+<p>Should someone be able to update a phone number in the header? Absolutely.</p>
+<p>Should they be able to redesign the header itself? Probably not.</p>
+<p>Typography controls? Color palettes? Template parts? Pattern creation?</p>
+<p>Those decisions become part of the implementation process.</p>
+<p>The objective wasn&#x27;t limiting editors. It was reducing opportunities for inconsistency to emerge over time.</p>
+<p>In practice, the project became less about building pages and more about designing an editing experience.</p>
+<p>For organizations with technically comfortable teams, that flexibility can be powerful.</p>
+<p>For organizations that update their website a few times each year, it can feel overwhelming.</p>
+<p>Many clients do not want to understand global styles, template parts, pattern overrides, or design systems.</p>
+<p>They want to update a phone number, swap out a hero image, and publish a new announcement.</p>
+<p>In practice, implementing Full Site Editing often means spending more time creating guardrails.</p>
+<p>Locking template structures.</p>
+<p>Defining approved color palettes.</p>
+<p>Restricting typography options.</p>
+<p>Building reusable patterns.</p>
+<p>Removing unnecessary controls.</p>
+<p>Creating an editorial experience that feels simple, even when the underlying architecture has become significantly more sophisticated.</p>
+<p>Ironically, some of the best Full Site Editing implementations may be the ones where clients barely realize they are using Full Site Editing at all.</p>
+<p>The technology becomes successful when editors feel less empowered to experiment and more empowered to accomplish the tasks they actually need to perform.</p>
+<h2>What Improved</h2>
+<p>Despite the adjustment period, Full Site Editing solves several long-standing issues that WordPress developers have encountered for years.</p>
+<p>Consistency improves.</p>
+<p>Reusable structures become easier to maintain.</p>
+<p>Design systems become more accessible to non-developers.</p>
+<p>Organizations gain the ability to evolve layouts without rebuilding entire themes.</p>
+<p>For developers, it also reduces a category of repetitive work that historically consumed time without adding significant value.</p>
+<p>Small header updates.</p>
+<p>Footer changes.</p>
+<p>Archive modifications.</p>
+<p>Minor layout adjustments.</p>
+<p>Many of these requests can now move closer to the editorial side of the organization.</p>
+<p>In practice, teams can spend less time responding to requests like:</p>
+<p>&quot;Can you update the footer phone number?&quot;</p>
+<p>or</p>
+<p>&quot;We changed office locations. Can you update the address everywhere?&quot;</p>
+<p>and more time working on integrations, accessibility improvements, performance issues, content architecture, and functionality that genuinely requires development effort.</p>
+<p>That shift changes where technical teams are able to spend their energy.</p>
+<p>There is still a place for custom development.</p>
+<p>There always will be.</p>
+<p>But Full Site Editing changes where development effort is best invested.</p>
+<h2>Practical Lessons</h2>
+<p>After working through both traditional WordPress implementations and newer Full Site Editing environments, a few observations have become increasingly clear.</p>
+<p>Full Site Editing is not simply a replacement for page builders.</p>
+<p>It is a different philosophy.</p>
+<p>Organizations already thinking in reusable systems often thrive within it.</p>
+<p>Organizations expecting unlimited page-level control may find the transition frustrating.</p>
+<p>Neither approach is inherently wrong.</p>
+<p>They simply prioritize different goals.</p>
+<p>In practice, successful adoption often depends less on technical sophistication and more on organizational mindset.</p>
+<p>Teams that value consistency, repeatability, and governance tend to see benefits quickly.</p>
+<p>Teams seeking maximum local flexibility may continue preferring other solutions.</p>
+<p>That is less an indictment of Full Site Editing and more a reminder that tools succeed when they align with how people already work.</p>
+<h2>Looking Back</h2>
+<p>Full Site Editing feels less like a feature release and more like WordPress redefining its own identity.</p>
+<p>The platform spent years evolving through plugins, builders, widgets, custom fields, and conventions layered on top of one another.</p>
+<p>Eventually, the ecosystem became powerful but fragmented.</p>
+<p>Full Site Editing appears to be an attempt to bring those ideas back into a coherent framework.</p>
+<p>Whether people embrace it or resist it often depends on which assumptions they are being asked to leave behind.</p>
+<p>The technology itself is not particularly difficult.</p>
+<p>The challenge is learning to think differently about what a website actually is.</p>
+<p>And in many ways, that has always been the hardest part of any major transition.</p>
     <p class="article-back"><a class="button" href="../writing.html">Back to writing</a></p>
   </article>
 </main>

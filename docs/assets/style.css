@@ -1346,3 +1346,23 @@ color:var(--text-secondary);
     text-align: left;
   }
 }
+
+
+/* Homepage systems story */
+.homepage-story-copy {
+  max-width: 780px;
+}
+.homepage-story-copy a {
+  font-weight: 700;
+}
+.story-principles {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--accent, currentColor);
+}
+.story-principles p:last-child {
+  margin-bottom: 0;
+}
+.story-closing {
+  font-size: 1.1rem;
+}

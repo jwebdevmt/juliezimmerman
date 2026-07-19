@@ -76,31 +76,19 @@
 <p>When you encounter a new attack pattern and build something to catch it, keep it. The next site with a similar compromise will be faster to clean. A toolkit you&#x27;ve built over real incidents is more useful than generic solutions because it reflects attack patterns you&#x27;ve actually seen.</p>
 <h2>Cleanup Protocol</h2>
 <p>Work in this order and don&#x27;t skip steps:</p>
-<h3>1. Change all credentials and disconnect sessions</h3>
-<p>Change all passwords immediately — WordPress admin, FTP, database, hosting panel. Disconnect all active sessions if your environment supports it. This cuts off active access before you start cleaning.</p>
-<h3>2. Reinstall WordPress from scratch</h3>
-<p>Actually delete the WordPress installation rather than overwriting it. Hidden files can survive an overwrite. Delete the installation directory, then install fresh from a clean download.</p>
-<h3>3. Replace plugins at the FTP level</h3>
-<p>Don&#x27;t use the WordPress admin to reinstall plugins — it&#x27;s slower and risks triggering compromised code during the process. At the FTP level, delete the plugin folder entirely and move a fresh copy over. This preserves your data while ensuring the plugin files are clean.</p>
-<h3>4. Audit and clean user accounts</h3>
-<p>Remove any admin accounts you don&#x27;t recognize. Keep your user list narrow — only accounts that need to exist should exist. This is ongoing maintenance, not just post-compromise cleanup.</p>
-<h3>5. Scan filesystem and database systematically</h3>
-<p>Run your toolkit against both the filesystem and the database. Don&#x27;t assume cleaning visible files is sufficient — database injections are common and easy to miss without a deliberate scan.</p>
-<aside class="reality-check"><strong>Reality check:</strong> Malware removal is only half the job. If you don't identify and close the original point of compromise, the same site can be reinfected days later.</aside>
+<strong>1. Change all credentials and disconnect sessions</strong> Change all passwords immediately — WordPress admin, FTP, database, hosting panel. Disconnect all active sessions if your environment supports it. This cuts off active access before you start cleaning.
+<strong>2. Reinstall WordPress from scratch</strong> Actually delete the WordPress installation rather than overwriting it. Hidden files can survive an overwrite. Delete the installation directory, then install fresh from a clean download.
+<strong>3. Replace plugins at the FTP level</strong> Don't use the WordPress admin to reinstall plugins — it's slower and risks triggering compromised code during the process. At the FTP level, delete the plugin folder entirely and move a fresh copy over. This preserves your data while ensuring the plugin files are clean.
+<strong>4. Audit and clean user accounts</strong> Remove any admin accounts you don't recognize. Keep your user list narrow — only accounts that need to exist should exist. This is ongoing maintenance, not just post-compromise cleanup.
+<strong>5. Scan filesystem and database systematically</strong> Run your toolkit against both the filesystem and the database. Don't assume cleaning visible files is sufficient — database injections are common and easy to miss without a deliberate scan.
 <h2>Prevention</h2>
-<p>The cleanest hack is one that never happens. In practice, the most common entry points are abandoned plugins and unpatched WordPress vulnerabilities — not exotic attacks, just software that stopped being maintained or updated.</p>
-<h3>Watch for abandoned plugins, not just outdated ones</h3>
-<p>Keeping plugins updated matters, but so does auditing whether a plugin is still actively supported. An abandoned plugin — one no longer maintained by its developer — will never receive a security patch even if a vulnerability is discovered. Regular audits should include checking whether plugins in your stack are still actively developed, not just whether they have pending updates.</p>
-<h3>Pro plugins require manual attention</h3>
-<p>Commercial plugins often don&#x27;t surface update notifications through the WordPress dashboard the way free plugins do. You have to go looking. If you&#x27;re not actively checking, you may be running a vulnerable version without knowing it. Build manual pro plugin checks into your maintenance routine, or reduce your reliance on them where you can.</p>
-<h3>Keep your plugin and theme inventory narrow</h3>
-<p>Every plugin is a potential attack surface. Remove plugins and themes you&#x27;re not actively using. Whitelist approved plugins rather than relying on manual audits alone — tooling that flags unauthorized plugins catches a common compromise indicator early.</p>
-<h3>Build themes using current WordPress technologies</h3>
-<p>Especially anywhere data integrity is involved. Legacy approaches to data handling introduce vulnerabilities that modern WordPress patterns address.</p>
-<h3>Restrict file uploads</h3>
-<p>If possible, don&#x27;t allow forms to accept file uploads to your system at all. If uploads are required, restrict file types strictly. Unrestricted file uploads are a significant attack vector.</p>
-<h3>Maintain a backup strategy</h3>
-<p>Run periodic backups and keep a clean copy of the site from its original launch. If you need to revert to a clean state, a recent backup is significantly less painful than rebuilding from scratch. A launch-day copy gives you a known-clean baseline to compare against.</p>
+<p>The cleanest hack is one that never happens. The most common entry points are outdated software and compromised credentials.</p>
+<strong>Keep everything updated</strong> WordPress core, plugins, and themes should be updated promptly. Vulnerabilities in outdated plugins are among the most common compromise vectors.
+<strong>Keep your plugin and theme inventory narrow</strong> Every plugin is a potential attack surface. Remove plugins and themes you're not actively using. Audit what's installed periodically.
+<strong>Whitelist approved plugins</strong> Rather than relying on manual audits alone, build tooling that flags plugins outside your approved list. This catches unauthorized plugin installation, which is a common compromise indicator.
+<strong>Build themes using current WordPress technologies</strong> Especially anywhere data integrity is involved. Legacy approaches to data handling introduce vulnerabilities that modern WordPress patterns address.
+<strong>Restrict file uploads</strong> If possible, don't allow forms to accept file uploads to your system at all. If uploads are required, restrict file types strictly. Unrestricted file uploads are a significant attack vector.
+<strong>Maintain a backup strategy</strong> Run periodic backups and keep a clean copy of the site from its original launch. If you need to revert to a clean state, a recent backup is significantly less painful than rebuilding from scratch. A launch-day copy gives you a known-clean baseline to compare against.
 <h2>The Toolkit Mindset</h2>
 <p>WordPress security isn&#x27;t a one-time event — it&#x27;s ongoing. The developers who handle compromises most effectively are the ones who treat each incident as an opportunity to build something reusable. A filesystem script that caught a PHP injection this month will catch the next one faster. A database check that surfaced a malicious redirect becomes part of your standard process.</p>
 <p>Over time, the toolkit becomes the methodology. The goal isn&#x27;t just to clean a compromised site — it&#x27;s to build the capacity to clean the next one faster and catch the one after that before it does damage.</p>
