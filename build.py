@@ -408,11 +408,27 @@ def build_contact(config):
     content = f'''<main class="site-shell">
   <article class="article-layout">
     <p class="eyebrow">Contact</p>
-    <h1>Technical conversations and project inquiries.</h1>
-    <p>{e(contact.get("intro", "For technical conversations, speaking opportunities, or project inquiries, get in touch directly."))}</p>
-    <p>{e(contact.get("routing_note", "Most client project work is handled through Zee Creative."))}</p>
-    <p><a class="button primary" href="{e(zee_url)}" target="_blank" rel="noopener" data-track="zee_click">Zee Creative</a></p>
-    {email_block}
+    <h1>Let's Talk</h1>
+    <p>Whether you're looking for website development, technical consulting, or want to discuss one of my projects, I'd love to hear from you.</p>
+
+    <h2>Website Development &amp; Agency Projects</h2>
+    <p>For WordPress development, website redesigns, ADA remediation, real estate integrations, hosting, maintenance, and ongoing client work, please contact Zee Creative.</p>
+    <p>Working through Zee Creative gives you access to our full team while allowing me to contribute my development expertise.</p>
+    <p><a class="button primary" href="https://zcreative.com" target="_blank" rel="noopener" data-click="zee_click">Contact Zee Creative</a></p>
+
+    <h2>Independent Conversations &amp; Side Projects</h2>
+    <p>For opportunities outside traditional agency work, feel free to contact me directly. I respond to most messages within a few days.</p>
+    <p>Examples include:</p>
+    <ul><li>Technical writing</li><li>AI and Adaptive Experiences discussions</li><li>System architecture consulting</li><li>Open-source collaboration</li><li>FYN conversations</li><li>Research partnerships</li><li>General technical discussions</li></ul>
+    <p><a class="button" href="mailto:jwebdevmt@gmail.com" data="julie_click">Email Julie</a></p>
+
+    <h2>What I Enjoy Working On</h2>
+    <p>I enjoy projects where technology solves a meaningful problem rather than adding unnecessary complexity. Whether it's modernizing a WordPress ecosystem, designing a static architecture, or exploring new approaches to human-centered AI, I'm most interested in work that improves how people interact with technology.</p>
+
+    <h2>Not Sure Where You Fit?</h2>
+    <p>That's perfectly fine. Reach out, tell me what you're trying to accomplish, and I'll point you in the right direction — whether that's working with me directly or through Zee Creative.</p>
+    <p><a class=\"button\" href=\"mailto:jwebdevmt@gmail.com" data="getintouch_click">Get in Touch</a></p>"
+
   </article>
 </main>'''
 
