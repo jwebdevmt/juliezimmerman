@@ -1,0 +1,44 @@
+{
+  "title": "Making Site Launches Repeatable",
+  "date": "2026-07-25",
+  "category": "Reliability",
+  "summary": "A structured checklist turned launch knowledge into a consistent team process.",
+  "featured": true,
+  "display_order": 3,
+  "categories": [
+    "Reliability",
+    "Process Engineering"
+  ],
+  "principles": [
+    "Reliable outcomes should not depend on which experienced person happens to perform the work."
+  ],
+  "looking_back": "The checklist is valuable because it can keep evolving as new failure modes appear. A launch process should be a maintained operational control, not a static document.",
+  "body": [
+    "<h2>The Problem</h2>",
+    "Site launches varied by person, and important steps were sometimes missed.",
+    "<h2>Constraints</h2>",
+    "People had different experience levels and habits, with no shared launch standard.",
+    "<h2>Approach</h2>",
+    "I created a structured checklist covering the steps required for a reliable and complete launch.",
+    "<h2>Outcome</h2>",
+    "Launches became more consistent across the team, reducing avoidable post-launch issues."
+  ],
+  "perspectives": [
+    {
+      "name": "Julie",
+      "text": "The goal was not to make everyone launch exactly like me. It was to make the required outcome independent of memory."
+    },
+    {
+      "name": "Min",
+      "text": "A checklist is a control against predictable human variation."
+    },
+    {
+      "name": "Harbor",
+      "text": "It preserves experience without requiring the experienced person to be present."
+    }
+  ],
+  "published": true,
+  "content_type": "case-study",
+  "tags": [],
+  "related": []
+}

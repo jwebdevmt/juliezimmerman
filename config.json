@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Julie Zimmerman",
-    "tagline": "WordPress systems, data integrations, and practical problem-solving",
+    "tagline": "WordPress systems, data integrations, and pattern-driven engineering",
     "intro": "I work on systems that have to function reliably at scale. WordPress fleets, real estate data pipelines, and AI integrations layered into existing infrastructure. The work is less about tools and more about behavior under load, where systems fail, and how to make them reliable over time."
   },
   "owner": {
@@ -20,32 +20,78 @@
       "label": "Home"
     },
     {
-      "slug": "about",
-      "label": "About"
+      "slug": "engineering",
+      "label": "Engineering",
+      "children": [
+        {
+          "slug": "current-projects",
+          "label": "Projects"
+        },
+        {
+          "slug": "problems",
+          "label": "Engineering Case Studies"
+        },
+        {
+          "slug": "how-i-work",
+          "label": "Engineering Philosophy"
+        }
+      ]
     },
     {
-      "slug": "current-projects",
-      "label": "Current Projects"
+      "slug": "adaptive-experiences",
+      "label": "Adaptive Experiences",
+      "children": [
+        {
+          "slug": "adaptive-experiences",
+          "label": "How It Works"
+        },
+        {
+          "href": "adaptive-experiences/disney/index.html",
+          "label": "Disney Itineraries",
+          "active_slugs": [
+            "adaptive-experiences"
+          ]
+        },
+        {
+          "href": "adaptive-experiences/adaptive-experiences-perspectives/index.html",
+          "label": "The Perspectives",
+          "active_slugs": [
+            "adaptive-experiences"
+          ]
+        },
+        {
+          "href": "adaptive-experiences/disney-planner/index.html",
+          "label": "Submit an Experience",
+          "active_slugs": [
+            "adaptive-experiences"
+          ]
+        },
+        {
+          "href": "adaptive-experiences/adaptive-experiences-publishing-loop/index.html",
+          "label": "Publishing Loop",
+          "active_slugs": [
+            "adaptive-experiences"
+          ]
+        }
+      ]
     },
     {
       "slug": "writing",
       "label": "Writing"
     },
     {
-      "slug": "problems",
-      "label": "Problems"
-    },
-    {
-      "slug": "adaptive-experiences",
-      "label": "Adaptive Experiences"
-    },
-    {
-      "slug": "resume",
-      "label": "Experience"
-    },
-    {
-      "slug": "how-i-work",
-      "label": "How I Work"
+      "slug": "about-menu",
+      "label": "About",
+      "children": [
+        {
+          "slug": "resume",
+          "label": "Experience"
+        },
+        {
+          "slug": "about",
+          "label": "About Julie"
+        }
+      ]
     },
     {
       "slug": "contact",

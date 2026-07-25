@@ -4,11 +4,11 @@
   "status": "published",
   "seo": {
     "title": "How I Solve Problems | Julie Zimmerman",
-    "description": "Julie Zimmerman's engineering philosophy: understand the system, make failure visible, preserve human meaning, and build for maintainability."
+    "description": "Julie Zimmerman\u2019s engineering philosophy: pattern-driven systems thinking, visible failure, organizational memory, and maintainable architecture."
   },
   "hero": {
     "eyebrow": "Engineering Practice",
-    "headline": "Understand the system first.",
+    "headline": "Recognize the structure beneath the subject.",
     "intro": [
       "The technologies change. The work underneath them is remarkably consistent: find the real boundary of the problem, identify the assumptions holding it together, and build something people can understand after the urgency has passed."
     ]
@@ -19,6 +19,15 @@
       "body": [
         "I do not choose a platform because it is fashionable or familiar. I begin with what the system must do, who must operate it, what data it touches, and how failure appears.",
         "Sometimes that leads to WordPress. Sometimes it leads to a static Python builder, an API integration, a small internal application, or a policy rather than more code."
+      ]
+    },
+    {
+      "title": "Pattern-driven systems thinking",
+      "body": [
+        "I often keep several lines of thought active at once. Some concern the immediate technical problem; others concern people, cost, maintenance, organizational behavior, or patterns I have encountered in entirely different domains.",
+        "The connection is rarely between the subjects themselves. It is between the structures beneath them: discovery, trust, shared knowledge, failure visibility, operating cost, and what happens when no one is available to hold the system together.",
+        "When unrelated domains share the same underlying constraints, an idea from one can clarify the architecture of another. I am not copying solutions. I am recognizing similar structures.",
+        "That is what pattern-driven systems thinking means in my practice: preserving multiple threads long enough for useful connections to emerge, then testing those connections against the full technical and human system."
       ]
     },
     {

@@ -1,0 +1,40 @@
+{
+  "title": "Creating Client Instructions and an Audit Trail",
+  "date": "2026-07-25",
+  "category": "Documentation",
+  "summary": "Client guidance and project history replaced undocumented decisions and memory-dependent support.",
+  "featured": false,
+  "display_order": 5,
+  "categories": [
+    "Documentation",
+    "Organizational Memory"
+  ],
+  "principles": [
+    "Documentation should help the client act and help the team reconstruct what happened."
+  ],
+  "looking_back": "The maintenance requirement was the real constraint. Documentation that is too elaborate becomes another abandoned system, so the process had to fit the work already happening.",
+  "body": [
+    "<h2>The Problem</h2>",
+    "Clients lacked usable instructions, and the team had no durable history of project decisions, changes, or communication.",
+    "<h2>Constraints</h2>",
+    "The system had to work for existing clients and remain practical enough for the team to maintain.",
+    "<h2>Approach</h2>",
+    "I introduced client-facing instructions alongside an audit trail documenting project history and decisions.",
+    "<h2>Outcome</h2>",
+    "Clients gained clearer control of their sites, while the team gained organizational memory instead of relying on recollection."
+  ],
+  "perspectives": [
+    {
+      "name": "Julie",
+      "text": "The same documentation served two audiences: the client trying to act now and the team trying to understand later."
+    },
+    {
+      "name": "Harbor",
+      "text": "An audit trail converts memory into continuity."
+    }
+  ],
+  "published": true,
+  "content_type": "case-study",
+  "tags": [],
+  "related": []
+}

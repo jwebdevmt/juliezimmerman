@@ -1,0 +1,23 @@
+{
+  "title": "The Adaptive Experiences Publishing Loop",
+  "date": "2026-07-25",
+  "category": "Adaptive Experiences",
+  "published": true,
+  "excerpt": "The system architecture for moving a reader submission through council analysis, human synthesis, static-site publication, and Pinterest distribution without duplicating content entry.",
+  "body": [
+    "<p class=\"eyebrow\">System design</p>",
+    "<div class=\"experience-hero\"><p class=\"adaptive-kicker\">Submission \u2192 council \u2192 synthesis \u2192 publication</p><h2>One canonical record. Multiple public outputs.</h2><p>The publishing loop is designed so an approved reader request does not have to be rewritten separately for the website, search index, social copy, and Pinterest. The structured experience record is the source of truth.</p></div>",
+    "<h2>Why this is part of the project</h2>",
+    "Adaptive Experiences is not only a set of articles. It is a repeatable collaboration and publishing system. The strongest proof comes from multiple real examples, because readers can compare how stable perspectives behave across different people, constraints, and desired outcomes.",
+    "<h2>The loop</h2>",
+    "<div class=\"loop-grid\"><div class=\"loop-step\"><span>01</span><strong>Reader submission</strong><p>Capture the desired experience, participants, constraints, priorities, and whether the requester permits public anonymized publication.</p></div><div class=\"loop-step\"><span>02</span><strong>Normalization</strong><p>Create the shared packet without adding unstated facts. This becomes the immutable input for every council perspective.</p></div><div class=\"loop-step\"><span>03</span><strong>Council run</strong><p>Store each independent response as its own attributed content object rather than collapsing the voices into one answer.</p></div><div class=\"loop-step\"><span>04</span><strong>Julie synthesis</strong><p>Compare the trade-offs, resolve conflicts against reality, and create the final adaptive experience.</p></div><div class=\"loop-step\"><span>05</span><strong>Publication</strong><p>Generate the experience landing page, individual perspective pages, final synthesis, related links, search records, and Pinterest-ready metadata.</p></div></div>",
+    "<h2>Publication states</h2>",
+    "<ul><li><strong>Private intake:</strong> received but not approved for publication.</li><li><strong>In council:</strong> normalized packet complete; perspectives underway.</li><li><strong>Human review:</strong> synthesis and factual validation in progress.</li><li><strong>Published:</strong> site pages generated from the approved record.</li><li><strong>Distributed:</strong> Pinterest assets created from the same publication metadata.</li></ul>",
+    "<h2>What the current builder now does</h2>",
+    "<p>The build exports <code>adaptive-experiences/publishing-manifest.json</code>. Each publishable experience can provide a title, summary, canonical URL, perspective label, Pinterest board, pin description, image path, and alt text. This creates a clean handoff point for an external Pinterest automation.</p>",
+    "<div class=\"human-loop\"><strong>The automation does not decide what becomes public.</strong><p>Publication permission, anonymization, factual review, and the final synthesis remain human-controlled gates. Automation begins only after the record is approved.</p></div>",
+    "<h2>Next implementation layer</h2>",
+    "<p>The remaining external layer will watch for approved records, run the static build, deploy the generated pages, read the publishing manifest, and create or schedule Pinterest pins through an authorized integration. The static site remains the canonical public archive; Pinterest is distribution, not the source of truth.</p>",
+    "<p><a class=\"button primary\" href=\"../disney-planner/index.html\">Submit an experience</a> <a class=\"button\" href=\"../index.html\">Back to Adaptive Experiences</a></p>"
+  ]
+}

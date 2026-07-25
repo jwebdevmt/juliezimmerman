@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plan Your Disney Day | Julie Zimmerman</title>
-  <meta name="description" content="A Disney itinerary intake form built around feeling, constraints, pacing, group dynamics, and what would genuinely make the day work.">
+  <meta name="description" content="Submit a real Disney planning problem for Adaptive Experiences: independent AI council perspectives, visible trade-offs, and a Julie-reviewed final synthesis.">
   <link rel="stylesheet" href="../../assets/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon.png">
@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,13 +73,10 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="../../index.html">Home</a>
-        <a class="nav-link" href="../../about.html">About</a>
-        <a class="nav-link" href="../../current-projects.html">Current Projects</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../current-projects.html">Projects</a><a class="nav-dropdown-link" href="../../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link active" href="../../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="../../writing.html">Writing</a>
-        <a class="nav-link" href="../../problems/index.html">Problems</a>
-        <a class="nav-link active" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="../../resume/index.html">Experience</a>
-        <a class="nav-link" href="../../how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../../about.html">About Julie</a></div></div>
         <a class="nav-link" href="../../contact.html">Contact</a>
       </nav>
     </div>
@@ -64,7 +86,7 @@
   <article class="article-layout">
     <p class="eyebrow">Adaptive Experiences</p>
     <h1>Plan Your Disney Day</h1>
-    <p>Some Disney plans start with a list of rides. This one starts with what kind of day you are trying to create.</p>
+    <p>Submit a real Disney planning problem to the Adaptive Experiences council. Selected submissions may become public examples showing each preserved perspective and Julie’s final synthesis.</p>
 
 <div class="disney-callout"><strong>Plan Your Disney Day</strong> · This form is designed around what actually matters to your group, not just a list of attractions.</div>
 <form class="disney-form" id="disneyPlannerForm">
@@ -228,7 +250,10 @@
         data.get('unspoken') || '',
         '',
         'Other notes:',
-        data.get('other') || ''
+        data.get('other') || '',
+        '',
+        'Anonymized publication permission:',
+        data.get('publication_permission') || 'No'
       ];
 
       if (window.jzTrackEvent) {

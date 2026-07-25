@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">

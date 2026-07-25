@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,23 +73,17 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="../../index.html">Home</a>
-        <a class="nav-link" href="../../about.html">About</a>
-        <a class="nav-link" href="../../current-projects.html">Current Projects</a>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../current-projects.html">Projects</a><a class="nav-dropdown-link active" href="../../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="../../writing.html">Writing</a>
-        <a class="nav-link active" href="../../problems/index.html">Problems</a>
-        <a class="nav-link" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="../../resume/index.html">Experience</a>
-        <a class="nav-link" href="../../how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../../about.html">About Julie</a></div></div>
         <a class="nav-link" href="../../contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-shell">
-  <article class="article-layout">
-    <p class="eyebrow">Problems I've Solved</p>
-    <h1>AI as Team, Not Tool</h1>
-    <p>The most useful reframe I&#x27;ve found for working with AI is not &quot;AI as tool&quot; but &quot;AI as team.&quot;</p>
+  <main class="site-shell"><article class="article-layout">
+    <p class="eyebrow">Engineering Case Study</p><h1>AI as Team, Not Tool</h1><p>The most useful reframe I&#x27;ve found for working with AI is not &quot;AI as tool&quot; but &quot;AI as team.&quot;</p>
 <p>The difference matters in practice.</p>
 <p>A tool does what you point it at. A team member brings a perspective you didn&#x27;t ask for, notices something you missed, and occasionally tells you something you&#x27;d rather not hear. The work comes back different from how it left — sometimes better in ways you didn&#x27;t anticipate, sometimes corrected in ways you&#x27;re glad happened before it went further.</p>
 <p>That&#x27;s closer to what AI actually does when you work with it well.</p>
@@ -75,9 +94,8 @@
 <p>That&#x27;s the distinction that holds the whole structure together. I control the flow of information, the task assignments, and the decisions. I know what problem I&#x27;m actually trying to solve — not just the factual version I hand to an AI, but the organizational context, the scheduling constraints, the team dynamics, the connotations that don&#x27;t fit in a prompt. The AI instances don&#x27;t have that. They depend on me to integrate their work into a path that actually fits reality.</p>
 <p>What they give back is a set of directions I hadn&#x27;t fully considered, questions I hadn&#x27;t thought to ask, and catches I would have missed working alone. The outcome is more refined. The decisions are still mine.</p>
 <p>That&#x27;s not replacement. That&#x27;s coordination. The difference is who&#x27;s accountable for the result — and in this model, that&#x27;s always the human running the team.</p>
-    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
-  </article>
-</main>
+    <p class="article-back"><a class="button" href="../index.html">Back to Engineering Case Studies</a></p>
+    </article></main>
 
   <footer class="site-footer">
     <div class="site-shell footer-grid">

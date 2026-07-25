@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Adaptive Experiences Publishing Loop | Julie Zimmerman</title>
+  <meta name="description" content="The system architecture for moving a reader submission through council analysis, human synthesis, static-site publication, and Pinterest distribution without duplicating content entry.">
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../../index.html">
+        <img class="brand-mark" src="../../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../../index.html">Home</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../current-projects.html">Projects</a><a class="nav-dropdown-link" href="../../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link active" href="../../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
+        <a class="nav-link" href="../../writing.html">Writing</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../../about.html">About Julie</a></div></div>
+        <a class="nav-link" href="../../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Adaptive Experiences</p>
+    <h1>The Adaptive Experiences Publishing Loop</h1>
+    <p class="eyebrow">System design</p>
+<div class="experience-hero"><p class="adaptive-kicker">Submission → council → synthesis → publication</p><h2>One canonical record. Multiple public outputs.</h2><p>The publishing loop is designed so an approved reader request does not have to be rewritten separately for the website, search index, social copy, and Pinterest. The structured experience record is the source of truth.</p></div>
+<h2>Why this is part of the project</h2>
+<p>Adaptive Experiences is not only a set of articles. It is a repeatable collaboration and publishing system. The strongest proof comes from multiple real examples, because readers can compare how stable perspectives behave across different people, constraints, and desired outcomes.</p>
+<h2>The loop</h2>
+<div class="loop-grid"><div class="loop-step"><span>01</span><strong>Reader submission</strong><p>Capture the desired experience, participants, constraints, priorities, and whether the requester permits public anonymized publication.</p></div><div class="loop-step"><span>02</span><strong>Normalization</strong><p>Create the shared packet without adding unstated facts. This becomes the immutable input for every council perspective.</p></div><div class="loop-step"><span>03</span><strong>Council run</strong><p>Store each independent response as its own attributed content object rather than collapsing the voices into one answer.</p></div><div class="loop-step"><span>04</span><strong>Julie synthesis</strong><p>Compare the trade-offs, resolve conflicts against reality, and create the final adaptive experience.</p></div><div class="loop-step"><span>05</span><strong>Publication</strong><p>Generate the experience landing page, individual perspective pages, final synthesis, related links, search records, and Pinterest-ready metadata.</p></div></div>
+<h2>Publication states</h2>
+<ul><li><strong>Private intake:</strong> received but not approved for publication.</li><li><strong>In council:</strong> normalized packet complete; perspectives underway.</li><li><strong>Human review:</strong> synthesis and factual validation in progress.</li><li><strong>Published:</strong> site pages generated from the approved record.</li><li><strong>Distributed:</strong> Pinterest assets created from the same publication metadata.</li></ul>
+<h2>What the current builder now does</h2>
+<p>The build exports <code>adaptive-experiences/publishing-manifest.json</code>. Each publishable experience can provide a title, summary, canonical URL, perspective label, Pinterest board, pin description, image path, and alt text. This creates a clean handoff point for an external Pinterest automation.</p>
+<div class="human-loop"><strong>The automation does not decide what becomes public.</strong><p>Publication permission, anonymization, factual review, and the final synthesis remain human-controlled gates. Automation begins only after the record is approved.</p></div>
+<h2>Next implementation layer</h2>
+<p>The remaining external layer will watch for approved records, run the static build, deploy the generated pages, read the publishing manifest, and create or schedule Pinterest pins through an authorized integration. The static site remains the canonical public archive; Pinterest is distribution, not the source of truth.</p>
+<p><a class="button primary" href="../disney-planner/index.html">Submit an experience</a> <a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
+    <p class="article-back"><a class="button" href="../index.html">Back to Adaptive Experiences</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../../assets/jz-wordmark.svg" alt="Julie Zimmerman">
+        <p class="footer-role">Software Engineer <span aria-hidden="true">•</span> Billings, MT</p>
+        <p class="footer-note">Currently employed full-time at Zee Creative. Available for select consulting and side projects.</p>
+        <p class="footer-copyright">© 2026 Julie Zimmerman</p>
+      </div>
+      <nav class="footer-links" aria-label="Professional links">
+        <a href="https://github.com/jwebdevmt" target="_blank" rel="noopener" data-track="footer_github">GitHub</a>
+        <a href="https://www.linkedin.com/in/juliezimmerman1" target="_blank" rel="noopener" data-track="footer_linkedin">LinkedIn</a>
+        <a href="../../contact.html" data-track="footer_contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

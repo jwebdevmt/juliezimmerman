@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Problems I&#x27;ve Solved | Julie Zimmerman</title>
-  <meta name="description" content="Examples of what happens when software assumptions stop matching reality — and the architectural decisions that came out of it.">
+  <title>Engineering Case Studies | Julie Zimmerman</title>
+  <meta name="description" content="Case studies showing how technical, operational, and organizational constraints shape engineering decisions.">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,37 +73,144 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="../index.html">Home</a>
-        <a class="nav-link" href="../about.html">About</a>
-        <a class="nav-link" href="../current-projects.html">Current Projects</a>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../current-projects.html">Projects</a><a class="nav-dropdown-link active" href="../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="../writing.html">Writing</a>
-        <a class="nav-link active" href="../problems/index.html">Problems</a>
-        <a class="nav-link" href="../adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="../resume/index.html">Experience</a>
-        <a class="nav-link" href="../how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../about.html">About Julie</a></div></div>
         <a class="nav-link" href="../contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-shell">
-  <article class="article-layout">
-    <p class="eyebrow">Problems I've Solved</p>
-    <h1>Problems I&#x27;ve Solved</h1>
-    <p><em>Reality does not read documentation.</em></p>
-<p>Most software assumes organizations behave rationally, consistently, and according to process. In practice, people compete, inherit systems they don&#x27;t understand, develop workarounds, and continue operating long after the software assumptions stop matching reality.</p>
-<p>Much of my career has been spent at that collision point.</p>
-<p>These are examples of systems where assumptions stopped matching reality — and the architectural decisions that followed.</p>
-<div class="problem-grid">
-  <article class="problem-card"><span class="tag">Architecture</span><h2>When Software Assumes Cooperation</h2><p>Four campuses. One shared system. Real competition for enrollment funding. The architecture assumed cooperation. Reality did not.</p><p><a class="button" href="../problems/when-software-assumes-cooperation/index.html">Read more</a></p></article>
-  <article class="problem-card"><span class="tag">Reliability</span><h2>Building Reliability Into Scheduled Systems</h2><p>Recurring jobs disappear silently. Imports stop. Data goes stale. Nobody notices until a support ticket arrives.</p><p><a class="button" href="../problems/reliability-engineering-for-systems-that-dont-fail-loudly/index.html">Read more</a></p></article>
-  <article class="problem-card"><span class="tag">Security</span><h2>Recognizing a Web Shell Before You Know What It Is</h2><p>A theme we did not install. A strange folder name. A file called database.php. Recognition before full identification.</p><p><a class="button" href="../problems/recognizing-a-web-shell/index.html">Read more</a></p></article>
-  <article class="problem-card"><span class="tag">AI Coordination</span><h2>AI as Team, Not Tool</h2><p>Multiple AI instances, differentiated roles, decisions that stay human. What coordination actually looks like in practice.</p><p><a class="button" href="../problems/ai-as-team-not-tool/index.html">Read more</a></p></article>
-  <article class="problem-card"><span class="tag">Site Health</span><h2>Measuring What Aging Looks Like</h2><p>Health is not the absence of errors. Sites accumulate drift long before they fail.</p><p><a class="button" href="../problems/measuring-what-aging-looks-like/index.html">Read more</a></p></article>
-  <article class="problem-card"><span class="tag">Security</span><h2>When the Calendar Becomes the Attack Surface</h2><p>Bot attacks, the economics of defenders and attackers, and a plugin built from two live incidents.</p><p><a class="button" href="../problems/calendar-defender-article/index.html">Read Part 1</a> <a class="button" href="../problems/calendar-defender-part2-article/index.html">Read Part 2</a></p></article>
-  <article class="problem-card"><span class="tag">Security</span><h2>Cleaning Up After a WordPress Compromise</h2><p>A repeatable methodology for triage, cleanup, prevention, and building a stronger toolkit after every incident.</p><p><a class="button" href="../problems/wordpress-compromise-cleanup/index.html">Read more</a></p></article>
-</div>
-  </article>
-</main>
+  <main class="site-shell"><section class="section writing-page">
+      <div class="section-header writing-intro"><p class="eyebrow">Engineering Case Studies</p>
+      <h1 class="page-title">How engineering decisions hold up in practice.</h1><p class="section-intro">Engineering is more than writing code. These case studies document technical, operational, and organizational challenges, the constraints involved, the decisions I made, and what the outcomes taught me.</p></div>
+      <ul class="ps-grid" role="list"><li class="ps-card">
+          <a class="ps-card-link" href="../problems/client-technical-credentials-database/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Operations</span>
+            <h3 class="ps-title">Replacing Credential Sprawl with Organizational Memory</h3>
+            <p class="ps-excerpt">A structured WordPress database replaced scattered credentials and memory-dependent access.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Organizations should own their operational knowledge rather than depend on individual memory.</p>
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/sign-ordering-platform/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Operations</span>
+            <h3 class="ps-title">Building an Integrated Sign Ordering Operation</h3>
+            <p class="ps-excerpt">A custom WordPress platform connected CRM, vendor ordering, Kanban tracking, process stages, and employee work.</p>
+            <p class="ps-principle"><strong>Principle:</strong> An operational system should make the whole workflow visible, not digitize isolated fragments.</p>
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/launch-checklist/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Reliability</span>
+            <h3 class="ps-title">Making Site Launches Repeatable</h3>
+            <p class="ps-excerpt">A structured checklist turned launch knowledge into a consistent team process.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Reliable outcomes should not depend on which experienced person happens to perform the work.</p>
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/backup-redundancy-system/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Recovery</span>
+            <h3 class="ps-title">Designing Backup Redundancy People Will Maintain</h3>
+            <p class="ps-excerpt">Quarterly off-host backups and preserved launch states extended recovery beyond a one-month hosting window.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Simple and maintained beats comprehensive and abandoned.</p>
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/client-instructions-audit-trail/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Documentation</span>
+            <h3 class="ps-title">Creating Client Instructions and an Audit Trail</h3>
+            <p class="ps-excerpt">Client guidance and project history replaced undocumented decisions and memory-dependent support.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Documentation should help the client act and help the team reconstruct what happened.</p>
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/estimate-template/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Business Systems</span>
+            <h3 class="ps-title">Turning Ad Hoc Estimates into a Repeatable Process</h3>
+            <p class="ps-excerpt">A collaboratively refined estimate template made project scoping more consistent and faster.</p>
+            <p class="ps-principle"><strong>Principle:</strong> A useful standard improves through real use rather than pretending to be complete on day one.</p>
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/ai-as-team-not-tool/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Problems</span>
+            <h3 class="ps-title">AI as Team, Not Tool</h3>
+            <p class="ps-excerpt">AI becomes more useful when treated as differentiated perspectives rather than a single assistant.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/reliability-engineering-for-systems-that-dont-fail-loudly/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Systems</span>
+            <h3 class="ps-title">Building Reliability Into Scheduled Systems</h3>
+            <p class="ps-excerpt">WP-Cron failures rarely announce themselves. They quietly stop scheduled imports, stale listings accumulate, and support tickets arrive days later. Reliability often means designing around silent failure.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/wordpress-compromise-cleanup/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Security</span>
+            <h3 class="ps-title">Cleaning Up After a WordPress Compromise: A Systematic Approach</h3>
+            <p class="ps-excerpt">A repeatable methodology for triage, cleanup, and prevention after a WordPress compromise.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/measuring-what-aging-looks-like/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Problems</span>
+            <h3 class="ps-title">Measuring What Aging Looks Like</h3>
+            <p class="ps-excerpt">The absence of errors is not the presence of health.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/recognizing-a-web-shell/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Problems</span>
+            <h3 class="ps-title">Recognizing a Web Shell Before You Know What It Is</h3>
+            <p class="ps-excerpt">Detection through expected state rather than malware signatures.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/when-software-assumes-cooperation/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Problems</span>
+            <h3 class="ps-title">When Software Assumes Cooperation</h3>
+            <p class="ps-excerpt">Shared infrastructure built for cooperation deployed into an environment defined by competition.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/calendar-defender-article/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Security</span>
+            <h3 class="ps-title">When the Calendar Becomes the Attack Surface</h3>
+            <p class="ps-excerpt">Bot attacks, the economics of defenders and attackers, and a plugin built from two live incidents.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="../problems/calendar-defender-part2-article/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Security</span>
+            <h3 class="ps-title">When the Calendar Becomes the Attack Surface, Part 2</h3>
+            <p class="ps-excerpt">What happened overnight on the first real deployment, and why the plugin ended up with a self-healing state machine.</p>
+            
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li></ul></section></main>
 
   <footer class="site-footer">
     <div class="site-shell footer-grid">

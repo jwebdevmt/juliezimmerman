@@ -1,0 +1,44 @@
+{
+  "title": "Building an Integrated Sign Ordering Operation",
+  "date": "2026-07-25",
+  "category": "Operations Platform",
+  "summary": "A custom WordPress platform connected CRM, vendor ordering, Kanban tracking, process stages, and employee work.",
+  "featured": true,
+  "display_order": 2,
+  "categories": [
+    "Operations",
+    "Application Architecture"
+  ],
+  "principles": [
+    "An operational system should make the whole workflow visible, not digitize isolated fragments."
+  ],
+  "looking_back": "This is substantial enough to document both as a project and as a case study: the project describes the platform; the case study explains the operational system it replaced.",
+  "body": [
+    "<h2>The Problem</h2>",
+    "The signage operation had no shared CRM, vendor ordering process, work-in-progress view, or employee task visibility.",
+    "<h2>Constraints</h2>",
+    "Multiple functions needed to work together within infrastructure the team already understood.",
+    "<h2>Approach</h2>",
+    "I built a WordPress-based platform combining client records, vendor ordering, a Kanban board, stage lists, and employee work tracking.",
+    "<h2>Outcome</h2>",
+    "The full order lifecycle became visible in one system, from client request through vendor work and completion."
+  ],
+  "perspectives": [
+    {
+      "name": "Julie",
+      "text": "The value was integration. Five disconnected tools would have preserved five disconnected versions of the operation."
+    },
+    {
+      "name": "Nam",
+      "text": "The platform turned an informal sequence into an inspectable operational model."
+    },
+    {
+      "name": "Jae",
+      "text": "Client, vendor, stage, owner, status: one shared picture."
+    }
+  ],
+  "published": true,
+  "content_type": "case-study",
+  "tags": [],
+  "related": []
+}

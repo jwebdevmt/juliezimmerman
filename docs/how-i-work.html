@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How I Solve Problems | Julie Zimmerman</title>
-  <meta name="description" content="Julie Zimmerman&#x27;s engineering philosophy: understand the system, make failure visible, preserve human meaning, and build for maintainability.">
+  <meta name="description" content="Julie Zimmerman’s engineering philosophy: pattern-driven systems thinking, visible failure, organizational memory, and maintainable architecture.">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,13 +73,10 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="current-projects.html">Current Projects</a>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="current-projects.html">Projects</a><a class="nav-dropdown-link" href="problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link active" href="how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="writing.html">Writing</a>
-        <a class="nav-link" href="problems/index.html">Problems</a>
-        <a class="nav-link" href="adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="resume/index.html">Experience</a>
-        <a class="nav-link active" href="how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="resume/index.html">Experience</a><a class="nav-dropdown-link" href="about.html">About Julie</a></div></div>
         <a class="nav-link" href="contact.html">Contact</a>
       </nav>
     </div>
@@ -64,13 +86,17 @@
   <section class="discipline-hero">
     <div class="site-shell discipline-hero-inner">
       <p class="eyebrow">Engineering Practice</p>
-      <h1>Understand the system first.</h1>
+      <h1>Recognize the structure beneath the subject.</h1>
       <div class="discipline-lede"><p>The technologies change. The work underneath them is remarkably consistent: find the real boundary of the problem, identify the assumptions holding it together, and build something people can understand after the urgency has passed.</p></div>
     </div>
   </section>
   <div class="site-shell discipline-layout how-i-work-layout">
     <section class="discipline-section"><p class="eyebrow">Method</p><h2>Start with behavior, not tools</h2><p>I do not choose a platform because it is fashionable or familiar. I begin with what the system must do, who must operate it, what data it touches, and how failure appears.</p>
 <p>Sometimes that leads to WordPress. Sometimes it leads to a static Python builder, an API integration, a small internal application, or a policy rather than more code.</p></section>
+<section class="discipline-section"><p class="eyebrow">Method</p><h2>Pattern-driven systems thinking</h2><p>I often keep several lines of thought active at once. Some concern the immediate technical problem; others concern people, cost, maintenance, organizational behavior, or patterns I have encountered in entirely different domains.</p>
+<p>The connection is rarely between the subjects themselves. It is between the structures beneath them: discovery, trust, shared knowledge, failure visibility, operating cost, and what happens when no one is available to hold the system together.</p>
+<p>When unrelated domains share the same underlying constraints, an idea from one can clarify the architecture of another. I am not copying solutions. I am recognizing similar structures.</p>
+<p>That is what pattern-driven systems thinking means in my practice: preserving multiple threads long enough for useful connections to emerge, then testing those connections against the full technical and human system.</p></section>
 <section class="discipline-section"><p class="eyebrow">Method</p><h2>Look for the assumption everyone stopped seeing</h2><p>Many expensive failures come from shared assumptions: a database prefix that was supposed to be standard, a scheduled task assumed to be running, a plugin assumed to remain supported, or an AI answer assumed to be authoritative.</p>
 <p>I make those assumptions explicit, then test the ones with the greatest operational consequence.</p></section>
 <section class="discipline-section"><p class="eyebrow">Method</p><h2>Design for mistakes to become visible</h2><p>Reliable systems do not depend on perfect people, perfect inputs, or perfect tools. They include checkpoints, useful logs, independent verification, and recovery paths.</p>

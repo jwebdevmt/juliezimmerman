@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,23 +73,17 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="../../index.html">Home</a>
-        <a class="nav-link" href="../../about.html">About</a>
-        <a class="nav-link" href="../../current-projects.html">Current Projects</a>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../current-projects.html">Projects</a><a class="nav-dropdown-link active" href="../../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="../../writing.html">Writing</a>
-        <a class="nav-link active" href="../../problems/index.html">Problems</a>
-        <a class="nav-link" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="../../resume/index.html">Experience</a>
-        <a class="nav-link" href="../../how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../../about.html">About Julie</a></div></div>
         <a class="nav-link" href="../../contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-shell">
-  <article class="article-layout">
-    <p class="eyebrow">Problems I've Solved</p>
-    <h1>Recognizing a Web Shell Before You Know What It Is</h1>
-    <p>The site wasn&#x27;t one we managed. We were brought in to look at it, and the first thing I did was pull it to a local environment.</p>
+  <main class="site-shell"><article class="article-layout">
+    <p class="eyebrow">Engineering Case Study</p><h1>Recognizing a Web Shell Before You Know What It Is</h1><p>The site wasn&#x27;t one we managed. We were brought in to look at it, and the first thing I did was pull it to a local environment.</p>
 <p>Something was wrong before I could name it. There was a theme installed that we hadn&#x27;t put there. The folder name was strange — not the kind of name a legitimate theme developer uses. The folder date didn&#x27;t match anything else on the site.</p>
 <p>I opened it. The first file was called database.php.</p>
 <p>That combination — unfamiliar name, suspicious date, a file called database.php sitting at the root of a theme folder — was enough. Before I confirmed what I was looking at, I knew it wasn&#x27;t supposed to be there.</p>
@@ -86,9 +105,8 @@
 <blockquote><p><strong>Julie:</strong> Usually I can reconstruct enough of the incident to reassure the client that they were an incidental target rather than a specifically chosen one. That distinction matters to people, even though the cleanup still has to be thorough.</p></blockquote>
 <div class="perspective-banner"><img class="perspective-banner-logo" src="../../assets/jae-hex-logo.svg" alt="Jae"><div class="perspective-banner-copy"><p class="perspective-role">Compression</p><h2>Jae</h2><p class="perspective-description">Five thousand log lines reduced to: plugin executed, permission escalated, persistence achieved.</p></div></div>
 <blockquote><p><strong>Julie:</strong> Jae always cuts through the volume and finds the actual sequence.</p></blockquote>
-    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
-  </article>
-</main>
+    <p class="article-back"><a class="button" href="../index.html">Back to Engineering Case Studies</a></p>
+    </article></main>
 
   <footer class="site-footer">
     <div class="site-shell footer-grid">

@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,23 +73,17 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="../../index.html">Home</a>
-        <a class="nav-link" href="../../about.html">About</a>
-        <a class="nav-link" href="../../current-projects.html">Current Projects</a>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../current-projects.html">Projects</a><a class="nav-dropdown-link active" href="../../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="../../writing.html">Writing</a>
-        <a class="nav-link active" href="../../problems/index.html">Problems</a>
-        <a class="nav-link" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="../../resume/index.html">Experience</a>
-        <a class="nav-link" href="../../how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../../about.html">About Julie</a></div></div>
         <a class="nav-link" href="../../contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-shell">
-  <article class="article-layout">
-    <p class="eyebrow">Problems I've Solved</p>
-    <h1>Measuring What Aging Looks Like</h1>
-    <p>A site health report that only shows errors misses most of what actually goes wrong with websites.</p>
+  <main class="site-shell"><article class="article-layout">
+    <p class="eyebrow">Engineering Case Study</p><h1>Measuring What Aging Looks Like</h1><p>A site health report that only shows errors misses most of what actually goes wrong with websites.</p>
 <p>Errors are visible. A broken form, a failed payment, a 404 — these produce complaints. Someone notices and reports it. The fix is reactive but at least it happens.</p>
 <p>What doesn&#x27;t produce complaints is accumulation. Pages that were accurate two years ago and quietly stopped being true. Images uploaded at full resolution because nobody told anyone they shouldn&#x27;t be. Themes installed years ago that haven&#x27;t been updated since. None of these throw errors. None of them trigger alerts. They just make the site slower, harder to maintain, and less accurate over time.</p>
 <p>That&#x27;s the problem with measuring only failure. The absence of an error is not the presence of health.</p>
@@ -72,9 +91,8 @@
 <p>The large file detection feature illustrates why this matters in practice. The system surfaces the largest uploaded files on a site and the attachment sizes associated with individual pages. On one client site, that report exposed a single file over 75 megabytes and more than a thousand files between 20 and 50 megabytes. Nothing was broken. The site loaded. Pages rendered. But the storage footprint was enormous and growing, and page load times on image-heavy content were quietly suffering for it.</p>
 <p>That finding opened a client conversation that wouldn&#x27;t have happened otherwise. Not because something failed — because something was measurable that hadn&#x27;t been measured before.</p>
 <p>The principle that came out of building this: websites age. The job of a health monitoring system isn&#x27;t only to catch failures. It&#x27;s to make maturity visible before it becomes a problem someone has to report.</p>
-    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
-  </article>
-</main>
+    <p class="article-back"><a class="button" href="../index.html">Back to Engineering Case Studies</a></p>
+    </article></main>
 
   <footer class="site-footer">
     <div class="site-shell footer-grid">

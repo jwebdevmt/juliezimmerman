@@ -1,0 +1,44 @@
+{
+  "title": "Designing Backup Redundancy People Will Maintain",
+  "date": "2026-07-25",
+  "category": "Recovery",
+  "summary": "Quarterly off-host backups and preserved launch states extended recovery beyond a one-month hosting window.",
+  "featured": true,
+  "display_order": 4,
+  "categories": [
+    "Recovery",
+    "Infrastructure"
+  ],
+  "principles": [
+    "Simple and maintained beats comprehensive and abandoned."
+  ],
+  "looking_back": "The \u2018Most Recent Backup\u2019 folder intentionally sacrifices historical accumulation for immediate clarity. It supplements rolling hosting backups rather than attempting to replace every recovery layer.",
+  "body": [
+    "<h2>The Problem</h2>",
+    "Hosting retained only one month of rolling backups, and original launch-state files were not being preserved.",
+    "<h2>Constraints</h2>",
+    "The process needed to supplement hosting, remain easy to perform quarterly, and make the current recovery point unmistakable.",
+    "<h2>Approach</h2>",
+    "I established a quarterly manual backup stored in a single \u2018Most Recent Backup\u2019 folder that overwrites the prior quarter. I also added preservation of the original launch state to the launch process.",
+    "<h2>Outcome</h2>",
+    "The organization gained a recovery point beyond the host\u2019s rolling window without creating a confusing archive of dated folders."
+  ],
+  "perspectives": [
+    {
+      "name": "Julie",
+      "text": "The most technically complete backup policy is useless when nobody can quickly identify or maintain it."
+    },
+    {
+      "name": "Jae",
+      "text": "One current off-host recovery point. One preserved launch state. No folder archaeology."
+    },
+    {
+      "name": "Min",
+      "text": "Recovery design must account for how people behave during an incident."
+    }
+  ],
+  "published": true,
+  "content_type": "case-study",
+  "tags": [],
+  "related": []
+}

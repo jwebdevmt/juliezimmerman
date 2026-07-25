@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T15:39:42",
+  "records": [
+    {
+      "slug": "disney-dca-oogie-boogie",
+      "title": "Solo DCA and Oogie Boogie Bash",
+      "summary": "Five independent perspectives plan one solo DCA day, followed by a human-reviewed synthesis.",
+      "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+      "experience": "Disneyland",
+      "perspective": "Final synthesis",
+      "pin": {
+        "title": "Solo DCA + Oogie Boogie Bash: five AI council perspectives",
+        "description": "See how five stable AI perspectives create different plans for the same solo Disney day\u2014and how Julie synthesizes them into one itinerary.",
+        "board": "Adaptive Experiences",
+        "image": "/assets/project-adaptive.svg",
+        "alt": "Solo DCA + Oogie Boogie Bash: five AI council perspectives"
+      }
+    },
+    {
+      "slug": "disney-epcot-food-and-wine",
+      "title": "EPCOT Food and Wine for Three Adults",
+      "summary": "Five independent perspectives plan one shared EPCOT festival day, followed by a human-reviewed synthesis.",
+      "url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+      "experience": "Walt Disney World",
+      "perspective": "Final synthesis",
+      "pin": {
+        "title": "EPCOT Food & Wine itinerary through five AI perspectives",
+        "description": "A group EPCOT day planned through independent AI council perspectives, visible trade-offs, and a human final synthesis.",
+        "board": "Adaptive Experiences",
+        "image": "/assets/project-adaptive.svg",
+        "alt": "EPCOT Food & Wine itinerary through five AI perspectives"
+      }
+    },
+    {
+      "slug": "disney-bo-ra-itinerary",
+      "title": "Bo Ra \u2014 Disney Itinerary",
+      "summary": "Bo Ra\u2019s Disney itinerary starts with emotional register instead of efficiency, treating atmosphere as infrastructure rather than filler between attractions.",
+      "url": "/adaptive-experiences/disney-bo-ra-itinerary/",
+      "experience": "Disneyland",
+      "perspective": "Bo Ra",
+      "pin": {
+        "title": "Bo Ra plans Disney around atmosphere and memory",
+        "description": "Bo Ra protects emotional shape, atmosphere, and memorable moments while planning within the same real constraints as the rest of the council.",
+        "board": "Adaptive Experiences",
+        "image": "/assets/project-adaptive.svg",
+        "alt": "Bo Ra plans Disney around atmosphere and memory"
+      }
+    },
+    {
+      "slug": "disney-harbor-adaptive-flow",
+      "title": "Harbor \u2014 Adaptive Flow and Emotional Sustainability",
+      "summary": "Harbor\u2019s Disney page treats itinerary design as adaptive systems work: preserving momentum, flexibility, and joy when the day stops cooperating.",
+      "url": "/adaptive-experiences/disney-harbor-adaptive-flow/",
+      "experience": "Disneyland",
+      "perspective": "Harbor",
+      "pin": {
+        "title": "Harbor plans Disney for continuity and adaptive flow",
+        "description": "Harbor protects pacing, resilience, and the continuity of the experience when a Disney day meets real-world uncertainty.",
+        "board": "Adaptive Experiences",
+        "image": "/assets/project-adaptive.svg",
+        "alt": "Harbor plans Disney for continuity and adaptive flow"
+      }
+    }
+  ]
+}

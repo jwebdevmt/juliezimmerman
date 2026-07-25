@@ -1,11 +1,11 @@
 {
-  "title": "Harbor — Adaptive Flow and Emotional Sustainability",
+  "title": "Harbor \u2014 Adaptive Flow and Emotional Sustainability",
   "date": "2026-05-24",
   "category": "Disney Experiment",
   "published": true,
-  "excerpt": "Harbor’s Disney page treats itinerary design as adaptive systems work: preserving momentum, flexibility, and joy when the day stops cooperating.",
+  "excerpt": "Harbor\u2019s Disney page treats itinerary design as adaptive systems work: preserving momentum, flexibility, and joy when the day stops cooperating.",
   "body": [
-  "<div class=\"perspective-banner\"><img class=\"perspective-banner-logo\" src=\"../../assets/harbor-hex-logo.svg\" alt=\"Harbor\"><div class=\"perspective-banner-copy\"><p class=\"perspective-role\">PRESERVED PERSPECTIVE</p><h2>Harbor</h2><p class=\"perspective-description\">Continuity, warmth, and adaptive resilience.</p></div></div>",
+    "<div class=\"perspective-banner\"><img class=\"perspective-banner-logo\" src=\"../../assets/harbor-hex-logo.svg\" alt=\"Harbor\"><div class=\"perspective-banner-copy\"><p class=\"perspective-role\">PRESERVED PERSPECTIVE</p><h2>Harbor</h2><p class=\"perspective-description\">Continuity, warmth, and adaptive resilience.</p></div></div>",
     "<div class=\"disney-callout\"><strong>Role:</strong> Adaptive resilience, emotional sustainability, recovery pacing, and continuity under disruption.</div>",
     "<p class=\"pull-quote\">A resilient Disney day is not one where nothing goes wrong. It is one where disruptions do not collapse the experience.</p>",
     "Most Disney itineraries fail for the same reason most overloaded systems fail: they assume conditions will remain stable.",
@@ -17,11 +17,11 @@
     "<h2>What the Earlier Itineraries Already Understood</h2>",
     "The earlier itineraries already understood something important: atmosphere is not decorative. Emotional pacing matters. Experienced solo visitors are often optimizing for memory quality, environmental immersion, and emotional texture rather than raw throughput.",
     "But many itineraries still quietly frame recovery as failure.",
-    "The moment someone slows down, sits in the shade, reroutes after a closure, abandons a Lightning Lane strategy, or spends twenty minutes people-watching instead of “making progress,” the itinerary begins treating the deviation as inefficiency rather than adaptation.",
+    "The moment someone slows down, sits in the shade, reroutes after a closure, abandons a Lightning Lane strategy, or spends twenty minutes people-watching instead of \u201cmaking progress,\u201d the itinerary begins treating the deviation as inefficiency rather than adaptation.",
     "That framing creates brittle plans.",
     "<h2>Recovery Windows</h2>",
     "The revisions introduced a different idea: Recovery Windows.",
-    "A Recovery Window is not “taking a break.” It is intentional pacing architecture designed to preserve emotional sustainability over the length of the day.",
+    "A Recovery Window is not \u201ctaking a break.\u201d It is intentional pacing architecture designed to preserve emotional sustainability over the length of the day.",
     "That might mean riding the PeopleMover without urgency, sitting with something cold in air conditioning, rerouting away from crowd pressure, abandoning a failing plan early instead of emotionally negotiating with it, or allowing the park atmosphere itself to carry the experience for a while.",
     "The important shift is structural.",
     "Recovery stops being framed as lost optimization time and becomes part of the operational design itself.",
@@ -40,5 +40,15 @@
     "It is less useful for someone who wants the highest possible ride count, a minute-by-minute plan, or a checklist that treats deviation as failure. The tradeoff is intentional.",
     "The goal is not conquering the park.",
     "The goal is leaving the park still emotionally connected to why you came in the first place."
-  ]
+  ],
+  "publishable_experience": true,
+  "experience": "Disneyland",
+  "perspective": "Harbor",
+  "pin": {
+    "title": "Harbor plans Disney for continuity and adaptive flow",
+    "description": "Harbor protects pacing, resilience, and the continuity of the experience when a Disney day meets real-world uncertainty.",
+    "board": "Adaptive Experiences",
+    "image": "/assets/project-adaptive.svg",
+    "alt": "Harbor plans Disney for continuity and adaptive flow"
+  }
 }

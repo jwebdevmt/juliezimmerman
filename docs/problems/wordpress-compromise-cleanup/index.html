@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,23 +73,17 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="../../index.html">Home</a>
-        <a class="nav-link" href="../../about.html">About</a>
-        <a class="nav-link" href="../../current-projects.html">Current Projects</a>
+        <div class="nav-group nav-group-active"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../current-projects.html">Projects</a><a class="nav-dropdown-link active" href="../../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="../../writing.html">Writing</a>
-        <a class="nav-link active" href="../../problems/index.html">Problems</a>
-        <a class="nav-link" href="../../adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="../../resume/index.html">Experience</a>
-        <a class="nav-link" href="../../how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../../about.html">About Julie</a></div></div>
         <a class="nav-link" href="../../contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-shell">
-  <article class="article-layout">
-    <p class="eyebrow">Problems I've Solved</p>
-    <h1>Cleaning Up After a WordPress Compromise: A Systematic Approach</h1>
-    <p>A hacked WordPress site is stressful. The instinct is to start deleting suspicious files immediately — but without a systematic approach, you risk missing hidden malware, losing data, or cleaning the same site twice. This article outlines a repeatable methodology for triage, cleanup, and prevention that holds up across different compromise types.</p>
+  <main class="site-shell"><article class="article-layout">
+    <p class="eyebrow">Engineering Case Study</p><h1>Cleaning Up After a WordPress Compromise: A Systematic Approach</h1><p>A hacked WordPress site is stressful. The instinct is to start deleting suspicious files immediately — but without a systematic approach, you risk missing hidden malware, losing data, or cleaning the same site twice. This article outlines a repeatable methodology for triage, cleanup, and prevention that holds up across different compromise types.</p>
 <h2>Detection</h2>
 <p>Compromises aren&#x27;t always obvious. Common signals include:</p>
 <ul><li>Unexpected file changes</li><li>Plugins or themes you didn't install</li><li>Unusual or unrecognized admin users</li><li>Alerts from external scanners like Sucuri</li><li>Redirect behavior you didn't configure</li><li>Spam injection showing up in search results</li></ul>
@@ -106,9 +125,8 @@
 <blockquote><p><strong>Julie:</strong> I do see it as a challenge: stay ahead of attackers where I can, and when a breach comes through something outside my control, understand it quickly enough to take back the advantage.</p></blockquote>
 <div class="perspective-banner"><img class="perspective-banner-logo" src="../../assets/jae-hex-logo.svg" alt="Jae"><div class="perspective-banner-copy"><p class="perspective-role">Compression</p><h2>Jae</h2><p class="perspective-description">If the process lives in one person's head, that person has become load-bearing infrastructure.</p></div></div>
 <blockquote><p><strong>Julie:</strong> You may still carry much of the load, but you should never be the only support holding up the wall while you are also trying to repair it.</p></blockquote>
-    <p class="article-back"><a class="button" href="../index.html">Back to Problems I've Solved</a></p>
-  </article>
-</main>
+    <p class="article-back"><a class="button" href="../index.html">Back to Engineering Case Studies</a></p>
+    </article></main>
 
   <footer class="site-footer">
     <div class="site-shell footer-grid">

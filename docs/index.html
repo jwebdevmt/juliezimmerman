@@ -38,6 +38,31 @@
     });
   });
   </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -48,13 +73,10 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link active" href="index.html">Home</a>
-        <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="current-projects.html">Current Projects</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="current-projects.html">Projects</a><a class="nav-dropdown-link" href="problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
         <a class="nav-link" href="writing.html">Writing</a>
-        <a class="nav-link" href="problems/index.html">Problems</a>
-        <a class="nav-link" href="adaptive-experiences/index.html">Adaptive Experiences</a>
-        <a class="nav-link" href="resume/index.html">Experience</a>
-        <a class="nav-link" href="how-i-work.html">How I Work</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="resume/index.html">Experience</a><a class="nav-dropdown-link" href="about.html">About Julie</a></div></div>
         <a class="nav-link" href="contact.html">Contact</a>
       </nav>
     </div>
@@ -302,13 +324,13 @@
   <!-- ── /Adaptive Experiences Slider ────────────────────────────────── -->
 
 
-  <!-- ── Problems I've Solved ─────────────────────────────────────────── -->
+  <!-- ── Engineering Case Studies ─────────────────────────────────────────── -->
   <section class="ps-section" aria-labelledby="ps-heading">
     <div class="site-shell">
       <div class="ps-header">
-        <p class="eyebrow">Problems I've Solved</p>
+        <p class="eyebrow">Engineering Case Studies</p>
         <h2 class="ps-heading" id="ps-heading">Reality does not read documentation.</h2>
-        <p class="ps-sub">Five real systems problems. Five useful lessons. One rotating council interpretation.</p>
+        <p class="ps-sub">Real work, real constraints, and the engineering principles that emerged from both.</p>
       </div>
 
       <div class="ps-commentary" aria-live="polite">
@@ -327,57 +349,58 @@
 
       <ul class="ps-grid" id="ps-grid" role="list">
         <li class="ps-card">
-          <a class="ps-card-link" href="problems/when-software-assumes-cooperation/index.html" data-track="problem_card_click" data-problem="software-assumes-cooperation">
-            <span class="ps-category">Architecture</span>
-            <h3 class="ps-title">When Software Assumes Cooperation</h3>
-            <p class="ps-excerpt">Shared systems assumed cooperation. Reality did not.</p>
-            <span class="ps-read">Read more →</span>
+          <a class="ps-card-link" href="problems/client-technical-credentials-database/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Operations</span>
+            <h3 class="ps-title">Replacing Credential Sprawl with Organizational Memory</h3>
+            <p class="ps-excerpt">A structured WordPress database replaced scattered credentials and memory-dependent access.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Organizations should own their operational knowledge rather than depend on individual memory.</p>
+            <span class="ps-read">Read case study →</span>
           </a>
         </li>
-
-        <li class="ps-card">
-          <a class="ps-card-link" href="problems/reliability-engineering-for-systems-that-dont-fail-loudly/index.html" data-track="problem_card_click" data-problem="scheduled-systems">
+<li class="ps-card">
+          <a class="ps-card-link" href="problems/sign-ordering-platform/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Operations</span>
+            <h3 class="ps-title">Building an Integrated Sign Ordering Operation</h3>
+            <p class="ps-excerpt">A custom WordPress platform connected CRM, vendor ordering, Kanban tracking, process stages, and employee work.</p>
+            <p class="ps-principle"><strong>Principle:</strong> An operational system should make the whole workflow visible, not digitize isolated fragments.</p>
+            <span class="ps-read">Read case study →</span>
+          </a>
+        </li>
+<li class="ps-card">
+          <a class="ps-card-link" href="problems/launch-checklist/index.html" data-track="case_study_card_click">
             <span class="ps-category">Reliability</span>
-            <h3 class="ps-title">Building Reliability Into Scheduled Systems</h3>
-            <p class="ps-excerpt">Recurring jobs disappear. Data goes stale. Nothing fails loudly.</p>
-            <span class="ps-read">Read more →</span>
+            <h3 class="ps-title">Making Site Launches Repeatable</h3>
+            <p class="ps-excerpt">A structured checklist turned launch knowledge into a consistent team process.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Reliable outcomes should not depend on which experienced person happens to perform the work.</p>
+            <span class="ps-read">Read case study →</span>
           </a>
         </li>
-
-        <li class="ps-card">
-          <a class="ps-card-link" href="problems/recognizing-a-web-shell/index.html" data-track="problem_card_click" data-problem="web-shell">
-            <span class="ps-category">Security</span>
-            <h3 class="ps-title">Recognizing a Web Shell Before You Know What It Is</h3>
-            <p class="ps-excerpt">The theme was not the clue. The pattern was.</p>
-            <span class="ps-read">Read more →</span>
+<li class="ps-card">
+          <a class="ps-card-link" href="problems/backup-redundancy-system/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Recovery</span>
+            <h3 class="ps-title">Designing Backup Redundancy People Will Maintain</h3>
+            <p class="ps-excerpt">Quarterly off-host backups and preserved launch states extended recovery beyond a one-month hosting window.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Simple and maintained beats comprehensive and abandoned.</p>
+            <span class="ps-read">Read case study →</span>
           </a>
         </li>
-
-        <li class="ps-card">
-          <a class="ps-card-link" href="problems/ai-as-team-not-tool/index.html" data-track="problem_card_click" data-problem="ai-as-team">
-            <span class="ps-category">AI Coordination</span>
-            <h3 class="ps-title">AI as Team, Not Tool</h3>
-            <p class="ps-excerpt">Multiple perspectives. Human decisions. Coordination instead of replacement.</p>
-            <span class="ps-read">Read more →</span>
-          </a>
-        </li>
-
-        <li class="ps-card">
-          <a class="ps-card-link" href="problems/measuring-what-aging-looks-like/index.html" data-track="problem_card_click" data-problem="site-health">
-            <span class="ps-category">Site Health</span>
-            <h3 class="ps-title">Measuring What Aging Looks Like</h3>
-            <p class="ps-excerpt">Nothing was broken. Nothing was healthy either.</p>
-            <span class="ps-read">Read more →</span>
+<li class="ps-card">
+          <a class="ps-card-link" href="problems/client-instructions-audit-trail/index.html" data-track="case_study_card_click">
+            <span class="ps-category">Documentation</span>
+            <h3 class="ps-title">Creating Client Instructions and an Audit Trail</h3>
+            <p class="ps-excerpt">Client guidance and project history replaced undocumented decisions and memory-dependent support.</p>
+            <p class="ps-principle"><strong>Principle:</strong> Documentation should help the client act and help the team reconstruct what happened.</p>
+            <span class="ps-read">Read case study →</span>
           </a>
         </li>
       </ul>
 
       <div class="ps-cta">
-        <a href="problems/index.html" class="ps-cta-link" data-track="problems_homepage_cta">Explore Problems I've Solved →</a>
+        <a href="problems/index.html" class="ps-cta-link" data-track="case_studies_homepage_cta">Explore Engineering Case Studies →</a>
       </div>
     </div>
   </section>
-  <!-- ── /Problems I've Solved ────────────────────────────────────────── -->
+  <!-- ── /Engineering Case Studies ────────────────────────────────────────── -->
 
 </main>
 
@@ -614,7 +637,7 @@
   .ae-quote { font-size: 0.95rem; }
 }
 
-/* ── Problems I've Solved Homepage Section ─────────────────────────────── */
+/* ── Engineering Case Studies Homepage Section ─────────────────────────────── */
 
 .ps-section {
   padding: 5rem 0;

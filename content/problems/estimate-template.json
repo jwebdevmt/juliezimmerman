@@ -1,0 +1,40 @@
+{
+  "title": "Turning Ad Hoc Estimates into a Repeatable Process",
+  "date": "2026-07-25",
+  "category": "Business Systems",
+  "summary": "A collaboratively refined estimate template made project scoping more consistent and faster.",
+  "featured": false,
+  "display_order": 6,
+  "categories": [
+    "Business Systems",
+    "Process Engineering"
+  ],
+  "principles": [
+    "A useful standard improves through real use rather than pretending to be complete on day one."
+  ],
+  "looking_back": "The collaborative refinement mattered as much as the original template. Development and design saw different risks, and the estimate became stronger by holding both perspectives.",
+  "body": [
+    "<h2>The Problem</h2>",
+    "Pricing and scoping were handled ad hoc, without a consistent structure.",
+    "<h2>Constraints</h2>",
+    "The format had to work across project sizes and incorporate both development and design concerns.",
+    "<h2>Approach</h2>",
+    "I created an estimate template and refined it with the designer as real projects exposed gaps and edge cases.",
+    "<h2>Outcome</h2>",
+    "Estimates became faster, more consistent, and cumulative rather than being rebuilt from scratch each time."
+  ],
+  "perspectives": [
+    {
+      "name": "Julie",
+      "text": "The template became institutional learning: every difficult estimate could improve the next one."
+    },
+    {
+      "name": "Bo Ra",
+      "text": "The collaboration preserved two different ways of seeing the same client commitment."
+    }
+  ],
+  "published": true,
+  "content_type": "case-study",
+  "tags": [],
+  "related": []
+}
