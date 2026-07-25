@@ -1,0 +1,18 @@
+{
+  "title": "AI Publishing Pipeline",
+  "summary": "Designed structured prompt libraries and repeatable publishing workflows supporting website content, SEO metadata, design recommendations, editorial consistency, and documentation.",
+  "details": [
+    "Every deliverable passes through human review before publication."
+  ],
+  "highlights": [],
+  "links": [],
+  "tags": [
+    "AI",
+    "Publishing",
+    "Content Systems",
+    "Human Review"
+  ],
+  "featured": false,
+  "slug": "ai-publishing-pipeline",
+  "status": "published"
+}

@@ -1,0 +1,54 @@
+<main>
+  <section class="discipline-hero">
+    <div class="site-shell discipline-hero-inner">
+      <p class="eyebrow">{{ eyebrow }}</p>
+      <h1>{{ headline }}</h1>
+      <div class="discipline-lede">{{ hero_intro }}</div>
+    </div>
+  </section>
+
+  <div class="site-shell discipline-layout">
+    <section class="discipline-section discipline-philosophy">
+      <p class="eyebrow">Philosophy</p>
+      <h2>{{ philosophy_title }}</h2>
+      <blockquote>{{ philosophy_anchor }}</blockquote>
+      <p>{{ philosophy_intro }}</p>
+      {{ principles }}
+      <p>{{ philosophy_closing }}</p>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Problems</p><h2>{{ problems_title }}</h2>
+      <p>{{ problems_intro }}</p>{{ problems_items }}
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Approach</p><h2>{{ approach_title }}</h2>{{ approach_body }}
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Selected Projects</p><h2>Work that makes the method visible.</h2>
+      <div class="discipline-project-grid">{{ projects }}</div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Experience</p><h2>Representative experience.</h2>
+      <div class="experience-grid">{{ experience }}</div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Technologies</p><h2>Core technologies and areas of focus.</h2>
+      {{ technologies }}
+    </section>
+
+    {{ related_writing }}
+    {{ business_value }}
+
+    <section class="discipline-section discipline-contact">
+      <p class="eyebrow">Contact</p><h2>{{ contact_title }}</h2>{{ contact_body }}
+      <a class="button primary" href="{{ contact_url }}">{{ contact_label }}</a>
+    </section>
+
+    <blockquote class="discipline-closing">{{ closing_statement }}</blockquote>
+  </div>
+</main>

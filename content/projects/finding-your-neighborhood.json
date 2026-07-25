@@ -1,0 +1,30 @@
+{
+  "title": "Finding Your Neighborhood",
+  "subtitle": "Privacy-preserving community architecture",
+  "summary": "Finding Your Neighborhood explores how people can discover communities without surveillance, behavioral profiling, or centralized data collection.",
+  "details": [
+    "The project also demonstrates my approach to AI-assisted engineering. AI accelerated implementation and challenged assumptions throughout development, while architectural decisions, integrity verification, and publication standards remained under human control.",
+    "FYN applies the same philosophy I bring to AI systems: minimize unnecessary data collection, keep behavior inspectable, and preserve user control."
+  ],
+  "highlights": [
+    "Static GitHub Pages architecture",
+    "Python build system",
+    "Build-time integrity verification",
+    "Referrer-scrubbing architecture",
+    "Client-side matching and discovery",
+    "No database",
+    "No tracking",
+    "No advertising"
+  ],
+  "links": [],
+  "tags": [
+    "AI",
+    "Privacy",
+    "Python",
+    "Static Architecture",
+    "Verification"
+  ],
+  "featured": true,
+  "slug": "finding-your-neighborhood",
+  "status": "published"
+}

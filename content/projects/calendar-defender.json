@@ -1,0 +1,20 @@
+{
+  "title": "Multi-Model AI Verification Workflow",
+  "subtitle": "Calendar Defender",
+  "summary": "A practical engineering project exploring collaborative AI review rather than depending on a single model to produce solutions.",
+  "details": [
+    "Independent AI models reviewed architecture, challenged assumptions, explored edge cases, and critiqued implementation approaches before human synthesis.",
+    "The result was not simply better code. It was a repeatable engineering process that improved transparency, reasoning quality, and confidence in technical decisions."
+  ],
+  "highlights": [],
+  "links": [],
+  "tags": [
+    "AI",
+    "Multi-Model Review",
+    "Verification",
+    "Workflow Architecture"
+  ],
+  "featured": true,
+  "slug": "calendar-defender",
+  "status": "published"
+}

@@ -1,0 +1,350 @@
+[
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-bo-ra-itinerary",
+    "title": "Bo Ra — Disney Itinerary",
+    "summary": "Bo Ra’s Disney itinerary starts with emotional register instead of efficiency, treating atmosphere as infrastructure rather than filler between attractions.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-bo-ra-itinerary/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney",
+    "title": "Disney Adaptive Experiences",
+    "summary": "The first Adaptive Experiences implementation: one Disney planning problem approached through multiple preserved perspectives and a human synthesis.",
+    "tags": [],
+    "url": "adaptive-experiences/disney/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-edge-synthesis-evaluation",
+    "title": "Edge — How the Disney Itineraries Were Evaluated",
+    "summary": "Edge’s Disney article frames the experiment as operational synthesis: how isolated first drafts, differentiated review pressure, and selective preservation shaped the final itinerary.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-edge-synthesis-evaluation/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-epcot-food-and-wine",
+    "title": "EPCOT Food and Wine for Three Adults",
+    "summary": "Five independent perspectives plan one shared EPCOT festival day, followed by a human-reviewed synthesis.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-epcot-food-and-wine/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-final-synthesized-itinerary",
+    "title": "Final Synthesized Disney Itinerary",
+    "summary": "The final synthesized itinerary preserves emotional register, adaptive recovery windows, failure-mode realism, and park-specific pacing from the full council review process.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-final-synthesized-itinerary/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-harbor-adaptive-flow",
+    "title": "Harbor — Adaptive Flow and Emotional Sustainability",
+    "summary": "Harbor’s Disney page treats itinerary design as adaptive systems work: preserving momentum, flexibility, and joy when the day stops cooperating.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-harbor-adaptive-flow/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-jae-compression-and-signal",
+    "title": "Jae — Compression and Signal",
+    "summary": "Jae’s Disney itinerary compresses the day down to what survives real conditions: crowds, closures, energy drops, and the operational difference between Magic Kingdom and Disneyland.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-jae-compression-and-signal/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-min-failure-modes-and-realism",
+    "title": "Min — Failure Modes and Realism",
+    "summary": "Min’s Disney article pressure-tests the other itineraries against real conditions: late arrivals, ride closures, crowd spikes, fatigue, missed reservations, and the cost of protecting a plan that no longer serves the day.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-min-failure-modes-and-realism/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-nam-pacing-architecture",
+    "title": "Nam — Pacing Architecture",
+    "summary": "Nam’s Disney article explains why Disney days have structure: emotional momentum, transition architecture, recovery windows, and the shape of a day that still works by evening.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-nam-pacing-architecture/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-planner",
+    "title": "Plan Your Disney Day",
+    "summary": "A Disney itinerary intake form built around feeling, constraints, pacing, group dynamics, and what would genuinely make the day work.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-planner/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "adaptive-experiences-response-architecture",
+    "title": "Response Architecture",
+    "summary": "Why five perspectives given identical inputs produce five different answers — and why that divergence is the point, not a problem to be corrected.",
+    "tags": [],
+    "url": "adaptive-experiences/adaptive-experiences-response-architecture/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "disney-dca-oogie-boogie",
+    "title": "Solo DCA and Oogie Boogie Bash",
+    "summary": "Five independent perspectives plan one solo DCA day, followed by a human-reviewed synthesis.",
+    "tags": [],
+    "url": "adaptive-experiences/disney-dca-oogie-boogie/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "adaptive-experiences-submission-architecture",
+    "title": "Submission Architecture",
+    "summary": "How a real-world situation becomes the same starting point for five different perspectives — without losing what matters or adding what wasn't said.",
+    "tags": [],
+    "url": "adaptive-experiences/adaptive-experiences-submission-architecture/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "adaptive-experiences-perspectives",
+    "title": "The Perspectives",
+    "summary": "Five different ways of thinking about the same problem — what each perspective optimizes for, what it tends to notice, and what it tends to miss.",
+    "tags": [],
+    "url": "adaptive-experiences/adaptive-experiences-perspectives/index.html"
+  },
+  {
+    "type": "adaptive-experiences",
+    "slug": "yellowstone",
+    "title": "Yellowstone Adaptive Experiences",
+    "summary": "A preview of the Adaptive Experiences framework applied to Yellowstone: wildlife, photography, weather, distance, and uncertainty.",
+    "tags": [],
+    "url": "adaptive-experiences/yellowstone/index.html"
+  },
+  {
+    "type": "disciplines",
+    "slug": "ai-systems",
+    "title": "AI Systems Architecture",
+    "summary": "Artificial intelligence is changing how organizations build software, create content, and solve problems. Successfully introducing AI is not primarily a machine learning challenge—it is a systems architecture challenge.",
+    "tags": [
+      "AI",
+      "Architecture",
+      "Verification",
+      "Privacy",
+      "Automation",
+      "Systems Engineering"
+    ],
+    "url": "ai-systems/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "ai-as-team-not-tool",
+    "title": "AI as Team, Not Tool",
+    "summary": "AI becomes more useful when treated as differentiated perspectives rather than a single assistant.",
+    "tags": [],
+    "url": "problems/ai-as-team-not-tool/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "reliability-engineering-for-systems-that-dont-fail-loudly",
+    "title": "Building Reliability Into Scheduled Systems",
+    "summary": "WP-Cron failures rarely announce themselves. They quietly stop scheduled imports, stale listings accumulate, and support tickets arrive days later. Reliability often means designing around silent failure.",
+    "tags": [],
+    "url": "problems/reliability-engineering-for-systems-that-dont-fail-loudly/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "wordpress-compromise-cleanup",
+    "title": "Cleaning Up After a WordPress Compromise: A Systematic Approach",
+    "summary": "A repeatable methodology for triage, cleanup, and prevention after a WordPress compromise.",
+    "tags": [],
+    "url": "problems/wordpress-compromise-cleanup/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "measuring-what-aging-looks-like",
+    "title": "Measuring What Aging Looks Like",
+    "summary": "The absence of errors is not the presence of health.",
+    "tags": [],
+    "url": "problems/measuring-what-aging-looks-like/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "recognizing-a-web-shell",
+    "title": "Recognizing a Web Shell Before You Know What It Is",
+    "summary": "Detection through expected state rather than malware signatures.",
+    "tags": [],
+    "url": "problems/recognizing-a-web-shell/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "when-software-assumes-cooperation",
+    "title": "When Software Assumes Cooperation",
+    "summary": "Shared infrastructure built for cooperation deployed into an environment defined by competition.",
+    "tags": [],
+    "url": "problems/when-software-assumes-cooperation/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "calendar-defender-article",
+    "title": "When the Calendar Becomes the Attack Surface",
+    "summary": "Bot attacks, the economics of defenders and attackers, and a plugin built from two live incidents.",
+    "tags": [],
+    "url": "problems/calendar-defender-article/index.html"
+  },
+  {
+    "type": "problems",
+    "slug": "calendar-defender-part2-article",
+    "title": "When the Calendar Becomes the Attack Surface, Part 2",
+    "summary": "What happened overnight on the first real deployment, and why the plugin ended up with a self-healing state machine.",
+    "tags": [],
+    "url": "problems/calendar-defender-part2-article/index.html"
+  },
+  {
+    "type": "projects",
+    "slug": "ai-publishing-pipeline",
+    "title": "AI Publishing Pipeline",
+    "summary": "Designed structured prompt libraries and repeatable publishing workflows supporting website content, SEO metadata, design recommendations, editorial consistency, and documentation.",
+    "tags": [
+      "AI",
+      "Publishing",
+      "Content Systems",
+      "Human Review"
+    ],
+    "url": "current-projects.html"
+  },
+  {
+    "type": "projects",
+    "slug": "ai-malware-remediation",
+    "title": "AI-Assisted Malware Remediation",
+    "summary": "Designed AI-assisted workflows that accelerate malware investigation while keeping technical responsibility with the engineer.",
+    "tags": [
+      "AI",
+      "Security",
+      "Malware",
+      "Verification"
+    ],
+    "url": "current-projects.html"
+  },
+  {
+    "type": "projects",
+    "slug": "finding-your-neighborhood",
+    "title": "Finding Your Neighborhood",
+    "summary": "Finding Your Neighborhood explores how people can discover communities without surveillance, behavioral profiling, or centralized data collection.",
+    "tags": [
+      "AI",
+      "Privacy",
+      "Python",
+      "Static Architecture",
+      "Verification"
+    ],
+    "url": "current-projects.html"
+  },
+  {
+    "type": "projects",
+    "slug": "calendar-defender",
+    "title": "Multi-Model AI Verification Workflow",
+    "summary": "A practical engineering project exploring collaborative AI review rather than depending on a single model to produce solutions.",
+    "tags": [
+      "AI",
+      "Multi-Model Review",
+      "Verification",
+      "Workflow Architecture"
+    ],
+    "url": "current-projects.html"
+  },
+  {
+    "type": "writing",
+    "slug": "ada-compliance-technical-problem",
+    "title": "ADA Compliance Is a Technical Problem, Not a Legal One",
+    "summary": "ADA remediation works better when it is treated as engineering work: markup, contrast, forms, keyboard access, and content workflow discipline.",
+    "tags": [],
+    "url": "writing/ada-compliance-technical-problem.html"
+  },
+  {
+    "type": "writing",
+    "slug": "ai-integration-sidework-sprint01",
+    "title": "AI Integration",
+    "summary": "Practical AI integration work involving WordPress review workflows, malware tooling, synthetic data, and bounded multi-model review systems.",
+    "tags": [],
+    "url": "writing/ai-integration-sidework-sprint01.html"
+  },
+  {
+    "type": "writing",
+    "slug": "ai-integration-for-existing-web-stacks",
+    "title": "AI Integration for Existing Web Stacks",
+    "summary": "Useful AI integration usually starts with existing infrastructure, real bottlenecks, and clear human ownership—not a replacement fantasy.",
+    "tags": [],
+    "url": "writing/ai-integration-for-existing-web-stacks.html"
+  },
+  {
+    "type": "writing",
+    "slug": "cleaning-up-a-hacked-wordpress-site-a-practical-recovery-process",
+    "title": "Cleaning Up After a WordPress Compromise: A Systematic Approach",
+    "summary": "A repeatable methodology for triage, cleanup, and prevention after a WordPress compromise.",
+    "tags": [],
+    "url": "writing/cleaning-up-a-hacked-wordpress-site-a-practical-recovery-process.html"
+  },
+  {
+    "type": "writing",
+    "slug": "doors-not-platforms",
+    "title": "Doors, Not Platforms",
+    "summary": "The word platform implies something specific. It implies a place where content is hosted, where connections are managed, where growth is measured, and where the system itself be",
+    "tags": [],
+    "url": "writing/doors-not-platforms.html"
+  },
+  {
+    "type": "writing",
+    "slug": "full-site-editing-wasnt-a-technical-transition",
+    "title": "Full Site Editing Wasn't a Technical Transition. It Was a Mental One.",
+    "summary": "Full Site Editing changed more than templates. It changed assumptions about who controls structure, how organizations govern design, and what editors actually need access to.",
+    "tags": [],
+    "url": "writing/full-site-editing-wasnt-a-technical-transition.html"
+  },
+  {
+    "type": "writing",
+    "slug": "knowing-something-is-wrong",
+    "title": "Knowing Something Is Wrong Before You Know Why",
+    "summary": "WordPress releases follow a pattern. A major version ships, a maintenance release follows within weeks to address the inevitable bugs that survive testing, and then — sometimes ",
+    "tags": [],
+    "url": "writing/knowing-something-is-wrong.html"
+  },
+  {
+    "type": "writing",
+    "slug": "rets-to-reso-migration",
+    "title": "Migrating Real Estate Data Pipelines from RETS to RESO Web API",
+    "summary": "A RETS-to-RESO migration is less a protocol swap than a data architecture project involving field mapping, media handling, sync logic, and parallel validation.",
+    "tags": [],
+    "url": "writing/rets-to-reso-migration.html"
+  },
+  {
+    "type": "writing",
+    "slug": "notes-on-a-distributed-system-sprint01",
+    "title": "Notes on a Distributed System",
+    "summary": "A practical reflection on distributed AI review systems, drift detection, structural humility, and preserving human accountability inside long-context workflows.",
+    "tags": [],
+    "url": "writing/notes-on-a-distributed-system-sprint01.html"
+  },
+  {
+    "type": "writing",
+    "slug": "cost-of-shared-assumptions",
+    "title": "The Cost of Shared Assumptions",
+    "summary": "Database table prefixes exist for a reason. WordPress installs with a default prefix — `wp_` — and most sites never change it. For a developer writing queries against a single k",
+    "tags": [],
+    "url": "writing/cost-of-shared-assumptions.html"
+  },
+  {
+    "type": "writing",
+    "slug": "what-makes-a-neighborhood-1",
+    "title": "What Makes a Neighborhood?",
+    "summary": "The word neighborhood gets used loosely. It can mean a geographic area, a group of people, a sense of belonging, or something harder to name — the feeling that you are among peo",
+    "tags": [],
+    "url": "writing/what-makes-a-neighborhood-1.html"
+  },
+  {
+    "type": "writing",
+    "slug": "wordpress-fleet-management",
+    "title": "What Managing 250 WordPress Sites Actually Teaches You",
+    "summary": "At fleet scale, WordPress problems stop looking random. Standardization, launch protocol, malware patterns, hosting choices, and repeatable maintenance become the real work.",
+    "tags": [],
+    "url": "writing/wordpress-fleet-management.html"
+  }
+]

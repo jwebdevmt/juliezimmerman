@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Systems Architecture | Julie Zimmerman</title>
+  <meta name="description" content="Verification-first AI systems, workflow automation, privacy-preserving architecture, and human-centered engineering by Julie Zimmerman.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../index.html">
+        <img class="brand-mark" src="../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="../about.html">About</a>
+        <a class="nav-link" href="../current-projects.html">Current Projects</a>
+        <a class="nav-link" href="../writing.html">Writing</a>
+        <a class="nav-link" href="../problems/index.html">Problems</a>
+        <a class="nav-link" href="../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link active" href="../ai-systems/index.html">AI Systems</a>
+        <a class="nav-link" href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <section class="discipline-hero">
+    <div class="site-shell discipline-hero-inner">
+      <p class="eyebrow">AI Systems Architecture</p>
+      <h1>Engineering trustworthy AI systems.</h1>
+      <div class="discipline-lede"><p>Artificial intelligence is changing how organizations build software, create content, and solve problems. Successfully introducing AI is not primarily a machine learning challenge—it is a systems architecture challenge.</p>
+<p>Throughout my career, I have built enterprise software, managed large WordPress environments, designed privacy-preserving systems, and engineered automation that had to remain understandable and maintainable long after deployment. Today I apply that same engineering discipline to AI-assisted development and workflow design.</p>
+<p>AI is a remarkable tool, but production systems require more than fast answers. They require thoughtful architecture, verification, and human accountability.</p></div>
+    </div>
+  </section>
+
+  <div class="site-shell discipline-layout">
+    <section class="discipline-section discipline-philosophy">
+      <p class="eyebrow">Philosophy</p>
+      <h2>Engineering Philosophy</h2>
+      <blockquote>AI should amplify expertise—not replace judgment.</blockquote>
+      <p>AI delivers its greatest value when it extends the reach of experienced people rather than attempting to replace them.</p>
+      <ul class="principle-list"><li>AI should amplify human expertise.</li><li>Verification belongs inside the workflow—not after it.</li><li>Privacy should be architectural, not an afterthought.</li><li>Automation should reduce cognitive load without hiding complexity.</li><li>Systems should remain understandable by the people responsible for maintaining them.</li></ul>
+      <p>These principles grew from building production software where correctness, maintainability, and trust mattered long before today&#x27;s AI tools existed.</p>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Problems</p><h2>The Problems I Solve</h2>
+      <p>Rather than treating AI as a product, I design engineering systems that use AI responsibly.</p><ul class="discipline-list"><li>Building verification-first workflows that catch AI errors before they reach production.</li><li>Integrating AI into existing development and publishing processes without increasing operational risk.</li><li>Reducing repetitive engineering work through maintainable automation.</li><li>Designing AI-assisted content pipelines with human review built into every stage.</li><li>Building privacy-first systems that minimize unnecessary data collection.</li><li>Determining where AI improves outcomes—and where traditional engineering remains the better solution.</li></ul>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Approach</p><h2>How I Engineer with AI</h2><p>I view AI as a collaborative engineering tool rather than a source of authoritative answers.</p>
+<p>Different models excel at different kinds of reasoning. Independent review, structured feedback, explicit verification, and human judgment consistently produce stronger results than relying on a single model or prompt.</p>
+<p>The objective is not simply to generate output. It is to build engineering workflows that consistently produce trustworthy results.</p>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Selected Projects</p><h2>Work that makes the method visible.</h2>
+      <div class="discipline-project-grid"><article class="discipline-project-card">
+<h3>Finding Your Neighborhood</h3>
+<p class="project-subtitle">Privacy-preserving community architecture</p>
+<p>Finding Your Neighborhood explores how people can discover communities without surveillance, behavioral profiling, or centralized data collection.</p>
+<p>The project also demonstrates my approach to AI-assisted engineering. AI accelerated implementation and challenged assumptions throughout development, while architectural decisions, integrity verification, and publication standards remained under human control.</p>
+<p>FYN applies the same philosophy I bring to AI systems: minimize unnecessary data collection, keep behavior inspectable, and preserve user control.</p>
+<ul class="project-highlights"><li>Static GitHub Pages architecture</li><li>Python build system</li><li>Build-time integrity verification</li><li>Referrer-scrubbing architecture</li><li>Client-side matching and discovery</li><li>No database</li><li>No tracking</li><li>No advertising</li></ul>
+</article>
+<article class="discipline-project-card">
+<h3>Multi-Model AI Verification Workflow</h3>
+<p class="project-subtitle">Calendar Defender</p>
+<p>A practical engineering project exploring collaborative AI review rather than depending on a single model to produce solutions.</p>
+<p>Independent AI models reviewed architecture, challenged assumptions, explored edge cases, and critiqued implementation approaches before human synthesis.</p>
+<p>The result was not simply better code. It was a repeatable engineering process that improved transparency, reasoning quality, and confidence in technical decisions.</p>
+
+</article>
+<article class="discipline-project-card">
+<h3>AI-Assisted Malware Remediation</h3>
+
+<p>Designed AI-assisted workflows that accelerate malware investigation while keeping technical responsibility with the engineer.</p>
+<p>AI functions as an analytical assistant. Verification and final judgment remain human responsibilities.</p>
+
+</article>
+<article class="discipline-project-card">
+<h3>AI Publishing Pipeline</h3>
+
+<p>Designed structured prompt libraries and repeatable publishing workflows supporting website content, SEO metadata, design recommendations, editorial consistency, and documentation.</p>
+<p>Every deliverable passes through human review before publication.</p>
+
+</article></div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Experience</p><h2>Representative experience.</h2>
+      <div class="experience-grid"><article class="experience-card">
+<p class="eyebrow">Zee Creative</p>
+<h3>Lead Web Developer</h3>
+<p>Managing a large fleet of WordPress environments fundamentally shaped my approach to AI. At scale, verification becomes architecture. Large production environments require repeatable systems, careful automation, and engineering practices that reduce operational risk.</p>
+<ul class="experience-evidence"><li>Large multi-site production fleet</li><li>High-stakes transactional systems</li><li>AI-assisted malware remediation</li><li>Cron-driven synchronization systems</li><li>Managed hosting standards</li></ul>
+</article>
+<article class="experience-card">
+<p class="eyebrow">SunGard Higher Education</p>
+<h3>Lead Software Engineer</h3>
+<p>Before today&#x27;s AI tools existed, I designed synthetic data generators producing more than one million privacy-preserving student records for enterprise-scale performance testing.</p>
+<ul class="experience-evidence"><li>Representative synthetic datasets</li><li>Privacy-preserving test data</li><li>Enterprise-scale Oracle environments</li><li>Verification and repeatable automation</li></ul>
+</article></div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Technologies</p><h2>Core technologies and areas of focus.</h2>
+      <div class="technology-group"><h3>Languages</h3><div class="skill-cloud"><span class="skill-pill">PHP</span><span class="skill-pill">JavaScript</span><span class="skill-pill">Python</span><span class="skill-pill">Perl</span><span class="skill-pill">SQL</span><span class="skill-pill">HTML</span><span class="skill-pill">CSS</span></div></div>
+<div class="technology-group"><h3>Platforms</h3><div class="skill-cloud"><span class="skill-pill">WordPress</span><span class="skill-pill">GitHub Pages</span><span class="skill-pill">MySQL</span><span class="skill-pill">Oracle</span><span class="skill-pill">REST APIs</span></div></div>
+<div class="technology-group"><h3>Areas of Focus</h3><div class="skill-cloud"><span class="skill-pill">AI Systems Architecture</span><span class="skill-pill">Verification Systems</span><span class="skill-pill">Workflow Automation</span><span class="skill-pill">Systems Design</span><span class="skill-pill">Privacy-Preserving Architecture</span><span class="skill-pill">Technical Writing</span><span class="skill-pill">Malware Response</span><span class="skill-pill">API Integration</span></div></div>
+    </section>
+
+    
+    <section class="discipline-section discipline-value">
+<p class="eyebrow">Business Value</p><h2>Why Verification Matters</h2><p>AI can accelerate software development, documentation, research, and content creation.</p>
+<p>Production systems demand something more. They require workflows that make mistakes visible before they become outages, security vulnerabilities, or expensive technical debt.</p>
+<p>Good architecture does not assume perfection. It assumes mistakes will happen and designs systems that detect them early.</p>
+</section>
+
+    <section class="discipline-section discipline-contact">
+      <p class="eyebrow">Contact</p><h2>Let&#x27;s Talk</h2><p>If you are exploring AI-assisted software development, verification-first engineering, workflow automation, or systems architecture, I would be happy to talk.</p>
+<p>Whether you are modernizing an existing platform or designing something new, I enjoy solving complex technical problems where thoughtful engineering creates long-term value.</p>
+      <a class="button primary" href="/contact/">Contact Julie</a>
+    </section>
+
+    <blockquote class="discipline-closing">The goal is not to replace expertise with AI. It is to design systems where expertise reaches farther because AI is used thoughtfully.</blockquote>
+  </div>
+</main>
+
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../assets/jz-wordmark.svg" alt="Julie Zimmerman">
+        <p class="footer-note">WordPress systems, data integrations, and practical problem-solving</p>
+      </div>
+      <div class="footer-links">
+        <a href="../about.html">About</a>
+        <a href="../current-projects.html">Current Projects</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

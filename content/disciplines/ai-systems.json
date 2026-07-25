@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "title": "AI Systems Architecture",
+  "slug": "ai-systems",
+  "status": "published",
+  "nav_label": "AI Systems",
+  "seo": {
+    "title": "AI Systems Architecture | Julie Zimmerman",
+    "description": "Verification-first AI systems, workflow automation, privacy-preserving architecture, and human-centered engineering by Julie Zimmerman.",
+    "canonical_path": "/ai-systems/",
+    "og_title": "AI Systems Architecture",
+    "og_description": "Engineering trustworthy AI systems with verification, privacy, maintainability, and human accountability built in."
+  },
+  "hero": {
+    "eyebrow": "AI Systems Architecture",
+    "headline": "Engineering trustworthy AI systems.",
+    "intro": [
+      "Artificial intelligence is changing how organizations build software, create content, and solve problems. Successfully introducing AI is not primarily a machine learning challenge—it is a systems architecture challenge.",
+      "Throughout my career, I have built enterprise software, managed large WordPress environments, designed privacy-preserving systems, and engineered automation that had to remain understandable and maintainable long after deployment. Today I apply that same engineering discipline to AI-assisted development and workflow design.",
+      "AI is a remarkable tool, but production systems require more than fast answers. They require thoughtful architecture, verification, and human accountability."
+    ]
+  },
+  "philosophy": {
+    "title": "Engineering Philosophy",
+    "anchor": "AI should amplify expertise—not replace judgment.",
+    "intro": "AI delivers its greatest value when it extends the reach of experienced people rather than attempting to replace them.",
+    "principles": [
+      "AI should amplify human expertise.",
+      "Verification belongs inside the workflow—not after it.",
+      "Privacy should be architectural, not an afterthought.",
+      "Automation should reduce cognitive load without hiding complexity.",
+      "Systems should remain understandable by the people responsible for maintaining them."
+    ],
+    "closing": "These principles grew from building production software where correctness, maintainability, and trust mattered long before today's AI tools existed."
+  },
+  "problems": {
+    "title": "The Problems I Solve",
+    "intro": "Rather than treating AI as a product, I design engineering systems that use AI responsibly.",
+    "items": [
+      "Building verification-first workflows that catch AI errors before they reach production.",
+      "Integrating AI into existing development and publishing processes without increasing operational risk.",
+      "Reducing repetitive engineering work through maintainable automation.",
+      "Designing AI-assisted content pipelines with human review built into every stage.",
+      "Building privacy-first systems that minimize unnecessary data collection.",
+      "Determining where AI improves outcomes—and where traditional engineering remains the better solution."
+    ]
+  },
+  "approach": {
+    "title": "How I Engineer with AI",
+    "paragraphs": [
+      "I view AI as a collaborative engineering tool rather than a source of authoritative answers.",
+      "Different models excel at different kinds of reasoning. Independent review, structured feedback, explicit verification, and human judgment consistently produce stronger results than relying on a single model or prompt.",
+      "The objective is not simply to generate output. It is to build engineering workflows that consistently produce trustworthy results."
+    ]
+  },
+  "projects": [
+    "finding-your-neighborhood",
+    "calendar-defender",
+    "ai-malware-remediation",
+    "ai-publishing-pipeline"
+  ],
+  "experience": [
+    {
+      "role": "Lead Web Developer",
+      "organization": "Zee Creative",
+      "summary": "Managing a large fleet of WordPress environments fundamentally shaped my approach to AI. At scale, verification becomes architecture. Large production environments require repeatable systems, careful automation, and engineering practices that reduce operational risk.",
+      "evidence": [
+        "Large multi-site production fleet",
+        "High-stakes transactional systems",
+        "AI-assisted malware remediation",
+        "Cron-driven synchronization systems",
+        "Managed hosting standards"
+      ]
+    },
+    {
+      "role": "Lead Software Engineer",
+      "organization": "SunGard Higher Education",
+      "summary": "Before today's AI tools existed, I designed synthetic data generators producing more than one million privacy-preserving student records for enterprise-scale performance testing.",
+      "evidence": [
+        "Representative synthetic datasets",
+        "Privacy-preserving test data",
+        "Enterprise-scale Oracle environments",
+        "Verification and repeatable automation"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "label": "Languages",
+      "items": [
+        "PHP",
+        "JavaScript",
+        "Python",
+        "Perl",
+        "SQL",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "label": "Platforms",
+      "items": [
+        "WordPress",
+        "GitHub Pages",
+        "MySQL",
+        "Oracle",
+        "REST APIs"
+      ]
+    },
+    {
+      "label": "Areas of Focus",
+      "items": [
+        "AI Systems Architecture",
+        "Verification Systems",
+        "Workflow Automation",
+        "Systems Design",
+        "Privacy-Preserving Architecture",
+        "Technical Writing",
+        "Malware Response",
+        "API Integration"
+      ]
+    }
+  ],
+  "related_writing": {
+    "title": "Related Writing",
+    "intro": "Articles that expand on the engineering ideas presented here, including technical case studies, workflow design, and lessons learned from real-world projects.",
+    "match_tags": [
+      "AI",
+      "Verification",
+      "Architecture",
+      "Privacy",
+      "Automation"
+    ],
+    "limit": 6,
+    "manual_items": []
+  },
+  "business_value": {
+    "title": "Why Verification Matters",
+    "paragraphs": [
+      "AI can accelerate software development, documentation, research, and content creation.",
+      "Production systems demand something more. They require workflows that make mistakes visible before they become outages, security vulnerabilities, or expensive technical debt.",
+      "Good architecture does not assume perfection. It assumes mistakes will happen and designs systems that detect them early."
+    ]
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "paragraphs": [
+      "If you are exploring AI-assisted software development, verification-first engineering, workflow automation, or systems architecture, I would be happy to talk.",
+      "Whether you are modernizing an existing platform or designing something new, I enjoy solving complex technical problems where thoughtful engineering creates long-term value."
+    ],
+    "cta": {
+      "label": "Contact Julie",
+      "url": "/contact/",
+      "external": false
+    }
+  },
+  "closing_statement": "The goal is not to replace expertise with AI. It is to design systems where expertise reaches farther because AI is used thoughtfully.",
+  "tags": [
+    "AI",
+    "Architecture",
+    "Verification",
+    "Privacy",
+    "Automation",
+    "Systems Engineering"
+  ],
+  "updated": "2026-07-25"
+}
