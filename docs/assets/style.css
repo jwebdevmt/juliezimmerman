@@ -1632,7 +1632,39 @@ body::before,body::after{display:none}
   outline: 2px solid #7fc0ff;
   outline-offset: 3px;
 }
+/* Full desktop navigation */
+@media (min-width: 1101px) {
+  .navbar {
+    min-height: 76px;
+  }
 
+  .nav-links {
+    gap: 1.25rem;
+  }
+}
+
+/* Compact navigation begins before the row becomes cramped */
+@media (max-width: 1100px) {
+  .navbar {
+    min-height: 68px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .mobile-nav.open {
+    display: block;
+  }
+}
 @media (min-width: 901px) {
   .nav-group-toggle,
   .nav-links > .nav-link {
