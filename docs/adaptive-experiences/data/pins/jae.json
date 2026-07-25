@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T22:37:03+00:00",
+  "records": [
+    {
+      "id": "epcot-food-wine-three-adults--jae",
+      "experience_slug": "epcot-food-wine-three-adults",
+      "experience_title": "EPCOT Food and Wine for Three Adults",
+      "perspective_id": "jae",
+      "perspective_name": "Jae",
+      "perspective_role": "Compression, signal, and decisive priorities",
+      "title": "Jae: you are not required to finish EPCOT",
+      "description": "Pick the booths and experiences that matter. You are not required to finish EPCOT.",
+      "quote": "Pick the booths and experiences that matter. You are not required to finish EPCOT.",
+      "destination_url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+      "board": "Disney Planning Perspectives",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Jae perspective for EPCOT Food and Wine for Three Adults",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "epcot",
+        "festival",
+        "food planning",
+        "group coordination",
+        "heat",
+        "pacing",
+        "theme parks",
+        "theme-park-itinerary",
+        "three adults",
+        "travel"
+      ]
+    },
+    {
+      "id": "solo-dca-oogie-boogie--jae",
+      "experience_slug": "solo-dca-oogie-boogie",
+      "experience_title": "Solo DCA and Oogie Boogie Bash",
+      "perspective_id": "jae",
+      "perspective_name": "Jae",
+      "perspective_role": "Compression, signal, and decisive priorities",
+      "title": "Jae: focus on what matters today",
+      "description": "Decide what actually matters today. Spend your time there, and let the rest of the day sort itself out.",
+      "quote": "Decide what actually matters today. Spend your time there, and let the rest of the day sort itself out.",
+      "destination_url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+      "board": "Disney Planning Perspectives",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Jae perspective for Solo DCA and Oogie Boogie Bash",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "disney california adventure",
+        "energy management",
+        "flexibility",
+        "halloween",
+        "prioritization",
+        "separately ticketed event",
+        "solo adult traveler",
+        "solo travel",
+        "theme parks",
+        "theme-park-itinerary",
+        "travel"
+      ]
+    }
+  ]
+}

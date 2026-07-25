@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T22:37:03+00:00",
+  "records": [
+    {
+      "id": "epcot-food-wine-three-adults--harbor",
+      "experience_slug": "epcot-food-wine-three-adults",
+      "experience_title": "EPCOT Food and Wine for Three Adults",
+      "perspective_id": "harbor",
+      "perspective_name": "Harbor",
+      "perspective_role": "Continuity, fit, and adaptive flow",
+      "title": "Harbor on EPCOT Food and Wine for Three Adults",
+      "description": "The group should bend without repeatedly breaking apart. Use brief splits only when they create clear value and an easy reunion.",
+      "quote": "The group should bend without repeatedly breaking apart. Use brief splits only when they create clear value and an easy reunion.",
+      "destination_url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+      "board": "Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Harbor perspective for EPCOT Food and Wine for Three Adults",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "epcot",
+        "festival",
+        "food planning",
+        "group coordination",
+        "heat",
+        "pacing",
+        "theme parks",
+        "theme-park-itinerary",
+        "three adults",
+        "travel"
+      ]
+    },
+    {
+      "id": "solo-dca-oogie-boogie--harbor",
+      "experience_slug": "solo-dca-oogie-boogie",
+      "experience_title": "Solo DCA and Oogie Boogie Bash",
+      "perspective_id": "harbor",
+      "perspective_name": "Harbor",
+      "perspective_role": "Continuity, fit, and adaptive flow",
+      "title": "Harbor: protect the shape of the day",
+      "description": "Protect the continuity of the experience. Build enough structure to preserve momentum, then leave recovery paths when the day stops cooperating.",
+      "quote": "Build enough structure to preserve momentum, then leave recovery paths when the day stops cooperating.",
+      "destination_url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+      "board": "Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Harbor perspective for Solo DCA and Oogie Boogie Bash",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "disney california adventure",
+        "energy management",
+        "flexibility",
+        "halloween",
+        "prioritization",
+        "separately ticketed event",
+        "solo adult traveler",
+        "solo travel",
+        "theme parks",
+        "theme-park-itinerary",
+        "travel"
+      ]
+    }
+  ]
+}

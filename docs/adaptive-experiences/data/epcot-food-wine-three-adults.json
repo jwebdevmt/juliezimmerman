@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "slug": "epcot-food-wine-three-adults",
+  "title": "EPCOT Food and Wine for Three Adults",
+  "summary": "A shared festival day for three experienced adults with unequal constraints, overlapping interests, and different definitions of a good EPCOT day.",
+  "published": true,
+  "experience": {
+    "type": "theme-park-itinerary",
+    "destination": "EPCOT",
+    "duration": "One full festival day",
+    "audience": "Three adults",
+    "canonical_page": "/adaptive-experiences/disney-epcot-food-and-wine/"
+  },
+  "constraints": [
+    "Protect a motion-sensitive traveler without defining the entire group by what she cannot ride.",
+    "Treat the aquarium, food, live entertainment, and atmosphere as real priorities.",
+    "Avoid fragmenting the group through constant optimization for individual interests.",
+    "Build recovery into a rope-drop-to-close day."
+  ],
+  "perspectives": [
+    {
+      "id": "harbor",
+      "name": "Harbor",
+      "role": "Continuity, fit, and adaptive flow",
+      "excerpt": "The group should bend without repeatedly breaking apart. Use brief splits only when they create clear value and an easy reunion.",
+      "full_text": "Harbor protects the shared experience. Different needs can coexist without forcing every person through the same attraction or turning the day into parallel solo trips.",
+      "pin": {}
+    },
+    {
+      "id": "bo-ra",
+      "name": "Bo Ra",
+      "role": "Atmosphere, memory, and emotional register",
+      "excerpt": "The memorable day is not a completed booth list. It is the dish, musician, animal encounter, or sunset the group keeps talking about.",
+      "full_text": "Bo Ra protects the moments that become shared memory. Festival abundance is useful only when attention remains available for discovery.",
+      "pin": {
+        "title": "Bo Ra: do not mistake completion for memory",
+        "quote": "The memorable day is not a completed booth list.",
+        "board": "Disney Adaptive Experiences"
+      }
+    },
+    {
+      "id": "jae",
+      "name": "Jae",
+      "role": "Compression, signal, and decisive priorities",
+      "excerpt": "Pick the booths and experiences that matter. You are not required to finish EPCOT.",
+      "full_text": "Jae removes the false goal of completion. A short list of high-value food, attractions, and entertainment protects both time and appetite.",
+      "pin": {
+        "title": "Jae: you are not required to finish EPCOT",
+        "quote": "Pick the booths and experiences that matter. You are not required to finish EPCOT.",
+        "board": "Disney Planning Perspectives"
+      }
+    },
+    {
+      "id": "min",
+      "name": "Min",
+      "role": "Failure modes and operational realism",
+      "excerpt": "Heat, food volume, motion sensitivity, and late-day fatigue are system constraints. Plan for them before they become emergencies.",
+      "full_text": "Min protects the plan from predictable failure: too much food too quickly, inadequate rest, and treating known motion sickness as a negotiable preference.",
+      "pin": {}
+    },
+    {
+      "id": "nam",
+      "name": "Nam",
+      "role": "Narrative architecture and meaning",
+      "excerpt": "Let the festival day move between motion, taste, conversation, performance, and stillness instead of repeating one mode until it becomes work.",
+      "full_text": "Nam shapes the day as a sequence of contrasting experiences rather than one long consumption loop.",
+      "pin": {}
+    }
+  ],
+  "synthesis": {
+    "principle": "Protect constraints, expand meaningful interests, and preserve the group.",
+    "summary": "Use the opening window for shared ride priorities, give the aquarium real time, taste selectively when festival marketplaces open, and alternate food with entertainment, rest, and pavilion exploration. The synthesis distinguishes constraints from interests and uses each perspective to keep the day both workable and memorable.",
+    "lessons": [
+      "Optimization across people is different from optimization across attractions.",
+      "A known physical constraint should be protected without making it the person's identity.",
+      "Brief, purposeful separation can strengthen a shared day; constant fragmentation cannot."
+    ]
+  },
+  "publishing": {
+    "pinterest_board": "Adaptive Experiences",
+    "default_image": "/assets/project-adaptive.svg",
+    "site_status": "canonical",
+    "allow_future_microsite": true,
+    "outputs": [
+      "site",
+      "perspective-archives",
+      "pinterest-manifest",
+      "future-microsite"
+    ]
+  },
+  "taxonomy": {
+    "domains": [
+      "Disney",
+      "Theme parks",
+      "Travel"
+    ],
+    "needs": [
+      "Pacing",
+      "Food planning",
+      "Group coordination"
+    ],
+    "contexts": [
+      "Three adults",
+      "Festival",
+      "Heat"
+    ]
+  },
+  "related_experiences": [
+    {
+      "slug": "solo-dca-oogie-boogie",
+      "title": "Solo DCA and Oogie Boogie Bash",
+      "summary": "One solo traveler, a full park day, a separately ticketed evening, and several valid definitions of success.",
+      "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+      "score": 6,
+      "shared_topics": [
+        "disney",
+        "theme parks",
+        "theme-park-itinerary",
+        "travel"
+      ]
+    }
+  ]
+}

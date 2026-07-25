@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T22:37:03+00:00",
+  "records": [
+    {
+      "id": "epcot-food-wine-three-adults--bo-ra",
+      "experience_slug": "epcot-food-wine-three-adults",
+      "experience_title": "EPCOT Food and Wine for Three Adults",
+      "perspective_id": "bo-ra",
+      "perspective_name": "Bo Ra",
+      "perspective_role": "Atmosphere, memory, and emotional register",
+      "title": "Bo Ra: do not mistake completion for memory",
+      "description": "The memorable day is not a completed booth list. It is the dish, musician, animal encounter, or sunset the group keeps talking about.",
+      "quote": "The memorable day is not a completed booth list.",
+      "destination_url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+      "board": "Disney Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Bo Ra perspective for EPCOT Food and Wine for Three Adults",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "epcot",
+        "festival",
+        "food planning",
+        "group coordination",
+        "heat",
+        "pacing",
+        "theme parks",
+        "theme-park-itinerary",
+        "three adults",
+        "travel"
+      ]
+    },
+    {
+      "id": "solo-dca-oogie-boogie--bo-ra",
+      "experience_slug": "solo-dca-oogie-boogie",
+      "experience_title": "Solo DCA and Oogie Boogie Bash",
+      "perspective_id": "bo-ra",
+      "perspective_name": "Bo Ra",
+      "perspective_role": "Atmosphere, memory, and emotional register",
+      "title": "Bo Ra: atmosphere is infrastructure",
+      "description": "Do not optimize away the parts of the day that make it feel like Halloween. Atmosphere is part of the experience, not filler between rides.",
+      "quote": "Do not optimize away the parts of the day that make it feel like Halloween.",
+      "destination_url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+      "board": "Disney Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Bo Ra perspective for Solo DCA and Oogie Boogie Bash",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "disney california adventure",
+        "energy management",
+        "flexibility",
+        "halloween",
+        "prioritization",
+        "separately ticketed event",
+        "solo adult traveler",
+        "solo travel",
+        "theme parks",
+        "theme-park-itinerary",
+        "travel"
+      ]
+    }
+  ]
+}

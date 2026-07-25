@@ -105,6 +105,11 @@ def asset_prefix(level="root"):
         return "../"
     if level == "deep":
         return "../../"
+<<<<<<< HEAD
+=======
+    if level == "archive":
+        return "../../../"
+>>>>>>> 91a585f (publishing context)
     return ""
 
 

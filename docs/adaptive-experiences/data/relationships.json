@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T22:37:03+00:00",
+  "records": {
+    "epcot-food-wine-three-adults": [
+      {
+        "slug": "solo-dca-oogie-boogie",
+        "title": "Solo DCA and Oogie Boogie Bash",
+        "summary": "One solo traveler, a full park day, a separately ticketed evening, and several valid definitions of success.",
+        "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+        "score": 6,
+        "shared_topics": [
+          "disney",
+          "theme parks",
+          "theme-park-itinerary",
+          "travel"
+        ]
+      }
+    ],
+    "solo-dca-oogie-boogie": [
+      {
+        "slug": "epcot-food-wine-three-adults",
+        "title": "EPCOT Food and Wine for Three Adults",
+        "summary": "A shared festival day for three experienced adults with unequal constraints, overlapping interests, and different definitions of a good EPCOT day.",
+        "url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+        "score": 6,
+        "shared_topics": [
+          "disney",
+          "theme parks",
+          "theme-park-itinerary",
+          "travel"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T22:37:03+00:00",
+  "records": [
+    {
+      "id": "epcot-food-wine-three-adults--min",
+      "experience_slug": "epcot-food-wine-three-adults",
+      "experience_title": "EPCOT Food and Wine for Three Adults",
+      "perspective_id": "min",
+      "perspective_name": "Min",
+      "perspective_role": "Failure modes and operational realism",
+      "title": "Min on EPCOT Food and Wine for Three Adults",
+      "description": "Heat, food volume, motion sensitivity, and late-day fatigue are system constraints. Plan for them before they become emergencies.",
+      "quote": "Heat, food volume, motion sensitivity, and late-day fatigue are system constraints. Plan for them before they become emergencies.",
+      "destination_url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+      "board": "Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Min perspective for EPCOT Food and Wine for Three Adults",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "epcot",
+        "festival",
+        "food planning",
+        "group coordination",
+        "heat",
+        "pacing",
+        "theme parks",
+        "theme-park-itinerary",
+        "three adults",
+        "travel"
+      ]
+    },
+    {
+      "id": "solo-dca-oogie-boogie--min",
+      "experience_slug": "solo-dca-oogie-boogie",
+      "experience_title": "Solo DCA and Oogie Boogie Bash",
+      "perspective_id": "min",
+      "perspective_name": "Min",
+      "perspective_role": "Failure modes and operational realism",
+      "title": "Min on Solo DCA and Oogie Boogie Bash",
+      "description": "A plan is only useful if it still works after a late start, a closure, a long queue, or an energy drop.",
+      "quote": "A plan is only useful if it still works after a late start, a closure, a long queue, or an energy drop.",
+      "destination_url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+      "board": "Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Min perspective for Solo DCA and Oogie Boogie Bash",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "disney california adventure",
+        "energy management",
+        "flexibility",
+        "halloween",
+        "prioritization",
+        "separately ticketed event",
+        "solo adult traveler",
+        "solo travel",
+        "theme parks",
+        "theme-park-itinerary",
+        "travel"
+      ]
+    }
+  ]
+}

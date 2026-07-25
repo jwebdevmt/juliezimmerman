@@ -69,3 +69,61 @@ The corresponding records live in `content/projects/` so each project has one so
 The existing content types still use their proven renderers through `builder/legacy.py`. This is deliberate: the AI discipline page, normalized project records, shared infrastructure, schema validation, and search index are live now without risking regressions across the existing site.
 
 Future content types can be moved into independent modules one at a time and registered in `builder/site.py`.
+<<<<<<< HEAD
+=======
+
+
+## Canonical Adaptive Experience records
+
+Adaptive Experiences now have a channel-neutral source format in `content/experiences/*.yaml`. The YAML record is the source of truth for the experience, its constraints, preserved perspectives, Julie's synthesis, and publication instructions.
+
+The build generates:
+
+- `docs/adaptive-experiences/data/experiences.json` — complete public records
+- `docs/adaptive-experiences/data/<slug>.json` — one portable record per experience
+- `docs/adaptive-experiences/data/pins.json` — one Pinterest-ready record per preserved perspective
+- `docs/adaptive-experiences/data/perspectives.json` — perspective archive index
+- `docs/adaptive-experiences/perspectives/<id>/index.html` — generated perspective archive pages
+
+The included YAML loader intentionally supports a small, predictable subset of YAML and requires no installed package. Use two-space indentation. It supports nested mappings, lists, inline lists, quoted scalars, and `|` block text. Advanced YAML features such as anchors and custom tags are deliberately unsupported.
+
+The existing long-form Adaptive Experience pages remain in place during migration. New distribution channels should consume the canonical records rather than scrape HTML. This keeps the website, Pinterest pins, future feeds, and a possible standalone site synchronized from one source.
+
+## Multi-channel Adaptive Experiences pipeline
+
+The canonical experience builder now follows a renderer pipeline rather than embedding every output in one module:
+
+```text
+YAML source
+  → validation
+  → ExperienceRecord internal model
+  → relationship scoring
+  → JSON, Pinterest, perspective archive, and RSS renderers
+```
+
+Key modules:
+
+- `builder/experience_models.py` — channel-neutral internal model
+- `builder/experience_validation.py` — strict build-time completeness checks
+- `builder/experience_relationships.py` — metadata-driven related-experience scoring
+- `builder/experience_renderers.py` — independent output renderers
+- `builder/experiences.py` — collection loader and pipeline orchestration
+- `schemas/adaptive-experience.schema.json` — documented public schema
+
+Generated outputs now also include:
+
+- `docs/adaptive-experiences/data/relationships.json`
+- `docs/adaptive-experiences/data/pins/<perspective-id>.json`
+- `docs/adaptive-experiences/feed.xml`
+
+Use `taxonomy` in each YAML record to connect related experiences without hard-coded links:
+
+```yaml
+taxonomy:
+  domains: ["Disney", "Travel"]
+  needs: ["Energy management", "Prioritization"]
+  contexts: ["Solo travel", "Halloween"]
+```
+
+The build stops before publishing when a record is incomplete, contains duplicate perspective IDs, uses an unsupported schema version, or has malformed taxonomy. This keeps every downstream renderer synchronized with one valid source record.
+>>>>>>> 91a585f (publishing context)

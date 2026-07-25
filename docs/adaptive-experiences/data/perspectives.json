@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T22:37:03+00:00",
+  "records": [
+    {
+      "id": "harbor",
+      "name": "Harbor",
+      "role": "Continuity, fit, and adaptive flow",
+      "entries": [
+        {
+          "experience_slug": "epcot-food-wine-three-adults",
+          "experience_title": "EPCOT Food and Wine for Three Adults",
+          "excerpt": "The group should bend without repeatedly breaking apart. Use brief splits only when they create clear value and an easy reunion.",
+          "url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+          "topics": [
+            "disney",
+            "epcot",
+            "festival",
+            "food planning",
+            "group coordination",
+            "heat",
+            "pacing",
+            "theme parks",
+            "theme-park-itinerary",
+            "three adults",
+            "travel"
+          ]
+        },
+        {
+          "experience_slug": "solo-dca-oogie-boogie",
+          "experience_title": "Solo DCA and Oogie Boogie Bash",
+          "excerpt": "Protect the continuity of the experience. Build enough structure to preserve momentum, then leave recovery paths when the day stops cooperating.",
+          "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+          "topics": [
+            "disney",
+            "disney california adventure",
+            "energy management",
+            "flexibility",
+            "halloween",
+            "prioritization",
+            "separately ticketed event",
+            "solo adult traveler",
+            "solo travel",
+            "theme parks",
+            "theme-park-itinerary",
+            "travel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bo-ra",
+      "name": "Bo Ra",
+      "role": "Atmosphere, memory, and emotional register",
+      "entries": [
+        {
+          "experience_slug": "epcot-food-wine-three-adults",
+          "experience_title": "EPCOT Food and Wine for Three Adults",
+          "excerpt": "The memorable day is not a completed booth list. It is the dish, musician, animal encounter, or sunset the group keeps talking about.",
+          "url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+          "topics": [
+            "disney",
+            "epcot",
+            "festival",
+            "food planning",
+            "group coordination",
+            "heat",
+            "pacing",
+            "theme parks",
+            "theme-park-itinerary",
+            "three adults",
+            "travel"
+          ]
+        },
+        {
+          "experience_slug": "solo-dca-oogie-boogie",
+          "experience_title": "Solo DCA and Oogie Boogie Bash",
+          "excerpt": "Do not optimize away the parts of the day that make it feel like Halloween. Atmosphere is part of the experience, not filler between rides.",
+          "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+          "topics": [
+            "disney",
+            "disney california adventure",
+            "energy management",
+            "flexibility",
+            "halloween",
+            "prioritization",
+            "separately ticketed event",
+            "solo adult traveler",
+            "solo travel",
+            "theme parks",
+            "theme-park-itinerary",
+            "travel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jae",
+      "name": "Jae",
+      "role": "Compression, signal, and decisive priorities",
+      "entries": [
+        {
+          "experience_slug": "epcot-food-wine-three-adults",
+          "experience_title": "EPCOT Food and Wine for Three Adults",
+          "excerpt": "Pick the booths and experiences that matter. You are not required to finish EPCOT.",
+          "url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+          "topics": [
+            "disney",
+            "epcot",
+            "festival",
+            "food planning",
+            "group coordination",
+            "heat",
+            "pacing",
+            "theme parks",
+            "theme-park-itinerary",
+            "three adults",
+            "travel"
+          ]
+        },
+        {
+          "experience_slug": "solo-dca-oogie-boogie",
+          "experience_title": "Solo DCA and Oogie Boogie Bash",
+          "excerpt": "Decide what actually matters today. Spend your time there, and let the rest of the day sort itself out.",
+          "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+          "topics": [
+            "disney",
+            "disney california adventure",
+            "energy management",
+            "flexibility",
+            "halloween",
+            "prioritization",
+            "separately ticketed event",
+            "solo adult traveler",
+            "solo travel",
+            "theme parks",
+            "theme-park-itinerary",
+            "travel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "min",
+      "name": "Min",
+      "role": "Failure modes and operational realism",
+      "entries": [
+        {
+          "experience_slug": "epcot-food-wine-three-adults",
+          "experience_title": "EPCOT Food and Wine for Three Adults",
+          "excerpt": "Heat, food volume, motion sensitivity, and late-day fatigue are system constraints. Plan for them before they become emergencies.",
+          "url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+          "topics": [
+            "disney",
+            "epcot",
+            "festival",
+            "food planning",
+            "group coordination",
+            "heat",
+            "pacing",
+            "theme parks",
+            "theme-park-itinerary",
+            "three adults",
+            "travel"
+          ]
+        },
+        {
+          "experience_slug": "solo-dca-oogie-boogie",
+          "experience_title": "Solo DCA and Oogie Boogie Bash",
+          "excerpt": "A plan is only useful if it still works after a late start, a closure, a long queue, or an energy drop.",
+          "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+          "topics": [
+            "disney",
+            "disney california adventure",
+            "energy management",
+            "flexibility",
+            "halloween",
+            "prioritization",
+            "separately ticketed event",
+            "solo adult traveler",
+            "solo travel",
+            "theme parks",
+            "theme-park-itinerary",
+            "travel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nam",
+      "name": "Nam",
+      "role": "Narrative architecture and meaning",
+      "entries": [
+        {
+          "experience_slug": "epcot-food-wine-three-adults",
+          "experience_title": "EPCOT Food and Wine for Three Adults",
+          "excerpt": "Let the festival day move between motion, taste, conversation, performance, and stillness instead of repeating one mode until it becomes work.",
+          "url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+          "topics": [
+            "disney",
+            "epcot",
+            "festival",
+            "food planning",
+            "group coordination",
+            "heat",
+            "pacing",
+            "theme parks",
+            "theme-park-itinerary",
+            "three adults",
+            "travel"
+          ]
+        },
+        {
+          "experience_slug": "solo-dca-oogie-boogie",
+          "experience_title": "Solo DCA and Oogie Boogie Bash",
+          "excerpt": "Let the day have a beginning, a transition, and an evening that feels earned rather than merely appended.",
+          "url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+          "topics": [
+            "disney",
+            "disney california adventure",
+            "energy management",
+            "flexibility",
+            "halloween",
+            "prioritization",
+            "separately ticketed event",
+            "solo adult traveler",
+            "solo travel",
+            "theme parks",
+            "theme-park-itinerary",
+            "travel"
+          ]
+        }
+      ]
+    }
+  ]
+}

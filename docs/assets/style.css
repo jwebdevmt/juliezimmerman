@@ -1574,3 +1574,28 @@ body::before,body::after{display:none}
     padding: 1.55rem;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* Canonical Adaptive Experience perspective archives */
+.perspective-archive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.perspective-archive-card {
+  border: 1px solid var(--line, #d8dde5);
+  border-radius: 18px;
+  padding: 1.5rem;
+  background: var(--surface, #fff);
+  box-shadow: 0 12px 30px rgba(25, 39, 68, .06);
+}
+.perspective-archive-card blockquote {
+  margin: 1rem 0 1.5rem;
+  padding: 0;
+  border: 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+>>>>>>> 91a585f (publishing context)

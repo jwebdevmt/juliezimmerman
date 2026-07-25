@@ -1,0 +1,77 @@
+schema_version: 1
+slug: solo-dca-oogie-boogie
+title: "Solo DCA and Oogie Boogie Bash"
+summary: "One solo traveler, a full park day, a separately ticketed evening, and several valid definitions of success."
+published: true
+experience:
+  type: theme-park-itinerary
+  destination: "Disney California Adventure"
+  duration: "One day plus Oogie Boogie Bash"
+  audience: "Solo adult traveler"
+  canonical_page: "/adaptive-experiences/disney-dca-oogie-boogie/"
+constraints:
+  - "Protect enough energy for the separately ticketed evening."
+  - "Prioritize Halloween-exclusive experiences rather than only ordinary attraction count."
+  - "Preserve room for art, atmosphere, live entertainment, and one unexpected memory."
+  - "Use rope-drop efficiency without allowing efficiency to consume the whole day."
+perspectives:
+  - id: harbor
+    name: "Harbor"
+    role: "Continuity, fit, and adaptive flow"
+    excerpt: "Protect the continuity of the experience. Build enough structure to preserve momentum, then leave recovery paths when the day stops cooperating."
+    full_text: |
+      Harbor treats the itinerary as a resilient system. The plan should keep its emotional and practical shape when waits rise, energy falls, or an attraction closes.
+    pin:
+      title: "Harbor: protect the shape of the day"
+      quote: "Build enough structure to preserve momentum, then leave recovery paths when the day stops cooperating."
+      board: "Adaptive Experiences"
+  - id: bo-ra
+    name: "Bo Ra"
+    role: "Atmosphere, memory, and emotional register"
+    excerpt: "Do not optimize away the parts of the day that make it feel like Halloween. Atmosphere is part of the experience, not filler between rides."
+    full_text: |
+      Bo Ra protects the emotional register of the day. Seasonal details, art, performance, and the transition into the party matter because they are what make this trip distinct.
+    pin:
+      title: "Bo Ra: atmosphere is infrastructure"
+      quote: "Do not optimize away the parts of the day that make it feel like Halloween."
+      board: "Disney Adaptive Experiences"
+  - id: jae
+    name: "Jae"
+    role: "Compression, signal, and decisive priorities"
+    excerpt: "Decide what actually matters today. Spend your time there, and let the rest of the day sort itself out."
+    full_text: |
+      Jae compresses the itinerary to the choices that survive real conditions. Use the morning for scarce access, protect the party, and stop pretending every possible attraction deserves equal weight.
+    pin:
+      title: "Jae: focus on what matters today"
+      quote: "Decide what actually matters today. Spend your time there, and let the rest of the day sort itself out."
+      board: "Disney Planning Perspectives"
+  - id: min
+    name: "Min"
+    role: "Failure modes and operational realism"
+    excerpt: "A plan is only useful if it still works after a late start, a closure, a long queue, or an energy drop."
+    full_text: |
+      Min stress-tests the plan. The evening ticket, food timing, wristband transition, and recovery blocks are operational constraints rather than decorative suggestions.
+  - id: nam
+    name: "Nam"
+    role: "Narrative architecture and meaning"
+    excerpt: "Let the day have a beginning, a transition, and an evening that feels earned rather than merely appended."
+    full_text: |
+      Nam gives the itinerary a narrative shape: energetic opening, intentional slowdown, seasonal transition, and a distinct nighttime conclusion.
+synthesis:
+  principle: "Efficiency creates room; the traveler decides what deserves that room."
+  summary: |
+    Use rope drop for scarce attractions, slow down before fatigue determines the pace, and reserve the evening for experiences that only exist during Oogie Boogie Bash. The final plan preserves the strongest contribution from each independent perspective instead of averaging them into a generic schedule.
+  lessons:
+    - "A separately ticketed evening changes the energy budget for the entire day."
+    - "Atmosphere and personal artifacts can be deliberate outcomes."
+    - "A short priority list improves resilience more than a fully packed schedule."
+taxonomy:
+  domains: ["Disney", "Theme parks", "Travel"]
+  needs: ["Energy management", "Prioritization", "Flexibility"]
+  contexts: ["Solo travel", "Halloween", "Separately ticketed event"]
+publishing:
+  pinterest_board: "Adaptive Experiences"
+  default_image: "/assets/project-adaptive.svg"
+  site_status: "canonical"
+  allow_future_microsite: true
+  outputs: ["site", "perspective-archives", "pinterest-manifest", "future-microsite"]

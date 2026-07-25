@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated": "2026-07-25T22:37:03+00:00",
+  "records": [
+    {
+      "id": "epcot-food-wine-three-adults--nam",
+      "experience_slug": "epcot-food-wine-three-adults",
+      "experience_title": "EPCOT Food and Wine for Three Adults",
+      "perspective_id": "nam",
+      "perspective_name": "Nam",
+      "perspective_role": "Narrative architecture and meaning",
+      "title": "Nam on EPCOT Food and Wine for Three Adults",
+      "description": "Let the festival day move between motion, taste, conversation, performance, and stillness instead of repeating one mode until it becomes work.",
+      "quote": "Let the festival day move between motion, taste, conversation, performance, and stillness instead of repeating one mode until it becomes work.",
+      "destination_url": "/adaptive-experiences/disney-epcot-food-and-wine/",
+      "board": "Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Nam perspective for EPCOT Food and Wine for Three Adults",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "epcot",
+        "festival",
+        "food planning",
+        "group coordination",
+        "heat",
+        "pacing",
+        "theme parks",
+        "theme-park-itinerary",
+        "three adults",
+        "travel"
+      ]
+    },
+    {
+      "id": "solo-dca-oogie-boogie--nam",
+      "experience_slug": "solo-dca-oogie-boogie",
+      "experience_title": "Solo DCA and Oogie Boogie Bash",
+      "perspective_id": "nam",
+      "perspective_name": "Nam",
+      "perspective_role": "Narrative architecture and meaning",
+      "title": "Nam on Solo DCA and Oogie Boogie Bash",
+      "description": "Let the day have a beginning, a transition, and an evening that feels earned rather than merely appended.",
+      "quote": "Let the day have a beginning, a transition, and an evening that feels earned rather than merely appended.",
+      "destination_url": "/adaptive-experiences/disney-dca-oogie-boogie/",
+      "board": "Adaptive Experiences",
+      "image_template": "perspective-quote",
+      "image": "/assets/project-adaptive.svg",
+      "alt": "Nam perspective for Solo DCA and Oogie Boogie Bash",
+      "status": "ready",
+      "topics": [
+        "disney",
+        "disney california adventure",
+        "energy management",
+        "flexibility",
+        "halloween",
+        "prioritization",
+        "separately ticketed event",
+        "solo adult traveler",
+        "solo travel",
+        "theme parks",
+        "theme-park-itinerary",
+        "travel"
+      ]
+    }
+  ]
+}
