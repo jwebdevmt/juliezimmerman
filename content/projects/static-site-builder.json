@@ -1,0 +1,12 @@
+{
+  "slug": "static-site-builder",
+  "title": "Custom Static Publishing System",
+  "summary": "A Python builder that turns structured JSON into a portable, versioned website.",
+  "details": [],
+  "highlights": [
+    "Reusable templates and collections",
+    "Build-time validation",
+    "No runtime application or database"
+  ],
+  "tags": []
+}

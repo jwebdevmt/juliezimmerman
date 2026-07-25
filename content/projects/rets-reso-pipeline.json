@@ -1,0 +1,12 @@
+{
+  "slug": "rets-reso-pipeline",
+  "title": "RETS to RESO Data Architecture",
+  "summary": "Modernization of real-estate ingestion while preserving field meaning and downstream behavior.",
+  "details": [],
+  "highlights": [
+    "Field mapping and normalization",
+    "Migration validation",
+    "Compatibility with existing search and display systems"
+  ],
+  "tags": []
+}

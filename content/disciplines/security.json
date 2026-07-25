@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "title": "Security Engineering",
+  "slug": "security",
+  "status": "published",
+  "nav_label": "Security",
+  "seo": {
+    "title": "Security Engineering | Julie Zimmerman",
+    "description": "Security engineering for malware response, integrity verification, hardening, recovery, and recurrence prevention.",
+    "canonical_path": "/security/"
+  },
+  "hero": {
+    "eyebrow": "Security Engineering",
+    "headline": "Finding the compromise, removing it, and fixing the conditions that allowed it.",
+    "intro": [
+      "My security work grows out of operating long-lived production systems: malware investigation, WordPress compromise cleanup, integrity verification, hardening, and policies that reduce preventable exposure across a large fleet.",
+      "I approach incidents as system failures rather than isolated bad files. Recovery includes identifying persistence, restoring trust, preserving business function, and reducing the chance of recurrence."
+    ]
+  },
+  "philosophy": {
+    "title": "Engineering Philosophy",
+    "anchor": "Security is not a cleanup step. It is a property of how the system is designed and operated.",
+    "intro": "Treat every unexplained change as evidence, not noise.",
+    "principles": [
+      "Remove persistence mechanisms, not only visible payloads.",
+      "Verify integrity independently after remediation.",
+      "Reduce attack surface through updates, retirement, least privilege, and operational standards."
+    ],
+    "closing": "Reduce attack surface through updates, retirement, least privilege, and operational standards."
+  },
+  "problems": {
+    "title": "Problems I Solve",
+    "intro": "The most valuable work usually begins where a system has accumulated complexity, operational risk, or assumptions no one has revisited.",
+    "items": [
+      "Persistent WordPress malware and reinfection",
+      "Unknown web shells and altered core files",
+      "Legacy plugins and abandoned dependencies",
+      "Fleet-wide visibility and prioritization",
+      "Secure recovery without unnecessary destruction of content or functionality"
+    ]
+  },
+  "approach": {
+    "title": "How I Work",
+    "paragraphs": [
+      "I establish a trustworthy baseline, trace indicators across files, database content, users, scheduled tasks, and configuration, then remove both payload and persistence.",
+      "After recovery, I verify from multiple angles and address the operational conditions that made the compromise durable."
+    ]
+  },
+  "projects": [
+    "wordpress-malware-recovery",
+    "ai-malware-remediation",
+    "managed-hosting-policy",
+    "calendar-defender"
+  ],
+  "experience": [
+    {
+      "role": "Lead Web Developer",
+      "organization": "Zee Creative · 2011–Present",
+      "summary": "Lead developer and systems architect for a large, long-lived portfolio of production websites and integrations.",
+      "evidence": [
+        "250+ active web environments",
+        "Custom application and integration development",
+        "Technical standards, migration planning, launch QA, and incident response"
+      ]
+    },
+    {
+      "role": "Lead Software Engineer",
+      "organization": "SunGard Higher Education · approximately 8 years",
+      "summary": "Technical lead in enterprise higher-education software, working across large Oracle systems, performance testing, defect analysis, and release delivery.",
+      "evidence": [
+        "Synthetic data generation exceeding one million records",
+        "Defect cross-reference and recurrence prevention",
+        "Enterprise release estimation and delivery"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "label": "Security Work",
+      "items": [
+        "Incident Response",
+        "Malware Analysis",
+        "Integrity Verification",
+        "Hardening",
+        "Access Review"
+      ]
+    },
+    {
+      "label": "Platforms",
+      "items": [
+        "WordPress",
+        "Linux Hosting",
+        "PHP",
+        "MySQL",
+        "Git"
+      ]
+    },
+    {
+      "label": "Focus",
+      "items": [
+        "Persistence Detection",
+        "Recovery",
+        "Attack Surface Reduction",
+        "Operational Policy",
+        "Verification"
+      ]
+    }
+  ],
+  "related_writing": {
+    "title": "Related Writing",
+    "intro": "Case studies and essays that show the underlying engineering decisions.",
+    "match_tags": [
+      "Security",
+      "Malware",
+      "WordPress",
+      "Verification",
+      "Incident Response"
+    ],
+    "limit": 6,
+    "manual_items": []
+  },
+  "business_value": {
+    "title": "Why recovery must extend beyond cleanup",
+    "paragraphs": [
+      "Deleting the obvious malicious file may restore a page while leaving the attacker’s access intact.",
+      "Durable recovery restores confidence in the whole system and changes the conditions that allowed the incident to persist."
+    ]
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "paragraphs": [
+      "For technical leadership, architecture, modernization, or complex systems work, contact me directly."
+    ],
+    "cta": {
+      "label": "Contact Julie",
+      "url": "../contact.html",
+      "external": false
+    }
+  },
+  "closing_statement": "A system is not clean because the warning disappeared. It is clean when trust has been rebuilt.",
+  "tags": [
+    "Security",
+    "Malware",
+    "WordPress",
+    "Verification",
+    "Incident Response"
+  ],
+  "updated": "2026-07-25"
+}

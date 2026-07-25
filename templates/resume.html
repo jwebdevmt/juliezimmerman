@@ -1,0 +1,54 @@
+<main>
+  <section class="discipline-hero">
+    <div class="site-shell discipline-hero-inner">
+      <p class="eyebrow">{{ eyebrow }}</p>
+      <h1>{{ headline }}</h1>
+      <div class="discipline-lede">{{ hero_intro }}</div>
+      <a class="button primary" href="{{ contact_url }}">Contact Julie</a>
+    </div>
+  </section>
+
+  <div class="site-shell discipline-layout resume-layout">
+    <section class="discipline-section resume-summary">
+      <p class="eyebrow">Professional Summary</p>
+      <h2>Systems work across the full stack.</h2>
+      <p>{{ summary }}</p>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Engineering Disciplines</p>
+      <h2>Choose the depth that matches the role.</h2>
+      <p>This overview provides the full career view. Each discipline page focuses the same experience through a specific engineering lens.</p>
+      <div class="related-grid resume-discipline-grid">{{ disciplines }}</div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Core Competencies</p>
+      <h2>Technical range backed by production experience.</h2>
+      {{ competencies }}
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Professional Experience</p>
+      <h2>Engineering experience across systems and disciplines.</h2>
+      <div class="resume-experience">{{ experience }}</div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Additional Experience</p>
+      {{ additional }}
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Education</p>
+      <h2>Computer Science foundation.</h2>
+      <p>{{ education }}</p>
+    </section>
+
+    <section class="discipline-section discipline-contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk about the system you need to understand, stabilize, or build.</h2>
+      <a class="button primary" href="{{ contact_url }}">Contact Julie</a>
+    </section>
+  </div>
+</main>

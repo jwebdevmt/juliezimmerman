@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "title": "Web Development",
+  "slug": "web-development",
+  "status": "published",
+  "nav_label": "Web Development",
+  "seo": {
+    "title": "Web Development | Julie Zimmerman",
+    "description": "Accessible, maintainable web development integrated with content, data, APIs, performance, and operations.",
+    "canonical_path": "/web-development/"
+  },
+  "hero": {
+    "eyebrow": "Web Development",
+    "headline": "Building useful web experiences on top of sound engineering.",
+    "intro": [
+      "I build production web systems that connect interface work with data, accessibility, performance, content operations, and long-term maintenance.",
+      "My experience ranges from institutional and enterprise platforms to custom agency applications, e-commerce, real-estate search, content-rich WordPress sites, and static systems designed around privacy."
+    ]
+  },
+  "philosophy": {
+    "title": "Engineering Philosophy",
+    "anchor": "A web experience is only as strong as the system supporting the person using it.",
+    "intro": "Accessibility is a functional requirement.",
+    "principles": [
+      "Interfaces should reflect real user tasks and content relationships.",
+      "Performance and resilience are part of usability.",
+      "Front-end decisions should not create avoidable operational debt."
+    ],
+    "closing": "Front-end decisions should not create avoidable operational debt."
+  },
+  "problems": {
+    "title": "Problems I Solve",
+    "intro": "The most valuable work usually begins where a system has accumulated complexity, operational risk, or assumptions no one has revisited.",
+    "items": [
+      "Accessible responsive interfaces",
+      "Custom search, mapping, forms, and editorial tools",
+      "API-backed and data-intensive experiences",
+      "E-commerce and transactional workflows",
+      "Modernization of long-lived production sites"
+    ]
+  },
+  "approach": {
+    "title": "How I Work",
+    "paragraphs": [
+      "I connect interface choices to the underlying content model, data source, browser behavior, and maintenance workflow.",
+      "I build progressively, test the critical path, and preserve clarity between presentation, business logic, and data access."
+    ]
+  },
+  "projects": [
+    "adaptive-experiences",
+    "zoo-cms-framework",
+    "job-costing-system",
+    "finding-your-neighborhood"
+  ],
+  "experience": [
+    {
+      "role": "Lead Web Developer",
+      "organization": "Zee Creative · 2011–Present",
+      "summary": "Lead developer and systems architect for a large, long-lived portfolio of production websites and integrations.",
+      "evidence": [
+        "250+ active web environments",
+        "Custom application and integration development",
+        "Technical standards, migration planning, launch QA, and incident response"
+      ]
+    },
+    {
+      "role": "Lead Software Engineer",
+      "organization": "SunGard Higher Education · approximately 8 years",
+      "summary": "Technical lead in enterprise higher-education software, working across large Oracle systems, performance testing, defect analysis, and release delivery.",
+      "evidence": [
+        "Synthetic data generation exceeding one million records",
+        "Defect cross-reference and recurrence prevention",
+        "Enterprise release estimation and delivery"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "label": "Front End",
+      "items": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Responsive Design",
+        "WCAG"
+      ]
+    },
+    {
+      "label": "Application",
+      "items": [
+        "PHP",
+        "WordPress",
+        "REST APIs",
+        "WooCommerce",
+        "Python"
+      ]
+    },
+    {
+      "label": "Focus",
+      "items": [
+        "Usability",
+        "Accessibility",
+        "Performance",
+        "Structured Content",
+        "Search",
+        "Maintainability"
+      ]
+    }
+  ],
+  "related_writing": {
+    "title": "Related Writing",
+    "intro": "Case studies and essays that show the underlying engineering decisions.",
+    "match_tags": [
+      "Web Development",
+      "Accessibility",
+      "JavaScript",
+      "WordPress",
+      "Performance"
+    ],
+    "limit": 6,
+    "manual_items": []
+  },
+  "business_value": {
+    "title": "Why integrated web engineering matters",
+    "paragraphs": [
+      "Treating the interface as separate from content, data, and operations creates fragile experiences. Integrated web engineering aligns all four.",
+      "The result is a site that works for visitors, editors, and the people responsible for keeping it alive."
+    ]
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "paragraphs": [
+      "For technical leadership, architecture, modernization, or complex systems work, contact me directly."
+    ],
+    "cta": {
+      "label": "Contact Julie",
+      "url": "../contact.html",
+      "external": false
+    }
+  },
+  "closing_statement": "Useful interfaces begin with an accurate understanding of the system behind them.",
+  "tags": [
+    "Web Development",
+    "Accessibility",
+    "JavaScript",
+    "WordPress",
+    "Performance"
+  ],
+  "updated": "2026-07-25"
+}

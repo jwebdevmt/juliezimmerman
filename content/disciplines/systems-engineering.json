@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "title": "Software & Systems Engineering",
+  "slug": "systems-engineering",
+  "status": "published",
+  "nav_label": "Systems Engineering",
+  "seo": {
+    "title": "Software & Systems Engineering | Julie Zimmerman",
+    "description": "Software and systems engineering focused on reliability, automation, maintainability, and complex problem solving.",
+    "canonical_path": "/systems-engineering/"
+  },
+  "hero": {
+    "eyebrow": "Software & Systems Engineering",
+    "headline": "Turning complicated operational problems into understandable systems.",
+    "intro": [
+      "I work across the full stack, from C, Perl, Java, and Oracle enterprise software to modern PHP, JavaScript, Python tooling, APIs, and static publishing systems.",
+      "The consistent thread is systems thinking: identifying boundaries, assumptions, failure modes, and the smallest architecture that can remain reliable over time."
+    ]
+  },
+  "philosophy": {
+    "title": "Engineering Philosophy",
+    "anchor": "Good engineering makes complexity legible before it tries to automate it.",
+    "intro": "Understand the whole system before optimizing one component.",
+    "principles": [
+      "Make assumptions explicit and failure states observable.",
+      "Prefer simple, inspectable architectures over unnecessary machinery.",
+      "Automation should remove repetition without removing human understanding."
+    ],
+    "closing": "Automation should remove repetition without removing human understanding."
+  },
+  "problems": {
+    "title": "Problems I Solve",
+    "intro": "The most valuable work usually begins where a system has accumulated complexity, operational risk, or assumptions no one has revisited.",
+    "items": [
+      "Legacy-to-modern system transitions",
+      "Workflow and build automation",
+      "High-volume transactional and synchronization systems",
+      "Reliability problems that fail silently",
+      "Cross-disciplinary architecture spanning software, data, security, and operations"
+    ]
+  },
+  "approach": {
+    "title": "How I Work",
+    "paragraphs": [
+      "I decompose systems by responsibility, state, data flow, and failure behavior. That exposes where complexity is essential and where it is accidental.",
+      "I then build in small, verifiable layers, preserving working behavior while reducing ambiguity and operational burden."
+    ]
+  },
+  "projects": [
+    "finding-your-neighborhood",
+    "calendar-defender",
+    "static-site-builder",
+    "synthetic-student-data"
+  ],
+  "experience": [
+    {
+      "role": "Lead Web Developer",
+      "organization": "Zee Creative \u00b7 2011\u2013Present",
+      "summary": "Lead developer and systems architect for a large, long-lived portfolio of production websites and integrations.",
+      "evidence": [
+        "250+ active web environments",
+        "Custom application and integration development",
+        "Technical standards, migration planning, launch QA, and incident response"
+      ]
+    },
+    {
+      "role": "Lead Software Engineer",
+      "organization": "SunGard Higher Education \u00b7 approximately 8 years",
+      "summary": "Technical lead in enterprise higher-education software, working across large Oracle systems, performance testing, defect analysis, and release delivery.",
+      "evidence": [
+        "Synthetic data generation exceeding one million records",
+        "Defect cross-reference and recurrence prevention",
+        "Enterprise release estimation and delivery"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "label": "Languages",
+      "items": [
+        "PHP",
+        "JavaScript",
+        "Python",
+        "Perl",
+        "Java",
+        "C",
+        "SQL",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "label": "Architecture",
+      "items": [
+        "APIs",
+        "Automation",
+        "Static Generation",
+        "Enterprise Systems",
+        "Integration Design"
+      ]
+    },
+    {
+      "label": "Focus",
+      "items": [
+        "Reliability",
+        "Maintainability",
+        "Failure Analysis",
+        "Privacy",
+        "Verification",
+        "Technical Leadership"
+      ]
+    }
+  ],
+  "related_writing": {
+    "title": "Related Writing",
+    "intro": "Case studies and essays that show the underlying engineering decisions.",
+    "match_tags": [
+      "Systems Engineering",
+      "Architecture",
+      "Automation",
+      "Reliability",
+      "Verification"
+    ],
+    "limit": 6,
+    "manual_items": []
+  },
+  "business_value": {
+    "title": "Why systems thinking matters",
+    "paragraphs": [
+      "Organizations rarely suffer from a lack of tools. They suffer from unclear boundaries, duplicated responsibility, invisible assumptions, and systems that no longer match the work.",
+      "Systems engineering creates leverage by correcting those structural problems instead of adding another layer on top of them."
+    ]
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "paragraphs": [
+      "For technical leadership, architecture, modernization, or complex systems work, contact me directly."
+    ],
+    "cta": {
+      "label": "Contact Julie",
+      "url": "../contact.html",
+      "external": false
+    }
+  },
+  "closing_statement": "The right solution is usually the one that makes the system easier to reason about.",
+  "tags": [
+    "Systems Engineering",
+    "Architecture",
+    "Automation",
+    "Reliability",
+    "Verification"
+  ],
+  "updated": "2026-07-25"
+}

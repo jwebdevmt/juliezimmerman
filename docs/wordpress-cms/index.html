@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WordPress &amp; CMS Engineering | Julie Zimmerman</title>
+  <meta name="description" content="WordPress and CMS engineering for reliable, accessible, maintainable production systems at fleet scale.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../index.html">
+        <img class="brand-mark" src="../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link" href="../about.html">About</a>
+        <a class="nav-link" href="../current-projects.html">Current Projects</a>
+        <a class="nav-link" href="../writing.html">Writing</a>
+        <a class="nav-link" href="../problems/index.html">Problems</a>
+        <a class="nav-link" href="../adaptive-experiences/index.html">Adaptive Experiences</a>
+        <a class="nav-link active" href="../resume/index.html">Experience</a>
+        <a class="nav-link" href="../how-i-work.html">How I Work</a>
+        <a class="nav-link" href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <section class="discipline-hero">
+    <div class="site-shell discipline-hero-inner">
+      <p class="eyebrow">WordPress &amp; CMS Engineering</p>
+      <h1>Building WordPress systems that remain reliable after launch.</h1>
+      <div class="discipline-lede"><p>I design and maintain WordPress as an application platform, not merely a page builder.</p>
+<p>My work spans custom plugins and themes, structured content, accessibility, migrations, security recovery, and fleet-wide operational standards across more than 250 active environments.</p></div>
+    </div>
+  </section>
+
+  <div class="site-shell discipline-layout">
+    <section class="discipline-section discipline-philosophy">
+      <p class="eyebrow">Philosophy</p>
+      <h2>Engineering Philosophy</h2>
+      <blockquote>A CMS succeeds when editors can use it confidently and engineers can still understand it years later.</blockquote>
+      <p>A reliable CMS starts with clear content models and predictable behavior.</p>
+      <ul class="principle-list"><li>Customization should solve a real editorial or operational problem.</li><li>Accessibility, security, and maintainability belong in the architecture.</li><li>Fleet-scale work requires standards, repeatable checks, and planned retirement paths.</li></ul>
+      <p>Fleet-scale work requires standards, repeatable checks, and planned retirement paths.</p>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Problems</p><h2>Problems I Solve</h2>
+      <p>The most valuable work usually begins where a system has accumulated complexity, operational risk, or assumptions no one has revisited.</p><ul class="discipline-list"><li>Custom plugins, themes, blocks, and post types</li><li>Complex migrations and legacy modernization</li><li>Fleet-wide updates, QA, and operational consistency</li><li>WCAG remediation and accessible content structures</li><li>Malware cleanup and hardening without destroying business functionality</li></ul>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Approach</p><h2>How I Work</h2><p>I begin with the publishing workflow and the system&#x27;s actual constraints. I map the content model, dependencies, integrations, and failure points before choosing implementation details.</p>
+<p>At fleet scale, one-off fixes become liabilities. I favor reusable patterns, clear ownership, conservative dependencies, and tooling that makes drift visible.</p>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Selected Projects</p><h2>Work that makes the method visible.</h2>
+      <div class="discipline-project-grid"><article class="discipline-project-card">
+<h3>WordPress Fleet Management</h3>
+
+<p>Standards and operational tooling across 250+ active web environments.</p>
+
+<ul class="project-highlights"><li>Update and launch QA</li><li>Lifecycle and supportability standards</li><li>Cross-site incident response</li></ul>
+</article>
+<article class="discipline-project-card">
+<h3>Zoological Institution CMS Framework</h3>
+
+<p>A specialized WordPress content model informed by twelve years of institutional zoo photography.</p>
+
+<ul class="project-highlights"><li>Animal and collection-centered content architecture</li><li>Editorial workflows for nontechnical teams</li><li>Reusable structured content</li></ul>
+</article>
+<article class="discipline-project-card">
+<h3>WordPress Compromise Recovery</h3>
+
+<p>Forensic cleanup and hardening for persistent malware in legacy environments.</p>
+
+<ul class="project-highlights"><li>Payload and persistence analysis</li><li>Core and plugin integrity checks</li><li>Recovery followed by operational remediation</li></ul>
+</article>
+<article class="discipline-project-card">
+<h3>Managed Hosting Policy</h3>
+
+<p>A supportability and planned-obsolescence framework for a large production fleet.</p>
+
+<ul class="project-highlights"><li>Defined lifecycle expectations</li><li>Reduced permanent exceptions</li><li>Lowered technical debt and response complexity</li></ul>
+</article></div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Experience</p><h2>Representative experience.</h2>
+      <div class="experience-grid"><article class="experience-card">
+<p class="eyebrow">Zee Creative · 2011–Present</p>
+<h3>Lead Web Developer</h3>
+<p>Lead developer and systems architect for a large, long-lived portfolio of production websites and integrations.</p>
+<ul class="experience-evidence"><li>250+ active web environments</li><li>Custom application and integration development</li><li>Technical standards, migration planning, launch QA, and incident response</li></ul>
+</article>
+<article class="experience-card">
+<p class="eyebrow">SunGard Higher Education · approximately 8 years</p>
+<h3>Lead Software Engineer</h3>
+<p>Technical lead in enterprise higher-education software, working across large Oracle systems, performance testing, defect analysis, and release delivery.</p>
+<ul class="experience-evidence"><li>Synthetic data generation exceeding one million records</li><li>Defect cross-reference and recurrence prevention</li><li>Enterprise release estimation and delivery</li></ul>
+</article></div>
+    </section>
+
+    <section class="discipline-section">
+      <p class="eyebrow">Technologies</p><h2>Core technologies and areas of focus.</h2>
+      <div class="technology-group"><h3>WordPress</h3><div class="skill-cloud"><span class="skill-pill">Custom Plugins</span><span class="skill-pill">Custom Themes</span><span class="skill-pill">Block Editor</span><span class="skill-pill">REST API</span><span class="skill-pill">WooCommerce</span><span class="skill-pill">Custom Post Types</span><span class="skill-pill">Multisite</span></div></div>
+<div class="technology-group"><h3>Engineering</h3><div class="skill-cloud"><span class="skill-pill">PHP</span><span class="skill-pill">JavaScript</span><span class="skill-pill">SQL</span><span class="skill-pill">HTML</span><span class="skill-pill">CSS</span><span class="skill-pill">Git</span><span class="skill-pill">Python</span></div></div>
+<div class="technology-group"><h3>Focus</h3><div class="skill-cloud"><span class="skill-pill">Fleet Management</span><span class="skill-pill">WCAG</span><span class="skill-pill">Migrations</span><span class="skill-pill">Security Recovery</span><span class="skill-pill">Editorial Workflows</span><span class="skill-pill">Performance</span></div></div>
+    </section>
+
+    
+    <section class="discipline-section discipline-value">
+<p class="eyebrow">Business Value</p><h2>Why durable CMS architecture matters</h2><p>Most CMS costs arrive after launch: fragile updates, unclear ownership, inaccessible interfaces, and custom behavior no one can safely change.</p>
+<p>A well-structured system lowers those costs by making routine work predictable and unusual failures diagnosable.</p>
+</section>
+
+    <section class="discipline-section discipline-contact">
+      <p class="eyebrow">Contact</p><h2>Let&#x27;s Talk</h2><p>For technical leadership, architecture, modernization, or complex systems work, contact me directly.</p>
+      <a class="button primary" href="../contact.html">Contact Julie</a>
+    </section>
+
+    <blockquote class="discipline-closing">The best CMS is not the one with the most features. It is the one people can operate safely.</blockquote>
+  </div>
+</main>
+
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../assets/jz-wordmark.svg" alt="Julie Zimmerman">
+        <p class="footer-role">Software Engineer <span aria-hidden="true">•</span> Billings, MT</p>
+        <p class="footer-note">Currently employed full-time at Zee Creative. Available for select consulting and side projects.</p>
+        <p class="footer-copyright">© 2026 Julie Zimmerman</p>
+      </div>
+      <nav class="footer-links" aria-label="Professional links">
+        <a href="https://github.com/jwebdevmt" target="_blank" rel="noopener" data-track="footer_github">GitHub</a>
+        <a href="https://www.linkedin.com/in/juliezimmerman1" target="_blank" rel="noopener" data-track="footer_linkedin">LinkedIn</a>
+        <a href="../contact.html" data-track="footer_contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

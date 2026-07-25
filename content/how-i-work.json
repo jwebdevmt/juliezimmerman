@@ -1,0 +1,60 @@
+{
+  "title": "How I Solve Problems",
+  "slug": "how-i-work",
+  "status": "published",
+  "seo": {
+    "title": "How I Solve Problems | Julie Zimmerman",
+    "description": "Julie Zimmerman's engineering philosophy: understand the system, make failure visible, preserve human meaning, and build for maintainability."
+  },
+  "hero": {
+    "eyebrow": "Engineering Practice",
+    "headline": "Understand the system first.",
+    "intro": [
+      "The technologies change. The work underneath them is remarkably consistent: find the real boundary of the problem, identify the assumptions holding it together, and build something people can understand after the urgency has passed."
+    ]
+  },
+  "sections": [
+    {
+      "title": "Start with behavior, not tools",
+      "body": [
+        "I do not choose a platform because it is fashionable or familiar. I begin with what the system must do, who must operate it, what data it touches, and how failure appears.",
+        "Sometimes that leads to WordPress. Sometimes it leads to a static Python builder, an API integration, a small internal application, or a policy rather than more code."
+      ]
+    },
+    {
+      "title": "Look for the assumption everyone stopped seeing",
+      "body": [
+        "Many expensive failures come from shared assumptions: a database prefix that was supposed to be standard, a scheduled task assumed to be running, a plugin assumed to remain supported, or an AI answer assumed to be authoritative.",
+        "I make those assumptions explicit, then test the ones with the greatest operational consequence."
+      ]
+    },
+    {
+      "title": "Design for mistakes to become visible",
+      "body": [
+        "Reliable systems do not depend on perfect people, perfect inputs, or perfect tools. They include checkpoints, useful logs, independent verification, and recovery paths.",
+        "Verification belongs inside the workflow, not at the end after an error has already become public or expensive."
+      ]
+    },
+    {
+      "title": "Preserve human meaning",
+      "body": [
+        "Structure is useful when it reduces harm and cognitive load. It becomes dangerous when it starts deciding what people mean.",
+        "That principle shapes my privacy work, adaptive planning systems, content architecture, accessibility decisions, and AI workflows: the machine can organize and compare, but human meaning remains outside it."
+      ]
+    },
+    {
+      "title": "Build for the person who inherits it",
+      "body": [
+        "A system is not maintainable merely because its original author understands it. I prefer clear boundaries, conservative dependencies, readable code, structured content, documented exceptions, and architectures that can be inspected end to end.",
+        "The goal is not cleverness. It is durable understanding."
+      ]
+    }
+  ],
+  "principles": [
+    "Quietly declared signal must outweigh inferred signal.",
+    "Structure must constrain harm without interpreting meaning.",
+    "Human meaning must remain outside the machine.",
+    "Choose the smallest architecture that can remain trustworthy."
+  ],
+  "contact_url": "contact.html"
+}

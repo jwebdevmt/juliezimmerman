@@ -8,7 +8,11 @@
     "name": "Julie Zimmerman",
     "email": "jwebdevmt@gmail.com",
     "zee_url": "https://zcreative.com",
-    "location": "Billings, MT"
+    "location": "Billings, MT",
+    "github_url": "https://github.com/jwebdevmt",
+    "linkedin_url": "https://www.linkedin.com/in/juliezimmerman1",
+    "role": "Software Engineer",
+    "employment_note": "Currently employed full-time at Zee Creative. Available for select consulting and side projects."
   },
   "nav": [
     {
@@ -36,8 +40,12 @@
       "label": "Adaptive Experiences"
     },
     {
-      "slug": "ai-systems",
-      "label": "AI Systems"
+      "slug": "resume",
+      "label": "Experience"
+    },
+    {
+      "slug": "how-i-work",
+      "label": "How I Work"
     },
     {
       "slug": "contact",
@@ -64,7 +72,7 @@
   ],
   "about": {
     "body": [
-      "I'm a senior web developer and systems architect based in Billings, Montana, with over 20 years of full-stack experience — from C and Perl on Oracle to modern PHP, JavaScript, and AI-assisted tooling.",
+      "I'm a software engineer and systems architect based in Billings, Montana, working across enterprise software, modern web systems, data architecture, and AI-assisted engineering.",
       "My work centers on WordPress systems, data integrations, and the kind of deep structural problems that don't show up in tutorials. I manage a fleet of 250+ active web environments, including high-stakes transactional systems for real estate APIs, cattle auction platforms, and institutional sites.",
       "Before agency work, I was a technical lead at SunGard Higher Education, where I engineered Perl-based synthetic data generators producing over a million randomized student records for enterprise-scale performance testing. That instinct for system-level thinking has stayed with me.",
       "I have a B.S. in Computer Science from Montana State University. I've also spent 12 years as an institutional volunteer photographer at ZooMontana, which directly informed a specialized WordPress CMS framework I built for zoological institutions.",
@@ -72,11 +80,11 @@
     ],
     "skills": [
       "PHP, JavaScript, SQL/PL/SQL, Perl, Python, HTML/CSS",
-      "WordPress — custom plugins, themes, REST API, WooCommerce",
+      "WordPress \u2014 custom plugins, themes, REST API, WooCommerce",
       "MySQL, MariaDB, Oracle, SQL Server",
       "RETS, RESO Web API, MLS data integrations",
       "ADA/WCAG compliance auditing and remediation",
-      "AI-assisted development — Claude, ChatGPT, Gemini",
+      "AI-assisted development \u2014 Claude, ChatGPT, Gemini",
       "Flywheel, Cloudsites, virtual server environments",
       "GitHub, Agile, site launch QA protocols"
     ],
@@ -105,7 +113,7 @@
     }
   },
   "contact": {
-    "intro": "For technical conversations, speaking opportunities, or project inquiries, get in touch directly.",
-    "routing_note": "Most client project work is handled through Zee Creative."
+    "intro": "Currently employed full-time at Zee Creative and available for select consulting, technical reviews, architecture guidance, and side projects that fit around my existing commitments.",
+    "routing_note": "Traditional agency and client website work is handled through Zee Creative."
   }
 }

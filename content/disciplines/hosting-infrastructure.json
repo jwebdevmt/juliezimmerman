@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "title": "Hosting & Infrastructure",
+  "slug": "hosting-infrastructure",
+  "status": "published",
+  "nav_label": "Hosting / Infrastructure",
+  "seo": {
+    "title": "Hosting & Infrastructure | Julie Zimmerman",
+    "description": "Hosting and infrastructure engineering for fleet standards, lifecycle management, migration, recovery, and performance.",
+    "canonical_path": "/hosting-infrastructure/"
+  },
+  "hero": {
+    "eyebrow": "Hosting & Infrastructure",
+    "headline": "Operating web infrastructure with standards, visibility, and an exit plan.",
+    "intro": [
+      "I manage hosting as an operational system: environments, DNS, SSL, backups, deployment, updates, capacity, lifecycle, and incident response across more than 250 active web properties.",
+      "That experience led me to formalize managed-hosting standards around supportability and planned obsolescence rather than allowing every environment to become a permanent exception."
+    ]
+  },
+  "philosophy": {
+    "title": "Engineering Philosophy",
+    "anchor": "Infrastructure is reliable when routine work is predictable and exceptional work is recoverable.",
+    "intro": "Every environment needs a known owner, purpose, and lifecycle.",
+    "principles": [
+      "Backups matter only when restoration is understood and tested.",
+      "Deployment and update practices should reduce drift.",
+      "Unsupported infrastructure is a business risk, not merely a technical inconvenience."
+    ],
+    "closing": "Unsupported infrastructure is a business risk, not merely a technical inconvenience."
+  },
+  "problems": {
+    "title": "Problems I Solve",
+    "intro": "The most valuable work usually begins where a system has accumulated complexity, operational risk, or assumptions no one has revisited.",
+    "items": [
+      "Fleet-wide hosting consistency",
+      "DNS and SSL transitions",
+      "Backups, restoration, and migration",
+      "Unsupported runtime and plugin retirement",
+      "Performance and capacity issues",
+      "Launch and post-launch operational QA"
+    ]
+  },
+  "approach": {
+    "title": "How I Work",
+    "paragraphs": [
+      "I standardize the repeatable parts while documenting legitimate exceptions. That creates enough consistency to detect drift without pretending every workload is identical.",
+      "Infrastructure decisions include the eventual migration or retirement path, because systems that cannot change safely become liabilities."
+    ]
+  },
+  "projects": [
+    "managed-hosting-policy",
+    "wordpress-fleet-management",
+    "real-estate-sync",
+    "wordpress-malware-recovery"
+  ],
+  "experience": [
+    {
+      "role": "Lead Web Developer",
+      "organization": "Zee Creative · 2011–Present",
+      "summary": "Lead developer and systems architect for a large, long-lived portfolio of production websites and integrations.",
+      "evidence": [
+        "250+ active web environments",
+        "Custom application and integration development",
+        "Technical standards, migration planning, launch QA, and incident response"
+      ]
+    },
+    {
+      "role": "Lead Software Engineer",
+      "organization": "SunGard Higher Education · approximately 8 years",
+      "summary": "Technical lead in enterprise higher-education software, working across large Oracle systems, performance testing, defect analysis, and release delivery.",
+      "evidence": [
+        "Synthetic data generation exceeding one million records",
+        "Defect cross-reference and recurrence prevention",
+        "Enterprise release estimation and delivery"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "label": "Infrastructure",
+      "items": [
+        "Managed Hosting",
+        "DNS",
+        "SSL/TLS",
+        "Backups",
+        "Migrations",
+        "Server Administration"
+      ]
+    },
+    {
+      "label": "Platforms",
+      "items": [
+        "Linux Hosting",
+        "WordPress",
+        "MySQL/MariaDB",
+        "GitHub Pages",
+        "Cloud Environments"
+      ]
+    },
+    {
+      "label": "Focus",
+      "items": [
+        "Fleet Standards",
+        "Lifecycle Management",
+        "Reliability",
+        "Recovery",
+        "Performance",
+        "Deployment QA"
+      ]
+    }
+  ],
+  "related_writing": {
+    "title": "Related Writing",
+    "intro": "Case studies and essays that show the underlying engineering decisions.",
+    "match_tags": [
+      "Hosting",
+      "Infrastructure",
+      "Fleet Management",
+      "Reliability",
+      "Migration"
+    ],
+    "limit": 6,
+    "manual_items": []
+  },
+  "business_value": {
+    "title": "Why lifecycle management matters",
+    "paragraphs": [
+      "Infrastructure becomes expensive when every environment is treated as permanent and unique.",
+      "Clear standards and planned obsolescence reduce technical debt, shorten incident response, and make future migrations possible before they become emergencies."
+    ]
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "paragraphs": [
+      "For technical leadership, architecture, modernization, or complex systems work, contact me directly."
+    ],
+    "cta": {
+      "label": "Contact Julie",
+      "url": "../contact.html",
+      "external": false
+    }
+  },
+  "closing_statement": "Reliable infrastructure includes a plan for change, not just a plan for today.",
+  "tags": [
+    "Hosting",
+    "Infrastructure",
+    "Fleet Management",
+    "Reliability",
+    "Migration"
+  ],
+  "updated": "2026-07-25"
+}

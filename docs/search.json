@@ -135,6 +135,91 @@
     "url": "ai-systems/index.html"
   },
   {
+    "type": "disciplines",
+    "slug": "data-architecture",
+    "title": "Database & Data Architecture",
+    "summary": "I build data pipelines, schemas, synchronization systems, and migration strategies for environments where stale or malformed data has immediate operational consequences.",
+    "tags": [
+      "Data Architecture",
+      "RETS",
+      "RESO",
+      "Migration",
+      "SQL",
+      "Privacy"
+    ],
+    "url": "data-architecture/index.html"
+  },
+  {
+    "type": "disciplines",
+    "slug": "hosting-infrastructure",
+    "title": "Hosting & Infrastructure",
+    "summary": "I manage hosting as an operational system: environments, DNS, SSL, backups, deployment, updates, capacity, lifecycle, and incident response across more than 250 active web properties.",
+    "tags": [
+      "Hosting",
+      "Infrastructure",
+      "Fleet Management",
+      "Reliability",
+      "Migration"
+    ],
+    "url": "hosting-infrastructure/index.html"
+  },
+  {
+    "type": "disciplines",
+    "slug": "security",
+    "title": "Security Engineering",
+    "summary": "My security work grows out of operating long-lived production systems: malware investigation, WordPress compromise cleanup, integrity verification, hardening, and policies that reduce preventable exposure across a large fleet.",
+    "tags": [
+      "Security",
+      "Malware",
+      "WordPress",
+      "Verification",
+      "Incident Response"
+    ],
+    "url": "security/index.html"
+  },
+  {
+    "type": "disciplines",
+    "slug": "systems-engineering",
+    "title": "Software & Systems Engineering",
+    "summary": "I work across the full stack, from C, Perl, Java, and Oracle enterprise software to modern PHP, JavaScript, Python tooling, APIs, and static publishing systems.",
+    "tags": [
+      "Systems Engineering",
+      "Architecture",
+      "Automation",
+      "Reliability",
+      "Verification"
+    ],
+    "url": "systems-engineering/index.html"
+  },
+  {
+    "type": "disciplines",
+    "slug": "web-development",
+    "title": "Web Development",
+    "summary": "I build production web systems that connect interface work with data, accessibility, performance, content operations, and long-term maintenance.",
+    "tags": [
+      "Web Development",
+      "Accessibility",
+      "JavaScript",
+      "WordPress",
+      "Performance"
+    ],
+    "url": "web-development/index.html"
+  },
+  {
+    "type": "disciplines",
+    "slug": "wordpress-cms",
+    "title": "WordPress & CMS Engineering",
+    "summary": "I design and maintain WordPress as an application platform, not merely a page builder.",
+    "tags": [
+      "WordPress",
+      "CMS",
+      "Accessibility",
+      "Fleet Management",
+      "Security"
+    ],
+    "url": "wordpress-cms/index.html"
+  },
+  {
     "type": "problems",
     "slug": "ai-as-team-not-tool",
     "title": "AI as Team, Not Tool",

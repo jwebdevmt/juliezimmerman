@@ -1,0 +1,23 @@
+<main>
+  <section class="discipline-hero">
+    <div class="site-shell discipline-hero-inner">
+      <p class="eyebrow">{{ eyebrow }}</p>
+      <h1>{{ headline }}</h1>
+      <div class="discipline-lede">{{ hero_intro }}</div>
+    </div>
+  </section>
+  <div class="site-shell discipline-layout how-i-work-layout">
+    {{ sections }}
+    <section class="discipline-section philosophy-principles">
+      <p class="eyebrow">Working Principles</p>
+      <h2>Constraints that keep the system honest.</h2>
+      {{ principles }}
+    </section>
+    <section class="discipline-section discipline-contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Bring me the complicated part.</h2>
+      <p>I do my best work where technical systems, operational reality, and human judgment all have to fit together.</p>
+      <a class="button primary" href="{{ contact_url }}">Contact Julie</a>
+    </section>
+  </div>
+</main>

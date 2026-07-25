@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "title": "Database & Data Architecture",
+  "slug": "data-architecture",
+  "status": "published",
+  "nav_label": "Data Architecture",
+  "seo": {
+    "title": "Database & Data Architecture | Julie Zimmerman",
+    "description": "Database and data architecture for migrations, synchronization, APIs, integrity, and privacy-preserving systems.",
+    "canonical_path": "/data-architecture/"
+  },
+  "hero": {
+    "eyebrow": "Database & Data Architecture",
+    "headline": "Designing data systems that preserve meaning while they move.",
+    "intro": [
+      "I build data pipelines, schemas, synchronization systems, and migration strategies for environments where stale or malformed data has immediate operational consequences.",
+      "My background includes Oracle enterprise systems, MySQL and MariaDB applications, SQL Server and FileMaker integrations, RETS and RESO real-estate feeds, and privacy-preserving synthetic datasets exceeding one million records."
+    ]
+  },
+  "philosophy": {
+    "title": "Engineering Philosophy",
+    "anchor": "Data architecture is the discipline of keeping meaning intact across systems, time, and scale.",
+    "intro": "A correct schema reflects the real business rules, not just the current screen.",
+    "principles": [
+      "Imports and migrations need explicit validation and recovery paths.",
+      "Synchronization should make freshness, ownership, and failure visible.",
+      "Privacy can often be protected through architecture rather than policy alone."
+    ],
+    "closing": "Privacy can often be protected through architecture rather than policy alone."
+  },
+  "problems": {
+    "title": "Problems I Solve",
+    "intro": "The most valuable work usually begins where a system has accumulated complexity, operational risk, or assumptions no one has revisited.",
+    "items": [
+      "RETS-to-RESO migration and field normalization",
+      "Cron-driven ingestion under API limits",
+      "Cross-system identifiers and duplicate prevention",
+      "Large representative synthetic datasets",
+      "Legacy database analysis and migration planning"
+    ]
+  },
+  "approach": {
+    "title": "How I Work",
+    "paragraphs": [
+      "I trace data from source to consumer before changing it. That includes field semantics, timing, transformations, identifiers, permissions, and the behavior of downstream systems.",
+      "I design for partial failure: resumable imports, validation checkpoints, useful logs, and clear distinctions between source truth, derived data, and cached presentation."
+    ]
+  },
+  "projects": [
+    "rets-reso-pipeline",
+    "synthetic-student-data",
+    "real-estate-sync",
+    "job-costing-system"
+  ],
+  "experience": [
+    {
+      "role": "Lead Web Developer",
+      "organization": "Zee Creative · 2011–Present",
+      "summary": "Lead developer and systems architect for a large, long-lived portfolio of production websites and integrations.",
+      "evidence": [
+        "250+ active web environments",
+        "Custom application and integration development",
+        "Technical standards, migration planning, launch QA, and incident response"
+      ]
+    },
+    {
+      "role": "Lead Software Engineer",
+      "organization": "SunGard Higher Education · approximately 8 years",
+      "summary": "Technical lead in enterprise higher-education software, working across large Oracle systems, performance testing, defect analysis, and release delivery.",
+      "evidence": [
+        "Synthetic data generation exceeding one million records",
+        "Defect cross-reference and recurrence prevention",
+        "Enterprise release estimation and delivery"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "label": "Databases",
+      "items": [
+        "MySQL",
+        "MariaDB",
+        "Oracle",
+        "SQL Server",
+        "FileMaker Pro"
+      ]
+    },
+    {
+      "label": "Data Engineering",
+      "items": [
+        "SQL",
+        "PL/SQL",
+        "ETL",
+        "RETS",
+        "RESO Web API",
+        "ODBC",
+        "JDBC"
+      ]
+    },
+    {
+      "label": "Focus",
+      "items": [
+        "Schema Design",
+        "Data Integrity",
+        "Synchronization",
+        "Migration",
+        "Synthetic Data",
+        "Validation"
+      ]
+    }
+  ],
+  "related_writing": {
+    "title": "Related Writing",
+    "intro": "Case studies and essays that show the underlying engineering decisions.",
+    "match_tags": [
+      "Data Architecture",
+      "RETS",
+      "RESO",
+      "Migration",
+      "SQL",
+      "Privacy"
+    ],
+    "limit": 6,
+    "manual_items": []
+  },
+  "business_value": {
+    "title": "Why data integrity matters",
+    "paragraphs": [
+      "A pipeline can run successfully while still delivering the wrong meaning. Reliable architecture tests more than transport: it verifies semantics, freshness, completeness, and downstream behavior.",
+      "That discipline reduces customer-facing errors, failed migrations, and the hidden cost of reconciling systems after trust has been lost."
+    ]
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "paragraphs": [
+      "For technical leadership, architecture, modernization, or complex systems work, contact me directly."
+    ],
+    "cta": {
+      "label": "Contact Julie",
+      "url": "../contact.html",
+      "external": false
+    }
+  },
+  "closing_statement": "Moving data is easy. Preserving its meaning is the engineering work.",
+  "tags": [
+    "Data Architecture",
+    "RETS",
+    "RESO",
+    "Migration",
+    "SQL",
+    "Privacy"
+  ],
+  "updated": "2026-07-25"
+}

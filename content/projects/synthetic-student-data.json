@@ -1,0 +1,12 @@
+{
+  "slug": "synthetic-student-data",
+  "title": "Enterprise Synthetic Student Data",
+  "summary": "Perl generators producing more than one million privacy-preserving Oracle records for performance testing.",
+  "details": [],
+  "highlights": [
+    "Representative randomized data",
+    "FERPA-aware testing approach",
+    "Repeatable enterprise-scale generation"
+  ],
+  "tags": []
+}

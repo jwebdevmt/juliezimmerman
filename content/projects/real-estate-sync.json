@@ -1,0 +1,12 @@
+{
+  "slug": "real-estate-sync",
+  "title": "Real-Estate Synchronization Systems",
+  "summary": "Cron-driven high-volume data pulls engineered around API limits and freshness requirements.",
+  "details": [],
+  "highlights": [
+    "Incremental synchronization",
+    "Failure visibility and recovery",
+    "High-stakes listing data"
+  ],
+  "tags": []
+}

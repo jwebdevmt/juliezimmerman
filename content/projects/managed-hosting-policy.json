@@ -1,0 +1,12 @@
+{
+  "slug": "managed-hosting-policy",
+  "title": "Managed Hosting Policy",
+  "summary": "A supportability and planned-obsolescence framework for a large production fleet.",
+  "details": [],
+  "highlights": [
+    "Defined lifecycle expectations",
+    "Reduced permanent exceptions",
+    "Lowered technical debt and response complexity"
+  ],
+  "tags": []
+}

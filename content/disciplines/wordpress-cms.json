@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "title": "WordPress & CMS Engineering",
+  "slug": "wordpress-cms",
+  "status": "published",
+  "nav_label": "WordPress / CMS",
+  "seo": {
+    "title": "WordPress & CMS Engineering | Julie Zimmerman",
+    "description": "WordPress and CMS engineering for reliable, accessible, maintainable production systems at fleet scale.",
+    "canonical_path": "/wordpress-cms/"
+  },
+  "hero": {
+    "eyebrow": "WordPress & CMS Engineering",
+    "headline": "Building WordPress systems that remain reliable after launch.",
+    "intro": [
+      "I design and maintain WordPress as an application platform, not merely a page builder.",
+      "My work spans custom plugins and themes, structured content, accessibility, migrations, security recovery, and fleet-wide operational standards across more than 250 active environments."
+    ]
+  },
+  "philosophy": {
+    "title": "Engineering Philosophy",
+    "anchor": "A CMS succeeds when editors can use it confidently and engineers can still understand it years later.",
+    "intro": "A reliable CMS starts with clear content models and predictable behavior.",
+    "principles": [
+      "Customization should solve a real editorial or operational problem.",
+      "Accessibility, security, and maintainability belong in the architecture.",
+      "Fleet-scale work requires standards, repeatable checks, and planned retirement paths."
+    ],
+    "closing": "Fleet-scale work requires standards, repeatable checks, and planned retirement paths."
+  },
+  "problems": {
+    "title": "Problems I Solve",
+    "intro": "The most valuable work usually begins where a system has accumulated complexity, operational risk, or assumptions no one has revisited.",
+    "items": [
+      "Custom plugins, themes, blocks, and post types",
+      "Complex migrations and legacy modernization",
+      "Fleet-wide updates, QA, and operational consistency",
+      "WCAG remediation and accessible content structures",
+      "Malware cleanup and hardening without destroying business functionality"
+    ]
+  },
+  "approach": {
+    "title": "How I Work",
+    "paragraphs": [
+      "I begin with the publishing workflow and the system's actual constraints. I map the content model, dependencies, integrations, and failure points before choosing implementation details.",
+      "At fleet scale, one-off fixes become liabilities. I favor reusable patterns, clear ownership, conservative dependencies, and tooling that makes drift visible."
+    ]
+  },
+  "projects": [
+    "wordpress-fleet-management",
+    "zoo-cms-framework",
+    "wordpress-malware-recovery",
+    "managed-hosting-policy"
+  ],
+  "experience": [
+    {
+      "role": "Lead Web Developer",
+      "organization": "Zee Creative · 2011–Present",
+      "summary": "Lead developer and systems architect for a large, long-lived portfolio of production websites and integrations.",
+      "evidence": [
+        "250+ active web environments",
+        "Custom application and integration development",
+        "Technical standards, migration planning, launch QA, and incident response"
+      ]
+    },
+    {
+      "role": "Lead Software Engineer",
+      "organization": "SunGard Higher Education · approximately 8 years",
+      "summary": "Technical lead in enterprise higher-education software, working across large Oracle systems, performance testing, defect analysis, and release delivery.",
+      "evidence": [
+        "Synthetic data generation exceeding one million records",
+        "Defect cross-reference and recurrence prevention",
+        "Enterprise release estimation and delivery"
+      ]
+    }
+  ],
+  "technologies": [
+    {
+      "label": "WordPress",
+      "items": [
+        "Custom Plugins",
+        "Custom Themes",
+        "Block Editor",
+        "REST API",
+        "WooCommerce",
+        "Custom Post Types",
+        "Multisite"
+      ]
+    },
+    {
+      "label": "Engineering",
+      "items": [
+        "PHP",
+        "JavaScript",
+        "SQL",
+        "HTML",
+        "CSS",
+        "Git",
+        "Python"
+      ]
+    },
+    {
+      "label": "Focus",
+      "items": [
+        "Fleet Management",
+        "WCAG",
+        "Migrations",
+        "Security Recovery",
+        "Editorial Workflows",
+        "Performance"
+      ]
+    }
+  ],
+  "related_writing": {
+    "title": "Related Writing",
+    "intro": "Case studies and essays that show the underlying engineering decisions.",
+    "match_tags": [
+      "WordPress",
+      "CMS",
+      "Accessibility",
+      "Fleet Management",
+      "Security"
+    ],
+    "limit": 6,
+    "manual_items": []
+  },
+  "business_value": {
+    "title": "Why durable CMS architecture matters",
+    "paragraphs": [
+      "Most CMS costs arrive after launch: fragile updates, unclear ownership, inaccessible interfaces, and custom behavior no one can safely change.",
+      "A well-structured system lowers those costs by making routine work predictable and unusual failures diagnosable."
+    ]
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "paragraphs": [
+      "For technical leadership, architecture, modernization, or complex systems work, contact me directly."
+    ],
+    "cta": {
+      "label": "Contact Julie",
+      "url": "../contact.html",
+      "external": false
+    }
+  },
+  "closing_statement": "The best CMS is not the one with the most features. It is the one people can operate safely.",
+  "tags": [
+    "WordPress",
+    "CMS",
+    "Accessibility",
+    "Fleet Management",
+    "Security"
+  ],
+  "updated": "2026-07-25"
+}
