@@ -1574,8 +1574,6 @@ body::before,body::after{display:none}
     padding: 1.55rem;
   }
 }
-<<<<<<< HEAD
-=======
 
 /* Canonical Adaptive Experience perspective archives */
 .perspective-archive-grid {
@@ -1598,4 +1596,3 @@ body::before,body::after{display:none}
   font-size: 1.15rem;
   line-height: 1.6;
 }
->>>>>>> 91a585f (publishing context)
