@@ -1,0 +1,24 @@
+{
+  "title": "Contact",
+  "excerpt": "Currently employed full-time at Zee Creative and available for select consulting, technical reviews, architecture guidance, and side projects.",
+  "date": "2026-07-18",
+  "published": true,
+  "body": [
+    "<h1>Let's Talk</h1>",
+    "<p>I'm currently employed full-time as a Software Engineer at Zee Creative. I enjoy taking on select consulting engagements and side projects that complement my existing role.</p>",
+    "<h2>Website Development &amp; Agency Projects</h2>",
+    "<p>For WordPress development, website redesigns, ADA remediation, real estate integrations, hosting, maintenance, and ongoing client work, please contact Zee Creative.</p>",
+    "<p>Working through Zee Creative provides access to the full agency team while allowing me to contribute my development expertise.</p>",
+    "<p><a class=\"button primary\" href=\"https://zcreative.com\" target=\"_blank\" rel=\"noopener\">Contact Zee Creative</a></p>",
+    "<h2>Consulting &amp; Select Side Projects</h2>",
+    "<p>I'm available for carefully selected work that fits around my full-time commitments, including technical reviews, architecture guidance, specialized software projects, research collaboration, and technical writing.</p>",
+    "<p>Areas I'm especially interested in include:</p>",
+    "<ul><li>WordPress and CMS architecture</li><li>Data integration and automation</li><li>Software and systems engineering</li><li>AI workflow architecture</li><li>Accessibility and WCAG remediation</li><li>Security analysis and difficult technical troubleshooting</li><li>Open-source and research collaboration</li></ul>",
+    "<p><a class=\"button\" href=\"mailto:julie@juliezimmerman.me\">Email Julie</a></p>",
+    "<h2>Professional Profiles</h2>",
+    "<p><a href=\"https://github.com/jwebdevmt\" target=\"_blank\" rel=\"noopener\">GitHub</a> &nbsp;\u00b7&nbsp; <a href=\"https://www.linkedin.com/in/juliezimmerman1\" target=\"_blank\" rel=\"noopener\">LinkedIn</a></p>",
+    "<h2>Not Sure Where Your Project Fits?</h2>",
+    "<p>Tell me what you're trying to accomplish and I'll point you toward the right path, whether that means working through Zee Creative or discussing a specialized independent engagement.</p>",
+    "<p><a class=\"button\" href=\"mailto:julie@juliezimmerman.me\">Get in Touch</a></p>"
+  ]
+}
