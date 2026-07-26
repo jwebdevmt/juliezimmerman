@@ -1,0 +1,22 @@
+{
+  "generated": "2026-07-25T19:34:33",
+  "status": "PUBLISH APPROVED",
+  "counts": {
+    "legacy pages": 50,
+    "disciplines": 7,
+    "master resume": 1,
+    "engineering philosophy": 1,
+    "canonical experience publishing engine": 17,
+    "search": 1
+  },
+  "link_checks": 1091,
+  "asset_checks": 372,
+  "errors": [],
+  "warnings": [
+    {
+      "validator": "uniqueness",
+      "message": "Navigation target 'adaptive-experiences' appears 2 times",
+      "path": ""
+    }
+  ]
+}

@@ -14,5 +14,6 @@
     "The operational lesson mattered more than the failure itself: plausibility is not verification, and distributed review becomes most valuable when systems begin drifting confidently in the wrong direction.",
     "Those experiences changed how I approach implementation work generally. I prefer systems that remain inspectable months later, fail safely, minimize unnecessary infrastructure complexity, and preserve human visibility into behavior. AI works best for me when it augments synthesis, summarization, exploratory ideation, documentation, review support, and pattern recognition while humans remain responsible for judgment, prioritization, ethics, and consequences.",
     "Current projects continue to focus on practical integration instead of hype: lightweight systems that are resilient, understandable, and operationally useful without requiring opaque automation or oversized infrastructure."
-  ]
+  ],
+  "group": "Technical"
 }

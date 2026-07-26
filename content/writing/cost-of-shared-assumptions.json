@@ -22,5 +22,6 @@
     "A database prefix should be referenced from a configuration variable, not hardcoded. A path to an upload directory should be retrieved dynamically, not assumed. Any dependency on environmental state that could change should be named and documented, not left implicit.",
     "This is more work at the time of writing. It is significantly less work than debugging a broken migration at 11pm because a query is referencing a table that no longer exists under that name.",
     "The cost of a shared assumption is invisible until it isn't. By then, the cost is usually higher than the documentation would have been."
-  ]
+  ],
+  "group": "Technical"
 }

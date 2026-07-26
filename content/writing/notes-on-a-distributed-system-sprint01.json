@@ -18,5 +18,6 @@
     "In practice, the council works best as structured cognitive support instead of decision authority. Humans still remain responsible for implementation, verification, prioritization, and consequences. The system assists with cognitively expensive but operationally ordinary tasks: reviewing drafts, comparing revisions, summarizing large conversational surfaces, identifying inconsistencies, detecting tone drift, and surfacing risks that may have become normalized inside a project.",
     "In some ways, the architecture behaves more like software infrastructure than conversation. Different nodes specialize in different tasks. Redundancy increases fault tolerance. Constraints reduce runaway behavior. External review improves resilience.",
     "The system works best when no single node becomes the unquestioned source of truth. That includes the human operator too."
-  ]
+  ],
+  "group": "Technical"
 }

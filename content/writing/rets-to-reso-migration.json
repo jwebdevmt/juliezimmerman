@@ -13,5 +13,6 @@
     "Cron architecture matters too. Listing pipelines need to respect API throttle limits while still keeping data current. Polling everything frequently wastes request budget and creates inconsistent freshness. A better approach is to sync around delta detection: pull records changed since the last successful run, store enough local state to know what was updated, and validate record counts before replacing live data.",
     "The safest migration path is a parallel run. Keep the RETS pipeline running while the RESO Web API pipeline builds and populates temporary tables. Compare outputs against the same listings. Check counts, statuses, required fields, photo totals, and representative detail pages. Only cut over when the new pipeline has repeatedly matched expectations.",
     "What looks like a protocol upgrade is really a data architecture project. The clients who handle it smoothly are the ones who understand that before the first line of code changes."
-  ]
+  ],
+  "group": "Technical"
 }

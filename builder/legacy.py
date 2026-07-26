@@ -105,11 +105,8 @@ def asset_prefix(level="root"):
         return "../"
     if level == "deep":
         return "../../"
-<<<<<<< HEAD
-=======
     if level == "archive":
         return "../../../"
->>>>>>> 91a585f (publishing context)
     return ""
 
 
@@ -345,6 +342,12 @@ def build_about(config):
 
 
 def writing_group(post):
+    explicit_group = post.get("group")
+    if explicit_group:
+        return explicit_group
+
+    # Backward-compatible fallback for content not yet migrated to explicit
+    # grouping metadata. New and edited articles should define "group".
     category = post.get("category", "").lower()
     title = post.get("title", "").lower()
     if "finding your neighborhood" in category or title in {"doors, not platforms", "what makes a neighborhood?"}:
@@ -677,88 +680,70 @@ def write_text(path, content):
     path.write_text(content, encoding="utf-8")
 
 
-def build_site(config, posts, adaptive_pages, problem_pages):
-    if OUTPUT_DIR.exists():
-        shutil.rmtree(OUTPUT_DIR)
+def build_site(config, posts, adaptive_pages, problem_pages, output_dir=None):
+    """Generate the legacy portion of the site into an existing output tree.
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    copy_assets()
+    The top-level builder owns staging, validation, and publication. This
+    function only renders its collection and never deletes the destination.
+    """
+    output_dir = Path(output_dir) if output_dir is not None else OUTPUT_DIR
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    if not ASSETS_DIR.exists():
+        raise FileNotFoundError("Missing assets/ folder. Copy the theme assets into assets/ first.")
+    assets_dest = output_dir / "assets"
+    if assets_dest.exists():
+        shutil.rmtree(assets_dest)
+    shutil.copytree(ASSETS_DIR, assets_dest)
 
     count = 0
 
-    write_text(OUTPUT_DIR / "index.html", build_home(config, posts, problem_pages))
+    write_text(output_dir / "index.html", build_home(config, posts, problem_pages))
+    count += 1
+    write_text(output_dir / "about.html", build_about(config))
+    count += 1
+    write_text(output_dir / "writing.html", build_writing(config, posts))
+    count += 1
+    write_text(output_dir / "current-projects.html", build_current_projects(config))
+    count += 1
+    write_text(output_dir / "contact.html", build_contact(config))
     count += 1
 
-    write_text(OUTPUT_DIR / "about.html", build_about(config))
+    write_text(output_dir / "adaptive-experiences" / "index.html", build_adaptive_index(config, adaptive_pages))
     count += 1
-
-    write_text(OUTPUT_DIR / "writing.html", build_writing(config, posts))
-    count += 1
-
-    write_text(OUTPUT_DIR / "current-projects.html", build_current_projects(config))
-    count += 1
-
-    write_text(OUTPUT_DIR / "contact.html", build_contact(config))
-    count += 1
-
-    write_text(
-        OUTPUT_DIR / "adaptive-experiences" / "index.html",
-        build_adaptive_index(config, adaptive_pages)
-    )
-    count += 1
-    
-    write_text(
-        OUTPUT_DIR / "problems" / "index.html",
-        build_problem_index(config, problem_pages)
-    )
+    write_text(output_dir / "problems" / "index.html", build_problem_index(config, problem_pages))
     count += 1
 
     for post in published_posts(posts):
-        write_text(
-            OUTPUT_DIR / "writing" / f"{post['slug']}.html",
-            build_post(config, post)
-        )
+        write_text(output_dir / "writing" / f"{post['slug']}.html", build_post(config, post))
         count += 1
 
     for page in published_posts(adaptive_pages):
         if page["slug"] == "index":
             continue
-
-        write_text(
-            OUTPUT_DIR / "adaptive-experiences" / page["slug"] / "index.html",
-            build_adaptive_page(config, page)
-        )
+        write_text(output_dir / "adaptive-experiences" / page["slug"] / "index.html", build_adaptive_page(config, page))
         count += 1
-        
+
     for page in published_posts(problem_pages):
         if page["slug"] == "index":
             continue
-
-        write_text(
-            OUTPUT_DIR / "problems" / page["slug"] / "index.html",
-            build_problem_page(config, page)
-        )
+        write_text(output_dir / "problems" / page["slug"] / "index.html", build_problem_page(config, page))
         count += 1
 
-    write_text(
-        OUTPUT_DIR / "adaptive-experiences" / "publishing-manifest.json",
-        build_adaptive_publishing_manifest(adaptive_pages)
-    )
+    write_text(output_dir / "adaptive-experiences" / "publishing-manifest.json", build_adaptive_publishing_manifest(adaptive_pages))
     count += 1
-
-    write_text(OUTPUT_DIR / ".nojekyll", "")
+    write_text(output_dir / ".nojekyll", "")
 
     if CNAME_FILE.exists():
-        shutil.copy2(CNAME_FILE, OUTPUT_DIR / "CNAME")
+        shutil.copy2(CNAME_FILE, output_dir / "CNAME")
 
     return count
 
 
 def push():
-    subprocess.run(
-        ["git", "add", "build.py", "assets", "templates", "docs", "content", "config.json"],
-        check=True
-    )
+    # Stage the complete publishing platform, including builder modules,
+    # validators, generated output, schemas, and content metadata.
+    subprocess.run(["git", "add", "-A"], check=True)
 
     result = subprocess.run(["git", "diff", "--cached", "--quiet"])
     if result.returncode == 0:

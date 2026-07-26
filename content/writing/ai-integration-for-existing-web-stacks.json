@@ -13,5 +13,6 @@
     "A good AI workflow also needs constraints around it. Language models are very good at producing plausible output. Plausible is not the same thing as correct. For existing web stacks, that means AI output should usually pass through the same checks as any other operational change: does it match the client context, does it preserve the current workflow, does it introduce maintenance overhead, and can someone else understand it later?",
     "The most useful AI work I have done has been practical rather than dramatic: prompt libraries for repeatable client content tasks, review workflows across multiple context windows, small plugins or scripts built to solve specific operational problems, and documentation support for technical decisions that otherwise would stay buried in chat history.",
     "The goal is not autonomy. The goal is leverage. A useful AI integration reduces repetitive cognitive overhead while keeping the system visible, inspectable, and owned by the people responsible for it."
-  ]
+  ],
+  "group": "Architecture"
 }

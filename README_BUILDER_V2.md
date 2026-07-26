@@ -69,8 +69,6 @@ The corresponding records live in `content/projects/` so each project has one so
 The existing content types still use their proven renderers through `builder/legacy.py`. This is deliberate: the AI discipline page, normalized project records, shared infrastructure, schema validation, and search index are live now without risking regressions across the existing site.
 
 Future content types can be moved into independent modules one at a time and registered in `builder/site.py`.
-<<<<<<< HEAD
-=======
 
 
 ## Canonical Adaptive Experience records
@@ -126,4 +124,3 @@ taxonomy:
 ```
 
 The build stops before publishing when a record is incomplete, contains duplicate perspective IDs, uses an unsupported schema version, or has malformed taxonomy. This keeps every downstream renderer synchronized with one valid source record.
->>>>>>> 91a585f (publishing context)

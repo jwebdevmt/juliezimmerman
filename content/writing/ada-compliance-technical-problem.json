@@ -13,5 +13,6 @@
     "WordPress-specific accessibility work has its own patterns. Themes may add decorative icons without marking them as decorative. Page builders may generate heading structures that look fine visually but jump from H2 to H5 in the markup. Plugins may insert sliders, popups, maps, or custom controls without keyboard support. The fix is usually not a legal memo. It is theme configuration, template cleanup, CSS adjustment, plugin replacement, or a small amount of custom JavaScript.",
     "The remediation audit is also not the end of the work. A site that passes today can drift out of compliance as staff add landing pages, swap colors, upload images, embed third-party tools, or update plugins. Sustainable compliance means building accessibility into the content workflow: writing alt text when images are uploaded, preserving heading order, testing forms after changes, and avoiding color-only instructions such as 'click the green button.'",
     "That is why I prefer the technical framing. It gives the client something practical to maintain. The legal framing makes people ask, 'What is the minimum we need to pass?' The technical framing makes the minimum much clearer: build the site so people can use it."
-  ]
+  ],
+  "group": "Technical"
 }

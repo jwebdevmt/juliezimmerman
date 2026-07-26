@@ -35,5 +35,6 @@
     "<h2>The Toolkit Mindset</h2>",
     "WordPress security isn't a one-time event — it's ongoing. The developers who handle compromises most effectively are the ones who treat each incident as an opportunity to build something reusable. A filesystem script that caught a PHP injection this month will catch the next one faster. A database check that surfaced a malicious redirect becomes part of your standard process.",
     "Over time, the toolkit becomes the methodology. The goal isn't just to clean a compromised site — it's to build the capacity to clean the next one faster and catch the one after that before it does damage."
-  ]
+  ],
+  "group": "Technical"
 }
