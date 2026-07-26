@@ -1,0 +1,19 @@
+{
+  "title": "Publishing Platform Test",
+  "date": "2026-07-26",
+  "excerpt": "This article exists solely to validate the transactional publishing platform and verify that generated content propagates correctly throughout the site.",
+  "category": "Platform Testing",
+  "published": true,
+  "hero_image": "/assets/images/definitely-does-not-exist.jpg",
+  "tags":
+	[
+		"Testing",
+		"Platform",
+		"Update",
+		"Architecture"
+	],
+  "body": [
+      "# Publishing Platform Test\n\nIf you're reading this on the live site, the publishing platform successfully generated this page.\n\n## Test Goals\n\n- Verify article generation\n- Verify Writing index updates\n- Verify navigation remains intact\n- Verify metadata is processed correctly\n- Verify transactional publishing completes successfully\n\nThis article can be deleted after testing.",
+      "Test test"
+  ]
+}

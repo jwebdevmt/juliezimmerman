@@ -466,6 +466,19 @@
   },
   {
     "type": "writing",
+    "slug": "test-article",
+    "title": "Publishing Platform Test",
+    "summary": "This article exists solely to validate the transactional publishing platform and verify that generated content propagates correctly throughout the site.",
+    "tags": [
+      "Testing",
+      "Platform",
+      "Update",
+      "Architecture"
+    ],
+    "url": "writing/test-article.html"
+  },
+  {
+    "type": "writing",
     "slug": "cost-of-shared-assumptions",
     "title": "The Cost of Shared Assumptions",
     "summary": "Database table prefixes exist for a reason. WordPress installs with a default prefix — `wp_` — and most sites never change it. For a developer writing queries against a single k",

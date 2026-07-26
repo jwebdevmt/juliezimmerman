@@ -1,11 +1,11 @@
 # Build Report
 
-Generated: 2026-07-26T10:17:56
+Generated: 2026-07-26T12:15:40
 Status: **PUBLISH APPROVED**
 
 ## Collections
 
-- 50 legacy pages
+- 51 legacy pages
 - 7 disciplines
 - 1 master resume
 - 1 engineering philosophy
@@ -14,8 +14,8 @@ Status: **PUBLISH APPROVED**
 
 ## Validation
 
-- 1091 internal links checked
-- 372 assets checked
+- 1110 internal links checked
+- 377 assets checked
 - 0 error(s)
 - 1 warning(s)
 

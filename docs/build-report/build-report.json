@@ -1,16 +1,16 @@
 {
-  "generated": "2026-07-26T10:17:56",
+  "generated": "2026-07-26T12:15:40",
   "status": "PUBLISH APPROVED",
   "counts": {
-    "legacy pages": 50,
+    "legacy pages": 51,
     "disciplines": 7,
     "master resume": 1,
     "engineering philosophy": 1,
     "canonical experience publishing engine": 17,
     "search": 1
   },
-  "link_checks": 1091,
-  "asset_checks": 372,
+  "link_checks": 1110,
+  "asset_checks": 377,
   "errors": [],
   "warnings": [
     {
