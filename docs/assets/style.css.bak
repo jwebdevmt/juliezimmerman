@@ -1632,39 +1632,7 @@ body::before,body::after{display:none}
   outline: 2px solid #7fc0ff;
   outline-offset: 3px;
 }
-/* Full desktop navigation */
-@media (min-width: 1101px) {
-  .navbar {
-    min-height: 76px;
-  }
 
-  .nav-links {
-    gap: 1.25rem;
-  }
-}
-
-/* Compact navigation begins before the row becomes cramped */
-@media (max-width: 1100px) {
-  .navbar {
-    min-height: 68px;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-  }
-
-  .mobile-nav {
-    display: none;
-  }
-
-  .mobile-nav.open {
-    display: block;
-  }
-}
 @media (min-width: 901px) {
   .nav-group-toggle,
   .nav-links > .nav-link {
@@ -1815,5 +1783,164 @@ body::before,body::after{display:none}
   .article-layout h1,
   .discipline-hero h1 {
     overflow-wrap: anywhere;
+  }
+}
+
+/* Fluid primary navigation refinement */
+.site-header .site-shell {
+  width: min(
+    calc(100% - clamp(2rem, 6vw, 7rem)),
+    var(--content-width)
+  );
+}
+
+.navbar {
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+.nav-links {
+  flex: 1 1 auto;
+  width: 100%;
+  justify-content: space-between;
+  gap: clamp(.7rem, 1.7vw, 1.5rem);
+  min-width: 0;
+}
+
+.nav-links > .nav-link,
+.nav-group-toggle {
+  font-size: clamp(.82rem, 1.35vw, .95rem);
+  white-space: nowrap;
+}
+
+.nav-group-toggle {
+  gap: clamp(.25rem, .45vw, .38rem);
+}
+
+/* Preserve comfortable spacing until the content genuinely needs to collapse. */
+@media (max-width: 1040px) and (min-width: 721px) {
+  .site-header .site-shell {
+    width: calc(100% - clamp(1.5rem, 4vw, 3rem));
+  }
+
+  .navbar {
+    min-height: clamp(66px, 7vw, 76px);
+  }
+
+  .nav-links {
+    gap: clamp(.45rem, 1.1vw, .9rem);
+  }
+
+  .nav-links > .nav-link,
+  .nav-group-toggle {
+    font-size: clamp(.78rem, 1.35vw, .9rem);
+  }
+}
+
+/* Mobile: one clear vertical hierarchy rather than a two-column grid. */
+@media (max-width: 720px) {
+  .site-header .site-shell {
+    width: calc(100% - 1.5rem);
+  }
+
+  .navbar {
+    align-items: stretch;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .2rem;
+  }
+
+  .nav-group {
+    position: static;
+    width: 100%;
+  }
+
+  .nav-group-toggle,
+  .nav-links > .nav-link {
+    width: 100%;
+    min-height: 44px;
+    padding: .7rem 0;
+    font-size: .95rem;
+  }
+
+  .nav-group-toggle {
+    justify-content: space-between;
+  }
+
+  .nav-dropdown {
+    position: static;
+    min-width: 0;
+    margin: 0 0 .55rem;
+    padding: .35rem;
+    box-shadow: none;
+  }
+
+  .nav-dropdown-link {
+    white-space: normal;
+  }
+}
+
+/* Top-level navigation alignment fix */
+@media (min-width: 721px) {
+  .nav-links > .nav-link,
+  .nav-group,
+  .nav-group-toggle {
+    min-height: 44px;
+  }
+
+  .nav-links > .nav-link,
+  .nav-group-toggle {
+    display: flex;
+    align-items: center;
+    padding: .65rem 0;
+    line-height: 1;
+  }
+
+  .nav-group {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .nav-group-toggle {
+    height: 100%;
+  }
+}
+
+/* Correct desktop nav vertical rhythm: stretch the row, then center each item */
+@media (min-width: 721px) {
+  .navbar {
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  .brand-mini {
+    align-self: center;
+  }
+
+  .nav-links {
+    align-self: stretch;
+    align-items: stretch;
+  }
+
+  .nav-links > .nav-link,
+  .nav-group {
+    display: flex;
+    align-items: stretch;
+    min-height: 0;
+  }
+
+  .nav-links > .nav-link,
+  .nav-group-toggle {
+    align-items: center;
+    padding-block: clamp(1.25rem, 2.1vw, 1.75rem);
+    line-height: 1.2;
+  }
+
+  .nav-group-toggle {
+    height: auto;
   }
 }
