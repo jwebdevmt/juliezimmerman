@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Context–Perspective Pattern | Julie Zimmerman</title>
+  <meta name="description" content="Separating context from perspective allows multi-agent AI systems to preserve continuity without sacrificing stable evaluative lenses.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE14CPL09E"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KE14CPL09E');
+  </script>
+
+  <script>
+  window.jzTrackEvent = function(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.jzTrackEvent(link.getAttribute('data-track'), {
+          link_url: link.href,
+          link_text: (link.textContent || '').trim(),
+          page_path: window.location.pathname
+        });
+      });
+    });
+  });
+  </script>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.nav-group-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        const group = toggle.closest('.nav-group');
+        const opening = !group.classList.contains('open');
+        document.querySelectorAll('.nav-group.open').forEach(function (other) {
+          other.classList.remove('open');
+          other.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+        group.classList.toggle('open', opening);
+        toggle.setAttribute('aria-expanded', String(opening));
+      });
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.nav-group')) {
+        document.querySelectorAll('.nav-group.open').forEach(function (group) {
+          group.classList.remove('open');
+          group.querySelector('.nav-group-toggle').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell navbar">
+      <a class="brand-mini" href="../index.html">
+        <img class="brand-mark" src="../assets/brand-mark.svg" alt="">
+        <span>Julie Zimmerman</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="../index.html">Home</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Engineering<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../current-projects.html">Projects</a><a class="nav-dropdown-link" href="../problems/index.html">Engineering Case Studies</a><a class="nav-dropdown-link" href="../how-i-work.html">Engineering Philosophy</a></div></div>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">Adaptive Experiences<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../adaptive-experiences/index.html">How It Works</a><a class="nav-dropdown-link" href="../adaptive-experiences/disney/index.html">Disney Itineraries</a><a class="nav-dropdown-link" href="../adaptive-experiences/adaptive-experiences-perspectives/index.html">The Perspectives</a><a class="nav-dropdown-link" href="../adaptive-experiences/disney-planner/index.html">Submit an Experience</a><a class="nav-dropdown-link" href="../adaptive-experiences/adaptive-experiences-publishing-loop/index.html">Publishing Loop</a></div></div>
+        <a class="nav-link active" href="../writing.html">Writing</a>
+        <div class="nav-group"><button class="nav-group-toggle" type="button" aria-expanded="false">About<span aria-hidden="true">▾</span></button><div class="nav-dropdown"><a class="nav-dropdown-link" href="../resume/index.html">Experience</a><a class="nav-dropdown-link" href="../about.html">About Julie</a></div></div>
+        <a class="nav-link" href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+  <article class="article-layout">
+    <p class="eyebrow">Architecture · 2026-07-27</p>
+    <h1>The Context–Perspective Pattern</h1>
+    <p>AI systems drift when memory and judgment are treated as the same problem.</p>
+<p>Everything below follows from that.</p>
+<p>In one sentence: Context documents preserve continuity. Perspective documents preserve intent.</p>
+<p>Most AI systems combine memory and evaluation into a single document—a system prompt, a persona description, or a character sheet. That one document ends up doing two very different jobs: remembering what happened and evaluating what matters.</p>
+<p>Those jobs don&#x27;t belong together. Memory should update constantly as new information arrives. Judgment should update rarely and deliberately. A lens that changes every time it&#x27;s used isn&#x27;t a lens—it is noise.</p>
+<p>When both responsibilities live in the same document, one of two things usually happens. Either the perspective slowly drifts until it sounds like everything else, or people stop updating the document entirely to protect the perspective. In the first case the system loses its distinctiveness. In the second it loses continuity.</p>
+<p>The solution is simple to describe and surprisingly difficult to maintain: separate the two responsibilities into different documents.</p>
+<p>A Context Document holds shared state. It records what happened, what was decided, and where things stand so that work can continue without replaying an entire conversation. Context Documents should change frequently because they are the system&#x27;s working memory.</p>
+<p>A useful question when writing a Context Document is: &#x27;What does someone need to know to pick up where we left off?&#x27;</p>
+<p>A Perspective Document defines a stable way of evaluating problems. It captures priorities, tradeoffs, and patterns of reasoning that should remain consistent across many different situations. Perspective Documents should change rarely and only when the evaluative framework itself has proven inadequate.</p>
+<p>A useful question when writing a Perspective Document is: &#x27;How should this kind of problem be evaluated regardless of which specific example we&#x27;re looking at?&#x27;</p>
+<p>A Perspective Document is not a persona. It is not a character with memories, preferences, or a growing personal history. It defines an evaluative lens rather than a personality to perform.</p>
+<p>This distinction has practical consequences. The same perspective can be reused across multiple contexts, different models can implement the same perspective, and contexts can change without altering the underlying way problems are evaluated.</p>
+<p>Separating context from perspective also allows the same underlying material—a document, a design, a proposal, or a decision—to be evaluated through multiple independent lenses. The facts remain constant while the evaluation changes.</p>
+<p>This is an architectural pattern rather than a prompt-engineering technique. Prompt engineering optimizes individual interactions. The Context–Perspective Pattern defines where different kinds of information belong so that systems remain understandable and maintainable over time.</p>
+<p>One expected benefit of this separation is that it helps preserve distinct evaluative approaches over long-running projects instead of allowing them to gradually converge into a single generalized style.</p>
+<p>The pattern is not tied to any particular implementation. Writing assistants, engineering review systems, customer support workflows, research teams, and other multi-agent architectures can all apply the same separation between memory and evaluation.</p>
+<p>That is the hallmark of a useful design pattern: it extends beyond the system that inspired it while remaining concrete enough to apply in practice.</p>
+<p>The goal is not to simulate people.</p>
+<p>The goal is to preserve ways of thinking.</p>
+    <p class="article-back"><a class="button" href="../writing.html">Back to writing</a></p>
+  </article>
+</main>
+
+  <footer class="site-footer">
+    <div class="site-shell footer-grid">
+      <div>
+        <img class="footer-logo" src="../assets/jz-wordmark.svg" alt="Julie Zimmerman">
+        <p class="footer-role">Software Engineer <span aria-hidden="true">•</span> Billings, MT</p>
+        <p class="footer-note">Currently employed full-time at Zee Creative. Available for select consulting and side projects.</p>
+        <p class="footer-copyright">© 2026 Julie Zimmerman</p>
+      </div>
+      <nav class="footer-links" aria-label="Professional links">
+        <a href="https://github.com/jwebdevmt" target="_blank" rel="noopener" data-track="footer_github">GitHub</a>
+        <a href="https://www.linkedin.com/in/juliezimmerman1" target="_blank" rel="noopener" data-track="footer_linkedin">LinkedIn</a>
+        <a href="../contact.html" data-track="footer_contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

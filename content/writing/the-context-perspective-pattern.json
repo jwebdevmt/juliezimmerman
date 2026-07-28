@@ -1,0 +1,30 @@
+{
+  "title": "The Context–Perspective Pattern",
+  "date": "2026-07-27",
+  "category": "Architecture",
+  "published": true,
+  "excerpt": "Separating context from perspective allows multi-agent AI systems to preserve continuity without sacrificing stable evaluative lenses.",
+  "body": [
+    "AI systems drift when memory and judgment are treated as the same problem.",
+    "Everything below follows from that.",
+    "In one sentence: Context documents preserve continuity. Perspective documents preserve intent.",
+    "Most AI systems combine memory and evaluation into a single document—a system prompt, a persona description, or a character sheet. That one document ends up doing two very different jobs: remembering what happened and evaluating what matters.",
+    "Those jobs don't belong together. Memory should update constantly as new information arrives. Judgment should update rarely and deliberately. A lens that changes every time it's used isn't a lens—it is noise.",
+    "When both responsibilities live in the same document, one of two things usually happens. Either the perspective slowly drifts until it sounds like everything else, or people stop updating the document entirely to protect the perspective. In the first case the system loses its distinctiveness. In the second it loses continuity.",
+    "The solution is simple to describe and surprisingly difficult to maintain: separate the two responsibilities into different documents.",
+    "A Context Document holds shared state. It records what happened, what was decided, and where things stand so that work can continue without replaying an entire conversation. Context Documents should change frequently because they are the system's working memory.",
+    "A useful question when writing a Context Document is: 'What does someone need to know to pick up where we left off?'",
+    "A Perspective Document defines a stable way of evaluating problems. It captures priorities, tradeoffs, and patterns of reasoning that should remain consistent across many different situations. Perspective Documents should change rarely and only when the evaluative framework itself has proven inadequate.",
+    "A useful question when writing a Perspective Document is: 'How should this kind of problem be evaluated regardless of which specific example we're looking at?'",
+    "A Perspective Document is not a persona. It is not a character with memories, preferences, or a growing personal history. It defines an evaluative lens rather than a personality to perform.",
+    "This distinction has practical consequences. The same perspective can be reused across multiple contexts, different models can implement the same perspective, and contexts can change without altering the underlying way problems are evaluated.",
+    "Separating context from perspective also allows the same underlying material—a document, a design, a proposal, or a decision—to be evaluated through multiple independent lenses. The facts remain constant while the evaluation changes.",
+    "This is an architectural pattern rather than a prompt-engineering technique. Prompt engineering optimizes individual interactions. The Context–Perspective Pattern defines where different kinds of information belong so that systems remain understandable and maintainable over time.",
+    "One expected benefit of this separation is that it helps preserve distinct evaluative approaches over long-running projects instead of allowing them to gradually converge into a single generalized style.",
+    "The pattern is not tied to any particular implementation. Writing assistants, engineering review systems, customer support workflows, research teams, and other multi-agent architectures can all apply the same separation between memory and evaluation.",
+    "That is the hallmark of a useful design pattern: it extends beyond the system that inspired it while remaining concrete enough to apply in practice.",
+    "The goal is not to simulate people.",
+    "The goal is to preserve ways of thinking."
+  ],
+  "group": "Architecture"
+}

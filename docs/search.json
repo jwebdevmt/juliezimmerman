@@ -466,6 +466,14 @@
   },
   {
     "type": "writing",
+    "slug": "the-context-perspective-pattern",
+    "title": "The Context–Perspective Pattern",
+    "summary": "Separating context from perspective allows multi-agent AI systems to preserve continuity without sacrificing stable evaluative lenses.",
+    "tags": [],
+    "url": "writing/the-context-perspective-pattern.html"
+  },
+  {
+    "type": "writing",
     "slug": "cost-of-shared-assumptions",
     "title": "The Cost of Shared Assumptions",
     "summary": "Database table prefixes exist for a reason. WordPress installs with a default prefix — `wp_` — and most sites never change it. For a developer writing queries against a single k",
